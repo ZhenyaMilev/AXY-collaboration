@@ -15,8 +15,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;800&display=swap" rel="stylesheet">
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     
     <!-- JSON-LD Structured Data for SEO -->
     <script type="application/ld+json">
@@ -247,6 +247,7 @@
             position: relative;
             backdrop-filter: blur(20px);
             background: rgba(17, 17, 17, 0.4);
+            content-visibility: auto;
         }
 
         section > * {
@@ -366,7 +367,7 @@
                         <!-- Amazon кейсы -->
                         <div id="amazon-cases" class="tab-content active grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             <div class="custom-card rounded-2xl overflow-hidden group">
-                                <img src="https://placehold.co/600x400/111111/D4FE44?text=EcoHome+Goods" alt="Кейс EcoHome Goods" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                                <img src="https://placehold.co/600x400/111111/D4FE44?text=EcoHome+Goods" alt="Кейс EcoHome Goods" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-white">Бренд товаров для дома</h3>
                                     <p class="text-gray-400 mt-2">Вывод нового бренда в топ-10 по ключевым запросам за 4 месяца.</p>
@@ -374,7 +375,7 @@
                                 </div>
                             </div>
                             <div class="custom-card rounded-2xl overflow-hidden group">
-                                <img src="https://placehold.co/600x400/1C1C1E/FFFFFF?text=SportFit+Gear" alt="Кейс SportFit Gear" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                                <img src="https://placehold.co/600x400/1C1C1E/FFFFFF?text=SportFit+Gear" alt="Кейс SportFit Gear" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-white">Спортивные аксессуары</h3>
                                     <p class="text-gray-400 mt-2">Снижение ACoS на 35% при увеличении органического трафика на 80%.</p>
@@ -382,7 +383,7 @@
                                 </div>
                             </div>
                             <div class="custom-card rounded-2xl overflow-hidden group">
-                                <img src="https://placehold.co/600x400/111111/A78BFA?text=PetJoy" alt="Кейс PetJoy" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                                <img src="https://placehold.co/600x400/111111/A78BFA?text=PetJoy" alt="Кейс PetJoy" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-white">Зоотовары</h3>
                                     <p class="text-gray-400 mt-2">Полный запуск с нуля. Достигли оборота $50k/мес на шестой месяц.</p>
@@ -393,7 +394,7 @@
                         <!-- TikTok Shop кейсы -->
                         <div id="tiktok-cases" class="tab-content grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                            <div class="custom-card rounded-2xl overflow-hidden group">
-                                <img src="https://placehold.co/600x400/111111/EC4899?text=BeautyGlow" alt="Кейс BeautyGlow" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                                <img src="https://placehold.co/600x400/111111/EC4899?text=BeautyGlow" alt="Кейс BeautyGlow" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-white">Косметический бренд</h3>
                                     <p class="text-gray-400 mt-2">Вирусный ролик (5 млн просмотров) привел к sold out за 48 часов.</p>
@@ -401,7 +402,7 @@
                                 </div>
                             </div>
                            <div class="custom-card rounded-2xl overflow-hidden group">
-                                <img src="https://placehold.co/600x400/1C1C1E/F472B6?text=StyleTrend" alt="Кейс StyleTrend" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                                <img src="https://placehold.co/600x400/1C1C1E/F472B6?text=StyleTrend" alt="Кейс StyleTrend" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-white">Модная одежда</h3>
                                     <p class="text-gray-400 mt-2">Построение воронки через UGC-контент от блогеров. ROAS x5.</p>
@@ -412,7 +413,10 @@
                         <!-- Shopify кейсы -->
                         <div id="shopify-cases" class="tab-content grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                            <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="firearm">
-                                <img src="portfolio/shopify/1.png" alt="Shopify кейс 1" class="w-full h-64 object-contain bg-white transition-transform duration-300 group-hover:scale-105">
+                                <picture>
+                                    <source srcset="portfolio/shopify/1.webp" type="image/webp">
+                                    <img src="portfolio/shopify/1.png" alt="Shopify кейс 1" class="w-full h-64 object-contain bg-white transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
+                                </picture>
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-white">Аксессуары для оружия</h3>
                                     <p class="text-gray-400 mt-2">Миграция с WooCommerce на Shopify и разработка с нуля. Создание кастомной темы, мега-меню и мультивалютность.</p>
@@ -420,7 +424,10 @@
                                 </div>
                             </div>
                            <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="toys">
-                                <img src="portfolio/shopify/2.png" alt="Shopify кейс 2" class="w-full h-64 object-contain bg-white transition-transform duration-300 group-hover:scale-105">
+                                <picture>
+                                    <source srcset="portfolio/shopify/2.webp" type="image/webp">
+                                    <img src="portfolio/shopify/2.png" alt="Shopify кейс 2" class="w-full h-64 object-contain bg-white transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
+                                </picture>
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-white">Игрушки и хобби</h3>
                                     <p class="text-gray-400 mt-2">Разработка магазина на Shopify с нуля. Мега-меню, Instagram Feed, Wishlist, поддержка клиентов и отзывы.</p>
@@ -428,7 +435,10 @@
                                 </div>
                             </div>
                            <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="jewelry">
-                                <img src="portfolio/shopify/3.png" alt="Shopify кейс 3" class="w-full h-64 object-contain bg-white transition-transform duration-300 group-hover:scale-105">
+                                <picture>
+                                    <source srcset="portfolio/shopify/3.webp" type="image/webp">
+                                    <img src="portfolio/shopify/3.png" alt="Shopify кейс 3" class="w-full h-64 object-contain bg-white transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
+                                </picture>
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-white">Ювелирные изделия</h3>
                                     <p class="text-gray-400 mt-2">Разработка премиум темы для ювелирного магазина с нуля. Google отзывы, мега-меню, аналитика и Instagram интеграция.</p>
@@ -446,10 +456,10 @@
             <div class="text-center max-w-3xl mx-auto px-6 animate-on-scroll">
                 <h2 class="section-title">Что они нам за это говорят</h2>
                 <div class="flex justify-center gap-4 mt-8">
-                    <button class="slider-btn-simple prev" id="reviews-prev">
+                    <button class="slider-btn-simple prev" id="reviews-prev" aria-label="Предыдущий отзыв">
                         <i data-lucide="chevron-left" class="w-6 h-6"></i>
                     </button>
-                    <button class="slider-btn-simple next" id="reviews-next">
+                    <button class="slider-btn-simple next" id="reviews-next" aria-label="Следующий отзыв">
                         <i data-lucide="chevron-right" class="w-6 h-6"></i>
                     </button>
                 </div>
@@ -583,7 +593,11 @@
                         </div>
                     </div>
                     <div class="animate-on-scroll" style="transition-delay: 200ms;">
-                        <img src="azat.png" alt="Основатель агентства AXY Marketing Азат Шакуров" class="rounded-2xl object-cover w-full h-full shadow-2xl">
+                        <picture>
+                            <source srcset="azat.avif" type="image/avif">
+                            <source srcset="azat.webp" type="image/webp">
+                            <img src="azat.png" alt="Основатель агентства AXY Marketing Азат Шакуров" class="rounded-2xl object-cover w-full h-full shadow-2xl" loading="lazy" width="584" height="689">
+                        </picture>
                     </div>
                 </div>
             </div>
@@ -629,9 +643,9 @@
                         <li><a href="mailto:hello@axy.com" class="text-gray-400 hover:text-white">hello@axy.com</a></li>
                     </ul>
                      <div class="mt-4 flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="linkedin"></i></a>
-                        <a href="https://www.instagram.com/axy_co?igsh=MXY4bGJtbWtoYXJsNQ%3D%3D" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="instagram"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                        <a href="https://www.instagram.com/axy_co?igsh=MXY4bGJtbWtoYXJsNQ%3D%3D" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white" aria-label="Facebook"><i data-lucide="facebook"></i></a>
                     </div>
                 </div>
                 <div>
@@ -719,7 +733,11 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- Иконки Lucide ---
-            lucide.createIcons();
+            requestAnimationFrame(() => {
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+            });
 
             // --- Логика мобильного меню ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -786,7 +804,11 @@
                     `;
                     servicesGrid.appendChild(card);
                 });
-                lucide.createIcons();
+                requestAnimationFrame(() => {
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                });
             }
             
             // --- Данные для кейсов ---
@@ -912,7 +934,11 @@
                 caseModalBackdrop.querySelector('#case-modal-title').textContent = caseData.title;
                 caseModalBackdrop.querySelector('#case-modal-content').innerHTML = caseData.content;
                 openModal(caseModalBackdrop);
-                lucide.createIcons();
+                requestAnimationFrame(() => {
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                });
             }
 
             document.querySelectorAll('.portfolio-case').forEach(card => {
