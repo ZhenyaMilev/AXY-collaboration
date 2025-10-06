@@ -413,10 +413,10 @@
                         <!-- Shopify кейсы -->
                         <div id="shopify-cases" class="tab-content grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                            <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="firearm">
-                                <picture>
-                                    <source srcset="portfolio/shopify/1.webp" type="image/webp">
-                                    <img src="portfolio/shopify/1.png" alt="Shopify кейс 1" class="w-full h-64 object-contain bg-white transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
-                                </picture>
+                                <div class="relative overflow-hidden bg-white">
+                                    <img src="portfolio/shopify/1.png" alt="Shopify кейс 1" class="w-full h-64 object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
+                                    <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
+                                </div>
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-white">Аксессуары для оружия</h3>
                                     <p class="text-gray-400 mt-2">Миграция с WooCommerce на Shopify и разработка с нуля. Создание кастомной темы, мега-меню и мультивалютность.</p>
@@ -424,10 +424,10 @@
                                 </div>
                             </div>
                            <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="toys">
-                                <picture>
-                                    <source srcset="portfolio/shopify/2.webp" type="image/webp">
-                                    <img src="portfolio/shopify/2.png" alt="Shopify кейс 2" class="w-full h-64 object-contain bg-white transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
-                                </picture>
+                                <div class="relative overflow-hidden bg-white">
+                                    <img src="portfolio/shopify/2.png" alt="Shopify кейс 2" class="w-full h-64 object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
+                                    <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
+                                </div>
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-white">Игрушки и хобби</h3>
                                     <p class="text-gray-400 mt-2">Разработка магазина на Shopify с нуля. Мега-меню, Instagram Feed, Wishlist, поддержка клиентов и отзывы.</p>
@@ -435,10 +435,10 @@
                                 </div>
                             </div>
                            <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="jewelry">
-                                <picture>
-                                    <source srcset="portfolio/shopify/3.webp" type="image/webp">
-                                    <img src="portfolio/shopify/3.png" alt="Shopify кейс 3" class="w-full h-64 object-contain bg-white transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
-                                </picture>
+                                <div class="relative overflow-hidden bg-white">
+                                    <img src="portfolio/shopify/3.png" alt="Shopify кейс 3" class="w-full h-64 object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
+                                    <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
+                                </div>
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-white">Ювелирные изделия</h3>
                                     <p class="text-gray-400 mt-2">Разработка премиум темы для ювелирного магазина с нуля. Google отзывы, мега-меню, аналитика и Instagram интеграция.</p>
@@ -593,11 +593,7 @@
                         </div>
                     </div>
                     <div class="animate-on-scroll" style="transition-delay: 200ms;">
-                        <picture>
-                            <source srcset="azat.avif" type="image/avif">
-                            <source srcset="azat.webp" type="image/webp">
-                            <img src="azat.png" alt="Основатель агентства AXY Marketing Азат Шакуров" class="rounded-2xl object-cover w-full h-full shadow-2xl" loading="lazy" width="584" height="689">
-                        </picture>
+                        <img src="azat.png" alt="Основатель агентства AXY Marketing Азат Шакуров" class="rounded-2xl object-cover w-full h-full shadow-2xl" loading="lazy" width="848" height="1000">
                     </div>
                 </div>
             </div>
@@ -719,7 +715,7 @@
                         <input type="text" name="telegram" placeholder="Ваш Телеграм (@username)" required class="form-input block w-full rounded-md p-4">
                     </div>
                     <div class="flex items-start gap-3">
-                        <input type="checkbox" id="privacy-checkbox" name="privacy" required class="mt-1 w-5 h-5 rounded border border-[#F8F284] bg-transparent checked:bg-[#F8F284] checked:border-[#F8F284] focus:ring-2 focus:ring-[#F8F284] focus:ring-offset-0 cursor-pointer appearance-none relative checked:after:content-['✓'] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 checked:after:text-black checked:after:font-semibold checked:after:text-xs">
+                        <input type="checkbox" id="privacy-checkbox" name="privacy" required class="mt-1 w-5 h-5 rounded-none border border-[#F8F284] bg-transparent checked:bg-[#F8F284] checked:border-[#F8F284] focus:ring-2 focus:ring-[#F8F284] focus:ring-offset-0 cursor-pointer appearance-none relative checked:after:content-['✓'] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 checked:after:text-black checked:after:font-semibold checked:after:text-xs">
                         <label for="privacy-checkbox" class="text-sm text-gray-400 cursor-pointer">
                             Я подтверждаю, что ознакомился с <a href="privacy-policy.html" target="_blank" class="text-[#F8F284] hover:underline">политикой конфиденциальности</a>
                         </label>
