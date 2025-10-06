@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Политика конфиденциальности — AXY Marketing</title>
     <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,11 +24,68 @@
             font-weight: 700;
             color: #FFFFFF;
         }
-        a {
+        .cta-primary {
+            background-color: #F8F284;
+            color: #111;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        .cta-primary:hover {
+            background-color: #FFF9A8;
+            transform: translateY(-2px);
+        }
+        /* Hamburger menu animation */
+        .hamburger {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            cursor: pointer;
+        }
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 2px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        .hamburger span:nth-child(1) {
+            top: 4px;
+        }
+        .hamburger span:nth-child(2), .hamburger span:nth-child(3) {
+            top: 11px;
+        }
+        .hamburger span:nth-child(4) {
+            top: 18px;
+        }
+        .hamburger.open span:nth-child(1) {
+            top: 11px;
+            width: 0%;
+            left: 50%;
+        }
+        .hamburger.open span:nth-child(2) {
+            transform: rotate(45deg);
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        .hamburger.open span:nth-child(4) {
+            top: 11px;
+            width: 0%;
+            left: 50%;
+        }
+        nav a {
+            text-decoration: none;
+        }
+        .prose a {
             color: #F8F284;
             text-decoration: underline;
         }
-        a:hover {
+        .prose a:hover {
             color: #FFF9A8;
         }
         .prose {
@@ -51,6 +112,48 @@
     </style>
 </head>
 <body class="antialiased">
+    <!-- === Хедер === -->
+    <header class="bg-black/30 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-800/50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="logo.png" alt="AXY" class="h-10">
+            </a>
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="index.html#cases" class="text-gray-300 hover:text-white transition">Amazon</a>
+                <a href="index.html#cases" class="text-gray-300 hover:text-white transition">TikTok Shop</a>
+                <a href="index.html#cases" class="text-gray-300 hover:text-white transition">Shopify</a>
+                <a href="index.html#cases" class="text-gray-300 hover:text-white transition">Кейсы</a>
+                <a href="index.html#team" class="text-gray-300 hover:text-white transition">Команда</a>
+                <a href="index.html#contacts" class="text-gray-300 hover:text-white transition">Контакты</a>
+            </nav>
+            <div class="hidden lg:flex items-center">
+                <a href="index.html#audit" class="cta-primary text-sm font-semibold px-5 py-2.5 rounded-lg">Записаться на консультацию</a>
+            </div>
+            <button id="mobile-menu-button" class="lg:hidden text-white p-2">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+        <!-- Мобильное меню -->
+        <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4">
+            <nav class="flex flex-col space-y-4">
+                 <a href="index.html#cases" class="text-gray-300 hover:text-white transition">Amazon</a>
+                 <a href="index.html#cases" class="text-gray-300 hover:text-white transition">TikTok Shop</a>
+                 <a href="index.html#cases" class="text-gray-300 hover:text-white transition">Shopify</a>
+                 <a href="index.html#cases" class="text-gray-300 hover:text-white transition">Кейсы</a>
+                 <a href="index.html#team" class="text-gray-300 hover:text-white transition">Команда</a>
+                 <a href="index.html#contacts" class="text-gray-300 hover:text-white transition">Контакты</a>
+                <div class="flex flex-col space-y-3 pt-4">
+                     <a href="index.html#audit" class="cta-primary w-full text-center text-sm font-semibold px-5 py-2.5 rounded-lg">Записаться на консультацию</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
     <div class="container mx-auto max-w-4xl px-6 py-12 md:py-20">
         <article class="prose prose-invert lg:prose-xl">
             <h1>Политика конфиденциальности AXY Marketing</h1>
@@ -98,8 +201,50 @@
             </ul>
         </article>
         <div class="mt-12 text-center">
-            <a href="gemini copy.html" class="text-lg font-semibold">&larr; Вернуться на главную</a>
+            <a href="index.html" class="text-lg font-semibold">&larr; Вернуться на главную</a>
         </div>
     </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+        const toggleMobileMenu = () => {
+            const isOpening = mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            hamburger.classList.toggle('open');
+
+            if (isOpening) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        };
+
+        mobileMenuButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // Close menu on outside click
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.classList.contains('hidden') &&
+                !mobileMenu.contains(e.target) &&
+                !mobileMenuButton.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+    </script>
 </body>
 </html>

@@ -97,7 +97,7 @@
             border-color: #444;
         }
         .section-title {
-            font-size: 1.875rem; /* 30px for mobile */
+            font-size: 1.25rem; /* 20px for mobile */
             font-weight: 800;
             line-height: 1.2;
             color: #FFFFFF;
@@ -109,9 +109,14 @@
             }
         }
         .section-subtitle {
-            font-size: 1.125rem; /* 18px */
+            font-size: 0.9375rem; /* 15px for mobile */
             color: #9CA3AF;
             margin-top: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .section-subtitle {
+                font-size: 1.125rem; /* 18px for tablet and up */
+            }
         }
         .custom-card {
             background: #1C1C1E;
@@ -121,6 +126,51 @@
         .custom-card:hover {
             border-color: #444;
             transform: translateY(-4px);
+        }
+
+        /* Hamburger menu animation */
+        .hamburger {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            cursor: pointer;
+        }
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 2px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        .hamburger span:nth-child(1) {
+            top: 4px;
+        }
+        .hamburger span:nth-child(2), .hamburger span:nth-child(3) {
+            top: 11px;
+        }
+        .hamburger span:nth-child(4) {
+            top: 18px;
+        }
+        .hamburger.open span:nth-child(1) {
+            top: 11px;
+            width: 0%;
+            left: 50%;
+        }
+        .hamburger.open span:nth-child(2) {
+            transform: rotate(45deg);
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        .hamburger.open span:nth-child(4) {
+            top: 11px;
+            width: 0%;
+            left: 50%;
         }
 
         /* Анимации появления */
@@ -275,8 +325,13 @@
             <div class="hidden lg:flex items-center">
                 <a href="#audit" class="js-open-form cta-primary text-sm font-semibold px-5 py-2.5 rounded-lg">Записаться на консультацию</a>
             </div>
-            <button id="mobile-menu-button" class="lg:hidden text-white">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+            <button id="mobile-menu-button" class="lg:hidden text-white p-2">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </button>
         </div>
         <!-- Мобильное меню -->
@@ -300,23 +355,23 @@
         <!-- === Первый экран (Hero) === -->
         <section id="hero" class="relative">
              <div class="absolute inset-0 bg-grid-gray-700/10 bg-grid-14 [mask-image:linear-gradient(to_bottom,white_0%,transparent_100%)]"></div>
-            <div class="container mx-auto px-6 pt-12 pb-12 md:pt-16 md:pb-16 animate-on-scroll">
+            <div class="container mx-auto px-6 pt-6 pb-6 md:pt-16 md:pb-16 animate-on-scroll">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div class="text-center lg:text-left">
                         <p class="text-base md:text-xl font-bold text-white">AXY marketing agency</p>
                         <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight mt-4">
                             🚀 Продвигаем бренды на <span class="text-[#F8F284]">Amazon, TikTok Shop и Shopify</span>
                         </h1>
-                        <p class="mt-4 text-base md:text-xl text-gray-400 leading-relaxed">
+                        <p class="mt-4 text-[0.9375rem] md:text-xl text-gray-400 leading-snug md:leading-relaxed">
                             Получите бесплатный аудит своего магазина или конкретного элемента бизнеса, который "сжирает" вашу прибыль: от карточки товара и сайта до блокировки аккаунтов и конверсии рекламной компании.
                         </p>
                         <div class="mt-8">
-                            <a href="#audit" class="js-open-form cta-primary w-full sm:w-auto px-10 py-5 rounded-xl text-xl font-bold inline-flex items-center justify-center">
+                            <a href="#audit" class="js-open-form cta-primary w-full sm:w-auto px-8 py-4 md:px-10 md:py-5 rounded-xl text-lg md:text-xl font-bold inline-flex items-center justify-center">
                                 Получить бесплатный аудит
-                                <i data-lucide="arrow-right" class="w-6 h-6 ml-2"></i>
+                                <i data-lucide="arrow-right" class="w-5 h-5 md:w-6 md:h-6 ml-2"></i>
                             </a>
                         </div>
-                        <div class="mt-6 text-sm md:text-base text-gray-500 font-semibold flex justify-center lg:justify-start items-center gap-3 flex-wrap">
+                        <div class="mt-6 text-base md:text-base text-gray-500 font-semibold flex justify-center lg:justify-start items-center gap-3 flex-wrap">
                             <span class="whitespace-nowrap"><span class="text-gray-300">10+ лет</span> на рынке e-commerce</span>
                             <span class="hidden sm:inline">•</span>
                             <span class="whitespace-nowrap"><span class="text-gray-300">1000+ селлеров</span> получили помощь</span>
@@ -333,14 +388,14 @@
         </section>
 
         <!-- === Что мы делаем (Каталог услуг) === -->
-        <section id="services" class="py-20 md:py-28">
+        <section id="services" class="py-12 md:py-28">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-4xl mx-auto animate-on-scroll">
                     <h2 class="section-title">Влияем на конкретные показатели и <span class="text-color-animate" data-text-animate>увеличиваем чистую прибыль</span> у вас в кармане</h2>
                     <p class="section-subtitle">Amazon, TikTok Shop, Shopify — не важно, где вы продаёте. Мы берём на себя полный цикл маркетинга или закрываем конкретную задачу, чтобы вы перестали «догонять рынок».</p>
                 </div>
-                <p class="text-center text-white text-lg font-semibold mt-12 animate-on-scroll" style="transition-delay: 100ms;">Нажми на услугу, чтобы узнать подробнее.</p>
-                <div id="services-grid" class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 animate-on-scroll" style="transition-delay: 200ms;">
+                <p class="text-center text-white text-sm md:text-base font-semibold mt-12 animate-on-scroll" style="transition-delay: 100ms;">Нажми на услугу, чтобы узнать подробнее.</p>
+                <div id="services-grid" class="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 animate-on-scroll justify-items-center auto-rows-fr" style="transition-delay: 200ms;">
                     <!-- Карточки услуг будут вставлены здесь через JS -->
                 </div>
             </div>
@@ -739,10 +794,12 @@
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            const hamburger = document.querySelector('.hamburger');
 
             const toggleMobileMenu = () => {
                 const isOpening = mobileMenu.classList.contains('hidden');
                 mobileMenu.classList.toggle('hidden');
+                hamburger.classList.toggle('open');
 
                 if (isOpening) {
                     // Menu is opening
@@ -790,7 +847,7 @@
             if(servicesGrid) {
                 servicesData.forEach(service => {
                     const card = document.createElement('div');
-                    card.className = 'service-card custom-card p-6 rounded-2xl cursor-pointer';
+                    card.className = 'service-card custom-card p-[1.2rem] rounded-2xl cursor-pointer w-full flex flex-col items-center justify-center text-center max-w-[250px] h-full';
                     card.dataset.serviceId = service.id;
                     card.innerHTML = `
                         <div class="bg-gray-800 text-[#F8F284] rounded-lg w-12 h-12 flex items-center justify-center">
