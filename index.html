@@ -239,27 +239,14 @@
             transition: color 0.3s ease;
         }
 
-        /* Bento Grid Reviews Layout - Large & Readable */
+        /* Asymmetric Bento Grid Reviews Layout */
         .reviews-bento-grid {
             display: grid;
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 200px;
             gap: 1.5rem;
             max-width: 1600px;
             margin: 0 auto;
-        }
-
-        @media (min-width: 768px) {
-            .reviews-bento-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .reviews-bento-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
-            }
         }
 
         .review-screenshot {
@@ -281,55 +268,66 @@
             box-shadow: 0 20px 60px rgba(248, 242, 132, 0.15);
         }
 
-        /* Mobile: 1 column - large readable */
+        /* Mobile: Stack vertically */
         .review-screenshot {
-            grid-column: span 1;
-            height: 400px;
+            grid-column: span 4;
+            grid-row: span 2;
         }
 
-        /* Tablet: 2 columns */
+        /* Tablet & Desktop: Asymmetric Bento Layout */
         @media (min-width: 768px) {
-            .review-screenshot {
-                height: 450px;
+            .reviews-bento-grid {
+                grid-auto-rows: 250px;
+                gap: 2rem;
             }
 
-            .review-large {
+            /* First row */
+            .review-screenshot:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+
+            .review-screenshot:nth-child(2) {
                 grid-column: span 2;
                 grid-row: span 1;
-                height: 500px;
             }
 
-            .review-tall {
+            .review-screenshot:nth-child(3) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            /* Second row */
+            .review-screenshot:nth-child(4) {
+                grid-column: span 1;
                 grid-row: span 2;
-                height: auto;
-                min-height: 600px;
+            }
+
+            .review-screenshot:nth-child(5) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            /* Third row */
+            .review-screenshot:nth-child(6) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .review-screenshot:nth-child(7) {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+
+            .review-screenshot:nth-child(8) {
+                grid-column: span 1;
+                grid-row: span 1;
             }
         }
 
-        /* Desktop: 3 columns - maximum readability */
         @media (min-width: 1024px) {
-            .review-screenshot {
-                height: 500px;
-            }
-
-            .review-large {
-                grid-column: span 2;
-                grid-row: span 1;
-                height: 550px;
-            }
-
-            .review-tall {
-                grid-row: span 2;
-                height: auto;
-                min-height: 700px;
-            }
-
-            .review-medium {
-                height: 500px;
-            }
-
-            .review-small {
-                height: 450px;
+            .reviews-bento-grid {
+                grid-auto-rows: 280px;
             }
         }
 
@@ -622,57 +620,57 @@
             <div class="container mx-auto px-6">
                 <!-- Bento Grid Layout -->
                 <div class="reviews-bento-grid">
-                    <!-- Large Featured Review -->
-                    <div class="review-screenshot review-large animate-on-scroll">
+                    <!-- Review 1: Large 2x2 -->
+                    <div class="review-screenshot animate-on-scroll">
                         <div class="review-screenshot-inner">
                             <img src="review/telegram-cloud-photo-size-2-5327958389147432129-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
                         </div>
                     </div>
 
-                    <!-- Medium Review -->
-                    <div class="review-screenshot review-medium animate-on-scroll" style="transition-delay: 100ms;">
+                    <!-- Review 2: Wide 2x1 -->
+                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 100ms;">
                         <div class="review-screenshot-inner">
                             <img src="review/telegram-cloud-photo-size-2-5327958389147432133-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
                         </div>
                     </div>
 
-                    <!-- Small Review -->
-                    <div class="review-screenshot review-small animate-on-scroll" style="transition-delay: 200ms;">
+                    <!-- Review 3: Small 1x1 -->
+                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 150ms;">
                         <div class="review-screenshot-inner">
                             <img src="review/telegram-cloud-photo-size-2-5327958389147432149-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
                         </div>
                     </div>
 
-                    <!-- Tall Review -->
-                    <div class="review-screenshot review-tall animate-on-scroll" style="transition-delay: 300ms;">
+                    <!-- Review 4: Tall 1x2 -->
+                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 200ms;">
                         <div class="review-screenshot-inner">
                             <img src="review/telegram-cloud-photo-size-2-5327958389147432156-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
                         </div>
                     </div>
 
-                    <!-- Medium Review -->
-                    <div class="review-screenshot review-medium animate-on-scroll" style="transition-delay: 100ms;">
+                    <!-- Review 5: Wide 2x1 -->
+                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 100ms;">
                         <div class="review-screenshot-inner">
                             <img src="review/telegram-cloud-photo-size-2-5327958389147432162-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
                         </div>
                     </div>
 
-                    <!-- Large Review -->
-                    <div class="review-screenshot review-large animate-on-scroll" style="transition-delay: 200ms;">
+                    <!-- Review 6: Small 1x1 -->
+                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 250ms;">
                         <div class="review-screenshot-inner">
                             <img src="review/telegram-cloud-photo-size-2-5327958389147432169-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
                         </div>
                     </div>
 
-                    <!-- Small Review -->
-                    <div class="review-screenshot review-small animate-on-scroll" style="transition-delay: 150ms;">
+                    <!-- Review 7: Large 2x2 -->
+                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 150ms;">
                         <div class="review-screenshot-inner">
                             <img src="review/telegram-cloud-photo-size-2-5327958389147432179-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
                         </div>
                     </div>
 
-                    <!-- Medium Review -->
-                    <div class="review-screenshot review-medium animate-on-scroll" style="transition-delay: 250ms;">
+                    <!-- Review 8: Small 1x1 -->
+                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 300ms;">
                         <div class="review-screenshot-inner">
                             <img src="review/telegram-cloud-photo-size-2-5327958389147432183-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
                         </div>
