@@ -239,26 +239,26 @@
             transition: color 0.3s ease;
         }
 
-        /* Bento Grid Reviews Layout */
+        /* Bento Grid Reviews Layout - Large & Readable */
         .reviews-bento-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            max-width: 1400px;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
         @media (min-width: 768px) {
             .reviews-bento-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 1.5rem;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
             }
         }
 
         @media (min-width: 1024px) {
             .reviews-bento-grid {
-                grid-template-columns: repeat(6, 1fr);
-                gap: 1.5rem;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
             }
         }
 
@@ -281,67 +281,55 @@
             box-shadow: 0 20px 60px rgba(248, 242, 132, 0.15);
         }
 
-        /* Mobile: 2 columns layout */
+        /* Mobile: 1 column - large readable */
         .review-screenshot {
             grid-column: span 1;
-            height: 200px;
+            height: 400px;
         }
 
-        /* Tablet: 4 columns layout */
+        /* Tablet: 2 columns */
         @media (min-width: 768px) {
+            .review-screenshot {
+                height: 450px;
+            }
+
             .review-large {
                 grid-column: span 2;
-                grid-row: span 2;
-                height: auto;
-                min-height: 400px;
-            }
-
-            .review-medium {
-                grid-column: span 2;
                 grid-row: span 1;
-                height: 195px;
-            }
-
-            .review-small {
-                grid-column: span 2;
-                grid-row: span 1;
-                height: 180px;
+                height: 500px;
             }
 
             .review-tall {
-                grid-column: span 2;
                 grid-row: span 2;
                 height: auto;
-                min-height: 400px;
+                min-height: 600px;
             }
         }
 
-        /* Desktop: 6 columns layout */
+        /* Desktop: 3 columns - maximum readability */
         @media (min-width: 1024px) {
+            .review-screenshot {
+                height: 500px;
+            }
+
             .review-large {
                 grid-column: span 2;
-                grid-row: span 2;
-                height: auto;
-                min-height: 450px;
-            }
-
-            .review-medium {
-                grid-column: span 2;
                 grid-row: span 1;
-                height: 220px;
-            }
-
-            .review-small {
-                grid-column: span 1;
-                grid-row: span 1;
-                height: 220px;
+                height: 550px;
             }
 
             .review-tall {
-                grid-column: span 2;
                 grid-row: span 2;
                 height: auto;
-                min-height: 450px;
+                min-height: 700px;
+            }
+
+            .review-medium {
+                height: 500px;
+            }
+
+            .review-small {
+                height: 450px;
             }
         }
 
