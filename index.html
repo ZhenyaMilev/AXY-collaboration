@@ -239,49 +239,118 @@
             transition: color 0.3s ease;
         }
 
-        /* Слайдер отзывов */
-        .reviews-slider {
+        /* Bento Grid Reviews Layout */
+        .reviews-bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .reviews-bento-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .reviews-bento-grid {
+                grid-template-columns: repeat(6, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        .review-screenshot {
             position: relative;
             overflow: hidden;
+            border-radius: 1rem;
         }
-        .reviews-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
+
+        .review-screenshot-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
-        .review-card {
-            flex: 0 0 100%;
-            padding: 0 1rem;
+
+        .review-screenshot:hover .review-screenshot-inner {
+            transform: scale(1.02) rotate(0.5deg);
+            box-shadow: 0 20px 60px rgba(248, 242, 132, 0.15);
         }
+
+        /* Mobile: 2 columns layout */
+        .review-screenshot {
+            grid-column: span 1;
+            height: 200px;
+        }
+
+        /* Tablet: 4 columns layout */
         @media (min-width: 768px) {
-            .review-card {
-                flex: 0 0 50%;
+            .review-large {
+                grid-column: span 2;
+                grid-row: span 2;
+                height: auto;
+                min-height: 400px;
+            }
+
+            .review-medium {
+                grid-column: span 2;
+                grid-row: span 1;
+                height: 195px;
+            }
+
+            .review-small {
+                grid-column: span 2;
+                grid-row: span 1;
+                height: 180px;
+            }
+
+            .review-tall {
+                grid-column: span 2;
+                grid-row: span 2;
+                height: auto;
+                min-height: 400px;
             }
         }
+
+        /* Desktop: 6 columns layout */
         @media (min-width: 1024px) {
-            .review-card {
-                flex: 0 0 33.333%;
+            .review-large {
+                grid-column: span 2;
+                grid-row: span 2;
+                height: auto;
+                min-height: 450px;
+            }
+
+            .review-medium {
+                grid-column: span 2;
+                grid-row: span 1;
+                height: 220px;
+            }
+
+            .review-small {
+                grid-column: span 1;
+                grid-row: span 1;
+                height: 220px;
+            }
+
+            .review-tall {
+                grid-column: span 2;
+                grid-row: span 2;
+                height: auto;
+                min-height: 450px;
             }
         }
-        .slider-btn-simple {
-            background: #F8F284;
-            color: #111;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .review-screenshot img {
+            transition: transform 0.4s ease;
         }
-        .slider-btn-simple:hover {
-            background: #FFF9A8;
-            transform: scale(1.1);
-        }
-        .slider-btn-simple:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
+
+        .review-screenshot:hover img {
+            transform: scale(1.05);
         }
 
         /* Glassmorphism эффект для всего main */
@@ -556,117 +625,69 @@
         </section>
 
         <!-- === Отзывы === -->
-        <section id="reviews" class="py-20 md:py-28">
-            <div class="text-center max-w-3xl mx-auto px-6 animate-on-scroll">
-                <h2 class="section-title">Что они нам за это говорят</h2>
-                <div class="flex justify-center gap-4 mt-8">
-                    <button class="slider-btn-simple prev" id="reviews-prev" aria-label="Предыдущий отзыв">
-                        <i data-lucide="chevron-left" class="w-6 h-6"></i>
-                    </button>
-                    <button class="slider-btn-simple next" id="reviews-next" aria-label="Следующий отзыв">
-                        <i data-lucide="chevron-right" class="w-6 h-6"></i>
-                    </button>
-                </div>
+        <section id="reviews" class="py-20 md:py-28 overflow-hidden">
+            <div class="text-center max-w-3xl mx-auto px-6 animate-on-scroll mb-16">
+                <h2 class="section-title">Что говорят клиенты</h2>
+                <p class="text-gray-400 mt-4">Реальные отзывы из наших рабочих чатов</p>
             </div>
-            <div class="container mx-auto px-6 mt-16">
-                <div class="reviews-slider relative">
-                    <div class="reviews-track" id="reviews-track">
-                            <!-- Первый набор отзывов -->
-                            <div class="review-card">
-                                <div class="custom-card p-6 rounded-xl h-full">
-                                <div class="flex items-center mb-4">
-                                    <div class="w-12 h-12 bg-[#F8F284] rounded-full flex items-center justify-center text-black font-bold text-xl">М</div>
-                                    <div class="ml-4">
-                                        <h4 class="font-bold text-white">Михаил</h4>
-                                        <p class="text-sm text-gray-400">Бренд спортивного питания</p>
-                                    </div>
-                                </div>
-                                <div class="flex mb-3">
-                                    <span class="text-[#F8F284]">★★★★★</span>
-                                </div>
-                                <p class="text-gray-300">Работали с AXY над запуском на Amazon. За 3 месяца вышли в топ-15 по основным запросам. ACoS снизили с 42% до 18%. Ребята реально знают, что делают. Особенно помогла оптимизация листингов и PPC-стратегия.</p>
-                                </div>
-                            </div>
 
-                            <div class="review-card">
-                                <div class="custom-card p-6 rounded-xl h-full">
-                                <div class="flex items-center mb-4">
-                                    <div class="w-12 h-12 bg-[#F8F284] rounded-full flex items-center justify-center text-black font-bold text-xl">А</div>
-                                    <div class="ml-4">
-                                        <h4 class="font-bold text-white">Анна</h4>
-                                        <p class="text-sm text-gray-400">Косметический бренд</p>
-                                    </div>
-                                </div>
-                                <div class="flex mb-3">
-                                    <span class="text-[#F8F284]">★★★★★</span>
-                                </div>
-                                <p class="text-gray-300">Запускали наш косметический бренд на TikTok Shop. Первая неделя - 500 заказов, за месяц вышли на $45k оборота. Команда сделала крутой UGC-контент с блогерами, конверсия была 8.5%. Очень довольны результатом!</p>
-                                </div>
-                            </div>
+            <div class="container mx-auto px-6">
+                <!-- Bento Grid Layout -->
+                <div class="reviews-bento-grid">
+                    <!-- Large Featured Review -->
+                    <div class="review-screenshot review-large animate-on-scroll">
+                        <div class="review-screenshot-inner">
+                            <img src="review/telegram-cloud-photo-size-2-5327958389147432129-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
+                        </div>
+                    </div>
 
-                            <div class="review-card">
-                                <div class="custom-card p-6 rounded-xl h-full">
-                                <div class="flex items-center mb-4">
-                                    <div class="w-12 h-12 bg-[#F8F284] rounded-full flex items-center justify-center text-black font-bold text-xl">Д</div>
-                                    <div class="ml-4">
-                                        <h4 class="font-bold text-white">Дмитрий</h4>
-                                        <p class="text-sm text-gray-400">Товары для дома</p>
-                                    </div>
-                                </div>
-                                <div class="flex mb-3">
-                                    <span class="text-[#F8F284]">★★★★★</span>
-                                </div>
-                                <p class="text-gray-300">После года самостоятельной работы продажи застряли на $20k/мес. Обратились в AXY, через 4 месяца вышли на $85k. Переделали карточки, запустили A+ контент, настроили нормальную рекламу. Инвестиция окупилась в первый месяц.</p>
-                                </div>
-                            </div>
+                    <!-- Medium Review -->
+                    <div class="review-screenshot review-medium animate-on-scroll" style="transition-delay: 100ms;">
+                        <div class="review-screenshot-inner">
+                            <img src="review/telegram-cloud-photo-size-2-5327958389147432133-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
+                        </div>
+                    </div>
 
-                            <div class="review-card">
-                                <div class="custom-card p-6 rounded-xl h-full">
-                                <div class="flex items-center mb-4">
-                                    <div class="w-12 h-12 bg-[#F8F284] rounded-full flex items-center justify-center text-black font-bold text-xl">Е</div>
-                                    <div class="ml-4">
-                                        <h4 class="font-bold text-white">Елена</h4>
-                                        <p class="text-sm text-gray-400">Детские товары</p>
-                                    </div>
-                                </div>
-                                <div class="flex mb-3">
-                                    <span class="text-[#F8F284]">★★★★★</span>
-                                </div>
-                                <p class="text-gray-300">Столкнулись с блокировкой аккаунта на Amazon. AXY помогли разобраться за 2 недели, восстановили все позиции. Потом провели аудит и нашли еще кучу проблем, которые могли привести к повторной блокировке. Спасибо огромное!</p>
-                                </div>
-                            </div>
+                    <!-- Small Review -->
+                    <div class="review-screenshot review-small animate-on-scroll" style="transition-delay: 200ms;">
+                        <div class="review-screenshot-inner">
+                            <img src="review/telegram-cloud-photo-size-2-5327958389147432149-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
+                        </div>
+                    </div>
 
-                            <div class="review-card">
-                                <div class="custom-card p-6 rounded-xl h-full">
-                                <div class="flex items-center mb-4">
-                                    <div class="w-12 h-12 bg-[#F8F284] rounded-full flex items-center justify-center text-black font-bold text-xl">И</div>
-                                    <div class="ml-4">
-                                        <h4 class="font-bold text-white">Игорь</h4>
-                                        <p class="text-sm text-gray-400">Электроника</p>
-                                    </div>
-                                </div>
-                                <div class="flex mb-3">
-                                    <span class="text-[#F8F284]">★★★★★</span>
-                                </div>
-                                <p class="text-gray-300">Полный запуск с нуля на Shopify. От разработки сайта до настройки рекламы и первых продаж. За 6 месяцев вышли на стабильные $30k/мес. ROAS держится на уровне 4.2. Команда профессиональная, всё по делу.</p>
-                                </div>
-                            </div>
+                    <!-- Tall Review -->
+                    <div class="review-screenshot review-tall animate-on-scroll" style="transition-delay: 300ms;">
+                        <div class="review-screenshot-inner">
+                            <img src="review/telegram-cloud-photo-size-2-5327958389147432156-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
+                        </div>
+                    </div>
 
-                            <div class="review-card">
-                                <div class="custom-card p-6 rounded-xl h-full">
-                                <div class="flex items-center mb-4">
-                                    <div class="w-12 h-12 bg-[#F8F284] rounded-full flex items-center justify-center text-black font-bold text-xl">О</div>
-                                    <div class="ml-4">
-                                        <h4 class="font-bold text-white">Ольга</h4>
-                                        <p class="text-sm text-gray-400">Одежда и аксессуары</p>
-                                    </div>
-                                </div>
-                                <div class="flex mb-3">
-                                    <span class="text-[#F8F284]">★★★★★</span>
-                                </div>
-                                <p class="text-gray-300">Сделали ребрендинг и запустили на TikTok Shop. Органика выстрелила благодаря контенту от микро-инфлюенсеров. За первые 3 месяца - 2500 заказов, средний чек $65. Очень круто, что команда всё время на связи и быстро реагирует.</p>
-                                </div>
-                            </div>
+                    <!-- Medium Review -->
+                    <div class="review-screenshot review-medium animate-on-scroll" style="transition-delay: 100ms;">
+                        <div class="review-screenshot-inner">
+                            <img src="review/telegram-cloud-photo-size-2-5327958389147432162-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
+                        </div>
+                    </div>
+
+                    <!-- Large Review -->
+                    <div class="review-screenshot review-large animate-on-scroll" style="transition-delay: 200ms;">
+                        <div class="review-screenshot-inner">
+                            <img src="review/telegram-cloud-photo-size-2-5327958389147432169-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
+                        </div>
+                    </div>
+
+                    <!-- Small Review -->
+                    <div class="review-screenshot review-small animate-on-scroll" style="transition-delay: 150ms;">
+                        <div class="review-screenshot-inner">
+                            <img src="review/telegram-cloud-photo-size-2-5327958389147432179-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
+                        </div>
+                    </div>
+
+                    <!-- Medium Review -->
+                    <div class="review-screenshot review-medium animate-on-scroll" style="transition-delay: 250ms;">
+                        <div class="review-screenshot-inner">
+                            <img src="review/telegram-cloud-photo-size-2-5327958389147432183-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1522,56 +1543,6 @@
                 });
             });
 
-            // --- Логика слайдера отзывов ---
-            const reviewsTrack = document.getElementById('reviews-track');
-            const prevBtn = document.getElementById('reviews-prev');
-            const nextBtn = document.getElementById('reviews-next');
-
-            if (reviewsTrack && prevBtn && nextBtn) {
-                let currentSlide = 0;
-                const reviewCards = reviewsTrack.querySelectorAll('.review-card');
-                const totalSlides = reviewCards.length;
-
-                function getSlidesPerView() {
-                    if (window.innerWidth >= 1024) return 3;
-                    if (window.innerWidth >= 768) return 2;
-                    return 1;
-                }
-
-                function updateSlider() {
-                    const slidesPerView = getSlidesPerView();
-                    const maxSlide = totalSlides - slidesPerView;
-                    currentSlide = Math.max(0, Math.min(currentSlide, maxSlide));
-                    const translateX = -(currentSlide * (100 / slidesPerView));
-                    reviewsTrack.style.transform = `translateX(${translateX}%)`;
-
-                    // Управление состоянием кнопок
-                    prevBtn.disabled = currentSlide === 0;
-                    nextBtn.disabled = currentSlide >= maxSlide;
-                }
-
-                prevBtn.addEventListener('click', () => {
-                    if (currentSlide > 0) {
-                        currentSlide--;
-                        updateSlider();
-                    }
-                });
-
-                nextBtn.addEventListener('click', () => {
-                    const slidesPerView = getSlidesPerView();
-                    const maxSlide = totalSlides - slidesPerView;
-                    if (currentSlide < maxSlide) {
-                        currentSlide++;
-                        updateSlider();
-                    }
-                });
-
-                window.addEventListener('resize', () => {
-                    updateSlider();
-                });
-
-                updateSlider();
-            }
         });
     </script>
 
