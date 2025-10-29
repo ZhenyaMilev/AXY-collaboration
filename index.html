@@ -251,21 +251,37 @@
 
         .review-screenshot {
             position: relative;
-            overflow: hidden;
+            overflow: visible;
             border-radius: 1rem;
+            cursor: zoom-in;
         }
 
         .review-screenshot-inner {
             position: relative;
             width: 100%;
             height: 100%;
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            border-radius: 1rem;
+            overflow: hidden;
+            background: #1a1a1a;
         }
 
+        /* Hover effect: zoom to center */
         .review-screenshot:hover .review-screenshot-inner {
-            transform: scale(1.02) rotate(0.5deg);
-            box-shadow: 0 20px 60px rgba(248, 242, 132, 0.15);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.5);
+            width: 90vw;
+            max-width: 1200px;
+            height: 90vh;
+            z-index: 9999;
+            box-shadow: 0 25px 100px rgba(0, 0, 0, 0.8), 0 0 0 100vmax rgba(0, 0, 0, 0.85);
+        }
+
+        .review-screenshot:hover {
+            z-index: 9999;
         }
 
         /* Mobile: Stack vertically */
@@ -332,11 +348,7 @@
         }
 
         .review-screenshot img {
-            transition: transform 0.4s ease;
-        }
-
-        .review-screenshot:hover img {
-            transform: scale(1.05);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* Glassmorphism эффект для всего main */
@@ -623,56 +635,56 @@
                     <!-- Review 1: Large 2x2 -->
                     <div class="review-screenshot animate-on-scroll">
                         <div class="review-screenshot-inner">
-                            <img src="review/telegram-cloud-photo-size-2-5327958389147432129-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
+                            <img src="review/telegram-cloud-photo-size-2-5327958389147432129-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain">
                         </div>
                     </div>
 
                     <!-- Review 2: Wide 2x1 -->
                     <div class="review-screenshot animate-on-scroll" style="transition-delay: 100ms;">
                         <div class="review-screenshot-inner">
-                            <img src="review/telegram-cloud-photo-size-2-5327958389147432133-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
+                            <img src="review/telegram-cloud-photo-size-2-5327958389147432133-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain">
                         </div>
                     </div>
 
                     <!-- Review 3: Small 1x1 -->
                     <div class="review-screenshot animate-on-scroll" style="transition-delay: 150ms;">
                         <div class="review-screenshot-inner">
-                            <img src="review/telegram-cloud-photo-size-2-5327958389147432149-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
+                            <img src="review/telegram-cloud-photo-size-2-5327958389147432149-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain">
                         </div>
                     </div>
 
                     <!-- Review 4: Tall 1x2 -->
                     <div class="review-screenshot animate-on-scroll" style="transition-delay: 200ms;">
                         <div class="review-screenshot-inner">
-                            <img src="review/telegram-cloud-photo-size-2-5327958389147432156-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
+                            <img src="review/telegram-cloud-photo-size-2-5327958389147432156-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain">
                         </div>
                     </div>
 
                     <!-- Review 5: Wide 2x1 -->
                     <div class="review-screenshot animate-on-scroll" style="transition-delay: 100ms;">
                         <div class="review-screenshot-inner">
-                            <img src="review/telegram-cloud-photo-size-2-5327958389147432162-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
+                            <img src="review/telegram-cloud-photo-size-2-5327958389147432162-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain">
                         </div>
                     </div>
 
                     <!-- Review 6: Small 1x1 -->
                     <div class="review-screenshot animate-on-scroll" style="transition-delay: 250ms;">
                         <div class="review-screenshot-inner">
-                            <img src="review/telegram-cloud-photo-size-2-5327958389147432169-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
+                            <img src="review/telegram-cloud-photo-size-2-5327958389147432169-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain">
                         </div>
                     </div>
 
                     <!-- Review 7: Large 2x2 -->
                     <div class="review-screenshot animate-on-scroll" style="transition-delay: 150ms;">
                         <div class="review-screenshot-inner">
-                            <img src="review/telegram-cloud-photo-size-2-5327958389147432179-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
+                            <img src="review/telegram-cloud-photo-size-2-5327958389147432179-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain">
                         </div>
                     </div>
 
                     <!-- Review 8: Small 1x1 -->
                     <div class="review-screenshot animate-on-scroll" style="transition-delay: 300ms;">
                         <div class="review-screenshot-inner">
-                            <img src="review/telegram-cloud-photo-size-2-5327958389147432183-y.jpg" alt="Отзыв клиента" class="w-full h-full object-cover rounded-2xl">
+                            <img src="review/telegram-cloud-photo-size-2-5327958389147432183-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain">
                         </div>
                     </div>
                 </div>
