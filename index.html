@@ -1067,6 +1067,85 @@
                 });
             });
 
+            // --- Обработчик отправки формы ---
+            const form = document.querySelector('form');
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Получаем данные формы
+                const formData = new FormData(form);
+                const data = {
+                    name: formData.get('name'),
+                    phone: formData.get('phone'),
+                    telegram: formData.get('telegram')
+                };
+
+                // Проверка чекбокса
+                if (!formData.get('privacy')) {
+                    alert('Пожалуйста, подтвердите согласие с политикой конфиденциальности');
+                    return;
+                }
+
+                // Состояние загрузки
+                submitButton.disabled = true;
+                submitButton.textContent = 'Отправка...';
+                submitButton.style.opacity = '0.7';
+
+                try {
+                    // Отправка на Netlify функцию
+                    const response = await fetch('/.netlify/functions/send-telegram', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        // Успех!
+                        submitButton.textContent = '✓ Отправлено!';
+                        submitButton.style.backgroundColor = '#22c55e';
+
+                        // Сброс формы
+                        form.reset();
+
+                        // Закрытие модального окна через 1.5 секунды
+                        setTimeout(() => {
+                            closeModal(formModalBackdrop);
+
+                            // Возврат кнопки в исходное состояние
+                            setTimeout(() => {
+                                submitButton.disabled = false;
+                                submitButton.textContent = originalButtonText;
+                                submitButton.style.backgroundColor = '';
+                                submitButton.style.opacity = '';
+                            }, 300);
+                        }, 1500);
+                    } else {
+                        throw new Error(result.error || 'Ошибка отправки');
+                    }
+                } catch (error) {
+                    console.error('Ошибка:', error);
+
+                    // Показываем ошибку
+                    submitButton.textContent = '✗ Ошибка. Попробуйте снова';
+                    submitButton.style.backgroundColor = '#ef4444';
+
+                    // Возврат кнопки в исходное состояние через 3 секунды
+                    setTimeout(() => {
+                        submitButton.disabled = false;
+                        submitButton.textContent = originalButtonText;
+                        submitButton.style.backgroundColor = '';
+                        submitButton.style.opacity = '';
+                    }, 3000);
+                }
+            });
+
             // --- Анимация при скролле ---
             const scrollElements = document.querySelectorAll('.animate-on-scroll');
             const observer = new IntersectionObserver((entries) => {

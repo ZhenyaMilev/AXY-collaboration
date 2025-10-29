@@ -12,9 +12,14 @@ exports.handler = async (event, context) => {
     const data = JSON.parse(event.body);
     const { name, phone, telegram } = data;
 
-    // Ваши данные Telegram
-    const botToken = '8443808141:AAFE8Ym6eOJ0MVRIEc4rGVeEnqaXnPIHv4w';
-    const chatId = process.env.TELEGRAM_CHAT_ID; // Будем хранить в переменных окружения Netlify
+    // Получаем данные Telegram из переменных окружения
+    const botToken = process.env.TELEGRAM_BOT_TOKEN;
+    const chatId = process.env.TELEGRAM_CHAT_ID;
+
+    // Проверяем наличие необходимых переменных окружения
+    if (!botToken || !chatId) {
+      throw new Error('Missing Telegram configuration');
+    }
 
     // Формируем сообщение
     const message = `🆕 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n✈️ Telegram: ${telegram}`;
