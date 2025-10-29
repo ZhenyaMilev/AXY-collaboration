@@ -323,7 +323,7 @@
                 <a href="#contacts" class="text-gray-300 hover:text-white transition">Контакты</a>
             </nav>
             <div class="hidden lg:flex items-center">
-                <a href="#audit" class="js-open-form cta-primary text-sm font-semibold px-5 py-2.5 rounded-lg">Записаться на консультацию</a>
+                <a href="#audit" class="js-open-form cta-primary text-sm font-semibold px-5 py-2.5 rounded-lg" data-source="Хедер (десктоп)">Записаться на консультацию</a>
             </div>
             <button id="mobile-menu-button" class="lg:hidden text-white p-2">
                 <div class="hamburger">
@@ -344,7 +344,7 @@
                  <a href="#team" class="text-gray-300 hover:text-white transition">Команда</a>
                  <a href="#contacts" class="text-gray-300 hover:text-white transition">Контакты</a>
                 <div class="flex flex-col space-y-3 pt-4">
-                     <a href="#audit" class="js-open-form cta-primary w-full text-center text-sm font-semibold px-5 py-2.5 rounded-lg">Записаться на консультацию</a>
+                     <a href="#audit" class="js-open-form cta-primary w-full text-center text-sm font-semibold px-5 py-2.5 rounded-lg" data-source="Мобильное меню">Записаться на консультацию</a>
                 </div>
             </nav>
         </div>
@@ -366,7 +366,7 @@
                             Получите бесплатный аудит своего магазина или конкретного элемента бизнеса, который "сжирает" вашу прибыль: от карточки товара и сайта до блокировки аккаунтов и конверсии рекламной компании.
                         </p>
                         <div class="mt-8">
-                            <a href="#audit" class="js-open-form cta-primary w-full sm:w-auto px-8 py-4 md:px-10 md:py-5 rounded-xl text-lg md:text-xl font-bold inline-flex items-center justify-center">
+                            <a href="#audit" class="js-open-form cta-primary w-full sm:w-auto px-8 py-4 md:px-10 md:py-5 rounded-xl text-lg md:text-xl font-bold inline-flex items-center justify-center" data-source="Главный экран (Hero)">
                                 Получить бесплатный аудит
                                 <i data-lucide="arrow-right" class="w-5 h-5 md:w-6 md:h-6 ml-2"></i>
                             </a>
@@ -661,7 +661,7 @@
                     <h2 class="text-3xl md:text-5xl font-bold text-white">Получите бесплатный аудит своего магазина</h2>
                     <p class="mt-6 text-lg text-gray-400 max-w-3xl mx-auto">Заполните форму, и наши эксперты свяжутся с вами. Вы поделитесь тем, что у вас болит. Мы посмотрим и расскажем, как вы сможете это решить своими силами или при помощи нашей команды.</p>
                     <div class="mt-12">
-                        <a href="#" class="js-open-form cta-primary px-10 py-5 rounded-xl text-xl inline-flex items-center">
+                        <a href="#" class="js-open-form cta-primary px-10 py-5 rounded-xl text-xl inline-flex items-center" data-source="Секция Аудит">
                             Получить аудит бесплатно
                         </a>
                     </div>
@@ -731,7 +731,7 @@
             <div class="pr-8">
                  <h3 id="service-modal-title" class="text-3xl font-bold text-white mb-4"></h3>
                  <p id="service-modal-description" class="text-gray-400 leading-relaxed"></p>
-                 <a href="#" id="service-modal-cta" class="js-open-form cta-primary inline-block font-semibold px-6 py-3 rounded-lg mt-8">Хочу консультацию</a>
+                 <a href="#" id="service-modal-cta" class="js-open-form cta-primary inline-block font-semibold px-6 py-3 rounded-lg mt-8" data-source="Модалка услуги">Хочу консультацию</a>
             </div>
         </div>
     </div>
@@ -745,7 +745,7 @@
             <div class="pr-8">
                  <h3 id="case-modal-title" class="text-3xl font-bold text-white mb-6"></h3>
                  <div id="case-modal-content" class="text-gray-300 leading-relaxed space-y-4"></div>
-                 <a href="#" class="js-open-form cta-primary inline-block font-semibold px-6 py-3 rounded-lg mt-8">Хочу такой же проект</a>
+                 <a href="#" class="js-open-form cta-primary inline-block font-semibold px-6 py-3 rounded-lg mt-8" data-source="Модалка кейса">Хочу такой же проект</a>
             </div>
         </div>
     </div>
@@ -769,6 +769,7 @@
                      <div>
                         <input type="text" name="telegram" placeholder="Ваш Телеграм (@username)" required class="form-input block w-full rounded-md p-4">
                     </div>
+                    <input type="hidden" name="source" id="form-source" value="">
                     <div class="flex items-start gap-3">
                         <input type="checkbox" id="privacy-checkbox" name="privacy" required class="mt-1 w-5 h-5 rounded-none border border-[#F8F284] bg-transparent checked:bg-[#F8F284] checked:border-[#F8F284] focus:ring-2 focus:ring-[#F8F284] focus:ring-offset-0 cursor-pointer appearance-none relative checked:after:content-['✓'] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 checked:after:text-black checked:after:font-semibold checked:after:text-xs">
                         <label for="privacy-checkbox" class="text-sm text-gray-400 cursor-pointer">
@@ -1012,6 +1013,14 @@
             openFormButtons.forEach(button => {
                 button.addEventListener('click', (e) => {
                     e.preventDefault();
+
+                    // Сохраняем источник заявки
+                    const source = button.getAttribute('data-source') || 'Неизвестно';
+                    const formSourceInput = document.getElementById('form-source');
+                    if (formSourceInput) {
+                        formSourceInput.value = source;
+                    }
+
                     const anyOpenModal = document.querySelector('.modal-backdrop:not(.hidden)');
                     if(anyOpenModal) closeModal(anyOpenModal);
                     setTimeout(() => openFormModal(), anyOpenModal ? 300 : 0);
@@ -1080,7 +1089,8 @@
                 const data = {
                     name: formData.get('name'),
                     phone: formData.get('phone'),
-                    telegram: formData.get('telegram')
+                    telegram: formData.get('telegram'),
+                    source: formData.get('source') || 'Неизвестно'
                 };
 
                 // Проверка чекбокса
