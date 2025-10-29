@@ -483,20 +483,31 @@
                         </div>
                         <!-- TikTok Shop кейсы -->
                         <div id="tiktok-cases" class="tab-content grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                           <div class="custom-card rounded-2xl overflow-hidden group">
-                                <img src="https://placehold.co/600x400/111111/EC4899?text=BeautyGlow" alt="Кейс BeautyGlow" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
+                           <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="beauty">
+                                <img src="https://placehold.co/600x400/111111/EC4899?text=Beauty" alt="TikTok кейс Beauty" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-white">Косметический бренд</h3>
                                     <p class="text-gray-400 mt-2">Вирусный ролик (5 млн просмотров) привел к sold out за 48 часов.</p>
                                     <p class="mt-4 font-bold text-lg text-green-400">Продажи за 2 дня: $100k+</p>
+                                    <button class="case-details-btn mt-4 w-full bg-[#F8F284] text-black font-semibold px-4 py-2 rounded-lg hover:bg-[#FFF9A8]">Подробнее</button>
                                 </div>
                             </div>
-                           <div class="custom-card rounded-2xl overflow-hidden group">
-                                <img src="https://placehold.co/600x400/1C1C1E/F472B6?text=StyleTrend" alt="Кейс StyleTrend" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
+                           <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="diy">
+                                <img src="https://placehold.co/600x400/1C1C1E/F8F284?text=DIY+Kits" alt="TikTok кейс DIY" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-white">DIY наборы для творчества</h3>
+                                    <p class="text-gray-400 mt-2">Вирусные видео с процессом создания. Продано 25,000 наборов за месяц через TikTok Shop.</p>
+                                    <p class="mt-4 font-bold text-lg text-green-400">25,000 наборов/мес</p>
+                                    <button class="case-details-btn mt-4 w-full bg-[#F8F284] text-black font-semibold px-4 py-2 rounded-lg hover:bg-[#FFF9A8]">Подробнее</button>
+                                </div>
+                            </div>
+                           <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="fashion">
+                                <img src="https://placehold.co/600x400/111111/A78BFA?text=Fashion" alt="TikTok кейс Fashion" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-white">Модная одежда</h3>
                                     <p class="text-gray-400 mt-2">Построение воронки через UGC-контент от блогеров. ROAS x5.</p>
-                                    <p class="mt-4 font-bold text-lg text-green-400">ROAS: 5.2</p>
+                                    <p class="mt-4 font-bold text-lg text-green-400">ROAS: 5.2x</p>
+                                    <button class="case-details-btn mt-4 w-full bg-[#F8F284] text-black font-semibold px-4 py-2 rounded-lg hover:bg-[#FFF9A8]">Подробнее</button>
                                 </div>
                             </div>
                         </div>
@@ -1094,6 +1105,87 @@
                             <li>Увеличение продаж на 380% за Q4 (holiday season)</li>
                             <li>50,000+ единиц продано за год</li>
                             <li>Стабильный органический трафик: 70% от всех продаж</li>
+                        </ul>
+                    `
+                },
+                beauty: {
+                    title: 'Косметический бренд',
+                    content: `
+                        <h4 class="text-xl font-bold text-[#F8F284] mb-3">Задача</h4>
+                        <p class="mb-4">Запуск новой линейки органической косметики через TikTok Shop с нуля</p>
+
+                        <h4 class="text-xl font-bold text-[#F8F284] mb-3">Что было сделано</h4>
+                        <ul class="list-disc list-inside mb-4 space-y-1">
+                            <li>Создание вирусного контента с демонстрацией эффекта "до/после"</li>
+                            <li>Коллаборации с beauty-блогерами (100k+ подписчиков)</li>
+                            <li>TikTok Live продажи с демонстрацией продукта</li>
+                            <li>Стратегия flash sales с ограниченным запасом</li>
+                            <li>User-generated content кампания (#BeautyChallenge)</li>
+                            <li>Интеграция с TikTok Ads для масштабирования</li>
+                        </ul>
+
+                        <h4 class="text-xl font-bold text-[#F8F284] mb-3">Результаты</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Вирусный ролик набрал 5 млн просмотров за 48 часов</li>
+                            <li>Sold out всей партии (5,000 единиц) за 2 дня</li>
+                            <li>Продажи на $100,000+ за первые 48 часов</li>
+                            <li>CTR (Click-Through Rate): 8.5%</li>
+                            <li>Conversion Rate: 12% (в 3 раза выше среднего)</li>
+                            <li>3,000+ новых подписчиков в TikTok</li>
+                        </ul>
+                    `
+                },
+                diy: {
+                    title: 'DIY наборы для творчества',
+                    content: `
+                        <h4 class="text-xl font-bold text-[#F8F284] mb-3">Задача</h4>
+                        <p class="mb-4">Масштабирование продаж DIY наборов (эпоксидная смола, вышивка, декор) через TikTok Shop</p>
+
+                        <h4 class="text-xl font-bold text-[#F8F284] mb-3">Что было сделано</h4>
+                        <ul class="list-disc list-inside mb-4 space-y-1">
+                            <li>Серия вирусных видео с процессом создания (ASMR контент)</li>
+                            <li>Коллаборации с DIY-инфлюенсерами и крафт-блогерами</li>
+                            <li>Создание пошаговых туториалов в формате TikTok</li>
+                            <li>Запуск TikTok Spark Ads с лучшими органическими видео</li>
+                            <li>Кросс-промо через Pinterest и Instagram Reels</li>
+                            <li>Bundle-предложения (стартовые наборы для начинающих)</li>
+                        </ul>
+
+                        <h4 class="text-xl font-bold text-[#F8F284] mb-3">Результаты</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>25,000 наборов продано за месяц через TikTok Shop</li>
+                            <li>Средний чек: $35 за набор</li>
+                            <li>Ежемесячный оборот: $875,000</li>
+                            <li>15 видео собрали 1M+ просмотров каждое</li>
+                            <li>ROAS (Return on Ad Spend): 6.8x</li>
+                            <li>Repeat purchase rate: 23%</li>
+                        </ul>
+                    `
+                },
+                fashion: {
+                    title: 'Модная одежда',
+                    content: `
+                        <h4 class="text-xl font-bold text-[#F8F284] mb-3">Задача</h4>
+                        <p class="mb-4">Продвижение fashion-бренда молодежной одежды через TikTok Shop с использованием UGC</p>
+
+                        <h4 class="text-xl font-bold text-[#F8F284] mb-3">Что было сделано</h4>
+                        <ul class="list-disc list-inside mb-4 space-y-1">
+                            <li>Программа амбассадоров с микро-инфлюенсерами (10k-50k подписчиков)</li>
+                            <li>UGC-контент от реальных покупателей (#OutfitOfTheDay)</li>
+                            <li>TikTok Live Shopping с fashion показами</li>
+                            <li>Trend-джекинг: адаптация вирусных трендов под бренд</li>
+                            <li>Интеграция с TikTok Creator Marketplace</li>
+                            <li>Seasonal campaigns и коллаборации</li>
+                        </ul>
+
+                        <h4 class="text-xl font-bold text-[#F8F284] mb-3">Результаты</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>ROAS: 5.2x на платном трафике</li>
+                            <li>70% продаж от органического контента</li>
+                            <li>200+ UGC видео от покупателей</li>
+                            <li>Средний engagement rate: 9.5%</li>
+                            <li>Рост продаж на 340% за квартал</li>
+                            <li>50,000+ подписчиков в TikTok за 3 месяца</li>
                         </ul>
                     `
                 }
