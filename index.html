@@ -239,44 +239,71 @@
             transition: color 0.3s ease;
         }
 
-        /* Asymmetric Bento Grid Reviews Layout */
+        /* Reviews Layout: Mobile Slider / Desktop Bento Grid */
         .reviews-bento-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 200px;
+            position: relative;
+            overflow-x: auto;
+            overflow-y: hidden;
+            display: flex;
             gap: 1.5rem;
-            max-width: 1600px;
-            margin: 0 auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding-bottom: 1rem;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Hide scrollbar */
+        .reviews-bento-grid::-webkit-scrollbar {
+            display: none;
+        }
+        .reviews-bento-grid {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
         .review-screenshot {
             position: relative;
             overflow: hidden;
             border-radius: 1rem;
+            flex: 0 0 85%;
+            scroll-snap-align: center;
+            cursor: pointer;
         }
 
         .review-screenshot img {
             transition: transform 0.3s ease;
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
         }
 
         .review-screenshot:hover img {
             transform: scale(1.02);
         }
 
-        /* Mobile: Stack vertically */
-        .review-screenshot {
-            grid-column: span 4;
-            grid-row: span 2;
-        }
-
-        /* Tablet & Desktop: Asymmetric Bento Layout */
+        /* Desktop: Asymmetric Bento Grid */
         @media (min-width: 768px) {
             .reviews-bento-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
                 grid-auto-rows: 250px;
                 gap: 2rem;
+                max-width: 1600px;
+                margin: 0 auto;
+                overflow: visible;
             }
 
-            /* First row */
+            .review-screenshot {
+                flex: none;
+            }
+
+            .review-screenshot img {
+                height: 100%;
+            }
+        }
+
+        /* Asymmetric positioning for desktop */
+        @media (min-width: 768px) {
             .review-screenshot:nth-child(1) {
                 grid-column: span 2;
                 grid-row: span 2;
@@ -292,7 +319,6 @@
                 grid-row: span 1;
             }
 
-            /* Second row */
             .review-screenshot:nth-child(4) {
                 grid-column: span 1;
                 grid-row: span 2;
@@ -303,7 +329,6 @@
                 grid-row: span 1;
             }
 
-            /* Third row */
             .review-screenshot:nth-child(6) {
                 grid-column: span 1;
                 grid-row: span 1;
@@ -323,6 +348,103 @@
         @media (min-width: 1024px) {
             .reviews-bento-grid {
                 grid-auto-rows: 280px;
+            }
+        }
+
+        /* Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            z-index: 10001;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-prev,
+        .lightbox-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            z-index: 10001;
+        }
+
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-prev {
+            left: 2rem;
+        }
+
+        .lightbox-next {
+            right: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-prev {
+                left: 1rem;
+            }
+
+            .lightbox-next {
+                right: 1rem;
+            }
+
+            .lightbox-close {
+                top: 1rem;
+                right: 1rem;
             }
         }
 
@@ -649,6 +771,22 @@
                 </div>
             </div>
         </section>
+
+        <!-- Lightbox Modal -->
+        <div id="reviewLightbox" class="lightbox-modal">
+            <button class="lightbox-close" aria-label="Закрыть">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            <button class="lightbox-prev" aria-label="Предыдущий">
+                <i data-lucide="chevron-left" class="w-8 h-8"></i>
+            </button>
+            <button class="lightbox-next" aria-label="Следующий">
+                <i data-lucide="chevron-right" class="w-8 h-8"></i>
+            </button>
+            <div class="lightbox-content">
+                <img id="lightboxImage" src="" alt="Отзыв клиента">
+            </div>
+        </div>
 
 
         <!-- === Кто мы такие === -->
@@ -1498,6 +1636,78 @@
                         }, 100);
                     }
                 });
+            });
+
+            // --- Lightbox для отзывов ---
+            const lightbox = document.getElementById('reviewLightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const reviewScreenshots = document.querySelectorAll('.review-screenshot img');
+            const closeBtn = lightbox.querySelector('.lightbox-close');
+            const prevBtn = lightbox.querySelector('.lightbox-prev');
+            const nextBtn = lightbox.querySelector('.lightbox-next');
+
+            let currentImageIndex = 0;
+            const images = Array.from(reviewScreenshots).map(img => img.src);
+
+            function openLightbox(index) {
+                currentImageIndex = index;
+                lightboxImage.src = images[currentImageIndex];
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            function showNextImage() {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                lightboxImage.src = images[currentImageIndex];
+            }
+
+            function showPrevImage() {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                lightboxImage.src = images[currentImageIndex];
+            }
+
+            // Открытие lightbox при клике на изображение
+            reviewScreenshots.forEach((img, index) => {
+                img.parentElement.addEventListener('click', () => {
+                    openLightbox(index);
+                });
+            });
+
+            // Закрытие
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // Навигация
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showPrevImage();
+            });
+
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showNextImage();
+            });
+
+            // Клавиатурная навигация
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('active')) return;
+
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft') {
+                    showPrevImage();
+                } else if (e.key === 'ArrowRight') {
+                    showNextImage();
+                }
             });
 
         });
