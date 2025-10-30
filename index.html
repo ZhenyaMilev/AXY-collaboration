@@ -63,38 +63,48 @@
         }
         body {
             font-family: 'Raleway', sans-serif;
-            background-color: #111111;
-            color: #E5E7EB;
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            background: linear-gradient(180deg, #0a1628 0%, #111c30 25%, #1a2942 50%, #0f1b2e 75%, #0a1628 100%);
+            background-attachment: fixed;
+            color: #A0AEC0;
+            overflow-x: hidden;
             min-height: 100vh;
         }
         ::selection {
-            background-color: #F8F284;
-            color: #111111;
+            background: rgba(99, 179, 237, 0.3);
+            color: #FFFFFF;
         }
         h1, h2, h3, h4, .section-title {
             font-family: 'Raleway', sans-serif;
             font-weight: 800;
+            color: #FFFFFF;
         }
         .cta-primary {
-            background-color: #F8F284;
-            color: #111;
-            font-weight: 700;
-            transition: all 0.3s ease;
+            background: rgba(99, 179, 237, 0.15);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #FFFFFF;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px 0 rgba(99, 179, 237, 0.15);
         }
         .cta-primary:hover {
-            background-color: #FFF9A8;
+            background: rgba(99, 179, 237, 0.25);
+            border-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
+            box-shadow: 0 12px 40px 0 rgba(99, 179, 237, 0.25);
         }
         .cta-secondary {
-            background-color: transparent;
-            color: #F9FAFB;
-            border: 1px solid #373737;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
         }
         .cta-secondary:hover {
-            background-color: #272727;
-            border-color: #444;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
         }
         .section-title {
             font-size: 1.25rem; /* 20px for mobile */
@@ -109,23 +119,27 @@
             }
         }
         .section-subtitle {
-            font-size: 0.9375rem; /* 15px for mobile */
-            color: #9CA3AF;
+            font-size: 0.9375rem;
+            color: #8B98A8;
             margin-top: 1.5rem;
         }
         @media (min-width: 768px) {
             .section-subtitle {
-                font-size: 1.125rem; /* 18px for tablet and up */
+                font-size: 1.125rem;
             }
         }
         .custom-card {
-            background: #1C1C1E;
-            border: 1px solid #2D2D2F;
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .custom-card:hover {
-            border-color: #444;
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 179, 237, 0.3);
             transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(99, 179, 237, 0.15);
         }
 
         /* Portfolio case hover button */
@@ -460,7 +474,7 @@
             }
         }
 
-        /* Glassmorphism эффект для всего main */
+        /* Apple iOS-style ambient effects */
         main {
             position: relative;
         }
@@ -469,21 +483,19 @@
             position: fixed;
             inset: 0;
             background:
-                radial-gradient(circle at 20% 20%, rgba(248, 242, 132, 0.15), transparent 50%),
-                radial-gradient(circle at 80% 40%, rgba(168, 85, 247, 0.12), transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.1), transparent 50%),
-                radial-gradient(circle at 70% 70%, rgba(236, 72, 153, 0.08), transparent 50%);
-            filter: blur(100px);
-            opacity: 0.8;
+                radial-gradient(circle at 25% 20%, rgba(99, 179, 237, 0.08), transparent 50%),
+                radial-gradient(circle at 75% 30%, rgba(59, 130, 246, 0.06), transparent 50%),
+                radial-gradient(circle at 50% 70%, rgba(99, 179, 237, 0.05), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 152, 168, 0.04), transparent 50%);
+            filter: blur(80px);
+            opacity: 0.7;
             pointer-events: none;
             z-index: 0;
         }
 
-        /* Стеклянный эффект для всех секций */
+        /* Glassmorphism sections - iOS style */
         section {
             position: relative;
-            backdrop-filter: blur(20px);
-            background: rgba(17, 17, 17, 0.4);
             content-visibility: auto;
         }
 
