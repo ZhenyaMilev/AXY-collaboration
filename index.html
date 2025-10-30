@@ -510,8 +510,9 @@
 <body class="text-gray-300">
 
     <!-- === Хедер === -->
-    <header class="bg-black/30 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-800/50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <header class="sticky top-0 z-50">
+        <div class="mx-3 md:mx-6 mt-3 md:mt-4 rounded-2xl md:rounded-3xl" style="background: rgba(26, 41, 66, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.2); box-shadow: 0 8px 32px rgba(10, 22, 40, 0.3);">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="flex items-center">
                 <img src="logo.png" alt="AXY" class="h-10">
             </a>
@@ -534,20 +535,21 @@
                     <span></span>
                 </div>
             </button>
-        </div>
-        <!-- Мобильное меню -->
-        <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4">
-            <nav class="flex flex-col space-y-4">
-                 <a href="#cases" data-tab="amazon-cases" class="nav-tab-link text-gray-300 hover:text-white transition">Amazon</a>
-                 <a href="#cases" data-tab="tiktok-cases" class="nav-tab-link text-gray-300 hover:text-white transition">TikTok Shop</a>
-                 <a href="#cases" data-tab="shopify-cases" class="nav-tab-link text-gray-300 hover:text-white transition">Shopify</a>
-                 <a href="#cases" class="text-gray-300 hover:text-white transition">Кейсы</a>
-                 <a href="#team" class="text-gray-300 hover:text-white transition">Команда</a>
-                 <a href="#contacts" class="text-gray-300 hover:text-white transition">Контакты</a>
-                <div class="flex flex-col space-y-3 pt-4">
-                     <a href="#audit" class="js-open-form cta-primary w-full text-center text-sm font-semibold px-5 py-2.5 rounded-lg" data-source="Мобильное меню">Записаться на консультацию</a>
-                </div>
-            </nav>
+            </div>
+            <!-- Мобильное меню -->
+            <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4">
+                <nav class="flex flex-col space-y-4">
+                     <a href="#cases" data-tab="amazon-cases" class="nav-tab-link text-gray-300 hover:text-white transition">Amazon</a>
+                     <a href="#cases" data-tab="tiktok-cases" class="nav-tab-link text-gray-300 hover:text-white transition">TikTok Shop</a>
+                     <a href="#cases" data-tab="shopify-cases" class="nav-tab-link text-gray-300 hover:text-white transition">Shopify</a>
+                     <a href="#cases" class="text-gray-300 hover:text-white transition">Кейсы</a>
+                     <a href="#team" class="text-gray-300 hover:text-white transition">Команда</a>
+                     <a href="#contacts" class="text-gray-300 hover:text-white transition">Контакты</a>
+                    <div class="flex flex-col space-y-3 pt-4">
+                         <a href="#audit" class="js-open-form cta-primary w-full text-center text-sm font-semibold px-5 py-2.5 rounded-lg" data-source="Мобильное меню">Записаться на консультацию</a>
+                    </div>
+                </nav>
+            </div>
         </div>
     </header>
 
