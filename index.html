@@ -1116,6 +1116,39 @@
                 });
             });
 
+            // --- Скрытие/показ header при скролле ---
+            const header = document.querySelector('header');
+            let lastScrollTop = 0;
+            let scrollThreshold = 10; // Минимальное расстояние скролла для срабатывания
+            let isHeaderHidden = false;
+
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                // Игнорируем незначительные изменения скролла
+                if (Math.abs(scrollTop - lastScrollTop) < scrollThreshold) {
+                    return;
+                }
+
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Скроллим вниз и прошли больше 100px
+                    if (!isHeaderHidden) {
+                        header.style.transform = 'translateY(-100%)';
+                        header.style.transition = 'transform 0.3s ease-in-out';
+                        isHeaderHidden = true;
+                    }
+                } else {
+                    // Скроллим вверх
+                    if (isHeaderHidden) {
+                        header.style.transform = 'translateY(0)';
+                        header.style.transition = 'transform 0.3s ease-in-out';
+                        isHeaderHidden = false;
+                    }
+                }
+
+                lastScrollTop = scrollTop;
+            });
+
             // --- Данные для карточек услуг ---
             const servicesData = [
                 { id: 0, icon: 'rocket', title: 'Полный запуск под ключ', description: 'Мы берём ваш бренд от идеи до первых продаж. Рынок, продукт, упаковка, реклама — всё в одном цикле. Вы получаете готовую систему, которая начинает зарабатывать в долларах с первого дня выхода на рынок.' },
