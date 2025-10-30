@@ -15,7 +15,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     
     <!-- JSON-LD Structured Data for SEO -->
@@ -62,70 +62,90 @@
             scroll-behavior: smooth;
         }
         body {
-            font-family: 'Raleway', sans-serif;
-            background-color: #111111;
-            color: #E5E7EB;
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            background-attachment: fixed;
+            color: #E8E8E8;
+            overflow-x: hidden;
             min-height: 100vh;
+            letter-spacing: -0.01em;
         }
         ::selection {
-            background-color: #F8F284;
-            color: #111111;
+            background: linear-gradient(135deg, #D4AF37 0%, #F4E4C1 100%);
+            color: #0a0a0a;
         }
         h1, h2, h3, h4, .section-title {
-            font-family: 'Raleway', sans-serif;
-            font-weight: 800;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #FFFFFF;
         }
         .cta-primary {
-            background-color: #F8F284;
-            color: #111;
-            font-weight: 700;
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #D4AF37 0%, #F4E4C1 50%, #D4AF37 100%);
+            background-size: 200% 100%;
+            color: #0a0a0a;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
         }
         .cta-primary:hover {
-            background-color: #FFF9A8;
+            background-position: 100% 0;
             transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
         }
         .cta-secondary {
-            background-color: transparent;
-            color: #F9FAFB;
-            border: 1px solid #373737;
+            background: rgba(212, 175, 55, 0.05);
+            color: #D4AF37;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.02em;
             transition: all 0.3s ease;
         }
         .cta-secondary:hover {
-            background-color: #272727;
-            border-color: #444;
+            background: rgba(212, 175, 55, 0.15);
+            border-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
         }
         .section-title {
-            font-size: 1.25rem; /* 20px for mobile */
-            font-weight: 800;
-            line-height: 1.2;
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 1.15;
             color: #FFFFFF;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
         }
         @media (min-width: 768px) {
             .section-title {
-                font-size: 3rem; /* 48px for tablet and up */
+                font-size: 3.5rem;
+                line-height: 1.1;
             }
         }
         .section-subtitle {
-            font-size: 0.9375rem; /* 15px for mobile */
-            color: #9CA3AF;
+            font-size: 1rem;
+            color: #B8B8B8;
             margin-top: 1.5rem;
+            font-weight: 300;
+            line-height: 1.6;
         }
         @media (min-width: 768px) {
             .section-subtitle {
-                font-size: 1.125rem; /* 18px for tablet and up */
+                font-size: 1.25rem;
             }
         }
         .custom-card {
-            background: #1C1C1E;
-            border: 1px solid #2D2D2F;
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.6) 0%, rgba(22, 33, 62, 0.4) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .custom-card:hover {
-            border-color: #444;
-            transform: translateY(-4px);
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.2);
         }
 
         /* Portfolio case hover button */
@@ -460,7 +480,7 @@
             }
         }
 
-        /* Glassmorphism эффект для всего main */
+        /* Premium ambient lighting effects */
         main {
             position: relative;
         }
@@ -469,21 +489,21 @@
             position: fixed;
             inset: 0;
             background:
-                radial-gradient(circle at 20% 20%, rgba(248, 242, 132, 0.15), transparent 50%),
-                radial-gradient(circle at 80% 40%, rgba(168, 85, 247, 0.12), transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.1), transparent 50%),
-                radial-gradient(circle at 70% 70%, rgba(236, 72, 153, 0.08), transparent 50%);
-            filter: blur(100px);
-            opacity: 0.8;
+                radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.08), transparent 40%),
+                radial-gradient(circle at 85% 20%, rgba(212, 175, 55, 0.06), transparent 45%),
+                radial-gradient(circle at 50% 80%, rgba(212, 175, 55, 0.05), transparent 50%),
+                radial-gradient(circle at 30% 60%, rgba(244, 228, 193, 0.03), transparent 40%);
+            filter: blur(120px);
+            opacity: 0.6;
             pointer-events: none;
             z-index: 0;
         }
 
-        /* Стеклянный эффект для всех секций */
+        /* Premium glass effect for sections */
         section {
             position: relative;
-            backdrop-filter: blur(20px);
-            background: rgba(17, 17, 17, 0.4);
+            backdrop-filter: blur(30px);
+            background: rgba(10, 10, 10, 0.3);
             content-visibility: auto;
         }
 
