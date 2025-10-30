@@ -507,27 +507,50 @@
         }
 
         /* Team circle animation */
+        .team-circle-container {
+            animation: rotateCircle 30s linear infinite;
+        }
+
+        @keyframes rotateCircle {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
         .team-member {
-            animation: fadeInScale 0.6s ease-out forwards;
+            animation: counterRotate 30s linear infinite, fadeInScale 0.6s ease-out forwards;
             opacity: 0;
         }
-        .team-member:nth-child(3) { animation-delay: 0.1s; }
-        .team-member:nth-child(4) { animation-delay: 0.2s; }
-        .team-member:nth-child(5) { animation-delay: 0.3s; }
-        .team-member:nth-child(6) { animation-delay: 0.4s; }
-        .team-member:nth-child(7) { animation-delay: 0.5s; }
-        .team-member:nth-child(8) { animation-delay: 0.6s; }
-        .team-member:nth-child(9) { animation-delay: 0.7s; }
-        .team-member:nth-child(10) { animation-delay: 0.8s; }
+
+        @keyframes counterRotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+
+        .team-member:nth-child(3) { animation-delay: 0s, 0.1s; }
+        .team-member:nth-child(4) { animation-delay: 0s, 0.2s; }
+        .team-member:nth-child(5) { animation-delay: 0s, 0.3s; }
+        .team-member:nth-child(6) { animation-delay: 0s, 0.4s; }
+        .team-member:nth-child(7) { animation-delay: 0s, 0.5s; }
+        .team-member:nth-child(8) { animation-delay: 0s, 0.6s; }
+        .team-member:nth-child(9) { animation-delay: 0s, 0.7s; }
+        .team-member:nth-child(10) { animation-delay: 0s, 0.8s; }
 
         @keyframes fadeInScale {
             from {
                 opacity: 0;
-                transform: translate(-50%, -50%) scale(0.5);
+                scale: 0.5;
             }
             to {
                 opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
+                scale: 1;
             }
         }
 
