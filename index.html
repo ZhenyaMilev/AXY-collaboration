@@ -434,12 +434,24 @@
         }
 
         @media (max-width: 768px) {
+            .lightbox-prev,
+            .lightbox-next {
+                top: auto;
+                bottom: 2rem;
+                transform: translateY(0);
+            }
+
             .lightbox-prev {
-                left: 1rem;
+                left: 50%;
+                transform: translateX(-100%);
+                margin-left: -3rem;
             }
 
             .lightbox-next {
-                right: 1rem;
+                right: auto;
+                left: 50%;
+                transform: translateX(0);
+                margin-left: 1rem;
             }
 
             .lightbox-close {
