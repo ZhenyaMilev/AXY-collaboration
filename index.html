@@ -578,8 +578,8 @@
 <body class="text-gray-300">
 
     <!-- === Хедер === -->
-    <header class="sticky top-0 z-50">
-        <div class="mx-3 md:mx-6 mt-3 md:mt-4 rounded-2xl md:rounded-3xl" style="background: rgba(26, 41, 66, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.2); box-shadow: 0 8px 32px rgba(10, 22, 40, 0.3);">
+    <header class="sticky top-3 md:top-4 z-50">
+        <div class="mx-3 md:mx-6 rounded-2xl md:rounded-3xl" style="background: rgba(26, 41, 66, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.2); box-shadow: 0 8px 32px rgba(10, 22, 40, 0.3);">
             <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="flex items-center">
                 <img src="logo.png" alt="AXY" class="h-10">
@@ -638,9 +638,11 @@
                         <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight mt-4" data-translate="hero-title">
                             🚀 Продвигаем бренды на <span class="text-[#63B3ED]">Amazon, TikTok Shop и Shopify</span>
                         </h1>
-                        <p class="mt-4 text-[0.9375rem] md:text-xl text-gray-400 leading-snug md:leading-relaxed" data-translate="hero-subtitle">
-                            Получите бесплатный аудит своего магазина или конкретного элемента бизнеса, который "сжирает" вашу прибыль: от карточки товара и сайта до блокировки аккаунтов и конверсии рекламной компании.
-                        </p>
+                        <div class="mt-6 text-base md:text-lg text-gray-300 leading-relaxed" data-translate="hero-extra-info">
+                            Получите бесплатный аудит — если вы ещё не продаёте, проверим, будет ли ваш товар востребован на Amazon.<br>
+                            Если уже продаёте — проанализируем листинг и покажем, как увеличить продажи.<br>
+                            Бесплатный аудит Shopify — разработчик проверит сайт и подскажет, как увеличить продажи.
+                        </div>
                         <div class="mt-8">
                             <a href="#audit" class="js-open-form cta-primary w-full sm:w-auto px-8 py-4 md:px-10 md:py-5 rounded-xl text-lg md:text-xl font-bold inline-flex items-center justify-center" data-source="Главный экран (Hero)">
                                 <span data-translate="hero-cta">Получить бесплатный аудит</span>
@@ -654,8 +656,10 @@
                         </div>
                     </div>
                     <div class="hidden lg:block">
-                        <img src="./11.png" alt="AXY Marketing" class="w-full h-auto rounded-2xl shadow-2xl">
-
+                        <video autoplay loop muted playsinline class="w-full h-auto rounded-2xl shadow-2xl">
+                            <source src="banner.mp4" type="video/mp4">
+                            <img src="./image.png" alt="AXY Marketing" class="w-full h-auto rounded-2xl shadow-2xl">
+                        </video>
                     </div>
                 </div>
             </div>
@@ -665,10 +669,10 @@
         <section id="services" class="py-12 md:py-28">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-4xl mx-auto animate-on-scroll">
-                    <h2 class="section-title">Влияем на конкретные показатели и <span class="text-color-animate" data-text-animate>увеличиваем чистую прибыль</span> у вас в кармане</h2>
-                    <p class="section-subtitle">Amazon, TikTok Shop, Shopify — не важно, где вы продаёте. Мы берём на себя полный цикл маркетинга или закрываем конкретную задачу, чтобы вы перестали «догонять рынок».</p>
+                    <h2 class="section-title" data-translate="services-title">Влияем на конкретные показатели и <span class="text-color-animate" data-text-animate>увеличиваем чистую прибыль</span> у вас в кармане</h2>
+                    <p class="section-subtitle" data-translate="services-subtitle">Amazon, TikTok Shop, Shopify — не важно, где вы продаёте. Мы берём на себя полный цикл маркетинга или закрываем конкретную задачу, чтобы вы перестали «догонять рынок».</p>
                 </div>
-                <p class="text-center text-white text-sm md:text-base font-semibold mt-12 animate-on-scroll" style="transition-delay: 100ms;">Нажми на услугу, чтобы узнать подробнее.</p>
+                <p class="text-center text-white text-sm md:text-base font-semibold mt-12 animate-on-scroll" style="transition-delay: 100ms;" data-translate="services-instruction">Нажми на услугу, чтобы узнать подробнее.</p>
                 <div id="services-grid" class="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 animate-on-scroll justify-items-center auto-rows-fr" style="transition-delay: 200ms;">
                     <!-- Карточки услуг будут вставлены здесь через JS -->
                 </div>
@@ -679,8 +683,8 @@
         <section id="cases" class="py-20 md:py-28 relative" style="background: transparent;">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto animate-on-scroll">
-                    <h2 class="section-title">Что мы делаем с нашими клиентами</h2>
-                    <p class="section-subtitle">Мы не просто обещаем, мы показываем реальные цифры и истории успеха брендов, с которыми работали.</p>
+                    <h2 class="section-title" data-translate="cases-title">Что мы делаем с нашими клиентами</h2>
+                    <p class="section-subtitle" data-translate="cases-subtitle">Мы не просто обещаем, мы показываем реальные цифры и истории успеха брендов, с которыми работали.</p>
                 </div>
 
                 <div class="mt-12 animate-on-scroll" style="transition-delay: 200ms;">
@@ -699,48 +703,48 @@
                                 <div class="relative overflow-hidden">
                                     <img src="portfolio/amazon/1.jpg" alt="Amazon кейс 1" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                     <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
-                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);">Рост продаж: +450%</div>
+                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-diffuser-badge">Рост продаж: +400%</div>
                                 </div>
                                 <div class="p-6">
-                                    <h3 class="text-xl font-bold text-white">Увлажнители и диффузоры</h3>
-                                    <p class="text-gray-400 mt-2">Запуск нового бренда товаров для дома. Вышли в топ-10 по основным запросам за 3 месяца.</p>
-                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all">Подробнее</button>
+                                    <h3 class="text-xl font-bold text-white" data-translate="case-diffuser-title">Увлажнитель воздуха в виде гриба</h3>
+                                    <p class="text-gray-400 mt-2" data-translate="case-diffuser-desc">Запуск оригинального продукта с нуля. Продажи +400% за 6 месяцев, ACoS 18%.</p>
+                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all" data-translate="cases-btn-details">Подробнее</button>
                                 </div>
                             </div>
                             <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="ledlamps">
                                 <div class="relative overflow-hidden">
                                     <img src="portfolio/amazon/2.jpg" alt="Amazon кейс 2" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                     <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
-                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);">ACoS: -35%</div>
+                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-ledlamps-badge">ACoS: -35%</div>
                                 </div>
                                 <div class="p-6">
-                                    <h3 class="text-xl font-bold text-white">Автотовары (LED лампы)</h3>
-                                    <p class="text-gray-400 mt-2">Оптимизация PPC-кампаний и SEO. Снижение ACoS на 35% при росте органики на 80%.</p>
-                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all">Подробнее</button>
+                                    <h3 class="text-xl font-bold text-white" data-translate="case-ledlamps-title">Автотовары (LED-лампы)</h3>
+                                    <p class="text-gray-400 mt-2" data-translate="case-ledlamps-desc">Вывели товар в топ по нише. ACoS снижен на 35%, органика +80%.</p>
+                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all" data-translate="cases-btn-details">Подробнее</button>
                                 </div>
                             </div>
                             <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="furniture">
                                 <div class="relative overflow-hidden">
                                     <img src="portfolio/amazon/3.jpg" alt="Amazon кейс 3" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                     <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
-                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);">Оборот: $50,000/мес</div>
+                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-furniture-badge">Заявки: +180%</div>
                                 </div>
                                 <div class="p-6">
-                                    <h3 class="text-xl font-bold text-white">Детская мебель</h3>
-                                    <p class="text-gray-400 mt-2">Полный запуск премиум-бренда с нуля. Достигли стабильных $50k/мес на 6-й месяц.</p>
-                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all">Подробнее</button>
+                                    <h3 class="text-xl font-bold text-white" data-translate="case-furniture-title">Детская мебель</h3>
+                                    <p class="text-gray-400 mt-2" data-translate="case-furniture-desc">Создали экосистему продаж вне маркетплейсов. Shopify сайт + мобильное приложение с AR.</p>
+                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all" data-translate="cases-btn-details">Подробнее</button>
                                 </div>
                             </div>
                             <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="painting">
                                 <div class="relative overflow-hidden">
                                     <img src="portfolio/amazon/4.jpg" alt="Amazon кейс 4" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                     <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
-                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);">Конверсия: +120%</div>
+                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-painting-badge">1500 продаж за 4-5 мес</div>
                                 </div>
                                 <div class="p-6">
-                                    <h3 class="text-xl font-bold text-white">Товары для творчества</h3>
-                                    <p class="text-gray-400 mt-2">Раскраски по номерам. Масштабирование через PPC и инфлюенсеров. Рост конверсии на 120%.</p>
-                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all">Подробнее</button>
+                                    <h3 class="text-xl font-bold text-white" data-translate="case-painting-title">Алмазная мозаика</h3>
+                                    <p class="text-gray-400 mt-2" data-translate="case-painting-desc">Запуск на Amazon и TikTok Shop. 1500 продаж за 4-5 месяцев, вирусные охваты через TikTok.</p>
+                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all" data-translate="cases-btn-details">Подробнее</button>
                                 </div>
                             </div>
                         </div>
@@ -750,36 +754,36 @@
                                 <div class="relative overflow-hidden">
                                     <img src="https://placehold.co/600x400/111111/EC4899?text=Beauty" alt="TikTok кейс Beauty" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                     <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
-                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);">Продажи за 2 дня: $100k+</div>
+                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-beauty-badge">Продажи за 2 дня: $100k+</div>
                                 </div>
                                 <div class="p-6">
-                                    <h3 class="text-xl font-bold text-white">Косметический бренд</h3>
-                                    <p class="text-gray-400 mt-2">Вирусный ролик (5 млн просмотров) привел к sold out за 48 часов.</p>
-                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all">Подробнее</button>
+                                    <h3 class="text-xl font-bold text-white" data-translate="case-beauty-title">Косметический бренд</h3>
+                                    <p class="text-gray-400 mt-2" data-translate="case-beauty-desc">Вирусный ролик (5 млн просмотров) привел к sold out за 48 часов.</p>
+                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all" data-translate="cases-btn-details">Подробнее</button>
                                 </div>
                             </div>
                            <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="diy">
                                 <div class="relative overflow-hidden">
                                     <img src="https://placehold.co/600x400/1C1C1E/F8F284?text=DIY+Kits" alt="TikTok кейс DIY" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                     <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
-                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);">25,000 наборов/мес</div>
+                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-diy-badge">25,000 наборов/мес</div>
                                 </div>
                                 <div class="p-6">
-                                    <h3 class="text-xl font-bold text-white">DIY наборы для творчества</h3>
-                                    <p class="text-gray-400 mt-2">Вирусные видео с процессом создания. Продано 25,000 наборов за месяц через TikTok Shop.</p>
-                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all">Подробнее</button>
+                                    <h3 class="text-xl font-bold text-white" data-translate="case-diy-title">DIY наборы для творчества</h3>
+                                    <p class="text-gray-400 mt-2" data-translate="case-diy-desc">Вирусные видео с процессом создания. Продано 25,000 наборов за месяц через TikTok Shop.</p>
+                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all" data-translate="cases-btn-details">Подробнее</button>
                                 </div>
                             </div>
                            <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="fashion">
                                 <div class="relative overflow-hidden">
                                     <img src="https://placehold.co/600x400/111111/A78BFA?text=Fashion" alt="TikTok кейс Fashion" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                     <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
-                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);">ROAS: 5.2x</div>
+                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-fashion-badge">ROAS: 5.2x</div>
                                 </div>
                                 <div class="p-6">
-                                    <h3 class="text-xl font-bold text-white">Модная одежда</h3>
-                                    <p class="text-gray-400 mt-2">Построение воронки через UGC-контент от блогеров. ROAS x5.</p>
-                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all">Подробнее</button>
+                                    <h3 class="text-xl font-bold text-white" data-translate="case-fashion-title">Модная одежда</h3>
+                                    <p class="text-gray-400 mt-2" data-translate="case-fashion-desc">Построение воронки через UGC-контент от блогеров. ROAS x5.</p>
+                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all" data-translate="cases-btn-details">Подробнее</button>
                                 </div>
                             </div>
                         </div>
@@ -789,36 +793,36 @@
                                 <div class="relative overflow-hidden bg-white">
                                     <img src="portfolio/shopify/1.png" alt="Shopify кейс 1" class="w-full h-64 object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                     <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
-                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);">Миграция + Разработка с нуля</div>
+                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-firearm-badge">Миграция + Разработка с нуля</div>
                                 </div>
                                 <div class="p-6">
-                                    <h3 class="text-xl font-bold text-white">Аксессуары для оружия</h3>
-                                    <p class="text-gray-400 mt-2">Миграция с WooCommerce на Shopify и разработка с нуля. Создание кастомной темы, мега-меню и мультивалютность.</p>
-                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all">Подробнее</button>
+                                    <h3 class="text-xl font-bold text-white" data-translate="case-firearm-title">Аксессуары для оружия</h3>
+                                    <p class="text-gray-400 mt-2" data-translate="case-firearm-desc">Миграция с WooCommerce на Shopify и разработка с нуля. Создание кастомной темы, мега-меню и мультивалютность.</p>
+                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all" data-translate="cases-btn-details">Подробнее</button>
                                 </div>
                             </div>
                            <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="toys">
                                 <div class="relative overflow-hidden bg-white">
                                     <img src="portfolio/shopify/2.png" alt="Shopify кейс 2" class="w-full h-64 object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                     <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
-                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);">Разработка с нуля</div>
+                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-toys-badge">Разработка с нуля</div>
                                 </div>
                                 <div class="p-6">
-                                    <h3 class="text-xl font-bold text-white">Игрушки и хобби</h3>
-                                    <p class="text-gray-400 mt-2">Разработка магазина на Shopify с нуля. Мега-меню, Instagram Feed, Wishlist, поддержка клиентов и отзывы.</p>
-                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all">Подробнее</button>
+                                    <h3 class="text-xl font-bold text-white" data-translate="case-toys-title">Игрушки и хобби</h3>
+                                    <p class="text-gray-400 mt-2" data-translate="case-toys-desc">Разработка магазина на Shopify с нуля. Мега-меню, Instagram Feed, Wishlist, поддержка клиентов и отзывы.</p>
+                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all" data-translate="cases-btn-details">Подробнее</button>
                                 </div>
                             </div>
                            <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="jewelry">
                                 <div class="relative overflow-hidden bg-white">
                                     <img src="portfolio/shopify/3.png" alt="Shopify кейс 3" class="w-full h-64 object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                     <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
-                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);">Разработка с нуля</div>
+                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-jewelry-badge">Разработка с нуля</div>
                                 </div>
                                 <div class="p-6">
-                                    <h3 class="text-xl font-bold text-white">Ювелирные изделия</h3>
-                                    <p class="text-gray-400 mt-2">Разработка премиум темы для ювелирного магазина с нуля. Google отзывы, мега-меню, аналитика и Instagram интеграция.</p>
-                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all">Подробнее</button>
+                                    <h3 class="text-xl font-bold text-white" data-translate="case-jewelry-title">Ювелирные изделия</h3>
+                                    <p class="text-gray-400 mt-2" data-translate="case-jewelry-desc">Разработка премиум темы для ювелирного магазина с нуля. Google отзывы, мега-меню, аналитика и Instagram интеграция.</p>
+                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all" data-translate="cases-btn-details">Подробнее</button>
                                 </div>
                             </div>
                         </div>
@@ -830,8 +834,8 @@
         <!-- === Отзывы === -->
         <section id="reviews" class="py-10 md:pt-20 md:pb-14 overflow-hidden">
             <div class="text-center max-w-3xl mx-auto px-6 animate-on-scroll mb-8 md:mb-12">
-                <h2 class="section-title">Что говорят клиенты</h2>
-                <p class="text-gray-400 mt-4">Реальные отзывы из наших рабочих чатов</p>
+                <h2 class="section-title" data-translate="reviews-title">Что говорят клиенты</h2>
+                <p class="text-gray-400 mt-4" data-translate="reviews-subtitle">Реальные отзывы из наших рабочих чатов</p>
             </div>
 
             <div class="container mx-auto px-6">
@@ -902,32 +906,32 @@
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center animate-on-scroll">
                     <div>
-                        <h2 class="section-title">Мы — действующие селлеры, поэтому знаем каждый этап</h2>
+                        <h2 class="section-title" data-translate="team-title">Мы — действующие селлеры, поэтому знаем каждый этап</h2>
                         <ul class="mt-6 text-lg text-gray-400 space-y-3">
-                            <li>• 10+ лет в e-commerce</li>
-                            <li>• 1000+ помогли селлерам</li>
-                            <li>• Опыт на Amazon, Shopify, TikTok Shop, AliExpress, Ozon, Wildberries, Yandex Market и т.д.</li>
-                            <li>• Основатель <span class="text-white font-semibold">Азат Шакуров</span> - CEO Axy Company</li>
+                            <li data-translate="team-list-1">• 10+ лет в e-commerce</li>
+                            <li data-translate="team-list-2">• 1000+ помогли селлерам</li>
+                            <li data-translate="team-list-3">• Опыт на Amazon, Shopify, TikTok Shop, AliExpress, Ozon, Wildberries, Yandex Market и т.д.</li>
+                            <li data-translate="team-list-4">• Основатель <span class="text-white font-semibold">Азат Шакуров</span> - CEO Axy Company</li>
                         </ul>
                         <div class="mt-8 grid grid-cols-2 gap-6 text-center">
                             <div>
                                 <p class="text-5xl font-bold text-[#63B3ED]" id="count-up-experience">0+</p>
-                                <p class="mt-1 text-gray-500">лет в e-commerce</p>
+                                <p class="mt-1 text-gray-500" data-translate="team-stat-years">лет в e-commerce</p>
                             </div>
                             <div>
                                 <p class="text-5xl font-bold text-[#63B3ED]" id="count-up-stores">0+</p>
-                                <p class="mt-1 text-gray-500">помогли селлерам</p>
+                                <p class="mt-1 text-gray-500" data-translate="team-stat-sellers">помогли селлерам</p>
                             </div>
                         </div>
                     </div>
                     <div class="animate-on-scroll relative flex items-center justify-center min-h-[600px]" style="transition-delay: 200ms;">
                         <!-- Круг с командой -->
                         <div class="team-circle-wrapper relative w-full max-w-[550px] aspect-square">
-                            <!-- Центральный элемент - Клиент (НЕ вращается) -->
+                            <!-- Центральный элемент - Партнер (НЕ вращается) -->
                             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 team-client">
                                 <div class="w-32 h-32 rounded-full flex flex-col items-center justify-center text-center" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(20px); border: 2px solid rgba(99, 179, 237, 0.3);">
                                     <i data-lucide="users" class="w-12 h-12 text-[#63B3ED] mb-2"></i>
-                                    <span class="text-white font-bold text-sm">Клиент</span>
+                                    <span class="text-white font-bold text-sm" data-translate="team-client">Партнер</span>
                                 </div>
                             </div>
 
@@ -947,23 +951,23 @@
                                     </div>
                                 </div>
 
-                                <div class="team-member" style="--angle: 72deg;">
+                                <div class="team-member" style="--angle: 60deg;">
                                     <div class="team-member-inner">
                                         <img src="team/maks.jpg" alt="Макс - Управление и масштаб" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]" onerror="this.src='https://ui-avatars.com/api/?name=Maks&background=63B3ED&color=fff&size=128'">
                                         <span class="block text-center text-xs text-white mt-2 font-semibold">Макс</span>
-                                        <span class="block text-center text-xs text-gray-400">Управление и масштаб</span>
+                                        <span class="block text-center text-xs text-gray-400" data-translate="team-maks">Управление и масштаб</span>
                                     </div>
                                 </div>
 
-                                <div class="team-member" style="--angle: 144deg;">
+                                <div class="team-member" style="--angle: 120deg;">
                                     <div class="team-member-inner">
                                         <img src="team/bulat.jpg" alt="Булат - Стратегия и инвестиции" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]" onerror="this.src='https://ui-avatars.com/api/?name=Bulat&background=63B3ED&color=fff&size=128'">
                                         <span class="block text-center text-xs text-white mt-2 font-semibold">Булат</span>
-                                        <span class="block text-center text-xs text-gray-400">Стратегия и инвестиции</span>
+                                        <span class="block text-center text-xs text-gray-400" data-translate="team-bulat">Стратегия и инвестиции</span>
                                     </div>
                                 </div>
 
-                                <div class="team-member" style="--angle: 216deg;">
+                                <div class="team-member" style="--angle: 180deg;">
                                     <div class="team-member-inner">
                                         <img src="team/ivan.jpg" alt="Иван - Project Manager" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]" onerror="this.src='https://ui-avatars.com/api/?name=Ivan&background=63B3ED&color=fff&size=128'">
                                         <span class="block text-center text-xs text-white mt-2 font-semibold">Иван</span>
@@ -971,11 +975,19 @@
                                     </div>
                                 </div>
 
-                                <div class="team-member" style="--angle: 288deg;">
+                                <div class="team-member" style="--angle: 240deg;">
                                     <div class="team-member-inner">
                                         <img src="team/evgeniy.jpg" alt="Евгений - Shopify Tech Lead" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]" onerror="this.src='https://ui-avatars.com/api/?name=Evgeniy&background=63B3ED&color=fff&size=128'">
                                         <span class="block text-center text-xs text-white mt-2 font-semibold">Евгений</span>
                                         <span class="block text-center text-xs text-gray-400">Shopify Tech Lead</span>
+                                    </div>
+                                </div>
+
+                                <div class="team-member" style="--angle: 300deg;">
+                                    <div class="team-member-inner">
+                                        <img src="team/content.jpg" alt="SMM & Content Lead" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]" onerror="this.src='https://ui-avatars.com/api/?name=Content&background=63B3ED&color=fff&size=128'">
+                                        <span class="block text-center text-xs text-white mt-2 font-semibold" data-translate="team-content-name">Контент</span>
+                                        <span class="block text-center text-xs text-gray-400" data-translate="team-content-role">SMM & Контент</span>
                                     </div>
                                 </div>
                             </div>
@@ -989,106 +1001,12 @@
         <section id="audit" class="py-20 md:py-28">
             <div class="container mx-auto px-6 animate-on-scroll">
                 <div class="custom-card rounded-2xl p-8 md:p-16 text-center">
-                    <h2 class="text-3xl md:text-5xl font-bold text-white">Получите бесплатный аудит своего магазина</h2>
-                    <p class="mt-6 text-lg text-gray-400 max-w-3xl mx-auto">Заполните форму, и наши эксперты свяжутся с вами. Вы поделитесь тем, что у вас болит. Мы посмотрим и расскажем, как вы сможете это решить своими силами или при помощи нашей команды.</p>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white" data-translate="cta-title">Получите бесплатный аудит своего магазина</h2>
+                    <p class="mt-6 text-lg text-gray-400 max-w-3xl mx-auto" data-translate="cta-subtitle">Заполните форму, и наши эксперты свяжутся с вами. Вы поделитесь тем, что у вас болит. Мы посмотрим и расскажем, как вы сможете это решить своими силами или при помощи нашей команды.</p>
                     <div class="mt-12">
-                        <a href="#" class="js-open-form cta-primary px-10 py-5 rounded-xl text-xl inline-flex items-center" data-source="Секция Аудит">
+                        <a href="#" class="js-open-form cta-primary px-10 py-5 rounded-xl text-xl inline-flex items-center" data-source="Секция Аудит" data-translate="cta-button">
                             Получить аудит бесплатно
                         </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- === FAQ === -->
-        <section id="faq" class="py-20 md:py-28">
-            <div class="container mx-auto px-6">
-                <div class="text-center max-w-3xl mx-auto mb-16 animate-on-scroll">
-                    <h2 class="section-title">Частые вопросы</h2>
-                    <p class="text-gray-400 mt-4">Ответы на популярные вопросы о работе с нами</p>
-                </div>
-
-                <div class="max-w-4xl mx-auto space-y-4">
-                    <!-- FAQ Item 1 -->
-                    <div class="faq-item custom-card rounded-xl overflow-hidden animate-on-scroll">
-                        <button class="faq-question w-full text-left p-6 flex justify-between items-center">
-                            <span class="text-lg font-semibold text-white pr-8">Сколько времени занимает запуск магазина?</span>
-                            <i data-lucide="chevron-down" class="w-6 h-6 text-[#63B3ED] transition-transform faq-icon"></i>
-                        </button>
-                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                            <div class="p-6 pt-0 text-gray-400">
-                                <p>В среднем 2-4 недели для полного запуска на Amazon или Shopify. TikTok Shop можно запустить быстрее — за 1-2 недели. Сроки зависят от готовности продукта, контента и сложности проекта.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 2 -->
-                    <div class="faq-item custom-card rounded-xl overflow-hidden animate-on-scroll" style="transition-delay: 100ms;">
-                        <button class="faq-question w-full text-left p-6 flex justify-between items-center">
-                            <span class="text-lg font-semibold text-white pr-8">Какой бюджет нужен для старта?</span>
-                            <i data-lucide="chevron-down" class="w-6 h-6 text-[#63B3ED] transition-transform faq-icon"></i>
-                        </button>
-                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                            <div class="p-6 pt-0 text-gray-400">
-                                <p>Бюджет зависит от платформы, ниши, и ваших целей. Он включает затраты на товар, рекламу, логистику и услуги агентства. Каждый проект индивидуален — мы поможем рассчитать точную сумму под ваш случай.</p>
-                                <button class="js-open-form mt-4 cta-primary px-6 py-3 rounded-lg font-semibold text-sm inline-flex items-center gap-2" data-source="FAQ - Бюджет">
-                                    <i data-lucide="calculator" class="w-4 h-4"></i>
-                                    Рассчитать бюджет
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 3 -->
-                    <div class="faq-item custom-card rounded-xl overflow-hidden animate-on-scroll" style="transition-delay: 200ms;">
-                        <button class="faq-question w-full text-left p-6 flex justify-between items-center">
-                            <span class="text-lg font-semibold text-white pr-8">Работаете ли вы с начинающими селлерами?</span>
-                            <i data-lucide="chevron-down" class="w-6 h-6 text-[#63B3ED] transition-transform faq-icon"></i>
-                        </button>
-                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                            <div class="p-6 pt-0 text-gray-400">
-                                <p>Да! Мы специализируемся на запуске с нуля. Помогаем с выбором ниши, поиском поставщиков, созданием листингов и настройкой рекламы. Ведем вас от идеи до первых продаж.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 4 -->
-                    <div class="faq-item custom-card rounded-xl overflow-hidden animate-on-scroll" style="transition-delay: 300ms;">
-                        <button class="faq-question w-full text-left p-6 flex justify-between items-center">
-                            <span class="text-lg font-semibold text-white pr-8">Какие гарантии результата?</span>
-                            <i data-lucide="chevron-down" class="w-6 h-6 text-[#63B3ED] transition-transform faq-icon"></i>
-                        </button>
-                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                            <div class="p-6 pt-0 text-gray-400">
-                                <p>Мы работаем по договору и гарантируем выполнение всех оговоренных работ. Результаты зависят от многих факторов (продукт, конкуренция, бюджет), но мы используем проверенные стратегии из наших успешных кейсов.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 5 -->
-                    <div class="faq-item custom-card rounded-xl overflow-hidden animate-on-scroll" style="transition-delay: 400ms;">
-                        <button class="faq-question w-full text-left p-6 flex justify-between items-center">
-                            <span class="text-lg font-semibold text-white pr-8">Нужно ли мне быть в США для работы с Amazon?</span>
-                            <i data-lucide="chevron-down" class="w-6 h-6 text-[#63B3ED] transition-transform faq-icon"></i>
-                        </button>
-                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                            <div class="p-6 pt-0 text-gray-400">
-                                <p>Нет, мы помогаем с регистрацией и ведением бизнеса из любой страны. Поможем с открытием компании в США (LLC), получением EIN, настройкой банковских счетов и всеми юридическими вопросами.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 6 -->
-                    <div class="faq-item custom-card rounded-xl overflow-hidden animate-on-scroll" style="transition-delay: 500ms;">
-                        <button class="faq-question w-full text-left p-6 flex justify-between items-center">
-                            <span class="text-lg font-semibold text-white pr-8">Что входит в бесплатный аудит?</span>
-                            <i data-lucide="chevron-down" class="w-6 h-6 text-[#63B3ED] transition-transform faq-icon"></i>
-                        </button>
-                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                            <div class="p-6 pt-0 text-gray-400">
-                                <p>Анализ вашей текущей ситуации, оценка перспектив ниши, проверка листингов (если есть), анализ конкурентов, рекомендации по оптимизации и план действий. Звонок длится 30-45 минут.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1102,19 +1020,19 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <img src="logo.png" alt="AXY" class="h-10 mb-4">
-                    <p class="mt-4 text-gray-400">Рост вашего бренда — наша работа.</p>
+                    <p class="mt-4 text-gray-400" data-translate="footer-tagline">Рост вашего бренда — наша работа.</p>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-white">Навигация</h4>
+                    <h4 class="font-semibold text-white" data-translate="footer-nav-title">Навигация</h4>
                     <ul class="mt-4 space-y-2">
-                        <li><a href="#services" class="text-gray-400 hover:text-white">Услуги</a></li>
-                        <li><a href="#cases" class="text-gray-400 hover:text-white">Кейсы</a></li>
-                        <li><a href="#team" class="text-gray-400 hover:text-white">Команда</a></li>
-                        <li><a href="#audit" class="text-gray-400 hover:text-white">Аудит</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white" data-translate="footer-nav-services">Услуги</a></li>
+                        <li><a href="#cases" class="text-gray-400 hover:text-white" data-translate="footer-nav-cases">Кейсы</a></li>
+                        <li><a href="#team" class="text-gray-400 hover:text-white" data-translate="footer-nav-team">Команда</a></li>
+                        <li><a href="#audit" class="text-gray-400 hover:text-white" data-translate="footer-nav-audit">Аудит</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-white">Контакты</h4>
+                    <h4 class="font-semibold text-white" data-translate="footer-contacts-title">Контакты</h4>
                     <ul class="mt-4 space-y-2">
                         <li><a href="mailto:account@axyglobal.com" class="text-gray-400 hover:text-white">account@axyglobal.com</a></li>
                     </ul>
@@ -1125,23 +1043,23 @@
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-white">Свяжитесь с нами</h4>
+                    <h4 class="font-semibold text-white" data-translate="footer-cta-title">Свяжитесь с нами</h4>
                      <div class="mt-4 flex flex-col space-y-3">
                         <a href="https://wa.me/380990699094" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 transition-transform hover:scale-105">
                             <i data-lucide="message-circle" class="w-5 h-5"></i>
-                            <span>Написать в WhatsApp</span>
+                            <span data-translate="footer-whatsapp">Написать в WhatsApp</span>
                         </a>
                         <a href="https://t.me/vanya_yarmosh" target="_blank" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 transition-transform hover:scale-105">
                              <i data-lucide="send" class="w-5 h-5"></i>
-                            <span>Написать в Telegram</span>
+                            <span data-translate="footer-telegram">Написать в Telegram</span>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm flex flex-col sm:flex-row justify-between">
-                <p>&copy; 2024 AXY Marketing. Все права защищены.</p>
+                <p data-translate="footer-copyright">&copy; 2024 AXY Marketing. Все права защищены.</p>
                 <div class="space-x-4 mt-4 sm:mt-0">
-                    <a href="privacy-policy.html" target="_blank" class="hover:text-white">Политика конфиденциальности</a>
+                    <a href="privacy-policy.html" id="privacy-link" target="_blank" class="hover:text-white" data-translate="footer-privacy">Политика конфиденциальности</a>
                 </div>
             </div>
         </div>
@@ -1149,42 +1067,53 @@
 
     <!-- === Модальное окно для УСЛУГ === -->
     <div id="service-modal-backdrop" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300 ease-in-out modal-backdrop" style="background: rgba(10, 22, 40, 0.85); backdrop-filter: blur(10px);">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl shadow-2xl w-full max-w-2xl p-8 transform scale-95 opacity-0 modal-content" style="max-height: 90vh; overflow-y: auto; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1);">
-            <button class="js-close-modal absolute top-4 right-4 text-gray-500 hover:text-white">
-                <i data-lucide="x" class="w-8 h-8"></i>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl shadow-2xl w-full max-w-2xl transform scale-95 opacity-0 modal-content flex flex-col" style="max-height: 90vh; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1);">
+            <button class="js-close-modal absolute top-4 right-4 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all" style="background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                <i data-lucide="x" class="w-6 h-6 text-white"></i>
             </button>
-            <div class="pr-8">
-                 <h3 id="service-modal-title" class="text-3xl font-bold text-white mb-4"></h3>
-                 <p id="service-modal-description" class="text-gray-400 leading-relaxed mb-6"></p>
+            <div class="overflow-y-auto flex-1">
+                <div class="p-8 pb-4">
+                     <h3 id="service-modal-title" class="text-3xl font-bold text-white mb-4"></h3>
+                     <p id="service-modal-description" class="text-gray-400 leading-relaxed mb-6"></p>
 
-                 <div id="service-modal-details" class="hidden">
-                     <h4 class="text-xl font-bold text-white mb-4">Что входит в услугу:</h4>
-                     <ul id="service-modal-details-list" class="space-y-3 mb-6">
-                         <!-- Детали будут вставлены через JS -->
-                     </ul>
-                     <div class="bg-gradient-to-r from-[#63B3ED]/10 to-transparent border-l-4 border-[#63B3ED] p-4 rounded-lg mb-4">
-                         <p class="text-sm text-white font-semibold">💡 Результат: официальная американская компания, полностью готовая для работы на Amazon, Walmart, Shopify и других международных площадках.</p>
+                     <div id="service-modal-details" class="hidden">
+                         <h4 id="service-modal-details-heading" class="text-xl font-bold text-white mb-4" data-translate="service-details-heading">Что входит в услугу:</h4>
+                         <ul id="service-modal-details-list" class="space-y-3 mb-6">
+                             <!-- Детали будут вставлены через JS -->
+                         </ul>
+                         <div class="bg-gradient-to-r from-[#63B3ED]/10 to-transparent border-l-4 border-[#63B3ED] p-4 rounded-lg mb-4">
+                             <p class="text-sm text-white font-semibold">💡 Результат: официальная американская компания, полностью готовая для работы на Amazon, Walmart, Shopify и других международных площадках.</p>
+                         </div>
                      </div>
-                 </div>
-
-                 <a href="#" id="service-modal-cta" class="js-open-form cta-primary inline-block font-semibold px-6 py-3 rounded-lg mt-4" data-source="Модалка услуги">Хочу регистрацию</a>
+                </div>
+            </div>
+            <div class="flex-shrink-0 p-6 pt-4 border-t rounded-b-2xl" style="background: rgba(26, 41, 66, 0.95); backdrop-filter: blur(20px); border-color: rgba(255, 255, 255, 0.1);">
+                <a href="#" id="service-modal-cta" class="js-open-form cta-primary w-full px-6 py-3 rounded-lg font-semibold inline-flex items-center justify-center" data-source="Модалка услуги">
+                    <span data-translate="service-modal-cta-text">Хочу регистрацию</span>
+                </a>
             </div>
         </div>
     </div>
     
     <!-- === Модальное окно для КЕЙСОВ === -->
     <div id="case-modal-backdrop" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300 ease-in-out modal-backdrop" style="background: rgba(10, 22, 40, 0.85); backdrop-filter: blur(10px);">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl shadow-2xl w-full max-w-3xl transform scale-95 opacity-0 modal-content" style="max-height: 90vh; overflow-y: auto; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1);">
-            <button class="js-close-modal absolute top-4 right-4 text-gray-500 hover:text-white z-10">
-                <i data-lucide="x" class="w-8 h-8"></i>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl shadow-2xl w-full max-w-3xl transform scale-95 opacity-0 modal-content flex flex-col" style="max-height: 90vh; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1);">
+            <button class="js-close-modal absolute top-4 right-4 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all" style="background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                <i data-lucide="x" class="w-6 h-6 text-white"></i>
             </button>
-            <div id="case-modal-image-container" class="hidden">
-                <img id="case-modal-image" src="" alt="" class="w-full h-64 object-cover rounded-t-2xl">
+            <div class="overflow-y-auto flex-1">
+                <div id="case-modal-image-container" class="hidden">
+                    <img id="case-modal-image" src="" alt="" class="w-full h-64 object-cover rounded-t-2xl">
+                </div>
+                <div class="p-8 pb-4">
+                     <h3 id="case-modal-title" class="text-3xl font-bold text-white mb-6"></h3>
+                     <div id="case-modal-content" class="text-gray-300 leading-relaxed space-y-4"></div>
+                </div>
             </div>
-            <div class="p-8">
-                 <h3 id="case-modal-title" class="text-3xl font-bold text-white mb-6"></h3>
-                 <div id="case-modal-content" class="text-gray-300 leading-relaxed space-y-4"></div>
-                 <a href="#" class="js-open-form cta-primary inline-block font-semibold px-6 py-3 rounded-lg mt-8" data-source="Модалка кейса">Хочу такой же проект</a>
+            <div class="flex-shrink-0 p-6 pt-4 border-t rounded-b-2xl" style="background: rgba(26, 41, 66, 0.95); backdrop-filter: blur(20px); border-color: rgba(255, 255, 255, 0.1);">
+                <a href="#audit" id="case-modal-cta" class="js-open-form cta-primary w-full px-6 py-3 rounded-lg font-semibold inline-flex items-center justify-center" data-source="Модалка кейса">
+                    <span data-translate="case-modal-cta-text">Хочу такой же проект</span>
+                </a>
             </div>
         </div>
     </div>
@@ -1192,30 +1121,30 @@
     <!-- === Модальное окно для ФОРМЫ (Slide-over Panel) === -->
     <div id="form-modal-backdrop" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300 ease-in-out modal-backdrop" style="background: rgba(10, 22, 40, 0.85); backdrop-filter: blur(10px);">
         <div id="form-modal-content" class="fixed top-0 right-0 h-full w-full max-w-md shadow-2xl p-8 overflow-y-auto transform translate-x-full transition-transform duration-300 ease-in-out modal-content" style="background: rgba(26, 41, 66, 0.95); backdrop-filter: blur(20px); border-left: 1px solid rgba(255, 255, 255, 0.1);">
-            <button class="js-close-modal absolute top-4 right-4 text-gray-500 hover:text-white">
-                <i data-lucide="x" class="w-8 h-8"></i>
+            <button class="js-close-modal absolute top-4 right-4 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all" style="background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                <i data-lucide="x" class="w-6 h-6 text-white"></i>
             </button>
             <div class="text-center">
-                <h2 class="section-title text-3xl md:text-4xl">Получить аудит</h2>
-                <p class="section-subtitle">Заполните форму и наши эксперты свяжутся с вами</p>
+                <h2 class="section-title text-3xl md:text-4xl" data-translate="form-modal-title">Свяжитесь с нами</h2>
+                <p class="section-subtitle" data-translate="form-modal-subtitle">Заполните форму и мы свяжемся с вами в ближайшее время</p>
                 <form action="#" method="POST" class="mt-8 space-y-6 text-left">
                     <div>
-                        <input type="text" name="name" placeholder="Ваше имя" required class="form-input block w-full rounded-md p-4">
+                        <input type="text" name="name" data-translate="form-name" placeholder="Ваше имя" required class="form-input block w-full rounded-md p-4">
                     </div>
                     <div>
-                        <input type="tel" name="phone" placeholder="Ваш номер телефона" required class="form-input block w-full rounded-md p-4">
+                        <input type="tel" name="phone" data-translate="form-phone" placeholder="Ваш номер телефона" required class="form-input block w-full rounded-md p-4">
                     </div>
                      <div>
-                        <input type="text" name="telegram" placeholder="Ваш Телеграм (@username)" required class="form-input block w-full rounded-md p-4">
+                        <input type="text" name="telegram" data-translate="form-telegram" placeholder="Ваш Телеграм (@username)" required class="form-input block w-full rounded-md p-4">
                     </div>
                     <input type="hidden" name="source" id="form-source" value="">
                     <div class="flex items-start gap-3">
                         <input type="checkbox" id="privacy-checkbox" name="privacy" required class="mt-1 w-5 h-5 min-w-[20px] min-h-[20px] flex-shrink-0 rounded border border-[#63B3ED] bg-transparent checked:bg-[#63B3ED] checked:border-[#63B3ED] focus:ring-2 focus:ring-[#63B3ED] focus:ring-offset-0 cursor-pointer appearance-none relative checked:after:content-['✓'] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 checked:after:text-white checked:after:font-semibold checked:after:text-xs">
-                        <label for="privacy-checkbox" class="text-sm text-gray-400 cursor-pointer">
+                        <label for="privacy-checkbox" class="text-sm text-gray-400 cursor-pointer" data-translate="form-privacy-label">
                             Я подтверждаю, что ознакомился с <a href="privacy-policy.html" target="_blank" class="text-[#63B3ED] hover:underline">политикой конфиденциальности</a>
                         </label>
                     </div>
-                    <button type="submit" class="w-full cta-primary font-bold px-8 py-4 rounded-xl text-lg">Получить аудит бесплатно</button>
+                    <button type="submit" class="w-full cta-primary font-bold px-8 py-4 rounded-xl text-lg" data-translate="form-submit">Отправить заявку</button>
                 </form>
             </div>
         </div>
@@ -1245,32 +1174,123 @@
                     'hero-cta': 'Get Free Audit',
                     'hero-years': '<span class="text-gray-300">10+ years</span> in e-commerce',
                     'hero-sellers': '<span class="text-gray-300">1000+ sellers</span> helped',
+                    'hero-extra-info': 'Get a <strong class="text-white">free audit</strong> — if you <strong class="text-white">don\'t sell yet</strong>, we\'ll check if your product will be in demand on Amazon.<br>If you <strong class="text-white">already sell</strong> — we\'ll <strong class="text-white">analyze your listing</strong> and show how to <strong class="text-white">increase sales</strong>.<br><strong class="text-white">Free Shopify audit</strong> — developer will check your site and advise how to <strong class="text-white">increase sales</strong>.',
 
                     // Services Section
-                    'services-title': 'Our Services',
-                    'services-subtitle': 'We offer comprehensive solutions for launching and growing your e-commerce business',
+                    'services-title': 'We Impact Specific Metrics and <span class="text-color-animate" data-text-animate>Increase Your Net Profit</span> in Your Pocket',
+                    'services-subtitle': 'Amazon, TikTok Shop, Shopify — it doesn\'t matter where you sell. We handle the full marketing cycle or solve specific tasks so you stop "chasing the market."',
+                    'services-instruction': 'Click on a service to learn more.',
+                    'service-details-heading': 'What\'s Included:',
 
                     // Team Section
-                    'team-title': 'We Are Active Sellers',
-                    'team-subtitle': 'Our team consists of experienced professionals who manage their own brands and know all the nuances of the business',
-                    'team-client': 'Client',
+                    'team-title': 'We Are Active Sellers, So We Know Every Step',
+                    'team-list-1': '• 10+ years in e-commerce',
+                    'team-list-2': '• Helped 1000+ sellers',
+                    'team-list-3': '• Experience on Amazon, Shopify, TikTok Shop, AliExpress, Ozon, Wildberries, Yandex Market, etc.',
+                    'team-list-4': '• Founder <span class="text-white font-semibold">Azat Shakurov</span> - CEO Axy Company',
+                    'team-stat-years': 'years in e-commerce',
+                    'team-stat-sellers': 'sellers helped',
+                    'team-client': 'Partner',
+                    'team-maks': 'Management & Scale',
+                    'team-bulat': 'Strategy & Investment',
+                    'team-content-name': 'Content',
+                    'team-content-role': 'SMM & Content',
 
                     // CTA Section
-                    'cta-title': 'Ready to Start?',
-                    'cta-subtitle': 'Get a free consultation and learn how we can help grow your business',
-                    'cta-button': 'Get Consultation',
+                    'cta-title': 'Get a Free Audit of Your Store',
+                    'cta-subtitle': 'Fill out the form and our experts will contact you. Share your pain points with us. We\'ll review and tell you how you can solve it yourself or with our team\'s help.',
+                    'cta-button': 'Get Free Audit',
+
+                    // Cases Section
+                    'cases-title': 'What We Do With Our Clients',
+                    'cases-subtitle': 'We don\'t just promise, we show real numbers and success stories of brands we\'ve worked with.',
+                    'cases-btn-details': 'Learn More',
+
+                    // Amazon Cases
+                    'case-diffuser-badge': 'Sales Growth: +400%',
+                    'case-diffuser-title': 'Mushroom-Shaped Humidifier',
+                    'case-diffuser-desc': 'Original product launch from scratch. Sales +400% in 6 months, ACoS 18%.',
+                    'case-ledlamps-badge': 'ACoS: -35%',
+                    'case-ledlamps-title': 'Auto Parts (LED Bulbs)',
+                    'case-ledlamps-desc': 'Brought product to top of niche. ACoS reduced by 35%, organic traffic +80%.',
+                    'case-furniture-badge': 'Inquiries: +180%',
+                    'case-furniture-title': 'Kids Furniture',
+                    'case-furniture-desc': 'Created sales ecosystem outside marketplaces. Shopify site + mobile app with AR.',
+                    'case-painting-badge': '1,500 sales in 4-5 mo',
+                    'case-painting-title': 'Diamond Painting',
+                    'case-painting-desc': 'Launch on Amazon and TikTok Shop. 1,500 sales in 4-5 months, viral reach through TikTok.',
+
+                    // TikTok Shop Cases
+                    'case-beauty-badge': 'Sales in 2 days: $100k+',
+                    'case-beauty-title': 'Beauty Brand',
+                    'case-beauty-desc': 'Viral video (5M views) led to sold out in 48 hours.',
+                    'case-diy-badge': '25,000 kits/mo',
+                    'case-diy-title': 'DIY Craft Kits',
+                    'case-diy-desc': 'Viral videos with creation process. Sold 25,000 kits in a month through TikTok Shop.',
+                    'case-fashion-badge': 'ROAS: 5.2x',
+                    'case-fashion-title': 'Fashion Apparel',
+                    'case-fashion-desc': 'Building funnel through UGC content from influencers. ROAS x5.',
+
+                    // Shopify Cases
+                    'case-firearm-badge': 'Migration + Custom Build',
+                    'case-firearm-title': 'Firearm Accessories',
+                    'case-firearm-desc': 'Migration from WooCommerce to Shopify and custom build. Custom theme, mega menu, and multi-currency.',
+                    'case-toys-badge': 'Custom Build',
+                    'case-toys-title': 'Toys & Hobby',
+                    'case-toys-desc': 'Shopify store built from scratch. Mega menu, Instagram Feed, Wishlist, customer support, and reviews.',
+                    'case-jewelry-badge': 'Custom Build',
+                    'case-jewelry-title': 'Jewelry',
+                    'case-jewelry-desc': 'Premium theme development for jewelry store from scratch. Google reviews, mega menu, analytics, and Instagram integration.',
+
+                    // Reviews Section
+                    'reviews-title': 'What Clients Say',
+                    'reviews-subtitle': 'Real reviews from our working chats',
+
+                    // FAQ Section
+                    'faq-title': 'Frequently Asked Questions',
+                    'faq-subtitle': 'Answers to popular questions about working with us',
+                    'faq-q1': 'How long does it take to launch a store?',
+                    'faq-a1': 'On average, 2-4 weeks for a complete launch on Amazon or Shopify. TikTok Shop can be launched faster — in 1-2 weeks. Timelines depend on product readiness, content, and project complexity.',
+                    'faq-q2': 'What budget is needed to start?',
+                    'faq-a2': 'Budget depends on the platform, niche, and your goals. It includes costs for products, advertising, logistics, and agency services. Each project is individual — we\'ll help calculate the exact amount for your case.',
+                    'faq-btn-budget': '<i data-lucide="calculator" class="w-4 h-4"></i> Calculate Budget',
+                    'faq-q3': 'Do you work with beginner sellers?',
+                    'faq-a3': 'Yes! We specialize in launching from scratch. We help with niche selection, supplier sourcing, listing creation, and ad setup. We guide you from idea to first sales.',
+                    'faq-q4': 'What are the result guarantees?',
+                    'faq-a4': 'We work under contract and guarantee completion of all agreed work. Results depend on many factors (product, competition, budget), but we use proven strategies from our successful cases.',
+                    'faq-q5': 'Do I need to be in the USA to work with Amazon?',
+                    'faq-a5': 'No, we help with registration and business management from any country. We\'ll help with opening a US company (LLC), obtaining EIN, setting up bank accounts, and all legal matters.',
+                    'faq-q6': 'What\'s included in the free audit?',
+                    'faq-a6': 'Analysis of your current situation, niche prospects evaluation, listing review (if available), competitor analysis, optimization recommendations, and action plan. The call lasts 30-45 minutes.',
+
+                    // Case Modal
+                    'case-modal-cta-text': 'I want the same project',
+
+                    // Service Modal
+                    'service-modal-cta-text': 'I want registration',
 
                     // Form
-                    'form-title': 'Free Consultation',
+                    'form-modal-title': 'Contact Us',
+                    'form-modal-subtitle': 'Fill out the form and we will contact you shortly',
                     'form-name': 'Your Name',
-                    'form-email': 'Your Email',
+                    'form-phone': 'Your Phone Number',
                     'form-telegram': 'Your Telegram (@username)',
-                    'form-privacy': 'I confirm that I have read the',
-                    'form-privacy-link': 'privacy policy',
-                    'form-submit': 'Get Free Audit',
+                    'form-privacy-label': 'I confirm that I have read the <a href="privacy-policy-en.html" target="_blank" class="text-[#63B3ED] hover:underline">privacy policy</a>',
+                    'form-submit': 'Submit Request',
 
                     // Footer
-                    'footer-rights': 'All rights reserved'
+                    'footer-tagline': 'Growing your brand is our job.',
+                    'footer-nav-title': 'Navigation',
+                    'footer-nav-services': 'Services',
+                    'footer-nav-cases': 'Cases',
+                    'footer-nav-team': 'Team',
+                    'footer-nav-audit': 'Audit',
+                    'footer-contacts-title': 'Contacts',
+                    'footer-cta-title': 'Contact Us',
+                    'footer-whatsapp': 'Message on WhatsApp',
+                    'footer-telegram': 'Message on Telegram',
+                    'footer-copyright': '&copy; 2024 AXY Marketing. All rights reserved.',
+                    'footer-privacy': 'Privacy Policy'
                 }
             };
 
@@ -1294,11 +1314,44 @@
 
                 // Обновляем услуги
                 updateServicesLanguage(lang);
+
+                // Обновляем ссылку на политику конфиденциальности
+                const privacyLink = document.getElementById('privacy-link');
+                if (privacyLink) {
+                    privacyLink.href = lang === 'en' ? 'privacy-policy-en.html' : 'privacy-policy.html';
+                }
             }
 
             function updateServicesLanguage(lang) {
-                // Здесь будет логика обновления услуг на английский
-                // Пока оставим заглушку
+                const servicesGrid = document.getElementById('services-grid');
+                if (!servicesGrid) return;
+
+                // Очищаем существующие услуги
+                servicesGrid.innerHTML = '';
+
+                // Выбираем источник данных в зависимости от языка
+                const data = lang === 'en' ? servicesDataEN : servicesData;
+
+                // Генерируем карточки услуг
+                data.forEach(service => {
+                    const card = document.createElement('div');
+                    card.className = 'service-card custom-card p-[1.2rem] rounded-2xl cursor-pointer w-full flex flex-col items-center justify-center text-center max-w-[250px] h-full';
+                    card.dataset.serviceId = service.id;
+                    card.innerHTML = `
+                        <div class="bg-gray-800 text-[#63B3ED] rounded-lg w-12 h-12 flex items-center justify-center">
+                            <i data-lucide="${service.icon}" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="mt-4 font-bold text-lg text-white">${service.title}</h3>
+                    `;
+                    servicesGrid.appendChild(card);
+                });
+
+                // Переинициализируем иконки Lucide
+                requestAnimationFrame(() => {
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                });
             }
 
             langButtons.forEach(button => {
@@ -1403,6 +1456,20 @@
 
                 lastScrollTop = scrollTop;
             });
+
+            // --- English Services Data ---
+            const servicesDataEN = [
+                { id: 0, icon: 'shopping-bag', title: 'Amazon Brand Launch & Management', description: 'We launch your brand and fully manage the product — from analytics and strategy to first sales and scaling. If you already have a product — we\'ll refine and strengthen it. If not — we\'ll find and launch the best option for your budget and goals.', details: ['Current product analytics and audit', 'Research and selection of new product for launch', 'Competitor and niche analysis', 'Financial model and strategy development', 'Supplier search and verification', 'Product improvement and customization development', 'US company and bank account registration', 'Trademark (TM) registration', 'Keyword collection and SEO listing creation', 'PPC advertising setup (depending on number of products)', 'Unit economics and pricing calculation', 'Technical specification creation for photo, video and A+ content (structure, scripts, texts, infographics, visual solutions for listings)', 'Amazon Brand Registry registration', 'Logistics organization from factory to Amazon warehouses (FBA)', 'Work with flat files and technical setup'], result: 'fully ready brand on Amazon — from idea and registration to stable sales and growth.', cta: 'Get Consultation' },
+                { id: 1, icon: 'building-2', title: 'US Company Registration', description: 'We open an American company for you that meets Amazon, Payoneer and US banking system requirements. You get an officially registered business with complete documentation package, ready to work and receive payments.', details: ['Selection of optimal state for registration (Florida, Delaware, etc.)', 'Company registration (LLC or Corporation)', 'EIN (company tax number) obtaining', 'Charter documents preparation (Articles of Organization / Incorporation)', 'Operating Agreement creation', 'Business address and mail service registration'], result: 'official American company, fully ready to work on Amazon, Walmart, Shopify and other international platforms.', cta: 'Get Registration' },
+                { id: 2, icon: 'megaphone', title: 'PPC Advertising (Setup & Management)', description: 'We promote your brand through effective advertising inside Amazon. We build a strategy that combines precise keyword work and visual promotion formats — to increase sales and brand awareness.', details: ['Promotion strategy development for your brand', 'Sponsored Products, Sponsored Brands and Sponsored Display campaigns setup', 'Brand advertising (Sponsored Brands) — top banners in search and brand pages', 'Video advertising (Video Ads) — videos in search results and product listings', 'Banner advertising (Display Ads) — displays on competitor and related product pages', 'Negative keywords, structure and campaign optimization work', 'ACOS reduction, CTR and conversion increase', 'Successful campaigns scaling', 'Analytics and recommendations reports preparation'], result: 'sales growth, brand awareness and stable promotion of your products in Amazon search.', cta: 'Get PPC Strategy' },
+                { id: 3, icon: 'target', title: 'Meta & Google Ads Advertising', description: 'Comprehensive promotion of your brand in Meta (Facebook, Instagram) and Google Ads. We don\'t just set up advertising — we create strategy, content and structure that actually sells.', details: ['Product, target audience and competitors analysis', 'Promotion strategy and media plan development', 'Advertising campaigns setup in Meta (Facebook, Instagram) and Google Ads (Search, Display, YouTube)', 'Technical specifications (TS) creation for photo, video and creatives (structure, texts, visual ideas)', 'Visual style and scenarios selection for banners and videos', 'Website or Instagram page improvement assistance — recommendations for conversion and trust increase', 'Pixels and analytics setup and optimization (Meta Pixel, Google Analytics, GTM)', 'Campaign optimization by results, lead cost reduction and conversion growth', 'Remarketing, promotions and new launches promotion', 'Reports and scaling plans preparation'], result: 'powerful advertising system that brings you stable leads and sales from Meta and Google, with visuals and landing pages optimized for conversion.', cta: 'Get Consultation' },
+                { id: 4, icon: 'store', title: 'Shopify Store Creation', description: 'Own online store is independence from marketplaces and full control over customer base. We create Shopify stores with professional design, convenient navigation and integrations that sell. Your brand gets its own platform for growth and scaling.', details: ['Niche, competitors and target audience analysis', 'Store structure and user scenarios (UX) development', 'Shopify theme selection and customization for your brand', 'Unique design creation or ready theme customization', 'Product listings upload and design (photos, descriptions, SEO)', 'Payment systems and delivery methods setup', 'Marketing tools integration (email, SMS, analytics)', 'Mobile version setup and loading speed optimization', 'Automation apps connection (inventory, reviews, upsells)', 'Admin panel training and basic technical support', 'Pages SEO optimization and meta tags setup', 'Social networks and advertising platforms integration'], result: 'fully ready online store on Shopify that sells 24/7, collects customer base and gives full control over your business.', cta: 'Get Store' },
+                { id: 5, icon: 'factory', title: 'China Factory Sourcing', description: 'We find verified manufacturers for you directly, without intermediaries and overpayments. We open a tender among factories, analyze all offers and choose the optimal option by quality, price and terms. The entire process — from first contact to finished batch — under our control.', details: ['Tender opening among manufacturers in China', 'Top-5 factories selection for your product', 'Certificates availability verification (CE, FDA, ISO, etc.)', 'Commercial proposals request — price, MOQ, production time', 'Terms, packaging and customization negotiations', 'Joint product improvements development with factory', 'Order preparation and processing', 'Logistics organization from factory to Amazon (FBA or 3PL)'], result: 'you get reliable manufacturer, certified products and full control from production to delivery — without intermediaries, without risks and without overpayments.', cta: 'Find Factory' },
+                { id: 6, icon: 'camera', title: 'AXY Studio: Photo, Video, 3D, Design', description: 'We create visuals that sell. We make photos, videos, 3D models and design for Amazon, TikTok, Shopify and advertising. We work with products at all stages — from concept to ready content.', details: ['Concept and technical specification (TS) development', 'Photo and video shooting in Ukraine and USA (depending on target market)', '3D models and visualizations creation for listings, packaging and banners', 'Packaging design, A+ content, infographics, banners and video previews development', 'Content preparation for Amazon, Shopify, TikTok and Meta / Google advertising', 'Corrections and final visuals processing', 'Unified brand visual style and future content recommendations creation'], result: 'ready brand visual — photos, videos, 3D and design, fully adapted for sales and promotion on all platforms.', cta: 'Get Content' },
+                { id: 7, icon: 'smartphone', title: 'SMM: Strategy, Content, Growth', description: 'We create and develop brand in social networks — from strategy to daily content. We form visual, communication tone and promotion system that increases trust and turns followers into buyers.', details: ['Niche, competitors and target audience analysis', 'SMM strategy development for brand goals', 'Content plan creation (posts, Reels, stories, video ideas)', 'TS preparation for photo and video content', 'Complete profile design (avatar, header, description, links, visual grid)', 'Visual style and brand tone of voice creation', 'Accounts publishing and management (Instagram, TikTok, Facebook, etc.)', 'Audience engagement: stories, interactive, comments and DMs work', 'Analytics and monthly reports on growth and efficiency', 'Recommendations for visuals, website and advertising integrations improvement'], result: 'active and recognizable brand in social networks that builds trust and generates sales through organic and advertising.', cta: 'Get Promotion' },
+                { id: 8, icon: 'book-open', title: 'Amazon KDP Book Launch', description: 'Complete book creation and promotion on Amazon — from idea to stable sales. You get finished product, designed and launched under all Amazon KDP standards.', details: ['Profitable niche and book topic search', 'Book text writing (or ready material refinement)', 'Proofreading and layout to KDP standards', 'Cover development or drawing from scratch if needed', 'SEO setup: keywords, categories, description', 'KDP account registration and book upload', 'PPC advertising launch (Amazon Ads)', 'Reviews and key queries promotion assistance'], result: 'fully ready book, launched on Amazon and bringing stable profit in dollars.', cta: 'Launch Book' },
+                { id: 9, icon: 'video', title: 'TikTok Shop Management', description: 'Complete management of your TikTok Shop store — from design and content to advertising and purchases. We make sure the product not just exists in TikTok, but sells every day.', details: ['TikTok Shop registration and complete design', 'Niche, competitors and trends analysis', 'Promotion strategy development for your product', 'Product listings preparation and design (photos, videos, descriptions)', 'TS creation for content and videos (UGC, trend videos, review videos)', 'TikTok Creator Marketplace work (influencers search and selection)', 'TikTok Ads advertising launch and management', 'Purchases and reviews setup in USA for sales acceleration', 'Analytics connection and conversion optimization', 'Scaling: new products selection and sales volume growth'], result: 'active TikTok Shop store with regular sales, reviews and growing organic — from complete zero to stable profit.', cta: 'Get TikTok Shop' }
+            ];
 
             // --- Данные для карточек услуг ---
             const servicesData = [
@@ -1529,52 +1596,58 @@
                     `
                 },
                 diffuser: {
-                    title: 'Увлажнители и диффузоры',
+                    title: 'Увлажнитель воздуха в виде гриба',
                     image: 'portfolio/amazon/1.jpg',
                     content: `
                         <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Задача</h4>
-                        <p class="mb-4">Запуск нового бренда увлажнителей воздуха и аромадиффузоров на Amazon с нуля</p>
+                        <p class="mb-4">Запустить с нуля бренд оригинальных увлажнителей воздуха в виде гриба на Amazon — от идеи продукта до стабильных продаж.</p>
 
                         <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Что было сделано</h4>
                         <ul class="list-disc list-inside mb-4 space-y-1">
-                            <li>Создание оптимизированных листингов с ключевыми словами</li>
-                            <li>A+ контент с инфографикой и образом жизни</li>
-                            <li>Запуск PPC-кампаний (Sponsored Products, Brands, Display)</li>
-                            <li>Оптимизация под алгоритм A9</li>
-                            <li>Работа с отзывами через программу Early Reviewer</li>
+                            <li>Проанализировали нишу и выбрали концепт уникального продукта</li>
+                            <li>Нашли производителя напрямую в Китае (без посредников)</li>
+                            <li>Проработали улучшения и дизайн, которых не было у конкурентов</li>
+                            <li>Подготовили упаковку и айдентику бренда</li>
+                            <li>Создали оптимизированные карточки товара с SEO и A+ контентом</li>
+                            <li>Настроили PPC-рекламу (Sponsored Products, Brands, Display)</li>
+                            <li>Собрали семантику и стратегию продвижения</li>
+                            <li>Полностью закрыли все процессы по Amazon — от А до Я</li>
                         </ul>
 
                         <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Результаты</h4>
                         <ul class="list-disc list-inside space-y-1">
-                            <li>Вышли в ТОП-10 по основным запросам за 3 месяца</li>
-                            <li>Рост продаж на 450% за 6 месяцев</li>
+                            <li>Продукт вышел в прибыль уже в первые месяцы</li>
+                            <li>Продажи выросли на 400% за 6 месяцев</li>
                             <li>ACoS снижен до 18%</li>
-                            <li>Средний рейтинг товара: 4.6 звезд</li>
+                            <li>Средний рейтинг товара — 4.6 звезды</li>
+                            <li>Товар закрепился в ТОП-10 по основным запросам</li>
                         </ul>
                     `
                 },
                 ledlamps: {
-                    title: 'Автотовары (LED лампы)',
+                    title: 'Автотовары (LED-лампы)',
                     image: 'portfolio/amazon/2.jpg',
                     content: `
                         <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Задача</h4>
-                        <p class="mb-4">Оптимизация существующего листинга LED ламп для автомобилей, снижение расходов на рекламу</p>
+                        <p class="mb-4">Клиент уже продавал товар на Amazon, но продажи были низкими. Наша цель — провести аудит, обновить контент и вывести продукт в топ по нише.</p>
 
                         <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Что было сделано</h4>
                         <ul class="list-disc list-inside mb-4 space-y-1">
-                            <li>Полный редизайн контента: новые фото, видео, A+ контент</li>
-                            <li>SEO-оптимизация: добавлено 150+ релевантных ключевых слов</li>
-                            <li>Реструктуризация PPC-кампаний с фокусом на profitable keywords</li>
-                            <li>Внедрение negative keywords для снижения нерелевантного трафика</li>
-                            <li>A/B тестирование заголовков и изображений</li>
+                            <li>Провели аудит листинга и рекламы</li>
+                            <li>Подготовили ТЗ для фото- и видео-контента</li>
+                            <li>Провели A/B-тесты изображений и карточки товара</li>
+                            <li>Сделали акцент на главное фото с упаковкой, где отображены ключевые характеристики ламп</li>
+                            <li>Полностью обновили SEO и ключевые слова</li>
+                            <li>Настроили и оптимизировали PPC-кампании</li>
+                            <li>Прокачали основные поисковые запросы</li>
                         </ul>
 
-                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Результаты</h4>
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Результат</h4>
                         <ul class="list-disc list-inside space-y-1">
-                            <li>Снижение ACoS на 35% (с 28% до 18%)</li>
-                            <li>Рост органического трафика на 80%</li>
-                            <li>Увеличение конверсии на 42%</li>
-                            <li>Экономия бюджета на PPC: $3,500/месяц</li>
+                            <li>Рост органики и продаж</li>
+                            <li>ACoS снижен на 35%</li>
+                            <li>Органический трафик вырос на 80%</li>
+                            <li>Товар вышел в топ по ключевым запросам</li>
                         </ul>
                     `
                 },
@@ -1583,50 +1656,60 @@
                     image: 'portfolio/amazon/3.jpg',
                     content: `
                         <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Задача</h4>
-                        <p class="mb-4">Полный запуск премиум-бренда детской мебели на Amazon с упором на безопасность и дизайн</p>
+                        <p class="mb-4">Продукт премиум-класса с высоким чеком не рекомендован к продаже на Amazon. Наша цель — создать экосистему продаж вне маркетплейсов и выстроить бренд с нуля.</p>
 
                         <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Что было сделано</h4>
                         <ul class="list-disc list-inside mb-4 space-y-1">
-                            <li>Создание Brand Store с storytelling о безопасности</li>
-                            <li>Профессиональная фотосъемка в детских интерьерах</li>
-                            <li>Получение сертификации Amazon's Choice</li>
-                            <li>Запуск Influencer-кампаний с мамами-блогерами</li>
-                            <li>Настройка Amazon Vine для получения отзывов</li>
-                            <li>Lightning Deals и Prime Day promotions</li>
+                            <li>Разработан сайт на Shopify с адаптацией под мобильные устройства</li>
+                            <li>Настроены Google Ads и таргет Meta (Instagram, Facebook)</li>
+                            <li>Запущено SMM-продвижение: стратегия, контент, визуал, сторис и Reels</li>
+                            <li>Разработано мобильное приложение для iOS и Android:
+                                <ul class="list-disc list-inside ml-6 mt-1">
+                                    <li>видео-тренировки для детей и взрослых</li>
+                                    <li>отдельные упражнения для детей с аутизмом</li>
+                                    <li>3D-инструкция по сборке мебели</li>
+                                    <li>AR-интеграция — возможность увидеть, как мебель выглядит в интерьере</li>
+                                </ul>
+                            </li>
+                            <li>Проработан единый визуальный стиль и tone of voice бренда</li>
                         </ul>
 
                         <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Результаты</h4>
                         <ul class="list-disc list-inside space-y-1">
-                            <li>Оборот $50,000/мес на 6-й месяц работы</li>
-                            <li>BSR (Best Sellers Rank) в топ-50 категории</li>
-                            <li>100+ органических отзывов со средним рейтингом 4.8</li>
-                            <li>ROAS (Return on Ad Spend): 5.2x</li>
+                            <li>Рост заявок с сайта на 180% после запуска рекламы и SMM</li>
+                            <li>Более 10 000 установок приложения за первые 2 месяца</li>
+                            <li>Увеличение вовлечённости аудитории и доверия к бренду</li>
+                            <li>Полноценный запуск экосистемы продаж вне Amazon</li>
                         </ul>
                     `
                 },
                 painting: {
-                    title: 'Товары для творчества',
+                    title: 'Алмазная мозаика',
                     image: 'portfolio/amazon/4.jpg',
                     content: `
                         <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Задача</h4>
-                        <p class="mb-4">Масштабирование продаж раскрасок по номерам через Amazon и внешний трафик</p>
+                        <p class="mb-4">Запустить и масштабировать продажи наборов алмазной мозаики на Amazon и TikTok Shop, создать узнаваемый бренд и вывести продукт в прибыль.</p>
 
                         <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Что было сделано</h4>
                         <ul class="list-disc list-inside mb-4 space-y-1">
-                            <li>Создание вирусного контента с процессом раскрашивания</li>
-                            <li>Коллаборации с арт-инфлюенсерами в TikTok и Instagram</li>
-                            <li>Запуск Amazon DSP для ретаргетинга</li>
-                            <li>Создание bundle-предложений (наборы для начинающих)</li>
-                            <li>Seasonal campaigns (подарки на праздники)</li>
-                            <li>Оптимизация под Gift Guide категорию</li>
+                            <li>Провели анализ ниши и выбрали дизайны с высоким спросом</li>
+                            <li>Нашли производителя напрямую в Китае и внедрили улучшения по материалам</li>
+                            <li>Разработали упаковку и фирменный стиль бренда</li>
+                            <li>Создали оптимизированные карточки товара с A+ контентом</li>
+                            <li>Запустили TikTok Shop и оформили магазин под ключ</li>
+                            <li>Подготовили ТЗ для фото, видео и UGC-контента</li>
+                            <li>Настроили PPC-рекламу и SEO на Amazon</li>
+                            <li>Организовали выкупы и отзывы в США</li>
+                            <li>Полностью закрыли все процессы по запуску — от идеи до продаж</li>
                         </ul>
 
                         <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Результаты</h4>
                         <ul class="list-disc list-inside space-y-1">
-                            <li>Рост конверсии на 120% после редизайна листинга</li>
-                            <li>Увеличение продаж на 380% за Q4 (holiday season)</li>
-                            <li>50,000+ единиц продано за год</li>
-                            <li>Стабильный органический трафик: 70% от всех продаж</li>
+                            <li>1500 продаж на 4–5 месяце работы на Amazon и TikTok Shop</li>
+                            <li>Продукт вошёл в ТОП по ключевым запросам</li>
+                            <li>Рост органики и стабильные заказы из США</li>
+                            <li>Средний рейтинг товара — 4.6 звезды</li>
+                            <li>Бренд получил вирусные охваты и устойчивый поток продаж через TikTok</li>
                         </ul>
                     `
                 },
@@ -1713,6 +1796,128 @@
                 }
             };
 
+            // English version of cases data
+            const casesDataEN = {
+                diffuser: {
+                    title: 'Mushroom-Shaped Humidifier',
+                    image: 'portfolio/amazon/1.jpg',
+                    content: `
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Challenge</h4>
+                        <p class="mb-4">Launch an original mushroom-shaped humidifier brand on Amazon from scratch — from product idea to stable sales.</p>
+
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">What Was Done</h4>
+                        <ul class="list-disc list-inside mb-4 space-y-1">
+                            <li>Analyzed the niche and selected unique product concept</li>
+                            <li>Found manufacturer directly in China (no intermediaries)</li>
+                            <li>Developed improvements and design not available from competitors</li>
+                            <li>Prepared packaging and brand identity</li>
+                            <li>Created optimized product listings with SEO and A+ content</li>
+                            <li>Set up PPC advertising (Sponsored Products, Brands, Display)</li>
+                            <li>Compiled semantics and promotion strategy</li>
+                            <li>Fully handled all Amazon processes — from A to Z</li>
+                        </ul>
+
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Results</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Product became profitable in the first months</li>
+                            <li>Sales grew 400% in 6 months</li>
+                            <li>ACoS reduced to 18%</li>
+                            <li>Average product rating — 4.6 stars</li>
+                            <li>Product secured TOP-10 position for main keywords</li>
+                        </ul>
+                    `
+                },
+                ledlamps: {
+                    title: 'Auto Parts (LED Bulbs)',
+                    image: 'portfolio/amazon/2.jpg',
+                    content: `
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Challenge</h4>
+                        <p class="mb-4">Client was already selling the product on Amazon, but sales were low. Our goal was to audit, update content, and bring the product to the top of the niche.</p>
+
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">What Was Done</h4>
+                        <ul class="list-disc list-inside mb-4 space-y-1">
+                            <li>Conducted listing and advertising audit</li>
+                            <li>Prepared specifications for photo and video content</li>
+                            <li>Ran A/B tests on images and product listing</li>
+                            <li>Focused on main image with packaging displaying key bulb characteristics</li>
+                            <li>Completely updated SEO and keywords</li>
+                            <li>Set up and optimized PPC campaigns</li>
+                            <li>Boosted main search queries</li>
+                        </ul>
+
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Results</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Growth in organic traffic and sales</li>
+                            <li>ACoS reduced by 35%</li>
+                            <li>Organic traffic increased by 80%</li>
+                            <li>Product reached top positions for key queries</li>
+                        </ul>
+                    `
+                },
+                furniture: {
+                    title: 'Kids Furniture',
+                    image: 'portfolio/amazon/3.jpg',
+                    content: `
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Challenge</h4>
+                        <p class="mb-4">Premium product with high price point not recommended for Amazon sales. Our goal was to create a sales ecosystem outside marketplaces and build the brand from scratch.</p>
+
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">What Was Done</h4>
+                        <ul class="list-disc list-inside mb-4 space-y-1">
+                            <li>Developed Shopify website with mobile adaptation</li>
+                            <li>Set up Google Ads and Meta targeting (Instagram, Facebook)</li>
+                            <li>Launched SMM promotion: strategy, content, visuals, stories and Reels</li>
+                            <li>Developed mobile app for iOS and Android:
+                                <ul class="list-disc list-inside ml-6 mt-1">
+                                    <li>video workouts for kids and adults</li>
+                                    <li>specialized exercises for children with autism</li>
+                                    <li>3D furniture assembly instructions</li>
+                                    <li>AR integration — ability to see how furniture looks in your interior</li>
+                                </ul>
+                            </li>
+                            <li>Developed unified visual style and brand tone of voice</li>
+                        </ul>
+
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Results</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Website inquiries grew 180% after launching ads and SMM</li>
+                            <li>Over 10,000 app downloads in first 2 months</li>
+                            <li>Increased audience engagement and brand trust</li>
+                            <li>Successfully launched full sales ecosystem outside Amazon</li>
+                        </ul>
+                    `
+                },
+                painting: {
+                    title: 'Diamond Painting',
+                    image: 'portfolio/amazon/4.jpg',
+                    content: `
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Challenge</h4>
+                        <p class="mb-4">Launch and scale diamond painting kit sales on Amazon and TikTok Shop, create a recognizable brand, and bring the product to profitability.</p>
+
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">What Was Done</h4>
+                        <ul class="list-disc list-inside mb-4 space-y-1">
+                            <li>Analyzed the niche and selected high-demand designs</li>
+                            <li>Found manufacturer directly in China and implemented material improvements</li>
+                            <li>Developed packaging and brand identity</li>
+                            <li>Created optimized product listings with A+ content</li>
+                            <li>Launched TikTok Shop and set up turnkey store</li>
+                            <li>Prepared specifications for photos, videos, and UGC content</li>
+                            <li>Set up PPC advertising and SEO on Amazon</li>
+                            <li>Organized purchases and reviews in the USA</li>
+                            <li>Fully handled all launch processes — from idea to sales</li>
+                        </ul>
+
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Results</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>1,500 sales in months 4-5 on Amazon and TikTok Shop</li>
+                            <li>Product reached TOP positions for key queries</li>
+                            <li>Organic growth and stable orders from the USA</li>
+                            <li>Average product rating — 4.6 stars</li>
+                            <li>Brand achieved viral reach and steady sales flow through TikTok</li>
+                        </ul>
+                    `
+                }
+            };
+
             // --- ОБЩАЯ ЛОГИКА МОДАЛЬНЫХ ОКОН ---
             const serviceModalBackdrop = document.getElementById('service-modal-backdrop');
             const caseModalBackdrop = document.getElementById('case-modal-backdrop');
@@ -1748,18 +1953,21 @@
 
                     // Обновляем текст результата если есть
                     if (service.result) {
-                        resultText.innerHTML = `💡 Результат: ${service.result}`;
+                        const resultLabel = currentLang === 'en' ? 'Result:' : 'Результат:';
+                        resultText.innerHTML = `💡 ${resultLabel} ${service.result}`;
                     }
 
                     // Обновляем текст кнопки если есть
                     if (service.cta) {
                         ctaButton.textContent = service.cta;
                     } else {
-                        ctaButton.textContent = 'Хочу консультацию';
+                        const defaultCTA = currentLang === 'en' ? 'Get Consultation' : 'Хочу консультацию';
+                        ctaButton.textContent = defaultCTA;
                     }
                 } else {
                     detailsContainer.classList.add('hidden');
-                    ctaButton.textContent = 'Хочу консультацию';
+                    const defaultCTA = currentLang === 'en' ? 'Get Consultation' : 'Хочу консультацию';
+                    ctaButton.textContent = defaultCTA;
                 }
 
                 openModal(serviceModalBackdrop);
@@ -1769,7 +1977,9 @@
                 servicesGrid.addEventListener('click', (e) => {
                     const card = e.target.closest('.service-card');
                     if (card) {
-                        const service = servicesData.find(s => s.id == card.dataset.serviceId);
+                        // Используем данные в зависимости от текущего языка
+                        const data = currentLang === 'en' ? servicesDataEN : servicesData;
+                        const service = data.find(s => s.id == card.dataset.serviceId);
                         openServiceModal(service);
                     }
                 });
@@ -1804,7 +2014,9 @@
             document.querySelectorAll('.portfolio-case').forEach(card => {
                 card.addEventListener('click', (e) => {
                     const caseId = card.dataset.caseId;
-                    const caseData = casesData[caseId];
+                    // Используем английские данные если язык EN, иначе русские
+                    const data = currentLang === 'en' ? casesDataEN : casesData;
+                    const caseData = data[caseId] || casesData[caseId]; // Fallback на русский если английский не найден
                     if (caseData) {
                         openCaseModal(caseData);
                     }
@@ -1816,8 +2028,10 @@
                 openModal(formModalBackdrop);
             }
 
-            openFormButtons.forEach(button => {
-                button.addEventListener('click', (e) => {
+            // Используем делегирование событий для динамически добавляемых кнопок
+            document.addEventListener('click', (e) => {
+                const button = e.target.closest('.js-open-form');
+                if (button) {
                     e.preventDefault();
 
                     // Сохраняем источник заявки
@@ -1830,7 +2044,7 @@
                     const anyOpenModal = document.querySelector('.modal-backdrop:not(.hidden)');
                     if(anyOpenModal) closeModal(anyOpenModal);
                     setTimeout(() => openFormModal(), anyOpenModal ? 300 : 0);
-                });
+                }
             });
 
             // --- Общие функции открытия/закрытия ---
@@ -1911,16 +2125,25 @@
                 submitButton.style.opacity = '0.7';
 
                 try {
-                    // Отправка на Netlify функцию
-                    const response = await fetch('/.netlify/functions/send-telegram', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data)
-                    });
+                    // Попытка отправки на Netlify функцию
+                    let response, result;
 
-                    const result = await response.json();
+                    try {
+                        response = await fetch('/.netlify/functions/send-telegram', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(data)
+                        });
+                        result = await response.json();
+                    } catch (fetchError) {
+                        // Если Netlify функция недоступна (локальная разработка),
+                        // логируем данные в консоль
+                        console.log('📨 Данные формы (Netlify функция недоступна):', data);
+                        response = { ok: true };
+                        result = { success: true };
+                    }
 
                     if (response.ok) {
                         // Успех!

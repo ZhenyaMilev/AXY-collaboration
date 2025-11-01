@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightbulb Icon - SVG Editor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .preview-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+        }
+
+        #svgPreview {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            font-weight: 600;
+            color: #555;
+            font-size: 14px;
+        }
+
+        input[type="color"] {
+            width: 100%;
+            height: 50px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        input[type="color"]:hover {
+            border-color: #667eea;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-copy {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .btn-copy:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245, 87, 108, 0.4);
+        }
+
+        .btn-reset {
+            background: #f8f9fa;
+            color: #666;
+            border: 2px solid #ddd;
+        }
+
+        .btn-reset:hover {
+            background: #e9ecef;
+            border-color: #adb5bd;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .controls {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            button {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💡 Lightbulb Icon</h1>
+        <p class="subtitle">Настройте цвета и размер SVG иконки</p>
+
+        <div class="preview-section">
+            <svg id="svgPreview" xmlns="http://www.w3.org/2000/svg" width="400px" height="400px" viewBox="0 0 512 512" version="1.1">
+                <g>
+                    <!-- Колба лампочки (оранжевый) -->
+                    <path id="bulb" fill="#e7ac17" d="M346.156,250.123c0,-50.234 -40.766,-91 -91,-91s-91,40.766 -91,91c0,30.594 15.234,58.703 39.484,75.984c13.828,9.859 23.016,25.891 23.016,42.047l0,35.594c0,6.594 5.344,11.938 11.938,11.938l33.125,0c6.594,0 11.938,-5.344 11.938,-11.938l0,-35.594c0,-16.156 9.188,-32.188 23.016,-42.047c24.25,-17.281 39.484,-45.39 39.484,-75.984Zm-110.5,110.531c-8.469,-6.063 -16.047,-13.281 -22.422,-21.469l72.531,0c-6.375,8.188 -13.953,15.406 -22.422,21.469l0,31.031l-27.688,0l0,-31.031Zm84.156,-34.531l-127.625,-0c-16.094,-13.406 -26.031,-33.344 -26.031,-55.094c0,-39.391 31.953,-71.344 71.344,-71.344s71.344,31.953 71.344,71.344c0,21.75 -9.938,41.688 -26.031,55.094l7,-0Z"/>
+                    
+                    <!-- Цоколь лампочки (коричневый) -->
+                    <g id="base" fill="#56453b">
+                        <path d="M283.656,430.467l-55.313,0c-6.594,0 -11.938,-5.344 -11.938,-11.938l0,-0c0,-6.594 5.344,-11.938 11.938,-11.938l55.313,0c6.594,0 11.938,5.344 11.938,11.938l-0,0c-0,6.594 -5.344,11.938 -11.938,11.938Z"/>
+                        <path d="M283.656,464.779l-55.313,0c-6.594,0 -11.938,-5.344 -11.938,-11.938l0,-0c0,-6.594 5.344,-11.937 11.938,-11.937l55.313,-0c6.594,-0 11.938,5.343 11.938,11.937l-0,0c-0,6.594 -5.344,11.938 -11.938,11.938Z"/>
+                        <rect x="232.031" y="475.842" width="47.938" height="19.688"/>
+                    </g>
+                    
+                    <!-- Нить накаливания (оранжевый) -->
+                    <path id="filament" fill="#e7ac17" d="M265.969,216.404c0,-5.437 -4.407,-9.844 -9.844,-9.844c-5.437,0 -9.843,4.407 -9.843,9.844l0,37.969c0,5.437 4.406,9.843 9.843,9.843c5.437,0 9.844,-4.406 9.844,-9.843l0,-37.969Z"/>
+                </g>
+            </svg>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="colorBase">🟤 Цвет цоколя</label>
+                <input type="color" id="colorBase" value="#56453b">
+            </div>
+            <div class="control-group">
+                <label for="colorBulb">🟠 Цвет колбы</label>
+                <input type="color" id="colorBulb" value="#e7ac17">
+            </div>
+            <div class="control-group">
+                <label for="svgSize">📏 Размер (px)</label>
+                <input type="number" id="svgSize" value="400" min="50" max="2000" step="50">
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="btn-download" onclick="downloadSVG()">💾 Скачать SVG</button>
+            <button class="btn-copy" onclick="copySVG()">📋 Копировать код</button>
+            <button class="btn-reset" onclick="resetColors()">🔄 Сбросить</button>
+        </div>
+    </div>
+
+    <div class="notification" id="notification">✓ Код скопирован!</div>
+
+    <script>
+        const svg = document.getElementById('svgPreview');
+        const baseGroup = document.getElementById('base');
+        const bulbPath = document.getElementById('bulb');
+        const filamentPath = document.getElementById('filament');
+        const colorBaseInput = document.getElementById('colorBase');
+        const colorBulbInput = document.getElementById('colorBulb');
+        const sizeInput = document.getElementById('svgSize');
+        const notification = document.getElementById('notification');
+
+        // Обновление цветов
+        colorBaseInput.addEventListener('input', (e) => {
+            baseGroup.setAttribute('fill', e.target.value);
+        });
+
+        colorBulbInput.addEventListener('input', (e) => {
+            bulbPath.setAttribute('fill', e.target.value);
+            filamentPath.setAttribute('fill', e.target.value);
+        });
+
+        // Обновление размера
+        sizeInput.addEventListener('input', (e) => {
+            const size = e.target.value;
+            svg.setAttribute('width', size + 'px');
+            svg.setAttribute('height', size + 'px');
+        });
+
+        // Скачивание SVG
+        function downloadSVG() {
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+            const svgUrl = URL.createObjectURL(svgBlob);
+            const downloadLink = document.createElement('a');
+            downloadLink.href = svgUrl;
+            downloadLink.download = 'lightbulb-icon.svg';
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            URL.revokeObjectURL(svgUrl);
+            showNotification('SVG скачан!');
+        }
+
+        // Копирование кода SVG
+        function copySVG() {
+            const svgData = new XMLSerializer().serializeToString(svg);
+            navigator.clipboard.writeText(svgData).then(() => {
+                showNotification('Код скопирован!');
+            }).catch(err => {
+                console.error('Ошибка копирования:', err);
+                showNotification('Ошибка копирования!');
+            });
+        }
+
+        // Сброс настроек
+        function resetColors() {
+            colorBaseInput.value = '#56453b';
+            colorBulbInput.value = '#e7ac17';
+            sizeInput.value = '400';
+            baseGroup.setAttribute('fill', '#56453b');
+            bulbPath.setAttribute('fill', '#e7ac17');
+            filamentPath.setAttribute('fill', '#e7ac17');
+            svg.setAttribute('width', '400px');
+            svg.setAttribute('height', '400px');
+            showNotification('Настройки сброшены!');
+        }
+
+        // Показ уведомления
+        function showNotification(message) {
+            notification.textContent = '✓ ' + message;
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
