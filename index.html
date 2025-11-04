@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AXY Marketing — Продвижение брендов на Amazon, TikTok Shop, Shopify</title>
     
     <!-- SEO Meta Tags -->
@@ -15,7 +15,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     
     <!-- JSON-LD Structured Data for SEO -->
@@ -62,7 +62,7 @@
             scroll-behavior: smooth;
         }
         body {
-            font-family: 'Jura', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background: linear-gradient(180deg, #0a1628 0%, #111c30 25%, #1a2942 50%, #0f1b2e 75%, #0a1628 100%);
             background-attachment: fixed;
             color: #A0AEC0;
@@ -74,7 +74,7 @@
             color: #FFFFFF;
         }
         h1, h2, h3, h4, .section-title {
-            font-family: 'Jura', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             color: #FFFFFF;
         }
@@ -88,12 +88,53 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 8px 32px 0 rgba(99, 179, 237, 0.15);
         }
+
         .cta-primary:hover {
             background: rgba(99, 179, 237, 0.25);
             border-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
             box-shadow: 0 12px 40px 0 rgba(99, 179, 237, 0.25);
         }
+
+        /* Highlighted CTA for main buttons only */
+        .cta-hero {
+            background: linear-gradient(135deg, rgba(99, 179, 237, 0.9) 0%, rgba(59, 130, 246, 0.9) 100%);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            color: #FFFFFF;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(99, 179, 237, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-hero:hover::before {
+            left: 100%;
+        }
+
+        .cta-hero:hover {
+            background: linear-gradient(135deg, rgba(99, 179, 237, 1) 0%, rgba(59, 130, 246, 1) 100%);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(99, 179, 237, 0.5),
+                        0 15px 50px rgba(99, 179, 237, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
         .cta-secondary {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -255,16 +296,16 @@
             transition: color 0.3s ease;
         }
 
-        /* Reviews Layout: Mobile Slider / Desktop Bento Grid */
+        /* Reviews Layout: Compact Grid */
         .reviews-bento-grid {
             position: relative;
             overflow-x: auto;
             overflow-y: hidden;
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
-            padding-bottom: 1rem;
+            padding-bottom: 0.5rem;
             -webkit-overflow-scrolling: touch;
         }
 
@@ -280,31 +321,32 @@
         .review-screenshot {
             position: relative;
             overflow: hidden;
-            border-radius: 1rem;
+            border-radius: 0.75rem;
             flex: 0 0 85%;
             scroll-snap-align: center;
             cursor: pointer;
+            background: rgba(99, 179, 237, 0.05);
         }
 
         .review-screenshot img {
             transition: transform 0.3s ease;
             width: 100%;
-            height: 400px;
+            height: 350px;
             object-fit: contain;
         }
 
         .review-screenshot:hover img {
-            transform: scale(1.02);
+            transform: scale(1.03);
         }
 
-        /* Desktop: Asymmetric Bento Grid */
+        /* Desktop: Compact Masonry Grid */
         @media (min-width: 768px) {
             .reviews-bento-grid {
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
-                grid-auto-rows: 250px;
-                gap: 1.25rem;
-                max-width: 1600px;
+                grid-auto-rows: 200px;
+                gap: 0.75rem;
+                max-width: 1400px;
                 margin: 0 auto;
                 overflow: visible;
             }
@@ -318,7 +360,7 @@
             }
         }
 
-        /* Asymmetric positioning for desktop */
+        /* Compact asymmetric layout */
         @media (min-width: 768px) {
             .review-screenshot:nth-child(1) {
                 grid-column: span 2;
@@ -363,7 +405,8 @@
 
         @media (min-width: 1024px) {
             .reviews-bento-grid {
-                grid-auto-rows: 280px;
+                grid-auto-rows: 220px;
+                gap: 1rem;
             }
         }
 
@@ -598,7 +641,7 @@
                     <button class="lang-switch px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 active" data-lang="ru" style="background: rgba(99, 179, 237, 0.15); color: #63B3ED;">RU</button>
                     <button class="lang-switch px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400 hover:text-white transition-all duration-200" data-lang="en">EN</button>
                 </div>
-                <a href="#audit" class="js-open-form cta-primary text-sm font-semibold px-5 py-2.5 rounded-lg" data-source="Хедер (десктоп)" data-translate="header-cta">Записаться на консультацию</a>
+                <a href="#audit" class="js-open-form cta-primary text-sm font-semibold px-5 py-2.5 rounded-lg" data-source="Консультация (Хедер)" data-translate="header-cta">Записаться на консультацию</a>
             </div>
             <button id="mobile-menu-button" class="lg:hidden text-white p-2">
                 <div class="hamburger">
@@ -619,7 +662,7 @@
                      <a href="#team" class="text-gray-300 hover:text-white transition" data-translate="nav-team">Команда</a>
                      <a href="#contacts" class="text-gray-300 hover:text-white transition" data-translate="nav-contacts">Контакты</a>
                     <div class="flex flex-col space-y-3 pt-4">
-                         <a href="#audit" class="js-open-form cta-primary w-full text-center text-sm font-semibold px-5 py-2.5 rounded-lg" data-source="Мобильное меню" data-translate="header-cta">Записаться на консультацию</a>
+                         <a href="#audit" class="js-open-form cta-primary w-full text-center text-sm font-semibold px-5 py-2.5 rounded-lg" data-source="Консультация (Мобильное меню)" data-translate="header-cta">Записаться на консультацию</a>
                     </div>
                 </nav>
             </div>
@@ -636,7 +679,7 @@
                     <div class="text-center lg:text-left">
                         <p class="text-base md:text-xl font-bold text-white">AXY marketing agency</p>
                         <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight mt-4" data-translate="hero-title">
-                            🚀 Продвигаем бренды на <span class="text-[#63B3ED]">Amazon, TikTok Shop и Shopify</span>
+                            Продвигаем бренды на <span class="text-[#63B3ED]">Amazon, TikTok Shop и Shopify</span>
                         </h1>
                         <div class="mt-6 text-base md:text-lg text-gray-300 leading-relaxed" data-translate="hero-extra-info">
                             Получите бесплатный аудит — если вы ещё не продаёте, проверим, будет ли ваш товар востребован на Amazon.<br>
@@ -644,7 +687,7 @@
                             Бесплатный аудит Shopify — разработчик проверит сайт и подскажет, как увеличить продажи.
                         </div>
                         <div class="mt-8">
-                            <a href="#audit" class="js-open-form cta-primary w-full sm:w-auto px-8 py-4 md:px-10 md:py-5 rounded-xl text-lg md:text-xl font-bold inline-flex items-center justify-center" data-source="Главный экран (Hero)">
+                            <a href="#audit" class="js-open-form cta-hero w-full sm:w-auto px-8 py-4 md:px-10 md:py-5 rounded-xl text-lg md:text-xl font-bold inline-flex items-center justify-center" data-source="Бесплатный аудит (Главный экран)">
                                 <span data-translate="hero-cta">Получить бесплатный аудит</span>
                                 <i data-lucide="arrow-right" class="w-5 h-5 md:w-6 md:h-6 ml-2"></i>
                             </a>
@@ -832,52 +875,37 @@
         </section>
 
         <!-- === Отзывы === -->
-        <section id="reviews" class="py-10 md:pt-20 md:pb-14 overflow-hidden">
-            <div class="text-center max-w-3xl mx-auto px-6 animate-on-scroll mb-8 md:mb-12">
+        <section id="reviews" class="py-10 md:py-16 overflow-hidden">
+            <div class="text-center max-w-3xl mx-auto px-6 animate-on-scroll mb-6 md:mb-8">
                 <h2 class="section-title" data-translate="reviews-title">Что говорят клиенты</h2>
-                <p class="text-gray-400 mt-4" data-translate="reviews-subtitle">Реальные отзывы из наших рабочих чатов</p>
+                <p class="text-gray-400 mt-3" data-translate="reviews-subtitle">Реальные отзывы из наших рабочих чатов</p>
             </div>
 
             <div class="container mx-auto px-6">
-                <!-- Bento Grid Layout -->
+                <!-- Compact Grid Layout -->
                 <div class="reviews-bento-grid">
-                    <!-- Review 1: Large 2x2 -->
                     <div class="review-screenshot animate-on-scroll">
                         <img src="review/telegram-cloud-photo-size-2-5327958389147432129-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain rounded-2xl">
                     </div>
-
-                    <!-- Review 2: Wide 2x1 -->
-                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 100ms;">
+                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 50ms;">
                         <img src="review/telegram-cloud-photo-size-2-5327958389147432133-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain rounded-2xl">
                     </div>
-
-                    <!-- Review 3: Small 1x1 -->
-                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 150ms;">
+                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 100ms;">
                         <img src="review/telegram-cloud-photo-size-2-5327958389147432149-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain rounded-2xl">
                     </div>
-
-                    <!-- Review 4: Tall 1x2 -->
-                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 200ms;">
+                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 150ms;">
                         <img src="review/telegram-cloud-photo-size-2-5327958389147432156-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain rounded-2xl">
                     </div>
-
-                    <!-- Review 5: Wide 2x1 -->
-                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 100ms;">
+                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 50ms;">
                         <img src="review/telegram-cloud-photo-size-2-5327958389147432162-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain rounded-2xl">
                     </div>
-
-                    <!-- Review 6: Small 1x1 -->
-                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 250ms;">
+                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 200ms;">
                         <img src="review/telegram-cloud-photo-size-2-5327958389147432169-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain rounded-2xl">
                     </div>
-
-                    <!-- Review 7: Large 2x2 -->
-                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 150ms;">
+                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 100ms;">
                         <img src="review/telegram-cloud-photo-size-2-5327958389147432179-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain rounded-2xl">
                     </div>
-
-                    <!-- Review 8: Small 1x1 -->
-                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 300ms;">
+                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 250ms;">
                         <img src="review/telegram-cloud-photo-size-2-5327958389147432183-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain rounded-2xl">
                     </div>
                 </div>
@@ -930,7 +958,7 @@
                             <!-- Центральный элемент - Партнер (НЕ вращается) -->
                             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 team-client">
                                 <div class="w-32 h-32 rounded-full flex flex-col items-center justify-center text-center" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(20px); border: 2px solid rgba(99, 179, 237, 0.3);">
-                                    <i data-lucide="users" class="w-12 h-12 text-[#63B3ED] mb-2"></i>
+                                    <i data-lucide="handshake" class="w-12 h-12 text-[#63B3ED] mb-2"></i>
                                     <span class="text-white font-bold text-sm" data-translate="team-client">Партнер</span>
                                 </div>
                             </div>
@@ -942,52 +970,60 @@
 
                             <!-- Вращающийся контейнер для команды -->
                             <div class="team-circle-container absolute inset-0">
-                                <!-- Члены команды по кругу (каждый на своем угле) -->
+                                <!-- Члены команды по кругу (7 человек, равномерно распределены: 360/7 = ~51.43°) -->
                                 <div class="team-member" style="--angle: 0deg;">
                                     <div class="team-member-inner">
-                                        <img src="team/azat.jpg" alt="Азат - CEO" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]" onerror="this.src='https://ui-avatars.com/api/?name=Azat&background=63B3ED&color=fff&size=128'">
+                                        <img src="team/azat.png" alt="Азат - CEO" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]" onerror="this.src='https://ui-avatars.com/api/?name=Azat&background=63B3ED&color=fff&size=128'">
                                         <span class="block text-center text-xs text-white mt-2 font-semibold">Азат</span>
                                         <span class="block text-center text-xs text-gray-400">CEO</span>
                                     </div>
                                 </div>
 
-                                <div class="team-member" style="--angle: 60deg;">
+                                <div class="team-member" style="--angle: 51.43deg;">
                                     <div class="team-member-inner">
-                                        <img src="team/maks.jpg" alt="Макс - Управление и масштаб" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]" onerror="this.src='https://ui-avatars.com/api/?name=Maks&background=63B3ED&color=fff&size=128'">
+                                        <img src="team/max.png" alt="Макс - Управление и масштаб" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]" onerror="this.src='https://ui-avatars.com/api/?name=Maks&background=63B3ED&color=fff&size=128'">
                                         <span class="block text-center text-xs text-white mt-2 font-semibold">Макс</span>
                                         <span class="block text-center text-xs text-gray-400" data-translate="team-maks">Управление и масштаб</span>
                                     </div>
                                 </div>
 
-                                <div class="team-member" style="--angle: 120deg;">
+                                <div class="team-member" style="--angle: 102.86deg;">
                                     <div class="team-member-inner">
-                                        <img src="team/bulat.jpg" alt="Булат - Стратегия и инвестиции" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]" onerror="this.src='https://ui-avatars.com/api/?name=Bulat&background=63B3ED&color=fff&size=128'">
+                                        <img src="team/bulat.png" alt="Булат - Стратегия и инвестиции" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]" onerror="this.src='https://ui-avatars.com/api/?name=Bulat&background=63B3ED&color=fff&size=128'">
                                         <span class="block text-center text-xs text-white mt-2 font-semibold">Булат</span>
                                         <span class="block text-center text-xs text-gray-400" data-translate="team-bulat">Стратегия и инвестиции</span>
                                     </div>
                                 </div>
 
-                                <div class="team-member" style="--angle: 180deg;">
+                                <div class="team-member" style="--angle: 154.29deg;">
                                     <div class="team-member-inner">
-                                        <img src="team/ivan.jpg" alt="Иван - Project Manager" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]" onerror="this.src='https://ui-avatars.com/api/?name=Ivan&background=63B3ED&color=fff&size=128'">
+                                        <img src="team/ivan.jpg" alt="Иван - Project Manager" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]">
                                         <span class="block text-center text-xs text-white mt-2 font-semibold">Иван</span>
                                         <span class="block text-center text-xs text-gray-400">Project Manager</span>
                                     </div>
                                 </div>
 
-                                <div class="team-member" style="--angle: 240deg;">
+                                <div class="team-member" style="--angle: 205.71deg;">
                                     <div class="team-member-inner">
-                                        <img src="team/evgeniy.jpg" alt="Евгений - Shopify Tech Lead" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]" onerror="this.src='https://ui-avatars.com/api/?name=Evgeniy&background=63B3ED&color=fff&size=128'">
+                                        <img src="team/evhenii.jpg" alt="Евгений - Shopify Tech Lead" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]">
                                         <span class="block text-center text-xs text-white mt-2 font-semibold">Евгений</span>
                                         <span class="block text-center text-xs text-gray-400">Shopify Tech Lead</span>
                                     </div>
                                 </div>
 
-                                <div class="team-member" style="--angle: 300deg;">
+                                <div class="team-member" style="--angle: 257.14deg;">
                                     <div class="team-member-inner">
-                                        <img src="team/content.jpg" alt="SMM & Content Lead" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]" onerror="this.src='https://ui-avatars.com/api/?name=Content&background=63B3ED&color=fff&size=128'">
-                                        <span class="block text-center text-xs text-white mt-2 font-semibold" data-translate="team-content-name">Контент</span>
+                                        <img src="team/smm.jpg" alt="Настя - SMM & Content Lead" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]">
+                                        <span class="block text-center text-xs text-white mt-2 font-semibold" data-translate="team-content-name">Настя</span>
                                         <span class="block text-center text-xs text-gray-400" data-translate="team-content-role">SMM & Контент</span>
+                                    </div>
+                                </div>
+
+                                <div class="team-member" style="--angle: 308.57deg;">
+                                    <div class="team-member-inner">
+                                        <img src="team/video.jpg" alt="Алина - Видеограф" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]">
+                                        <span class="block text-center text-xs text-white mt-2 font-semibold" data-translate="team-video-name">Алина</span>
+                                        <span class="block text-center text-xs text-gray-400" data-translate="team-video-role">Видеограф</span>
                                     </div>
                                 </div>
                             </div>
@@ -1004,7 +1040,7 @@
                     <h2 class="text-3xl md:text-5xl font-bold text-white" data-translate="cta-title">Получите бесплатный аудит своего магазина</h2>
                     <p class="mt-6 text-lg text-gray-400 max-w-3xl mx-auto" data-translate="cta-subtitle">Заполните форму, и наши эксперты свяжутся с вами. Вы поделитесь тем, что у вас болит. Мы посмотрим и расскажем, как вы сможете это решить своими силами или при помощи нашей команды.</p>
                     <div class="mt-12">
-                        <a href="#" class="js-open-form cta-primary px-10 py-5 rounded-xl text-xl inline-flex items-center" data-source="Секция Аудит" data-translate="cta-button">
+                        <a href="#" class="js-open-form cta-hero px-10 py-5 rounded-xl text-xl inline-flex items-center" data-source="Бесплатный аудит (Секция CTA)" data-translate="cta-button">
                             Получить аудит бесплатно
                         </a>
                     </div>
@@ -1017,7 +1053,7 @@
     <!-- === Подвал === -->
     <footer id="contacts" class="relative border-t" style="background: transparent; border-color: rgba(255, 255, 255, 0.08);">
         <div class="container mx-auto px-6 py-12 pb-24 md:pb-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div>
                     <img src="logo.png" alt="AXY" class="h-10 mb-4">
                     <p class="mt-4 text-gray-400" data-translate="footer-tagline">Рост вашего бренда — наша работа.</p>
@@ -1088,7 +1124,7 @@
                 </div>
             </div>
             <div class="flex-shrink-0 p-6 pt-4 border-t rounded-b-2xl" style="background: rgba(26, 41, 66, 0.95); backdrop-filter: blur(20px); border-color: rgba(255, 255, 255, 0.1);">
-                <a href="#" id="service-modal-cta" class="js-open-form cta-primary w-full px-6 py-3 rounded-lg font-semibold inline-flex items-center justify-center" data-source="Модалка услуги">
+                <a href="#" id="service-modal-cta" class="js-open-form cta-primary w-full px-6 py-3 rounded-lg font-semibold inline-flex items-center justify-center" data-source="Консультация (Услуги)">
                     <span data-translate="service-modal-cta-text">Хочу регистрацию</span>
                 </a>
             </div>
@@ -1111,7 +1147,7 @@
                 </div>
             </div>
             <div class="flex-shrink-0 p-6 pt-4 border-t rounded-b-2xl" style="background: rgba(26, 41, 66, 0.95); backdrop-filter: blur(20px); border-color: rgba(255, 255, 255, 0.1);">
-                <a href="#audit" id="case-modal-cta" class="js-open-form cta-primary w-full px-6 py-3 rounded-lg font-semibold inline-flex items-center justify-center" data-source="Модалка кейса">
+                <a href="#audit" id="case-modal-cta" class="js-open-form cta-primary w-full px-6 py-3 rounded-lg font-semibold inline-flex items-center justify-center" data-source="Консультация (Кейс)">
                     <span data-translate="case-modal-cta-text">Хочу такой же проект</span>
                 </a>
             </div>
@@ -1193,8 +1229,10 @@
                     'team-client': 'Partner',
                     'team-maks': 'Management & Scale',
                     'team-bulat': 'Strategy & Investment',
-                    'team-content-name': 'Content',
+                    'team-content-name': 'Nastya',
                     'team-content-role': 'SMM & Content',
+                    'team-video-name': 'Alina',
+                    'team-video-role': 'Videographer',
 
                     // CTA Section
                     'cta-title': 'Get a Free Audit of Your Store',
@@ -1938,6 +1976,9 @@
                 const resultText = detailsContainer.querySelector('p');
                 const ctaButton = serviceModalBackdrop.querySelector('#service-modal-cta');
 
+                // Обновляем data-source кнопки с названием услуги
+                ctaButton.setAttribute('data-source', `Консультация (Услуга: ${service.title})`);
+
                 if (service.details && service.details.length > 0) {
                     detailsContainer.classList.remove('hidden');
                     detailsList.innerHTML = '';
@@ -2003,6 +2044,11 @@
 
                 caseModalBackdrop.querySelector('#case-modal-title').textContent = caseData.title;
                 caseModalBackdrop.querySelector('#case-modal-content').innerHTML = caseData.content;
+
+                // Обновляем data-source кнопки с названием кейса
+                const ctaButton = caseModalBackdrop.querySelector('#case-modal-cta');
+                ctaButton.setAttribute('data-source', `Консультация (Кейс: ${caseData.title})`);
+
                 openModal(caseModalBackdrop);
                 requestAnimationFrame(() => {
                     if (typeof lucide !== 'undefined') {
@@ -2409,7 +2455,7 @@
     </script>
 
     <!-- Плавающие кнопки связи -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+    <div class="hidden lg:flex fixed bottom-6 right-6 z-50 flex-col gap-3">
         <!-- Telegram -->
         <a href="https://t.me/yourusername" target="_blank" rel="noopener noreferrer" class="group w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.3); box-shadow: 0 8px 32px rgba(99, 179, 237, 0.2);" aria-label="Написать в Telegram">
             <svg class="w-6 h-6 text-[#63B3ED] group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">

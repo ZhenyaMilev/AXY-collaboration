@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lightbulb Icon - SVG Editor</title>
+    <title>SVG Editor - Редактор SVG</title>
     <style>
         * {
             margin: 0;
@@ -26,7 +26,7 @@
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             padding: 40px;
-            max-width: 900px;
+            max-width: 1200px;
             width: 100%;
         }
 
@@ -42,6 +42,36 @@
             font-size: 14px;
         }
 
+        .editor-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .editor-section h2 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        #svgCodeInput {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+
+        #svgCodeInput:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
         .preview-section {
             background: #f8f9fa;
             border-radius: 15px;
@@ -51,11 +81,19 @@
             justify-content: center;
             align-items: center;
             min-height: 300px;
+            position: relative;
         }
 
         #svgPreview {
             max-width: 100%;
+            max-height: 500px;
             height: auto;
+        }
+
+        .preview-placeholder {
+            color: #999;
+            font-size: 18px;
+            text-align: center;
         }
 
         .controls {
@@ -90,7 +128,8 @@
             border-color: #667eea;
         }
 
-        input[type="number"] {
+        input[type="number"],
+        input[type="text"] {
             width: 100%;
             padding: 12px;
             border: 2px solid #ddd;
@@ -99,7 +138,8 @@
             transition: border-color 0.3s;
         }
 
-        input[type="number"]:focus {
+        input[type="number"]:focus,
+        input[type="text"]:focus {
             outline: none;
             border-color: #667eea;
         }
@@ -124,6 +164,16 @@
             letter-spacing: 0.5px;
         }
 
+        .btn-load {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .btn-load:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(79, 172, 254, 0.4);
+        }
+
         .btn-download {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -144,13 +194,13 @@
             box-shadow: 0 10px 20px rgba(245, 87, 108, 0.4);
         }
 
-        .btn-reset {
+        .btn-clear {
             background: #f8f9fa;
             color: #666;
             border: 2px solid #ddd;
         }
 
-        .btn-reset:hover {
+        .btn-clear:hover {
             background: #e9ecef;
             border-color: #adb5bd;
         }
@@ -174,6 +224,10 @@
         .notification.show {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .notification.error {
+            background: #dc3545;
         }
 
         @media (max-width: 768px) {
@@ -201,126 +255,198 @@
 </head>
 <body>
     <div class="container">
-        <h1>💡 Lightbulb Icon</h1>
-        <p class="subtitle">Настройте цвета и размер SVG иконки</p>
+        <h1>🎨 SVG Editor</h1>
+        <p class="subtitle">Вставьте SVG код, отредактируйте и скачайте</p>
 
-        <div class="preview-section">
-            <svg id="svgPreview" xmlns="http://www.w3.org/2000/svg" width="400px" height="400px" viewBox="0 0 512 512" version="1.1">
-                <g>
-                    <!-- Колба лампочки (оранжевый) -->
-                    <path id="bulb" fill="#e7ac17" d="M346.156,250.123c0,-50.234 -40.766,-91 -91,-91s-91,40.766 -91,91c0,30.594 15.234,58.703 39.484,75.984c13.828,9.859 23.016,25.891 23.016,42.047l0,35.594c0,6.594 5.344,11.938 11.938,11.938l33.125,0c6.594,0 11.938,-5.344 11.938,-11.938l0,-35.594c0,-16.156 9.188,-32.188 23.016,-42.047c24.25,-17.281 39.484,-45.39 39.484,-75.984Zm-110.5,110.531c-8.469,-6.063 -16.047,-13.281 -22.422,-21.469l72.531,0c-6.375,8.188 -13.953,15.406 -22.422,21.469l0,31.031l-27.688,0l0,-31.031Zm84.156,-34.531l-127.625,-0c-16.094,-13.406 -26.031,-33.344 -26.031,-55.094c0,-39.391 31.953,-71.344 71.344,-71.344s71.344,31.953 71.344,71.344c0,21.75 -9.938,41.688 -26.031,55.094l7,-0Z"/>
-                    
-                    <!-- Цоколь лампочки (коричневый) -->
-                    <g id="base" fill="#56453b">
-                        <path d="M283.656,430.467l-55.313,0c-6.594,0 -11.938,-5.344 -11.938,-11.938l0,-0c0,-6.594 5.344,-11.938 11.938,-11.938l55.313,0c6.594,0 11.938,5.344 11.938,11.938l-0,0c-0,6.594 -5.344,11.938 -11.938,11.938Z"/>
-                        <path d="M283.656,464.779l-55.313,0c-6.594,0 -11.938,-5.344 -11.938,-11.938l0,-0c0,-6.594 5.344,-11.937 11.938,-11.937l55.313,-0c6.594,-0 11.938,5.343 11.938,11.937l-0,0c-0,6.594 -5.344,11.938 -11.938,11.938Z"/>
-                        <rect x="232.031" y="475.842" width="47.938" height="19.688"/>
-                    </g>
-                    
-                    <!-- Нить накаливания (оранжевый) -->
-                    <path id="filament" fill="#e7ac17" d="M265.969,216.404c0,-5.437 -4.407,-9.844 -9.844,-9.844c-5.437,0 -9.843,4.407 -9.843,9.844l0,37.969c0,5.437 4.406,9.843 9.843,9.843c5.437,0 9.844,-4.406 9.844,-9.843l0,-37.969Z"/>
-                </g>
-            </svg>
+        <div class="editor-section">
+            <h2>📝 Вставьте ваш SVG код</h2>
+            <textarea id="svgCodeInput" placeholder="Вставьте сюда ваш SVG код..."></textarea>
+        </div>
+
+        <div class="buttons" style="margin-bottom: 30px;">
+            <button class="btn-load" onclick="loadSVG()">🔄 Загрузить SVG</button>
+        </div>
+
+        <div class="preview-section" id="previewSection">
+            <div class="preview-placeholder" id="placeholder">
+                👆 Вставьте SVG код выше и нажмите "Загрузить SVG"
+            </div>
         </div>
 
         <div class="controls">
             <div class="control-group">
-                <label for="colorBase">🟤 Цвет цоколя</label>
-                <input type="color" id="colorBase" value="#56453b">
-            </div>
-            <div class="control-group">
-                <label for="colorBulb">🟠 Цвет колбы</label>
-                <input type="color" id="colorBulb" value="#e7ac17">
-            </div>
-            <div class="control-group">
                 <label for="svgSize">📏 Размер (px)</label>
                 <input type="number" id="svgSize" value="400" min="50" max="2000" step="50">
+            </div>
+            <div class="control-group">
+                <label for="fileName">📄 Имя файла</label>
+                <input type="text" id="fileName" value="my-svg-icon" placeholder="Введите имя файла">
             </div>
         </div>
 
         <div class="buttons">
             <button class="btn-download" onclick="downloadSVG()">💾 Скачать SVG</button>
             <button class="btn-copy" onclick="copySVG()">📋 Копировать код</button>
-            <button class="btn-reset" onclick="resetColors()">🔄 Сбросить</button>
+            <button class="btn-clear" onclick="clearAll()">🗑️ Очистить</button>
         </div>
     </div>
 
-    <div class="notification" id="notification">✓ Код скопирован!</div>
+    <div class="notification" id="notification">✓ Готово!</div>
 
     <script>
-        const svg = document.getElementById('svgPreview');
-        const baseGroup = document.getElementById('base');
-        const bulbPath = document.getElementById('bulb');
-        const filamentPath = document.getElementById('filament');
-        const colorBaseInput = document.getElementById('colorBase');
-        const colorBulbInput = document.getElementById('colorBulb');
+        const svgCodeInput = document.getElementById('svgCodeInput');
+        const previewSection = document.getElementById('previewSection');
+        const placeholder = document.getElementById('placeholder');
         const sizeInput = document.getElementById('svgSize');
+        const fileNameInput = document.getElementById('fileName');
         const notification = document.getElementById('notification');
+        
+        let currentSVG = null;
 
-        // Обновление цветов
-        colorBaseInput.addEventListener('input', (e) => {
-            baseGroup.setAttribute('fill', e.target.value);
-        });
+        // Загрузка SVG в превью
+        function loadSVG() {
+            const svgCode = svgCodeInput.value.trim();
+            
+            if (!svgCode) {
+                showNotification('Вставьте SVG код!', true);
+                return;
+            }
 
-        colorBulbInput.addEventListener('input', (e) => {
-            bulbPath.setAttribute('fill', e.target.value);
-            filamentPath.setAttribute('fill', e.target.value);
-        });
+            // Проверка на наличие SVG тега
+            if (!svgCode.includes('<svg')) {
+                showNotification('Некорректный SVG код!', true);
+                return;
+            }
+
+            try {
+                // Очищаем предыдущий SVG
+                if (currentSVG) {
+                    previewSection.removeChild(currentSVG);
+                }
+                
+                // Скрываем placeholder
+                placeholder.style.display = 'none';
+                
+                // Создаем временный контейнер для парсинга
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = svgCode;
+                const svgElement = tempDiv.querySelector('svg');
+                
+                if (!svgElement) {
+                    showNotification('SVG элемент не найден!', true);
+                    placeholder.style.display = 'block';
+                    return;
+                }
+                
+                // Устанавливаем размер
+                const size = sizeInput.value;
+                svgElement.setAttribute('width', size + 'px');
+                svgElement.setAttribute('height', size + 'px');
+                
+                // Добавляем в превью
+                previewSection.appendChild(svgElement);
+                currentSVG = svgElement;
+                
+                showNotification('SVG загружен!');
+            } catch (error) {
+                showNotification('Ошибка загрузки SVG!', true);
+                console.error('Ошибка:', error);
+                placeholder.style.display = 'block';
+            }
+        }
 
         // Обновление размера
         sizeInput.addEventListener('input', (e) => {
-            const size = e.target.value;
-            svg.setAttribute('width', size + 'px');
-            svg.setAttribute('height', size + 'px');
+            if (currentSVG) {
+                const size = e.target.value;
+                currentSVG.setAttribute('width', size + 'px');
+                currentSVG.setAttribute('height', size + 'px');
+            }
         });
 
         // Скачивание SVG
         function downloadSVG() {
-            const svgData = new XMLSerializer().serializeToString(svg);
+            if (!currentSVG) {
+                showNotification('Сначала загрузите SVG!', true);
+                return;
+            }
+
+            const svgData = new XMLSerializer().serializeToString(currentSVG);
             const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
             const svgUrl = URL.createObjectURL(svgBlob);
             const downloadLink = document.createElement('a');
+            
+            let fileName = fileNameInput.value.trim() || 'my-svg-icon';
+            // Убираем .svg если пользователь уже добавил
+            fileName = fileName.replace(/\.svg$/i, '');
+            
             downloadLink.href = svgUrl;
-            downloadLink.download = 'lightbulb-icon.svg';
+            downloadLink.download = fileName + '.svg';
             document.body.appendChild(downloadLink);
             downloadLink.click();
             document.body.removeChild(downloadLink);
             URL.revokeObjectURL(svgUrl);
+            
             showNotification('SVG скачан!');
         }
 
         // Копирование кода SVG
         function copySVG() {
-            const svgData = new XMLSerializer().serializeToString(svg);
+            if (!currentSVG) {
+                showNotification('Сначала загрузите SVG!', true);
+                return;
+            }
+
+            const svgData = new XMLSerializer().serializeToString(currentSVG);
             navigator.clipboard.writeText(svgData).then(() => {
                 showNotification('Код скопирован!');
             }).catch(err => {
                 console.error('Ошибка копирования:', err);
-                showNotification('Ошибка копирования!');
+                showNotification('Ошибка копирования!', true);
             });
         }
 
-        // Сброс настроек
-        function resetColors() {
-            colorBaseInput.value = '#56453b';
-            colorBulbInput.value = '#e7ac17';
+        // Очистка всего
+        function clearAll() {
+            svgCodeInput.value = '';
+            if (currentSVG) {
+                previewSection.removeChild(currentSVG);
+                currentSVG = null;
+            }
+            placeholder.style.display = 'block';
             sizeInput.value = '400';
-            baseGroup.setAttribute('fill', '#56453b');
-            bulbPath.setAttribute('fill', '#e7ac17');
-            filamentPath.setAttribute('fill', '#e7ac17');
-            svg.setAttribute('width', '400px');
-            svg.setAttribute('height', '400px');
-            showNotification('Настройки сброшены!');
+            fileNameInput.value = 'my-svg-icon';
+            showNotification('Всё очищено!');
         }
 
         // Показ уведомления
-        function showNotification(message) {
-            notification.textContent = '✓ ' + message;
+        function showNotification(message, isError = false) {
+            notification.textContent = (isError ? '✗ ' : '✓ ') + message;
+            notification.classList.toggle('error', isError);
             notification.classList.add('show');
             setTimeout(() => {
                 notification.classList.remove('show');
             }, 2000);
         }
+
+        // Быстрая загрузка по Enter в textarea
+        svgCodeInput.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'Enter') {
+                loadSVG();
+            }
+        });
+
+        // Автоматическая загрузка при вставке из буфера обмена
+        svgCodeInput.addEventListener('paste', () => {
+            setTimeout(() => {
+                if (svgCodeInput.value.includes('<svg')) {
+                    const loadConfirm = confirm('Загрузить вставленный SVG?');
+                    if (loadConfirm) {
+                        loadSVG();
+                    }
+                }
+            }, 100);
+        });
     </script>
 </body>
 </html>
