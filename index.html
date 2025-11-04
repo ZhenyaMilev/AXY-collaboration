@@ -60,6 +60,8 @@
     <style>
         html {
             scroll-behavior: smooth;
+            overscroll-behavior: none;
+            overscroll-behavior-y: none;
         }
         body {
             font-family: 'Montserrat', sans-serif;
@@ -68,6 +70,8 @@
             color: #A0AEC0;
             overflow-x: hidden;
             min-height: 100vh;
+            overscroll-behavior: none;
+            overscroll-behavior-y: none;
         }
         ::selection {
             background: rgba(99, 179, 237, 0.3);
@@ -313,100 +317,143 @@
         .reviews-bento-grid::-webkit-scrollbar {
             display: none;
         }
-        .reviews-bento-grid {
+        /* Hide scrollbar for team cards slider */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
 
-        .review-screenshot {
-            position: relative;
-            overflow: hidden;
-            border-radius: 0.75rem;
-            flex: 0 0 85%;
-            scroll-snap-align: center;
-            cursor: pointer;
-            background: rgba(99, 179, 237, 0.05);
-        }
-
-        .review-screenshot img {
-            transition: transform 0.3s ease;
+        /* Animated Scrolling Reviews */
+        .reviews-scroll-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
             width: 100%;
-            height: 350px;
+        }
+
+        .reviews-scroll-row {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .reviews-scroll-track {
+            display: flex;
+            gap: 2rem;
+            width: max-content;
+        }
+
+        .reviews-scroll-track[data-direction="left"] {
+            animation: scroll-left 40s linear infinite;
+        }
+
+        .reviews-scroll-track[data-direction="right"] {
+            animation: scroll-right 40s linear infinite;
+        }
+
+        .reviews-scroll-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes scroll-right {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .review-card {
+            position: relative;
+            flex-shrink: 0;
+            width: 350px;
+            height: 250px;
+            border-radius: 1rem;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+                        0 0 0 1px rgba(99, 179, 237, 0.1);
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+                        0 0 0 1px rgba(99, 179, 237, 0.3);
+        }
+
+        .review-card::before {
+            content: attr(data-hover-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 10;
+            white-space: nowrap;
+            backdrop-filter: blur(10px);
+        }
+
+        .review-card:hover::before {
+            opacity: 1;
+        }
+
+        .review-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(99, 179, 237, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .review-card:hover::after {
+            opacity: 1;
+        }
+
+        .review-card img {
+            width: 100%;
+            height: 100%;
             object-fit: contain;
+            background: rgba(255, 255, 255, 0.02);
+            transition: transform 0.3s ease;
         }
 
-        .review-screenshot:hover img {
-            transform: scale(1.03);
+        .review-card:hover img {
+            transform: scale(1.05);
         }
 
-        /* Desktop: Compact Masonry Grid */
-        @media (min-width: 768px) {
-            .reviews-bento-grid {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                grid-auto-rows: 200px;
-                gap: 0.75rem;
-                max-width: 1400px;
-                margin: 0 auto;
-                overflow: visible;
+        @media (max-width: 768px) {
+            .review-card {
+                width: 280px;
+                height: 200px;
             }
 
-            .review-screenshot {
-                flex: none;
-            }
-
-            .review-screenshot img {
-                height: 100%;
-            }
-        }
-
-        /* Compact asymmetric layout */
-        @media (min-width: 768px) {
-            .review-screenshot:nth-child(1) {
-                grid-column: span 2;
-                grid-row: span 2;
-            }
-
-            .review-screenshot:nth-child(2) {
-                grid-column: span 2;
-                grid-row: span 1;
-            }
-
-            .review-screenshot:nth-child(3) {
-                grid-column: span 1;
-                grid-row: span 1;
-            }
-
-            .review-screenshot:nth-child(4) {
-                grid-column: span 1;
-                grid-row: span 2;
-            }
-
-            .review-screenshot:nth-child(5) {
-                grid-column: span 2;
-                grid-row: span 1;
-            }
-
-            .review-screenshot:nth-child(6) {
-                grid-column: span 1;
-                grid-row: span 1;
-            }
-
-            .review-screenshot:nth-child(7) {
-                grid-column: span 2;
-                grid-row: span 2;
-            }
-
-            .review-screenshot:nth-child(8) {
-                grid-column: span 1;
-                grid-row: span 1;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .reviews-bento-grid {
-                grid-auto-rows: 220px;
-                gap: 1rem;
+            .reviews-scroll-track[data-direction="left"],
+            .reviews-scroll-track[data-direction="right"] {
+                animation-duration: 30s;
             }
         }
 
@@ -625,9 +672,9 @@
         <div class="mx-3 md:mx-6 rounded-2xl md:rounded-3xl" style="background: rgba(26, 41, 66, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.2); box-shadow: 0 8px 32px rgba(10, 22, 40, 0.3);">
             <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="flex items-center">
-                <img src="logo.png" alt="AXY" class="h-10">
+                <img src="logo.png" alt="AXY" class="h-10" style="transform: translateY(4px);">
             </a>
-            <nav class="hidden lg:flex items-center space-x-8">
+            <nav class="hidden xl:flex items-center space-x-8">
                 <a href="#cases" data-tab="amazon-cases" class="nav-tab-link text-gray-300 hover:text-white transition">Amazon</a>
                 <a href="#cases" data-tab="tiktok-cases" class="nav-tab-link text-gray-300 hover:text-white transition">TikTok Shop</a>
                 <a href="#cases" data-tab="shopify-cases" class="nav-tab-link text-gray-300 hover:text-white transition">Shopify</a>
@@ -635,7 +682,7 @@
                 <a href="#team" class="text-gray-300 hover:text-white transition" data-translate="nav-team">Команда</a>
                 <a href="#contacts" class="text-gray-300 hover:text-white transition" data-translate="nav-contacts">Контакты</a>
             </nav>
-            <div class="hidden lg:flex items-center space-x-4">
+            <div class="hidden xl:flex items-center space-x-4">
                 <!-- Language Switcher -->
                 <div class="flex items-center space-x-2">
                     <button class="lang-switch px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 active" data-lang="ru" style="background: rgba(99, 179, 237, 0.15); color: #63B3ED;">RU</button>
@@ -643,7 +690,7 @@
                 </div>
                 <a href="#audit" class="js-open-form cta-primary text-sm font-semibold px-5 py-2.5 rounded-lg" data-source="Консультация (Хедер)" data-translate="header-cta">Записаться на консультацию</a>
             </div>
-            <button id="mobile-menu-button" class="lg:hidden text-white p-2">
+            <button id="mobile-menu-button" class="xl:hidden text-white p-2">
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -653,7 +700,7 @@
             </button>
             </div>
             <!-- Мобильное меню -->
-            <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4">
+            <div id="mobile-menu" class="hidden xl:hidden px-6 pb-4">
                 <nav class="flex flex-col space-y-4">
                      <a href="#cases" data-tab="amazon-cases" class="nav-tab-link text-gray-300 hover:text-white transition">Amazon</a>
                      <a href="#cases" data-tab="tiktok-cases" class="nav-tab-link text-gray-300 hover:text-white transition">TikTok Shop</a>
@@ -711,8 +758,8 @@
         <!-- === Что мы делаем (Каталог услуг) === -->
         <section id="services" class="py-12 md:py-28">
             <div class="container mx-auto px-6">
-                <div class="text-center max-w-4xl mx-auto animate-on-scroll">
-                    <h2 class="section-title" data-translate="services-title">Влияем на конкретные показатели и <span class="text-color-animate" data-text-animate>увеличиваем чистую прибыль</span> у вас в кармане</h2>
+                <div class="text-center max-w-6xl mx-auto animate-on-scroll">
+                    <h2 class="section-title" data-translate="services-title">Влияем на конкретные показатели и<br><span class="text-color-animate" data-text-animate>увеличиваем чистую прибыль</span> у вас в кармане</h2>
                     <p class="section-subtitle" data-translate="services-subtitle">Amazon, TikTok Shop, Shopify — не важно, где вы продаёте. Мы берём на себя полный цикл маркетинга или закрываем конкретную задачу, чтобы вы перестали «догонять рынок».</p>
                 </div>
                 <p class="text-center text-white text-sm md:text-base font-semibold mt-12 animate-on-scroll" style="transition-delay: 100ms;" data-translate="services-instruction">Нажми на услугу, чтобы узнать подробнее.</p>
@@ -726,7 +773,7 @@
         <section id="cases" class="py-20 md:py-28 relative" style="background: transparent;">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto animate-on-scroll">
-                    <h2 class="section-title" data-translate="cases-title">Что мы делаем с нашими клиентами</h2>
+                    <h2 class="section-title" data-translate="cases-title">Наши кейсы и результаты</h2>
                     <p class="section-subtitle" data-translate="cases-subtitle">Мы не просто обещаем, мы показываем реальные цифры и истории успеха брендов, с которыми работали.</p>
                 </div>
 
@@ -795,7 +842,7 @@
                         <div id="tiktok-cases" class="tab-content grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                            <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="beauty">
                                 <div class="relative overflow-hidden">
-                                    <img src="https://placehold.co/600x400/111111/EC4899?text=Beauty" alt="TikTok кейс Beauty" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
+                                    <img src="portfolio/Tik tok/1.png" alt="TikTok кейс Beauty" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                     <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
                                     <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-beauty-badge">Продажи за 2 дня: $100k+</div>
                                 </div>
@@ -807,7 +854,7 @@
                             </div>
                            <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="diy">
                                 <div class="relative overflow-hidden">
-                                    <img src="https://placehold.co/600x400/1C1C1E/F8F284?text=DIY+Kits" alt="TikTok кейс DIY" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
+                                    <img src="portfolio/Tik tok/2.png" alt="TikTok кейс DIY" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                     <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
                                     <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-diy-badge">25,000 наборов/мес</div>
                                 </div>
@@ -819,7 +866,7 @@
                             </div>
                            <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="fashion">
                                 <div class="relative overflow-hidden">
-                                    <img src="https://placehold.co/600x400/111111/A78BFA?text=Fashion" alt="TikTok кейс Fashion" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
+                                    <img src="portfolio/Tik tok/3.jpg" alt="TikTok кейс Fashion" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
                                     <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
                                     <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-fashion-badge">ROAS: 5.2x</div>
                                 </div>
@@ -833,39 +880,54 @@
                         <!-- Shopify кейсы -->
                         <div id="shopify-cases" class="tab-content grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                            <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="firearm">
-                                <div class="relative overflow-hidden bg-white">
-                                    <img src="portfolio/shopify/1.png" alt="Shopify кейс 1" class="w-full h-64 object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
-                                    <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
-                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-firearm-badge">Миграция + Разработка с нуля</div>
-                                </div>
+                                <a href="https://www.davika.com/" target="_blank" rel="noopener noreferrer" class="block">
+                                    <div class="relative overflow-hidden bg-white">
+                                        <img src="portfolio/shopify/1.png" alt="Shopify кейс 1" class="w-full h-64 object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
+                                        <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
+                                        <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-firearm-badge">Миграция + Разработка с нуля</div>
+                                    </div>
+                                </a>
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-white" data-translate="case-firearm-title">Аксессуары для оружия</h3>
                                     <p class="text-gray-400 mt-2" data-translate="case-firearm-desc">Миграция с WooCommerce на Shopify и разработка с нуля. Создание кастомной темы, мега-меню и мультивалютность.</p>
-                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all" data-translate="cases-btn-details">Подробнее</button>
+                                    <div class="flex gap-2 mt-4">
+                                        <a href="https://www.davika.com/" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all text-center" data-translate="cases-btn-visit">Посмотреть сайт</a>
+                                        <button class="case-details-btn flex-1 bg-gray-700 text-white font-semibold px-4 py-2 rounded-lg hover:bg-gray-600 transition-all" data-translate="cases-btn-details">Подробнее</button>
+                                    </div>
                                 </div>
                             </div>
                            <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="toys">
-                                <div class="relative overflow-hidden bg-white">
-                                    <img src="portfolio/shopify/2.png" alt="Shopify кейс 2" class="w-full h-64 object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
-                                    <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
-                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-toys-badge">Разработка с нуля</div>
-                                </div>
+                                <a href="https://brainrichkids.com/" target="_blank" rel="noopener noreferrer" class="block">
+                                    <div class="relative overflow-hidden bg-white">
+                                        <img src="portfolio/shopify/2.png" alt="Shopify кейс 2" class="w-full h-64 object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
+                                        <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
+                                        <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-toys-badge">Разработка с нуля</div>
+                                    </div>
+                                </a>
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-white" data-translate="case-toys-title">Игрушки и хобби</h3>
                                     <p class="text-gray-400 mt-2" data-translate="case-toys-desc">Разработка магазина на Shopify с нуля. Мега-меню, Instagram Feed, Wishlist, поддержка клиентов и отзывы.</p>
-                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all" data-translate="cases-btn-details">Подробнее</button>
+                                    <div class="flex gap-2 mt-4">
+                                        <a href="https://brainrichkids.com/" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all text-center" data-translate="cases-btn-visit">Посмотреть сайт</a>
+                                        <button class="case-details-btn flex-1 bg-gray-700 text-white font-semibold px-4 py-2 rounded-lg hover:bg-gray-600 transition-all" data-translate="cases-btn-details">Подробнее</button>
+                                    </div>
                                 </div>
                             </div>
                            <div class="custom-card rounded-2xl overflow-hidden group cursor-pointer portfolio-case" data-case-id="jewelry">
-                                <div class="relative overflow-hidden bg-white">
-                                    <img src="portfolio/shopify/3.png" alt="Shopify кейс 3" class="w-full h-64 object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
-                                    <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
-                                    <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-jewelry-badge">Разработка с нуля</div>
-                                </div>
+                                <a href="https://michaelgabriels.com/" target="_blank" rel="noopener noreferrer" class="block">
+                                    <div class="relative overflow-hidden bg-white">
+                                        <img src="portfolio/shopify/3.png" alt="Shopify кейс 3" class="w-full h-64 object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" width="600" height="400">
+                                        <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
+                                        <div class="absolute top-4 right-4 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(99, 179, 237, 0.3);" data-translate="case-jewelry-badge">Разработка с нуля</div>
+                                    </div>
+                                </a>
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-white" data-translate="case-jewelry-title">Ювелирные изделия</h3>
                                     <p class="text-gray-400 mt-2" data-translate="case-jewelry-desc">Разработка премиум темы для ювелирного магазина с нуля. Google отзывы, мега-меню, аналитика и Instagram интеграция.</p>
-                                    <button class="case-details-btn mt-4 w-full bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all" data-translate="cases-btn-details">Подробнее</button>
+                                    <div class="flex gap-2 mt-4">
+                                        <a href="https://michaelgabriels.com/" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#63B3ED] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#7EC8F3] transition-all text-center" data-translate="cases-btn-visit">Посмотреть сайт</a>
+                                        <button class="case-details-btn flex-1 bg-gray-700 text-white font-semibold px-4 py-2 rounded-lg hover:bg-gray-600 transition-all" data-translate="cases-btn-details">Подробнее</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -876,37 +938,81 @@
 
         <!-- === Отзывы === -->
         <section id="reviews" class="py-10 md:py-16 overflow-hidden">
-            <div class="text-center max-w-3xl mx-auto px-6 animate-on-scroll mb-6 md:mb-8">
+            <div class="text-center max-w-3xl mx-auto px-6 animate-on-scroll mb-12">
                 <h2 class="section-title" data-translate="reviews-title">Что говорят клиенты</h2>
                 <p class="text-gray-400 mt-3" data-translate="reviews-subtitle">Реальные отзывы из наших рабочих чатов</p>
+                <button id="openReviewsLightbox" class="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 hover:scale-105" style="background: rgba(99, 179, 237, 0.15); color: #63B3ED; border: 1px solid rgba(99, 179, 237, 0.3);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 3h6v6"></path>
+                        <path d="M9 21H3v-6"></path>
+                        <path d="M21 3l-7 7"></path>
+                        <path d="M3 21l7-7"></path>
+                    </svg>
+                    <span data-translate="reviews-fullscreen-btn">Открыть в полноэкранном режиме</span>
+                </button>
             </div>
 
-            <div class="container mx-auto px-6">
-                <!-- Compact Grid Layout -->
-                <div class="reviews-bento-grid">
-                    <div class="review-screenshot animate-on-scroll">
-                        <img src="review/telegram-cloud-photo-size-2-5327958389147432129-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain rounded-2xl">
+            <!-- Animated Scrolling Reviews -->
+            <div class="reviews-scroll-container">
+                <!-- Row 1: Left to Right -->
+                <div class="reviews-scroll-row">
+                    <div class="reviews-scroll-track" data-direction="left">
+                        <div class="review-card" data-hover-text="Нажмите, чтобы увеличить">
+                            <img src="review/10.png" alt="Отзыв клиента">
+                        </div>
+                        <div class="review-card" data-hover-text="Нажмите, чтобы увеличить">
+                            <img src="review/11.png" alt="Отзыв клиента">
+                        </div>
+                        <div class="review-card" data-hover-text="Нажмите, чтобы увеличить">
+                            <img src="review/12.png" alt="Отзыв клиента">
+                        </div>
+                        <div class="review-card" data-hover-text="Нажмите, чтобы увеличить">
+                            <img src="review/13.png" alt="Отзыв клиента">
+                        </div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="review-card" data-hover-text="Нажмите, чтобы увеличить">
+                            <img src="review/10.png" alt="Отзыв клиента">
+                        </div>
+                        <div class="review-card" data-hover-text="Нажмите, чтобы увеличить">
+                            <img src="review/11.png" alt="Отзыв клиента">
+                        </div>
+                        <div class="review-card" data-hover-text="Нажмите, чтобы увеличить">
+                            <img src="review/12.png" alt="Отзыв клиента">
+                        </div>
+                        <div class="review-card" data-hover-text="Нажмите, чтобы увеличить">
+                            <img src="review/13.png" alt="Отзыв клиента">
+                        </div>
                     </div>
-                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 50ms;">
-                        <img src="review/telegram-cloud-photo-size-2-5327958389147432133-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain rounded-2xl">
-                    </div>
-                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 100ms;">
-                        <img src="review/telegram-cloud-photo-size-2-5327958389147432149-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain rounded-2xl">
-                    </div>
-                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 150ms;">
-                        <img src="review/telegram-cloud-photo-size-2-5327958389147432156-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain rounded-2xl">
-                    </div>
-                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 50ms;">
-                        <img src="review/telegram-cloud-photo-size-2-5327958389147432162-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain rounded-2xl">
-                    </div>
-                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 200ms;">
-                        <img src="review/telegram-cloud-photo-size-2-5327958389147432169-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain rounded-2xl">
-                    </div>
-                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 100ms;">
-                        <img src="review/telegram-cloud-photo-size-2-5327958389147432179-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain rounded-2xl">
-                    </div>
-                    <div class="review-screenshot animate-on-scroll" style="transition-delay: 250ms;">
-                        <img src="review/telegram-cloud-photo-size-2-5327958389147432183-y.jpg" alt="Отзыв клиента" class="w-full h-full object-contain rounded-2xl">
+                </div>
+
+                <!-- Row 2: Right to Left -->
+                <div class="reviews-scroll-row">
+                    <div class="reviews-scroll-track" data-direction="right">
+                        <div class="review-card" data-hover-text="Нажмите, чтобы увеличить">
+                            <img src="review/13.png" alt="Отзыв клиента">
+                        </div>
+                        <div class="review-card" data-hover-text="Нажмите, чтобы увеличить">
+                            <img src="review/12.png" alt="Отзыв клиента">
+                        </div>
+                        <div class="review-card" data-hover-text="Нажмите, чтобы увеличить">
+                            <img src="review/11.png" alt="Отзыв клиента">
+                        </div>
+                        <div class="review-card" data-hover-text="Нажмите, чтобы увеличить">
+                            <img src="review/10.png" alt="Отзыв клиента">
+                        </div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="review-card" data-hover-text="Нажмите, чтобы увеличить">
+                            <img src="review/13.png" alt="Отзыв клиента">
+                        </div>
+                        <div class="review-card" data-hover-text="Нажмите, чтобы увеличить">
+                            <img src="review/12.png" alt="Отзыв клиента">
+                        </div>
+                        <div class="review-card" data-hover-text="Нажмите, чтобы увеличить">
+                            <img src="review/11.png" alt="Отзыв клиента">
+                        </div>
+                        <div class="review-card" data-hover-text="Нажмите, чтобы увеличить">
+                            <img src="review/10.png" alt="Отзыв клиента">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -952,7 +1058,58 @@
                             </div>
                         </div>
                     </div>
-                    <div class="animate-on-scroll relative flex items-center justify-center min-h-[600px]" style="transition-delay: 200ms;">
+                    <!-- Mobile/Tablet: Swipeable Cards -->
+                    <div class="lg:hidden animate-on-scroll" style="transition-delay: 200ms;">
+                        <div class="overflow-x-auto pb-6 hide-scrollbar">
+                            <div class="flex gap-4 px-6" style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
+                                <!-- Азат -->
+                                <div class="flex-shrink-0 w-64 rounded-2xl p-6 text-center" style="background: rgba(99, 179, 237, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.3); scroll-snap-align: center;">
+                                    <img src="team/azat.png" alt="Азат - CEO" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-[#63B3ED] mb-4">
+                                    <h3 class="text-xl font-bold text-white">Азат</h3>
+                                    <p class="text-gray-400 mt-1">CEO</p>
+                                </div>
+                                <!-- Иван -->
+                                <div class="flex-shrink-0 w-64 rounded-2xl p-6 text-center" style="background: rgba(99, 179, 237, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.3); scroll-snap-align: center;">
+                                    <img src="team/ivan.jpg" alt="Иван - Project Manager" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-[#63B3ED] mb-4">
+                                    <h3 class="text-xl font-bold text-white">Иван</h3>
+                                    <p class="text-gray-400 mt-1">Project Manager</p>
+                                </div>
+                                <!-- Евгений -->
+                                <div class="flex-shrink-0 w-64 rounded-2xl p-6 text-center" style="background: rgba(99, 179, 237, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.3); scroll-snap-align: center;">
+                                    <img src="team/evhenii.jpg" alt="Евгений - Shopify Tech Lead" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-[#63B3ED] mb-4">
+                                    <h3 class="text-xl font-bold text-white">Евгений</h3>
+                                    <p class="text-gray-400 mt-1">Shopify Tech Lead</p>
+                                </div>
+                                <!-- Макс -->
+                                <div class="flex-shrink-0 w-64 rounded-2xl p-6 text-center" style="background: rgba(99, 179, 237, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.3); scroll-snap-align: center;">
+                                    <img src="team/max.png" alt="Макс - Управление и масштаб" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-[#63B3ED] mb-4">
+                                    <h3 class="text-xl font-bold text-white" data-translate="team-maks-name">Макс</h3>
+                                    <p class="text-gray-400 mt-1" data-translate="team-maks">Управление и масштаб</p>
+                                </div>
+                                <!-- Булат -->
+                                <div class="flex-shrink-0 w-64 rounded-2xl p-6 text-center" style="background: rgba(99, 179, 237, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.3); scroll-snap-align: center;">
+                                    <img src="team/bulat.png" alt="Булат - Стратегия и инвестиции" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-[#63B3ED] mb-4">
+                                    <h3 class="text-xl font-bold text-white">Булат</h3>
+                                    <p class="text-gray-400 mt-1" data-translate="team-bulat">Стратегия и инвестиции</p>
+                                </div>
+                                <!-- Настя -->
+                                <div class="flex-shrink-0 w-64 rounded-2xl p-6 text-center" style="background: rgba(99, 179, 237, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.3); scroll-snap-align: center;">
+                                    <img src="team/smm.jpg" alt="Настя - SMM & Content" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-[#63B3ED] mb-4">
+                                    <h3 class="text-xl font-bold text-white" data-translate="team-content-name">Настя</h3>
+                                    <p class="text-gray-400 mt-1" data-translate="team-content-role">SMM & Контент</p>
+                                </div>
+                                <!-- Аида -->
+                                <div class="flex-shrink-0 w-64 rounded-2xl p-6 text-center" style="background: rgba(99, 179, 237, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.3); scroll-snap-align: center;">
+                                    <img src="team/video.jpg" alt="Аида - Видеограф" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-[#63B3ED] mb-4">
+                                    <h3 class="text-xl font-bold text-white" data-translate="team-video-name">Аида</h3>
+                                    <p class="text-gray-400 mt-1" data-translate="team-video-role">Видеограф</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Desktop: Circle Layout -->
+                    <div class="hidden lg:flex animate-on-scroll relative items-center justify-center min-h-[600px]" style="transition-delay: 200ms;">
                         <!-- Круг с командой -->
                         <div class="team-circle-wrapper relative w-full max-w-[550px] aspect-square">
                             <!-- Центральный элемент - Партнер (НЕ вращается) -->
@@ -1021,8 +1178,8 @@
 
                                 <div class="team-member" style="--angle: 308.57deg;">
                                     <div class="team-member-inner">
-                                        <img src="team/video.jpg" alt="Алина - Видеограф" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]">
-                                        <span class="block text-center text-xs text-white mt-2 font-semibold" data-translate="team-video-name">Алина</span>
+                                        <img src="team/video.jpg" alt="Аида - Видеограф" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]">
+                                        <span class="block text-center text-xs text-white mt-2 font-semibold" data-translate="team-video-name">Аида</span>
                                         <span class="block text-center text-xs text-gray-400" data-translate="team-video-role">Видеограф</span>
                                     </div>
                                 </div>
@@ -1073,9 +1230,9 @@
                         <li><a href="mailto:account@axyglobal.com" class="text-gray-400 hover:text-white">account@axyglobal.com</a></li>
                     </ul>
                      <div class="mt-4 flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                        <a href="https://www.linkedin.com/in/azat-shakurov/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
                         <a href="https://www.instagram.com/axy_co?igsh=MXY4bGJtbWtoYXJsNQ%3D%3D" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61556339652549" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white" aria-label="Facebook"><i data-lucide="facebook"></i></a>
                     </div>
                 </div>
                 <div>
@@ -1171,7 +1328,7 @@
                         <input type="tel" name="phone" data-translate="form-phone" placeholder="Ваш номер телефона" required class="form-input block w-full rounded-md p-4">
                     </div>
                      <div>
-                        <input type="text" name="telegram" data-translate="form-telegram" placeholder="Ваш Телеграм (@username)" required class="form-input block w-full rounded-md p-4">
+                        <input type="text" name="telegram" data-translate="form-telegram" placeholder="Ваш Telegram или WhatsApp" required class="form-input block w-full rounded-md p-4">
                     </div>
                     <input type="hidden" name="source" id="form-source" value="">
                     <div class="flex items-start gap-3">
@@ -1213,7 +1370,7 @@
                     'hero-extra-info': 'Get a <strong class="text-white">free audit</strong> — if you <strong class="text-white">don\'t sell yet</strong>, we\'ll check if your product will be in demand on Amazon.<br>If you <strong class="text-white">already sell</strong> — we\'ll <strong class="text-white">analyze your listing</strong> and show how to <strong class="text-white">increase sales</strong>.<br><strong class="text-white">Free Shopify audit</strong> — developer will check your site and advise how to <strong class="text-white">increase sales</strong>.',
 
                     // Services Section
-                    'services-title': 'We Impact Specific Metrics and <span class="text-color-animate" data-text-animate>Increase Your Net Profit</span> in Your Pocket',
+                    'services-title': 'We Impact Specific Metrics and<br><span class="text-color-animate" data-text-animate>Increase Your Net Profit</span> in Your Pocket',
                     'services-subtitle': 'Amazon, TikTok Shop, Shopify — it doesn\'t matter where you sell. We handle the full marketing cycle or solve specific tasks so you stop "chasing the market."',
                     'services-instruction': 'Click on a service to learn more.',
                     'service-details-heading': 'What\'s Included:',
@@ -1227,11 +1384,12 @@
                     'team-stat-years': 'years in e-commerce',
                     'team-stat-sellers': 'sellers helped',
                     'team-client': 'Partner',
+                    'team-maks-name': 'Max',
                     'team-maks': 'Management & Scale',
                     'team-bulat': 'Strategy & Investment',
                     'team-content-name': 'Nastya',
                     'team-content-role': 'SMM & Content',
-                    'team-video-name': 'Alina',
+                    'team-video-name': 'Aida',
                     'team-video-role': 'Videographer',
 
                     // CTA Section
@@ -1240,9 +1398,10 @@
                     'cta-button': 'Get Free Audit',
 
                     // Cases Section
-                    'cases-title': 'What We Do With Our Clients',
+                    'cases-title': 'Our Cases and Results',
                     'cases-subtitle': 'We don\'t just promise, we show real numbers and success stories of brands we\'ve worked with.',
                     'cases-btn-details': 'Learn More',
+                    'cases-btn-visit': 'Visit Website',
 
                     // Amazon Cases
                     'case-diffuser-badge': 'Sales Growth: +400%',
@@ -1283,6 +1442,7 @@
                     // Reviews Section
                     'reviews-title': 'What Clients Say',
                     'reviews-subtitle': 'Real reviews from our working chats',
+                    'reviews-fullscreen-btn': 'Open in Fullscreen Mode',
 
                     // FAQ Section
                     'faq-title': 'Frequently Asked Questions',
@@ -1312,7 +1472,7 @@
                     'form-modal-subtitle': 'Fill out the form and we will contact you shortly',
                     'form-name': 'Your Name',
                     'form-phone': 'Your Phone Number',
-                    'form-telegram': 'Your Telegram (@username)',
+                    'form-telegram': 'Your Telegram or WhatsApp',
                     'form-privacy-label': 'I confirm that I have read the <a href="privacy-policy-en.html" target="_blank" class="text-[#63B3ED] hover:underline">privacy policy</a>',
                     'form-submit': 'Submit Request',
 
@@ -1348,6 +1508,12 @@
                             element.innerHTML = translations[lang][key];
                         }
                     }
+                });
+
+                // Обновляем hover-текст для review cards
+                const hoverText = lang === 'en' ? 'Click to enlarge' : 'Нажмите, чтобы увеличить';
+                document.querySelectorAll('.review-card').forEach(element => {
+                    element.setAttribute('data-hover-text', hoverText);
                 });
 
                 // Обновляем услуги
@@ -2352,17 +2518,19 @@
             // --- Lightbox для отзывов ---
             const lightbox = document.getElementById('reviewLightbox');
             const lightboxImage = document.getElementById('lightboxImage');
-            const reviewScreenshots = document.querySelectorAll('.review-screenshot img');
+            const reviewCards = document.querySelectorAll('.review-card img');
             const closeBtn = lightbox.querySelector('.lightbox-close');
             const prevBtn = lightbox.querySelector('.lightbox-prev');
             const nextBtn = lightbox.querySelector('.lightbox-next');
 
             let currentImageIndex = 0;
-            const images = Array.from(reviewScreenshots).map(img => img.src);
+            const images = Array.from(reviewCards).map(img => img.src);
+            // Remove duplicates for lightbox navigation
+            const uniqueImages = [...new Set(images)];
 
             function openLightbox(index) {
                 currentImageIndex = index;
-                lightboxImage.src = images[currentImageIndex];
+                lightboxImage.src = uniqueImages[currentImageIndex];
                 lightbox.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
@@ -2373,19 +2541,22 @@
             }
 
             function showNextImage() {
-                currentImageIndex = (currentImageIndex + 1) % images.length;
-                lightboxImage.src = images[currentImageIndex];
+                currentImageIndex = (currentImageIndex + 1) % uniqueImages.length;
+                lightboxImage.src = uniqueImages[currentImageIndex];
             }
 
             function showPrevImage() {
-                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-                lightboxImage.src = images[currentImageIndex];
+                currentImageIndex = (currentImageIndex - 1 + uniqueImages.length) % uniqueImages.length;
+                lightboxImage.src = uniqueImages[currentImageIndex];
             }
 
             // Открытие lightbox при клике на изображение
-            reviewScreenshots.forEach((img, index) => {
+            reviewCards.forEach((img) => {
                 img.parentElement.addEventListener('click', () => {
-                    openLightbox(index);
+                    const imgIndex = uniqueImages.indexOf(img.src);
+                    if (imgIndex !== -1) {
+                        openLightbox(imgIndex);
+                    }
                 });
             });
 
@@ -2451,20 +2622,31 @@
                 });
             });
 
+            // --- Кнопка открытия отзывов в полноэкранном режиме ---
+            const openReviewsBtn = document.getElementById('openReviewsLightbox');
+            if (openReviewsBtn) {
+                openReviewsBtn.addEventListener('click', () => {
+                    // Открываем первый отзыв в lightbox
+                    if (uniqueImages.length > 0) {
+                        openLightbox(0);
+                    }
+                });
+            }
+
         });
     </script>
 
     <!-- Плавающие кнопки связи -->
     <div class="hidden lg:flex fixed bottom-6 right-6 z-50 flex-col gap-3">
         <!-- Telegram -->
-        <a href="https://t.me/yourusername" target="_blank" rel="noopener noreferrer" class="group w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.3); box-shadow: 0 8px 32px rgba(99, 179, 237, 0.2);" aria-label="Написать в Telegram">
+        <a href="https://t.me/vanya_yarmosh" target="_blank" rel="noopener noreferrer" class="group w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110" style="background: rgba(99, 179, 237, 0.15); backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.3); box-shadow: 0 8px 32px rgba(99, 179, 237, 0.2);" aria-label="Написать в Telegram">
             <svg class="w-6 h-6 text-[#63B3ED] group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.654-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
             </svg>
         </a>
 
         <!-- WhatsApp -->
-        <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="group w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110" style="background: rgba(37, 211, 102, 0.15); backdrop-filter: blur(20px); border: 1px solid rgba(37, 211, 102, 0.3); box-shadow: 0 8px 32px rgba(37, 211, 102, 0.2);" aria-label="Написать в WhatsApp">
+        <a href="https://wa.me/380990699094" target="_blank" rel="noopener noreferrer" class="group w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110" style="background: rgba(37, 211, 102, 0.15); backdrop-filter: blur(20px); border: 1px solid rgba(37, 211, 102, 0.3); box-shadow: 0 8px 32px rgba(37, 211, 102, 0.2);" aria-label="Написать в WhatsApp">
             <svg class="w-6 h-6 text-[#25D366] group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
             </svg>
