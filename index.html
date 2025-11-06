@@ -354,8 +354,10 @@
             animation: scroll-right 40s linear infinite;
         }
 
-        .reviews-scroll-track:hover {
-            animation-play-state: paused;
+        @media (min-width: 769px) {
+            .reviews-scroll-track:hover {
+                animation-play-state: paused;
+            }
         }
 
         @keyframes scroll-left {
