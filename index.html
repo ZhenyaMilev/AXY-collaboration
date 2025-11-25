@@ -2355,6 +2355,22 @@
                 });
             });
 
+            // --- Определение кода страны ---
+            let userCountryCode = 'Unknown';
+
+            async function getUserCountry() {
+                try {
+                    const response = await fetch('https://ipapi.co/json/');
+                    const data = await response.json();
+                    userCountryCode = data.country_code || data.country || 'Unknown';
+                } catch (error) {
+                    console.log('Could not detect country:', error);
+                }
+            }
+
+            // Определяем страну при загрузке страницы
+            getUserCountry();
+
             // --- Обработчик отправки формы ---
             const form = document.querySelector('form');
             const submitButton = form.querySelector('button[type="submit"]');
@@ -2369,7 +2385,8 @@
                     name: formData.get('name'),
                     phone: formData.get('phone'),
                     telegram: formData.get('telegram'),
-                    source: formData.get('source') || 'Неизвестно'
+                    source: formData.get('source') || 'Неизвестно',
+                    country: userCountryCode
                 };
 
                 // Проверка чекбокса

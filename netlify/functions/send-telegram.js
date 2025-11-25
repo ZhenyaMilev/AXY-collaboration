@@ -12,7 +12,7 @@ exports.handler = async (event, context) => {
   try {
     // Парсим данные формы
     const data = JSON.parse(event.body);
-    const { name, phone, telegram, source } = data;
+    const { name, phone, telegram, source, country } = data;
 
     // Получаем данные Telegram из переменных окружения
     const botToken = process.env.TELEGRAM_BOT_TOKEN;
@@ -25,7 +25,7 @@ exports.handler = async (event, context) => {
     }
 
     // Формируем сообщение
-    const message = `🆕 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n✈️ Telegram: ${telegram}\n📍 Источник: ${source || 'Неизвестно'}`;
+    const message = `🆕 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n✈️ Telegram: ${telegram}\n📍 Источник: ${source || 'Неизвестно'}\n🌍 Страна: ${country || 'Unknown'}`;
 
     // Отправляем в Telegram через https
     const telegramData = JSON.stringify({

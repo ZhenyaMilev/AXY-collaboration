@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMIORA - Коммерческое предложение</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #2d2d2d;
+            background: #fff;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 50px;
+        }
+
+        /* Cover Page */
+        .cover {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+            padding: 60px;
+            page-break-after: always;
+        }
+
+        .cover h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+        }
+
+        .cover .subtitle {
+            font-size: 16px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #8b7355;
+            margin-bottom: 60px;
+        }
+
+        .cover .divider {
+            width: 80px;
+            height: 2px;
+            background: #c9a961;
+            margin: 40px auto;
+        }
+
+        .cover .date {
+            font-size: 13px;
+            color: #666;
+            margin-top: 40px;
+        }
+
+        .cover .tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 18px;
+            color: #555;
+            max-width: 500px;
+            margin-top: 30px;
+        }
+
+        /* Section styling */
+        .section {
+            padding: 50px 0;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #c9a961;
+        }
+
+        .subsection-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin: 35px 0 20px;
+        }
+
+        .subsection-title-small {
+            font-size: 16px;
+            font-weight: 600;
+            color: #444;
+            margin: 25px 0 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 25px;
+            color: #444;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #2d2d2d;
+            font-weight: 600;
+        }
+
+        em {
+            font-style: italic;
+            color: #666;
+        }
+
+        /* Highlight boxes */
+        .highlight-box {
+            background: #faf9f7;
+            border-left: 4px solid #c9a961;
+            padding: 20px 25px;
+            margin: 25px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        .recommendation-box {
+            background: linear-gradient(135deg, #f8f6f3 0%, #f0ebe4 100%);
+            border: 1px solid #d4c4a8;
+            border-radius: 8px;
+            padding: 25px 30px;
+            margin: 30px 0;
+        }
+
+        .recommendation-box h4 {
+            font-family: 'Playfair Display', serif;
+            color: #8b7355;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 13px;
+        }
+
+        th {
+            background: #f5f3f0;
+            color: #333;
+            font-weight: 600;
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 2px solid #c9a961;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e8e5e0;
+            color: #444;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Competitor cards */
+        .competitor-card {
+            background: #fff;
+            border: 1px solid #e8e5e0;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 25px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .competitor-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+
+        .competitor-card .website {
+            font-size: 12px;
+            color: #8b7355;
+            margin-bottom: 20px;
+        }
+
+        .competitor-card .slogan {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 3px solid #c9a961;
+        }
+
+        .takeaway {
+            background: #f8f6f3;
+            padding: 15px 20px;
+            margin-top: 20px;
+            border-radius: 6px;
+        }
+
+        .takeaway h5 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8b7355;
+            margin-bottom: 8px;
+        }
+
+        /* Pricing section */
+        .pricing-option {
+            background: #fff;
+            border: 2px solid #e8e5e0;
+            border-radius: 10px;
+            padding: 35px;
+            margin: 25px 0;
+        }
+
+        .pricing-option.recommended {
+            border-color: #c9a961;
+            box-shadow: 0 5px 20px rgba(201, 169, 97, 0.15);
+        }
+
+        .pricing-option h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 32px;
+            font-weight: 700;
+            color: #c9a961;
+            margin-bottom: 20px;
+        }
+
+        .price span {
+            font-size: 14px;
+            font-weight: 400;
+            color: #666;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #c9a961;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        /* Page structure list */
+        .structure-item {
+            margin: 20px 0;
+            padding: 20px;
+            background: #faf9f7;
+            border-radius: 6px;
+        }
+
+        .structure-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .structure-item ul {
+            margin: 10px 0 0 20px;
+        }
+
+        /* Comparison table */
+        .comparison-table {
+            overflow-x: auto;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+            font-weight: 600;
+            background: #faf9f7;
+        }
+
+        .comparison-table td:last-child {
+            background: #f8f6f3;
+            color: #8b7355;
+            font-weight: 500;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 30px 0;
+        }
+
+        .timeline-item {
+            padding: 20px 25px;
+            border-left: 3px solid #e8e5e0;
+            margin-left: 10px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: #c9a961;
+            border-radius: 50%;
+        }
+
+        .timeline-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Next steps */
+        .next-steps {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .next-steps h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #c9a961;
+            margin-bottom: 25px;
+        }
+
+        .next-steps ol {
+            color: #ccc;
+        }
+
+        .next-steps strong {
+            color: #fff;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                font-size: 12px;
+            }
+
+            .container {
+                padding: 40px;
+            }
+
+            .cover {
+                min-height: auto;
+                padding: 100px 40px;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .competitor-card,
+            .pricing-option {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Page break utility */
+        .page-break {
+            page-break-before: always;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Page -->
+    <div class="cover">
+        <h1>AMIORA</h1>
+        <p class="subtitle">Коммерческое предложение</p>
+        <div class="divider"></div>
+        <p class="tagline">Премиальный бренд интеллектуальной антивозрастной косметики нового поколения</p>
+        <p class="date">Ноябрь 2025</p>
+    </div>
+
+    <div class="container">
+        <!-- Vision Section -->
+        <div class="section">
+            <h2 class="section-title">Видение проекта</h2>
+
+            <p><strong>AMIORA</strong> позиционируется как премиальный бренд интеллектуальной антивозрастной косметики, сочетающий итальянское производство, научный подход и биотехнологические инновации.</p>
+
+            <h3 class="subsection-title">Ключевые преимущества</h3>
+            <ul>
+                <li>Made in Italy (производство и юр. лицо)</li>
+                <li>Биотехнологии + нейрокосметика + эпигенетика</li>
+                <li>Стандарты GMP / ISO 22716</li>
+                <li>Премиальный сегмент (luxury skincare)</li>
+            </ul>
+
+            <h3 class="subsection-title">Целевая аудитория</h3>
+            <ul>
+                <li>Женщины 35-55 лет</li>
+                <li>Средний+ и высокий доход</li>
+                <li>Европа (лицензия ЕС)</li>
+                <li>Интересуются научно обоснованным уходом за кожей</li>
+            </ul>
+        </div>
+
+        <!-- Site Structure Section -->
+        <div class="section page-break">
+            <h2 class="section-title">Структура сайта (Shopify)</h2>
+
+            <div class="structure-item">
+                <h4>1. Главная страница (Home)</h4>
+                <ul>
+                    <li>Hero-секция с видео/анимацией продукта</li>
+                    <li>УТП бренда (3-4 ключевых преимущества)</li>
+                    <li>Флагманский продукт с CTA</li>
+                    <li>Секция "Наука за красотой"</li>
+                    <li>Социальные доказательства</li>
+                    <li>Instagram лента</li>
+                    <li>Email-подписка</li>
+                </ul>
+            </div>
+
+            <div class="structure-item">
+                <h4>2. Магазин (Shop)</h4>
+                <ul>
+                    <li>Каталог продуктов (начать с 1, расширить до 3)</li>
+                    <li>Фильтры по типу кожи / проблемам</li>
+                    <li>Детальная страница продукта с галереей, описанием, отзывами</li>
+                    <li>Cross-sell блок</li>
+                </ul>
+            </div>
+
+            <div class="structure-item">
+                <h4>3. О бренде (About / Our Story)</h4>
+                <ul>
+                    <li>История создания AMIORA</li>
+                    <li>Философия бренда</li>
+                    <li>Итальянское производство</li>
+                    <li>Сертификации и стандарты</li>
+                </ul>
+            </div>
+
+            <div class="structure-item">
+                <h4>4. Наука (Science / Technology)</h4>
+                <p><strong>Критически важная страница для премиум-сегмента</strong></p>
+                <ul>
+                    <li>Пептидные комплексы</li>
+                    <li>Эпигенетические активы</li>
+                    <li>Растительные стволовые клетки</li>
+                    <li>Пробиотики/постбиотики</li>
+                    <li>Антиоксиданты (ресвератрол, Q10)</li>
+                    <li>Инфографика механизма действия</li>
+                </ul>
+            </div>
+
+            <div class="structure-item">
+                <h4>5. Дополнительные страницы</h4>
+                <ul>
+                    <li>Ингредиенты (глоссарий активных компонентов)</li>
+                    <li>Контакты</li>
+                    <li>FAQ, Доставка, Политика конфиденциальности</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Competitor Audit Section -->
+        <div class="section page-break">
+            <h2 class="section-title">Аудит конкурентов</h2>
+
+            <!-- KYPRIS -->
+            <div class="competitor-card">
+                <h3>KYPRIS Beauty</h3>
+                <p class="website">kyprisbeauty.com | США</p>
+                <p class="slogan">"Clinically Tested. Powerfully Gentle. Gorgeous Results"</p>
+
+                <h4 class="subsection-title-small">Ценовой сегмент (USD)</h4>
+                <table>
+                    <tr><td>Сыворотки</td><td>$90</td></tr>
+                    <tr><td>Масла/Elixirs</td><td>$230</td></tr>
+                    <tr><td>Маски</td><td>$105</td></tr>
+                    <tr><td>Кремы</td><td>$165</td></tr>
+                    <tr><td>Наборы</td><td>$150</td></tr>
+                </table>
+
+                <h4 class="subsection-title-small">УТП</h4>
+                <ul>
+                    <li>Ботанические ингредиенты высокого качества</li>
+                    <li>Клиническое тестирование</li>
+                    <li>Фитотехнология</li>
+                    <li>Персонализация через quiz</li>
+                </ul>
+
+                <div class="takeaway">
+                    <h5>Что взять на заметку</h5>
+                    <p>Quiz для персонализации - отличный инструмент вовлечения. Акцент на клинические исследования работает для премиум-сегмента.</p>
+                </div>
+            </div>
+
+            <!-- BIOEFFECT -->
+            <div class="competitor-card">
+                <h3>BIOEFFECT</h3>
+                <p class="website">bioeffect.com | Исландия</p>
+                <p class="slogan">"Pure, clean, plant-based EGF skin care, born from science & made in Iceland"</p>
+
+                <h4 class="subsection-title-small">Ценовой сегмент</h4>
+                <ul>
+                    <li>Сыворотки от $40+</li>
+                    <li>Наборы со скидками до 25%</li>
+                    <li>Бесплатная доставка</li>
+                </ul>
+
+                <h4 class="subsection-title-small">УТП</h4>
+                <ul>
+                    <li><strong>EGF (эпидермальный фактор роста)</strong> - ключевой ингредиент</li>
+                    <li>Растительная биотехнология (выращивают в ячмене)</li>
+                    <li>Минималистичные формулы</li>
+                    <li>Made in Iceland - чистота и экология</li>
+                </ul>
+
+                <div class="takeaway">
+                    <h5>Что взять на заметку</h5>
+                    <p>Сильная научная история вокруг одного ключевого ингредиента. AMIORA может использовать "Made in Italy" аналогично.</p>
+                </div>
+            </div>
+
+            <!-- Oway -->
+            <div class="competitor-card">
+                <h3>Oway</h3>
+                <p class="website">oway.com | Италия</p>
+                <p class="slogan">"Formule pure ed efficaci, create con ingredienti biodinamici"</p>
+
+                <h4 class="subsection-title-small">Ценовой сегмент (EUR)</h4>
+                <table>
+                    <tr><td>Шампуни/кондиционеры</td><td>€34-40</td></tr>
+                    <tr><td>Маски для волос</td><td>€39</td></tr>
+                    <tr><td>Сыворотки</td><td>€63</td></tr>
+                </table>
+
+                <h4 class="subsection-title-small">УТП</h4>
+                <ul>
+                    <li>Собственные биодинамические поля</li>
+                    <li>Осознанное потребление</li>
+                    <li>Минимизация пластика</li>
+                    <li>Ремесленное производство</li>
+                </ul>
+
+                <div class="takeaway">
+                    <h5>Что взять на заметку</h5>
+                    <p>Итальянское происхождение как преимущество. Собственное производство ингредиентов создает уникальность.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="section">
+            <h3 class="subsection-title">Сравнительная таблица</h3>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Параметр</th>
+                            <th>KYPRIS</th>
+                            <th>BIOEFFECT</th>
+                            <th>Oway</th>
+                            <th>AMIORA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Страна</td>
+                            <td>США</td>
+                            <td>Исландия</td>
+                            <td>Италия</td>
+                            <td>Италия</td>
+                        </tr>
+                        <tr>
+                            <td>Ценовой сегмент</td>
+                            <td>$90-230</td>
+                            <td>$40-150+</td>
+                            <td>€34-63</td>
+                            <td>€80-200</td>
+                        </tr>
+                        <tr>
+                            <td>Ключевое УТП</td>
+                            <td>Ботаника + клиника</td>
+                            <td>EGF биотехнология</td>
+                            <td>Биодинамика + эко</td>
+                            <td>Биотехнология + нейрокосметика</td>
+                        </tr>
+                        <tr>
+                            <td>Дизайн</td>
+                            <td>Золото + минимализм</td>
+                            <td>Научный + чистый</td>
+                            <td>Эко + элегантный</td>
+                            <td>Научный + премиум</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="recommendation-box">
+                <h4>Рекомендуемое позиционирование</h4>
+                <p><strong>"Итальянская биотехнологическая косметика нового поколения"</strong></p>
+                <p style="margin-top: 15px; margin-bottom: 0;">AMIORA занимает уникальную нишу между научностью BIOEFFECT, итальянским производством Oway и премиальностью KYPRIS.</p>
+            </div>
+
+            <h3 class="subsection-title">Дифференциаторы AMIORA</h3>
+            <ul>
+                <li><strong>Нейрокосметика</strong> - ни у кого из конкурентов</li>
+                <li><strong>Эпигенетические активы</strong> - уникально</li>
+                <li>Комбинация пептидов + стволовые клетки + пробиотики</li>
+                <li>Итальянское GMP производство</li>
+            </ul>
+        </div>
+
+        <!-- Pricing Section -->
+        <div class="section page-break">
+            <h2 class="section-title">Стоимость разработки</h2>
+
+            <div class="pricing-option">
+                <h3>Вариант 1: Разработка на готовой теме</h3>
+                <p class="price">$3,000 <span>+ $400 (премиум-тема)</span></p>
+
+                <h4 class="subsection-title-small">Что это значит</h4>
+                <p>Используется готовая премиум-тема Shopify (Prestige, Impulse, Symmetry). Тема уже имеет проверенную структуру и функционал. Мы настраиваем её под ваш бренд: цвета, шрифты, лого, создаем все страницы и наполняем контентом.</p>
+
+                <h4 class="subsection-title-small">Преимущества</h4>
+                <ul>
+                    <li>Быстрее в реализации</li>
+                    <li>Проверенный UX и стабильность</li>
+                    <li>Регулярные обновления от разработчика темы</li>
+                    <li>Достаточно для старта с 1-3 продуктами</li>
+                </ul>
+
+                <h4 class="subsection-title-small">Ограничения</h4>
+                <ul>
+                    <li>Дизайн будет похож на другие сайты с этой темой</li>
+                    <li>Ограниченные возможности кастомизации</li>
+                    <li>Уникальные функции требуют дополнительной разработки</li>
+                </ul>
+            </div>
+
+            <div class="pricing-option recommended">
+                <span class="badge">Рекомендуется</span>
+                <h3>Вариант 2: Разработка с нуля (индивидуальный дизайн)</h3>
+                <p class="price">$5,000</p>
+
+                <h4 class="subsection-title-small">Что это значит</h4>
+                <p>Создание уникального дизайна с нуля. Разработка кастомной темы Shopify с полностью уникальным визуальным стилем, нестандартными анимациями и индивидуальными решениями под специфику бренда.</p>
+
+                <h4 class="subsection-title-small">Что включено</h4>
+                <ul>
+                    <li>Прототипирование (Figma)</li>
+                    <li>Уникальный дизайн всех страниц</li>
+                    <li>Разработка кастомной темы</li>
+                    <li>Адаптив под все устройства</li>
+                    <li>Все интеграции (оплата, доставка, аналитика)</li>
+                </ul>
+
+                <h4 class="subsection-title-small">Преимущества</h4>
+                <ul>
+                    <li>100% уникальный дизайн (как у Kypris, Bioeffect)</li>
+                    <li>Полный контроль над UX/UI</li>
+                    <li>Возможность реализовать любые функции</li>
+                    <li>Премиальное восприятие бренда</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>Почему рекомендуем индивидуальный дизайн:</strong> Конкуренты (Kypris, Bioeffect, Oway) имеют уникальный дизайн. Премиум-сегмент требует уникального визуального восприятия. Научный и биотехнологический фокус требует нестандартных решений (инфографика, анимации). Инвестиция окупится через доверие клиентов.</p>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="section">
+            <h2 class="section-title">Этапы реализации</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Фаза 1: MVP (ноябрь 2025)</h4>
+                    <ul>
+                        <li>Landing page с формой pre-launch</li>
+                        <li>Сбор email-базы</li>
+                        <li>Базовая структура сайта</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Фаза 2: Запуск (январь-февраль 2026)</h4>
+                    <ul>
+                        <li>Полноценный магазин с 1 продуктом</li>
+                        <li>Все основные страницы</li>
+                        <li>Интеграция оплаты и доставки</li>
+                        <li>Запуск рекламы</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Фаза 3: Масштабирование</h4>
+                    <ul>
+                        <li>Расширение линейки до 3 продуктов</li>
+                        <li>Программа лояльности</li>
+                        <li>Локализация (языки)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="next-steps">
+            <h3>Следующие шаги</h3>
+            <ol>
+                <li><strong>Выбор варианта разработки</strong> — на теме или индивидуальный дизайн</li>
+                <li><strong>Брендинг</strong> — уточнить наличие готового брендбука</li>
+                <li><strong>Контент</strong> — определить потребность в фото/видео съемке</li>
+                <li><strong>Согласование</strong> — подписание договора и начало работы</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
