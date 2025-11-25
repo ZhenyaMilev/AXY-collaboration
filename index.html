@@ -1541,7 +1541,10 @@
 
             // --- Language Switcher ---
             const langButtons = document.querySelectorAll('.lang-switch');
-            let currentLang = 'ru'; // По умолчанию русский
+
+            // Определяем язык по URL (например, /en)
+            const pathLang = window.location.pathname.includes('/en') ? 'en' : 'ru';
+            let currentLang = pathLang; // По умолчанию определяем по URL
 
             function translatePage(lang) {
                 // Переводим все элементы с data-translate
@@ -1635,6 +1638,24 @@
                     }
                 });
             });
+
+            // Автоматически переключаем на английский, если URL содержит /en
+            if (currentLang === 'en') {
+                translatePage('en');
+                // Обновляем активный стиль кнопки языка
+                langButtons.forEach(btn => {
+                    if (btn.dataset.lang === 'en') {
+                        btn.classList.add('active');
+                        btn.style.background = 'rgba(99, 179, 237, 0.15)';
+                        btn.style.color = '#63B3ED';
+                    } else {
+                        btn.classList.remove('active');
+                        btn.style.background = '';
+                        btn.style.color = '';
+                        btn.classList.add('text-gray-400');
+                    }
+                });
+            }
 
             // --- Логика мобильного меню ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
