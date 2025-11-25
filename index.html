@@ -1639,24 +1639,6 @@
                 });
             });
 
-            // Автоматически переключаем на английский, если URL содержит /en
-            if (currentLang === 'en') {
-                translatePage('en');
-                // Обновляем активный стиль кнопки языка
-                langButtons.forEach(btn => {
-                    if (btn.dataset.lang === 'en') {
-                        btn.classList.add('active');
-                        btn.style.background = 'rgba(99, 179, 237, 0.15)';
-                        btn.style.color = '#63B3ED';
-                    } else {
-                        btn.classList.remove('active');
-                        btn.style.background = '';
-                        btn.style.color = '';
-                        btn.classList.add('text-gray-400');
-                    }
-                });
-            }
-
             // --- Логика мобильного меню ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -2714,6 +2696,25 @@
                     // Открываем первый отзыв в lightbox
                     if (uniqueImages.length > 0) {
                         openLightbox(0);
+                    }
+                });
+            }
+
+            // --- Автоматическое переключение языка при загрузке ---
+            // Выполняем после загрузки всех данных (servicesDataEN, casesDataEN и т.д.)
+            if (currentLang === 'en') {
+                translatePage('en');
+                // Обновляем активный стиль кнопки языка
+                langButtons.forEach(btn => {
+                    if (btn.dataset.lang === 'en') {
+                        btn.classList.add('active');
+                        btn.style.background = 'rgba(99, 179, 237, 0.15)';
+                        btn.style.color = '#63B3ED';
+                    } else {
+                        btn.classList.remove('active');
+                        btn.style.background = '';
+                        btn.style.color = '';
+                        btn.classList.add('text-gray-400');
                     }
                 });
             }
