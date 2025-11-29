@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLOW HEROES - Аудит и план действий</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #2d2d2d;
+            background: #fff;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 50px;
+        }
+
+        /* Cover Page */
+        .cover {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #f9f5f0 0%, #f0e8dc 100%);
+            padding: 60px;
+            page-break-after: always;
+        }
+
+        .cover h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+        }
+
+        .cover .subtitle {
+            font-size: 16px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #8b6f47;
+            margin-bottom: 60px;
+        }
+
+        .cover .divider {
+            width: 80px;
+            height: 2px;
+            background: #c9a87c;
+            margin: 40px auto;
+        }
+
+        .cover .date {
+            font-size: 13px;
+            color: #666;
+            margin-top: 40px;
+        }
+
+        .cover .tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 18px;
+            color: #555;
+            max-width: 500px;
+            margin-top: 30px;
+        }
+
+        /* Section styling */
+        .section {
+            padding: 50px 0;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #c9a87c;
+        }
+
+        .subsection-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin: 35px 0 20px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 25px;
+            color: #444;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #2d2d2d;
+            font-weight: 600;
+        }
+
+        /* Highlight boxes */
+        .highlight-box {
+            background: #f9f5f0;
+            border-left: 4px solid #c9a87c;
+            padding: 20px 25px;
+            margin: 25px 0;
+        }
+
+        .success-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 20px 25px;
+            margin: 25px 0;
+        }
+
+        .issue-box {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 20px 25px;
+            margin: 25px 0;
+        }
+
+        .action-box {
+            background: linear-gradient(135deg, #f9f5f0 0%, #f0e8dc 100%);
+            border: 1px solid #d4c4a8;
+            border-radius: 8px;
+            padding: 25px 30px;
+            margin: 30px 0;
+        }
+
+        .action-box h4 {
+            font-family: 'Playfair Display', serif;
+            color: #8b6f47;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 13px;
+        }
+
+        th {
+            background: #f5f3f0;
+            color: #333;
+            font-weight: 600;
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 2px solid #c9a87c;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e8e5e0;
+            color: #444;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Action items */
+        .action-item {
+            background: #fff;
+            border: 1px solid #e8e5e0;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .action-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .action-item .meta {
+            display: flex;
+            gap: 20px;
+            margin: 15px 0;
+            font-size: 12px;
+        }
+
+        .action-item .meta span {
+            background: #f9f5f0;
+            padding: 5px 12px;
+            border-radius: 4px;
+            color: #666;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #c9a87c;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .badge.priority-high {
+            background: #f44336;
+        }
+
+        .badge.priority-medium {
+            background: #ff9800;
+        }
+
+        .badge.priority-low {
+            background: #4caf50;
+        }
+
+        /* Pricing */
+        .pricing-box {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .pricing-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #c9a87c;
+            margin-bottom: 25px;
+        }
+
+        .pricing-box .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: #c9a87c;
+            margin-bottom: 10px;
+        }
+
+        .pricing-box .price span {
+            font-size: 18px;
+            color: #999;
+        }
+
+        .pricing-box ul {
+            color: #ccc;
+        }
+
+        .pricing-box strong {
+            color: #fff;
+        }
+
+        .page-break {
+            page-break-before: always;
+            padding-top: 20px;
+        }
+
+        @media print {
+            body { font-size: 12px; }
+            .container { padding: 40px; }
+            .cover { min-height: auto; padding: 100px 40px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Page -->
+    <div class="cover">
+        <h1>GLOW HEROES</h1>
+        <p class="subtitle">Аудит и План Действий</p>
+        <div class="divider"></div>
+        <p class="tagline">Простой план как улучшить результаты вашего магазина</p>
+        <p class="date">Ноябрь 2025</p>
+    </div>
+
+    <div class="container">
+        <!-- Current Situation -->
+        <div class="section">
+            <h2 class="section-title">Текущая ситуация</h2>
+
+            <div class="highlight-box">
+                <p><strong>Ваш сайт:</strong> glowheroes.com</p>
+                <p><strong>Платформа:</strong> Shopify (тема Horizon)</p>
+                <p><strong>Ниша:</strong> Корейская и органическая косметика</p>
+            </div>
+
+            <h3 class="subsection-title">Что уже работает хорошо ✅</h3>
+            <div class="success-box">
+                <ul style="margin: 0;">
+                    <li><strong>Shopify Horizon тема</strong> - современная и быстрая (90+ баллов скорости)</li>
+                    <li><strong>Мобильный дизайн</strong> - сайт адаптирован для телефонов</li>
+                    <li><strong>Отзывы</strong> - интеграция Judge.me</li>
+                    <li><strong>Платежи</strong> - Shop Pay, PayPal, карты</li>
+                    <li><strong>Email маркетинг</strong> - Klaviyo подключен</li>
+                </ul>
+            </div>
+
+            <h3 class="subsection-title">Главные проблемы 🔴</h3>
+            <div class="issue-box">
+                <ul style="margin: 0;">
+                    <li><strong>Недостаточно видео</strong> - видео увеличивает продажи на 22%</li>
+                    <li><strong>Нет программы лояльности</strong> - клиенты не возвращаются</li>
+                    <li><strong>Нет подписок</strong> - теряете постоянный доход</li>
+                    <li><strong>Мало отзывов на виду</strong> - 68% людей доверяют отзывам</li>
+                    <li><strong>Нет "Подарка при покупке"</strong> - средний чек остается низким</li>
+                    <li><strong>Отсутствует quiz</strong> - клиентам сложно выбрать продукт</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Benchmarks -->
+        <div class="section">
+            <h2 class="section-title">Цифры индустрии</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Метрика</th>
+                        <th>Средний показатель</th>
+                        <th>Ваша цель</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Конверсия (Beauty)</td>
+                        <td>4.86%</td>
+                        <td>6%+</td>
+                    </tr>
+                    <tr>
+                        <td>Конверсия (Personal Care)</td>
+                        <td>6.8%</td>
+                        <td>8%+</td>
+                    </tr>
+                    <tr>
+                        <td>Рост от видео</td>
+                        <td>+22%</td>
+                        <td>Внедрить видео</td>
+                    </tr>
+                    <tr>
+                        <td>Рост от отзывов</td>
+                        <td>+68% доверия</td>
+                        <td>Больше отзывов</td>
+                    </tr>
+                    <tr>
+                        <td>Скорость (100ms быстрее)</td>
+                        <td>+1.11% продаж</td>
+                        <td>Оптимизировать</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Action Plan -->
+        <div class="section page-break">
+            <h2 class="section-title">Что делать — Простой план</h2>
+
+            <div class="action-box">
+                <h4>Шаги расположены по приоритету</h4>
+                <p>Начните с первого пункта — он даст самый быстрый результат</p>
+            </div>
+
+            <!-- Action 1 -->
+            <div class="action-item">
+                <span class="badge priority-high">Высокий приоритет</span>
+                <h4>1. Добавить программу "Подарок при покупке"</h4>
+
+                <div class="meta">
+                    <span>⏱ Неделя 1</span>
+                    <span>💰 Рост среднего чека: +15-25%</span>
+                </div>
+
+                <p><strong>Что сделать:</strong></p>
+                <ul>
+                    <li>При покупке на $50 — бесплатный пробник</li>
+                    <li>При покупке на $100 — полноразмерный продукт в подарок</li>
+                    <li>Показывать прогресс-бар "Добавьте еще $X для подарка"</li>
+                </ul>
+
+                <p><strong>Инструмент:</strong> EasyGift app или Shopify нативно</p>
+            </div>
+
+            <!-- Action 2 -->
+            <div class="action-item">
+                <span class="badge priority-high">Высокий приоритет</span>
+                <h4>2. Добавить видео на страницы продуктов</h4>
+
+                <div class="meta">
+                    <span>⏱ Недели 1-2</span>
+                    <span>💰 Рост продаж: +22%</span>
+                </div>
+
+                <p><strong>Что сделать:</strong></p>
+                <ul>
+                    <li>Снять короткие видео (15-30 сек) как наносить продукт</li>
+                    <li>Показать текстуру, консистенцию продукта</li>
+                    <li>Добавить "до/после" результаты</li>
+                    <li>Можно снимать на телефон в хорошем свете</li>
+                </ul>
+
+                <p><strong>Результат:</strong> Клиенты лучше понимают продукт = больше покупают</p>
+            </div>
+
+            <!-- Action 3 -->
+            <div class="action-item">
+                <span class="badge priority-high">Высокий приоритет</span>
+                <h4>3. Программа лояльности</h4>
+
+                <div class="meta">
+                    <span>⏱ Недели 1-2</span>
+                    <span>💰 Повторные покупки: +20-30%</span>
+                </div>
+
+                <p><strong>Что сделать:</strong></p>
+                <ul>
+                    <li>Баллы за покупку: $1 = 1 балл</li>
+                    <li>Баллы за отзыв: 50 баллов</li>
+                    <li>Баллы за репост в Instagram: 25 баллов</li>
+                    <li>100 баллов = $5 скидка</li>
+                </ul>
+
+                <p><strong>Инструмент:</strong> Yotpo Loyalty, Smile.io или LoyaltyLion</p>
+                <p><strong>Стоимость:</strong> ~$50-200/месяц</p>
+            </div>
+
+            <!-- Action 4 -->
+            <div class="action-item">
+                <span class="badge priority-high">Высокий приоритет</span>
+                <h4>4. Показать отзывы на главной странице</h4>
+
+                <div class="meta">
+                    <span>⏱ Неделя 1</span>
+                    <span>💰 Доверие: +68%</span>
+                </div>
+
+                <p><strong>Что сделать:</strong></p>
+                <ul>
+                    <li>Секция "Что говорят наши клиенты" на главной</li>
+                    <li>5-10 лучших отзывов с фото</li>
+                    <li>Рейтинг звездами на карточках продуктов</li>
+                    <li>Фото "до/после" от реальных клиентов</li>
+                </ul>
+
+                <p><strong>Результат:</strong> Новые клиенты доверяют больше = больше покупают</p>
+            </div>
+
+            <!-- Action 5 -->
+            <div class="action-item">
+                <span class="badge priority-medium">Средний приоритет</span>
+                <h4>5. Запустить подписки на продукты</h4>
+
+                <div class="meta">
+                    <span>⏱ Недели 2-3</span>
+                    <span>💰 Рост LTV: +40%</span>
+                </div>
+
+                <p><strong>Что сделать:</strong></p>
+                <ul>
+                    <li>Предложить подписку со скидкой 10-15%</li>
+                    <li>Доставка каждые 30/60/90 дней (на выбор)</li>
+                    <li>Можно пропустить, отменить, изменить в любой момент</li>
+                    <li>Напоминание за 3 дня до отправки</li>
+                </ul>
+
+                <p><strong>Инструмент:</strong> Skio или ReCharge</p>
+                <p><strong>Стоимость:</strong> ~$60-300/месяц</p>
+            </div>
+
+            <!-- Action 6 -->
+            <div class="action-item">
+                <span class="badge priority-medium">Средний приоритет</span>
+                <h4>6. Создать quiz "Подбор продукта"</h4>
+
+                <div class="meta">
+                    <span>⏱ Недели 2-4</span>
+                    <span>💰 Конверсия: +20-30%</span>
+                </div>
+
+                <p><strong>Что сделать:</strong></p>
+                <ul>
+                    <li>5-7 вопросов: тип кожи, проблемы, возраст, цели</li>
+                    <li>Персональные рекомендации 3-5 продуктов</li>
+                    <li>Сбор email для отправки результатов</li>
+                    <li>Скидка 10% на первый заказ после quiz</li>
+                </ul>
+
+                <p><strong>Инструмент:</strong> Octane AI или Typeform</p>
+                <p><strong>Стоимость:</strong> ~$50-200/месяц</p>
+            </div>
+
+            <!-- Action 7 -->
+            <div class="action-item">
+                <span class="badge priority-medium">Средний приоритет</span>
+                <h4>7. Настроить email автоматизацию</h4>
+
+                <div class="meta">
+                    <span>⏱ Недели 2-3</span>
+                    <span>💰 Выручка от email: +25-30%</span>
+                </div>
+
+                <p><strong>Что сделать (у вас уже есть Klaviyo):</strong></p>
+                <ul>
+                    <li><strong>Приветственная серия:</strong> 3 письма новым подписчикам</li>
+                    <li><strong>Брошенная корзина:</strong> 3 письма через 1 час, 24 часа, 48 часов</li>
+                    <li><strong>После покупки:</strong> Благодарность + как использовать + рекомендации</li>
+                    <li><strong>Напоминание:</strong> "Пора заказать снова" через 60 дней</li>
+                    <li><strong>Просьба отзыва:</strong> Через 14 дней после доставки</li>
+                </ul>
+            </div>
+
+            <!-- Action 8 -->
+            <div class="action-item">
+                <span class="badge priority-low">Низкий приоритет</span>
+                <h4>8. Улучшить SEO</h4>
+
+                <div class="meta">
+                    <span>⏱ Недели 3-4</span>
+                    <span>💰 Органический трафик: +50-100%</span>
+                </div>
+
+                <p><strong>Что сделать:</strong></p>
+                <ul>
+                    <li>Добавить уникальные описания ко всем продуктам (150+ слов)</li>
+                    <li>Alt-теги на все фотографии</li>
+                    <li>Meta описания на все страницы (150-160 символов)</li>
+                    <li>Создать блог с советами по уходу за кожей</li>
+                    <li>Ключевые слова: "Korean skincare", "K-beauty", "organic beauty"</li>
+                </ul>
+            </div>
+
+            <!-- Action 9 -->
+            <div class="action-item">
+                <span class="badge priority-low">Низкий приоритет</span>
+                <h4>9. Добавить "Наборы продуктов"</h4>
+
+                <div class="meta">
+                    <span>⏱ Неделя 2</span>
+                    <span>💰 Средний чек: +30-40%</span>
+                </div>
+
+                <p><strong>Что сделать:</strong></p>
+                <ul>
+                    <li>Готовые наборы: "Утренний уход", "Вечерний уход", "Полный routine"</li>
+                    <li>Скидка на набор: 2 продукта -10%, 3+ продукта -15%</li>
+                    <li>Конструктор набора: клиент сам собирает со скидкой</li>
+                </ul>
+
+                <p><strong>Инструмент:</strong> Bold Bundles или PickyStory</p>
+            </div>
+
+            <!-- Action 10 -->
+            <div class="action-item">
+                <span class="badge priority-low">Низкий приоритет</span>
+                <h4>10. Запустить партнерскую программу</h4>
+
+                <div class="meta">
+                    <span>⏱ Месяц 2-3</span>
+                    <span>💰 Новые клиенты через блогеров</span>
+                </div>
+
+                <p><strong>Что сделать:</strong></p>
+                <ul>
+                    <li>Найти 10-20 beauty-блогеров</li>
+                    <li>Дать промокод со скидкой 15% для их подписчиков</li>
+                    <li>Платить блогеру 10-15% с продаж</li>
+                    <li>Создать коллекции "Выбор [имя блогера]"</li>
+                </ul>
+
+                <p><strong>Инструмент:</strong> ShareASale или Impact</p>
+            </div>
+        </div>
+
+        <!-- Pricing -->
+        <div class="section page-break">
+            <h2 class="section-title">Стоимость работ</h2>
+
+            <div class="pricing-box">
+                <h3>Реализация плана действий</h3>
+                <div class="price">$3,200</div>
+                <p style="color: #999; margin-bottom: 30px;">Часовая ставка: $40/час</p>
+
+                <h4 style="color: #c9a87c; font-size: 18px; margin-bottom: 15px;">Что входит:</h4>
+                <ul>
+                    <li><strong>Настройка Gift-with-Purchase:</strong> Автоматические подарки при покупке ($50/$100)</li>
+                    <li><strong>Интеграция видео:</strong> Помощь с добавлением видео на страницы продуктов</li>
+                    <li><strong>Программа лояльности:</strong> Установка и настройка (Yotpo/Smile.io)</li>
+                    <li><strong>Оптимизация отзывов:</strong> Вывод отзывов на главную и карточки</li>
+                    <li><strong>Подписки:</strong> Настройка Skio/ReCharge с автоматикой</li>
+                    <li><strong>Quiz:</strong> Создание и интеграция опросника для подбора продуктов</li>
+                    <li><strong>Email flows:</strong> 5 автоматических цепочек в Klaviyo</li>
+                    <li><strong>Наборы продуктов:</strong> Bundles с автоматическими скидками</li>
+                    <li><strong>SEO оптимизация:</strong> Meta-теги, описания, alt-теги</li>
+                    <li><strong>Обучение:</strong> Как управлять всеми новыми функциями</li>
+                </ul>
+
+                <h4 style="color: #c9a87c; font-size: 18px; margin: 30px 0 15px 0;">Сроки:</h4>
+                <p style="color: #ccc;">4-6 недель</p>
+
+                <h4 style="color: #c9a87c; font-size: 18px; margin: 30px 0 15px 0;">Ожидаемый результат:</h4>
+                <ul>
+                    <li>Конверсия: +50-100%</li>
+                    <li>Средний чек: +30-50%</li>
+                    <li>Повторные покупки: +40%</li>
+                    <li>Окупаемость: 2-3 месяца</li>
+                </ul>
+            </div>
+
+            <h3 class="subsection-title">Ежемесячные расходы на приложения</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Приложение</th>
+                        <th>Стоимость/месяц</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Shopify Plan</td>
+                        <td>$79</td>
+                    </tr>
+                    <tr>
+                        <td>Программа лояльности (Smile.io)</td>
+                        <td>$49-199</td>
+                    </tr>
+                    <tr>
+                        <td>Подписки (Skio)</td>
+                        <td>$60-300</td>
+                    </tr>
+                    <tr>
+                        <td>Quiz (Octane AI)</td>
+                        <td>$50-200</td>
+                    </tr>
+                    <tr>
+                        <td>Email (Klaviyo)</td>
+                        <td>$60-150</td>
+                    </tr>
+                    <tr>
+                        <td>Bundles (Bold/PickyStory)</td>
+                        <td>$20-50</td>
+                    </tr>
+                    <tr>
+                        <td>Reviews (Judge.me) — уже есть</td>
+                        <td>$15</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Итого примерно</strong></td>
+                        <td><strong>$333-993</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <p><strong>Важно:</strong> Цена apps зависит от количества заказов. Чем больше продаж — тем выше стоимость, но и ROI тоже растет пропорционально.</p>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="section">
+            <h2 class="section-title">График работ</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Неделя</th>
+                        <th>Что делаем</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Неделя 1</strong></td>
+                        <td>
+                            • Анализ сайта и аналитики<br>
+                            • Настройка Gift-with-Purchase<br>
+                            • Вывод отзывов на главную страницу<br>
+                            • Начало работы с видео
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Неделя 2</strong></td>
+                        <td>
+                            • Установка программы лояльности<br>
+                            • Создание наборов продуктов<br>
+                            • Добавление видео на продукты<br>
+                            • Начало настройки quiz
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Неделя 3</strong></td>
+                        <td>
+                            • Настройка подписок<br>
+                            • Завершение quiz и интеграция<br>
+                            • Настройка email flows в Klaviyo<br>
+                            • SEO оптимизация
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Неделя 4</strong></td>
+                        <td>
+                            • Доработка email автоматизации<br>
+                            • Тестирование всех функций<br>
+                            • Обучение работе с системой<br>
+                            • Финальные правки
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Недели 5-6</strong></td>
+                        <td>
+                            • Мониторинг результатов<br>
+                            • Оптимизация на основе данных<br>
+                            • Поддержка и консультации
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Expected Results -->
+        <div class="section">
+            <h2 class="section-title">Ожидаемые результаты</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Метрика</th>
+                        <th>Сейчас (примерно)</th>
+                        <th>После оптимизации</th>
+                        <th>Рост</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Конверсия</td>
+                        <td>1.5-2%</td>
+                        <td>3-4%</td>
+                        <td style="color: #4caf50;"><strong>+100%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Средний чек</td>
+                        <td>$50-60</td>
+                        <td>$75-90</td>
+                        <td style="color: #4caf50;"><strong>+40%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Повторные покупки</td>
+                        <td>10-15%</td>
+                        <td>25-35%</td>
+                        <td style="color: #4caf50;"><strong>+150%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Email список</td>
+                        <td>5% захват</td>
+                        <td>15-20% захват</td>
+                        <td style="color: #4caf50;"><strong>+200%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Выручка от подписок</td>
+                        <td>$0</td>
+                        <td>20-30% от общей</td>
+                        <td style="color: #4caf50;"><strong>Новый поток</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="success-box">
+                <p><strong>Прогноз окупаемости:</strong> Инвестиция $3,200 окупится за 2-3 месяца при среднем трафике 3,000+ посетителей в месяц.</p>
+            </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="pricing-box" style="margin-top: 50px;">
+            <h3>Следующие шаги</h3>
+            <ol>
+                <li><strong>Согласовать план</strong> - Какие пункты делаем в первую очередь</li>
+                <li><strong>Доступ к Shopify</strong> - Предоставить доступ к админ-панели</li>
+                <li><strong>Доступ к аналитике</strong> - Google Analytics для анализа данных</li>
+                <li><strong>Подписать договор</strong> - Фиксируем условия и сроки</li>
+                <li><strong>Старт работ</strong> - Начинаем с недели 1</li>
+            </ol>
+
+            <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #444;">
+                <p style="margin-bottom: 10px;"><strong>Готовы увеличить продажи?</strong></p>
+                <p>Свяжитесь для обсуждения деталей и начала работы!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

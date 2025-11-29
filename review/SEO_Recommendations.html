@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Рекомендации</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin: 40px 0 20px;
+            color: #1a1a1a;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .time-estimate {
+            font-size: 13px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            background: #f8f9fa;
+            color: #495057;
+            margin-left: 10px;
+            font-weight: 500;
+        }
+
+        .summary-box {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .summary-box h3 {
+            font-size: 18px;
+            color: #1b5e20;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .summary-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .summary-item .label {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 6px;
+        }
+
+        .summary-item .value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2e7d32;
+        }
+
+        .speed-note {
+            background: #fff9e6;
+            border-left: 4px solid #ffc107;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .speed-note h3 {
+            font-size: 16px;
+            color: #856404;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .speed-note p {
+            font-size: 14px;
+            color: #856404;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .speed-note ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .speed-note li {
+            font-size: 14px;
+            color: #856404;
+            margin-bottom: 6px;
+        }
+
+        .recommendations {
+            margin-top: 30px;
+        }
+
+        .priority-section {
+            margin-bottom: 30px;
+        }
+
+        .priority-header {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+        }
+
+        .priority-header.high {
+            background: #fee;
+            color: #dc3545;
+        }
+
+        .priority-header.medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .priority-header.low {
+            background: #e7f3ff;
+            color: #004085;
+        }
+
+        .priority-badge {
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            margin-left: auto;
+            font-weight: 600;
+        }
+
+        .priority-badge.high {
+            background: #dc3545;
+            color: white;
+        }
+
+        .priority-badge.medium {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .priority-badge.low {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .rec-item {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .rec-item:hover {
+            border-color: #007bff;
+            box-shadow: 0 2px 8px rgba(0,123,255,0.1);
+        }
+
+        .rec-title {
+            flex: 1;
+            font-size: 15px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .rec-category {
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            background: #f0f0f0;
+            color: #666;
+            margin-left: 15px;
+        }
+
+        .category-links {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .category-performance {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        .category-seo {
+            background: #e8f5e9;
+            color: #388e3c;
+        }
+
+        .category-social {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .category-usability {
+            background: #fce4ec;
+            color: #c2185b;
+        }
+
+        .category-other {
+            background: #f5f5f5;
+            color: #616161;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rec-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .rec-category {
+                margin-left: 0;
+                margin-top: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SEO Рекомендации</h1>
+
+        <div class="speed-note">
+            <h3>Оценка улучшений скорости загрузки</h3>
+            <p><strong>Текущие проблемы производительности:</strong></p>
+            <ul>
+                <li><strong>Кеширование (2-3 часа / $80-120):</strong> Настройка браузерного кеша сэкономит ~275 КБ трафика. Повторные визиты станут значительно быстрее.</li>
+                <li><strong>Блокирующие запросы (3-4 часа / $120-160):</strong> Оптимизация CSS/JS загрузки ускорит первую отрисовку на ~300 мс. Наибольший эффект для UX.</li>
+                <li><strong>Оптимизация изображений (2-3 часа / $80-120):</strong> Сжатие и WebP формат сократят размер на ~313 КБ. Ускорит загрузку на медленных соединениях.</li>
+                <li><strong>Обновление JavaScript (1-2 часа / $40-80):</strong> Минификация устаревшего кода уменьшит размер на ~51 КБ.</li>
+            </ul>
+            <p style="margin-top: 12px;"><strong>Ожидаемый результат:</strong> После реализации всех улучшений производительности страница будет загружаться на 15-40% быстрее. Общее сокращение размера: ~640 КБ.</p>
+            <p style="margin-top: 8px;"><strong>Стоимость оптимизации скорости:</strong> $320-480 (8-12 часов работы)</p>
+        </div>
+
+        <h2 class="section-title">Рекомендации по оптимизации</h2>
+
+        <!-- Medium Priority -->
+        <div class="priority-section">
+            <div class="priority-header medium">
+                <span>Средний приоритет</span>
+                <span class="priority-badge medium">Medium Priority</span>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Reduce your total Page File Size</div>
+                <div class="rec-category category-performance">Performance</div>
+                <div class="time-estimate">~2-4 часа</div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Increase length of Title Tag</div>
+                <div class="rec-category category-seo">On-Page SEO</div>
+                <div class="time-estimate">~30 мин</div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Reduce length of Meta Description</div>
+                <div class="rec-category category-seo">On-Page SEO</div>
+                <div class="time-estimate">~30 мин</div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Add H1 Header Tag</div>
+                <div class="rec-category category-seo">On-Page SEO</div>
+                <div class="time-estimate">~20 мин</div>
+            </div>
+        </div>
+
+        <!-- Low Priority -->
+        <div class="priority-section">
+            <div class="priority-header low">
+                <span>Низкий приоритет</span>
+                <span class="priority-badge low">Low Priority</span>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Update Link URLs to be more readable</div>
+                <div class="rec-category category-links">Links</div>
+                <div class="time-estimate">~1-2 часа</div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Add Alt Attributes to all images</div>
+                <div class="rec-category category-seo">On-Page SEO</div>
+                <div class="time-estimate">~1-2 часа</div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Create and link your Facebook Page</div>
+                <div class="rec-category category-social">Social</div>
+                <div class="time-estimate">~1 час</div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Create and link your X Profile</div>
+                <div class="rec-category category-social">Social</div>
+                <div class="time-estimate">~1 час</div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Use your main keywords across the important HTML Tags</div>
+                <div class="rec-category category-seo">On-Page SEO</div>
+                <div class="time-estimate">~2-3 часа</div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Increase Page Text Content</div>
+                <div class="rec-category category-seo">On-Page SEO</div>
+                <div class="time-estimate">~4-6 часов</div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Optimize for Mobile PageSpeed Insights</div>
+                <div class="rec-category category-usability">Usability</div>
+                <div class="time-estimate">~3-5 часов</div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Add a DMARC Mail Record</div>
+                <div class="rec-category category-other">Other</div>
+                <div class="time-estimate">~30 мин</div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Add Lang Attribute</div>
+                <div class="rec-category category-seo">On-Page SEO</div>
+                <div class="time-estimate">~10 мин</div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Implement an Analytics Tracking Tool</div>
+                <div class="rec-category category-seo">On-Page SEO</div>
+                <div class="time-estimate">~1-2 часа</div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Add Local Business Schema</div>
+                <div class="rec-category category-other">Other</div>
+                <div class="time-estimate">~1-2 часа</div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Implement a llms.txt File</div>
+                <div class="rec-category category-seo">On-Page SEO</div>
+                <div class="time-estimate">~30 мин</div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Increase your YouTube Channel subscribers</div>
+                <div class="rec-category category-social">Social</div>
+                <div class="time-estimate">Постоянно</div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Create and link an associated LinkedIn Profile</div>
+                <div class="rec-category category-social">Social</div>
+                <div class="time-estimate">~1 час</div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-title">Remove Inline Styles</div>
+                <div class="rec-category category-performance">Performance</div>
+                <div class="time-estimate">~2-3 часа</div>
+            </div>
+        </div>
+
+        <div class="summary-box">
+            <h3>Общая оценка стоимости внедрения</h3>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="label">Всего рекомендаций</div>
+                    <div class="value">19</div>
+                </div>
+                <div class="summary-item">
+                    <div class="label">Время работы</div>
+                    <div class="value">25-40 часов</div>
+                </div>
+                <div class="summary-item">
+                    <div class="label">Стоимость ($40/час)</div>
+                    <div class="value">$1,000-1,600</div>
+                </div>
+            </div>
+            <p style="margin-top: 15px; font-size: 14px; color: #1b5e20;"><strong>Примечание:</strong> Оптимизация производительности (скорость загрузки) входит в общую стоимость и составляет $320-480 из указанной суммы.</p>
+        </div>
+    </div>
+</body>
+</html>

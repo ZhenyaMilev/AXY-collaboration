@@ -18,7 +18,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     
     <!-- JSON-LD Structured Data for SEO -->
@@ -85,21 +85,27 @@
             overscroll-behavior-y: none;
         }
         body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(180deg, #0a1628 0%, #111c30 25%, #1a2942 50%, #0f1b2e 75%, #0a1628 100%);
-            background-attachment: fixed;
-            color: #A0AEC0;
+            font-family: 'Inter', sans-serif;
+            background: #050505;
+            color: #9ca3af;
             overflow-x: hidden;
             min-height: 100vh;
             overscroll-behavior: none;
             overscroll-behavior-y: none;
         }
+
+        /* Space Grotesk для заголовков */
+        h1, h2, h3, h4, h5, h6,
+        .section-title,
+        .font-bold {
+            font-family: 'Space Grotesk', sans-serif;
+        }
         ::selection {
-            background: rgba(99, 179, 237, 0.3);
-            color: #FFFFFF;
+            background: #95bf47;
+            color: #050505;
         }
         h1, h2, h3, h4, .section-title {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
             color: #FFFFFF;
         }
@@ -629,9 +635,7 @@
             z-index: 20;
         }
 
-        .team-circle-container {
-            /* Контейнер больше не вращается */
-        }
+        /* .team-circle-container - Контейнер больше не вращается */
 
         .team-member {
             position: absolute;
@@ -695,7 +699,7 @@
         <div class="mx-3 md:mx-6 rounded-2xl md:rounded-3xl" style="background: rgba(26, 41, 66, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.2); box-shadow: 0 8px 32px rgba(10, 22, 40, 0.3);">
             <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="flex items-center">
-                <img src="logo.png" alt="AXY" class="h-10" style="transform: translateY(4px);">
+                <img src="logo.png" alt="AXY" class="h-7 md:h-10" style="transform: translateY(4px);">
             </a>
             <nav class="hidden xl:flex items-center space-x-8">
                 <a href="#cases" data-tab="amazon-cases" class="nav-tab-link text-gray-300 hover:text-white transition">Amazon</a>
@@ -724,14 +728,21 @@
             </div>
             <!-- Мобильное меню -->
             <div id="mobile-menu" class="hidden xl:hidden px-6 pb-4">
-                <nav class="flex flex-col space-y-4">
-                     <a href="#cases" data-tab="amazon-cases" class="nav-tab-link text-gray-300 hover:text-white transition">Amazon</a>
-                     <a href="#cases" data-tab="tiktok-cases" class="nav-tab-link text-gray-300 hover:text-white transition">TikTok Shop</a>
-                     <a href="#cases" data-tab="shopify-cases" class="nav-tab-link text-gray-300 hover:text-white transition">Shopify</a>
-                     <a href="#cases" class="text-gray-300 hover:text-white transition" data-translate="nav-cases">Кейсы</a>
-                     <a href="#team" class="text-gray-300 hover:text-white transition" data-translate="nav-team">Команда</a>
-                     <a href="#contacts" class="text-gray-300 hover:text-white transition" data-translate="nav-contacts">Контакты</a>
-                    <div class="flex flex-col space-y-3 pt-4">
+                <nav class="flex flex-col space-y-3">
+                     <a href="#cases" data-tab="amazon-cases" class="nav-tab-link text-gray-300 hover:text-white transition text-sm">Amazon</a>
+                     <a href="#cases" data-tab="tiktok-cases" class="nav-tab-link text-gray-300 hover:text-white transition text-sm">TikTok Shop</a>
+                     <a href="#cases" data-tab="shopify-cases" class="nav-tab-link text-gray-300 hover:text-white transition text-sm">Shopify</a>
+                     <a href="#cases" class="text-gray-300 hover:text-white transition text-sm" data-translate="nav-cases">Кейсы</a>
+                     <a href="#team" class="text-gray-300 hover:text-white transition text-sm" data-translate="nav-team">Команда</a>
+                     <a href="#contacts" class="text-gray-300 hover:text-white transition text-sm" data-translate="nav-contacts">Контакты</a>
+
+                    <!-- Language Switcher для мобилки -->
+                    <div class="flex items-center space-x-2 pt-2">
+                        <button class="lang-switch px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 active" data-lang="ru" style="background: rgba(99, 179, 237, 0.15); color: #63B3ED;">RU</button>
+                        <button class="lang-switch px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400 hover:text-white transition-all duration-200" data-lang="en">EN</button>
+                    </div>
+
+                    <div class="flex flex-col space-y-3 pt-2">
                          <a href="#audit" class="js-open-form cta-primary w-full text-center text-sm font-semibold px-5 py-2.5 rounded-lg" data-source="Консультация (Мобильное меню)" data-translate="header-cta">Записаться на консультацию</a>
                     </div>
                 </nav>
@@ -1112,19 +1123,19 @@
                                 <!-- Азат -->
                                 <div class="flex-shrink-0 w-64 rounded-2xl p-6 text-center" style="background: rgba(99, 179, 237, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.3); scroll-snap-align: center;">
                                     <img src="team/azat.png" alt="Азат - CEO" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-[#63B3ED] mb-4">
-                                    <h3 class="text-xl font-bold text-white">Азат</h3>
+                                    <h3 class="text-xl font-bold text-white" data-translate="team-azat-name">Азат</h3>
                                     <p class="text-gray-400 mt-1">CEO</p>
                                 </div>
                                 <!-- Иван -->
                                 <div class="flex-shrink-0 w-64 rounded-2xl p-6 text-center" style="background: rgba(99, 179, 237, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.3); scroll-snap-align: center;">
                                     <img src="team/ivan.jpg" alt="Иван - Project Manager" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-[#63B3ED] mb-4">
-                                    <h3 class="text-xl font-bold text-white">Иван</h3>
+                                    <h3 class="text-xl font-bold text-white" data-translate="team-ivan-name">Иван</h3>
                                     <p class="text-gray-400 mt-1">Project Manager</p>
                                 </div>
                                 <!-- Евгений -->
                                 <div class="flex-shrink-0 w-64 rounded-2xl p-6 text-center" style="background: rgba(99, 179, 237, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.3); scroll-snap-align: center;">
                                     <img src="team/evhenii.jpg" alt="Евгений - Shopify Tech Lead" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-[#63B3ED] mb-4">
-                                    <h3 class="text-xl font-bold text-white">Евгений</h3>
+                                    <h3 class="text-xl font-bold text-white" data-translate="team-evgeniy-name">Евгений</h3>
                                     <p class="text-gray-400 mt-1">Shopify Tech Lead</p>
                                 </div>
                                 <!-- Макс -->
@@ -1136,7 +1147,7 @@
                                 <!-- Булат -->
                                 <div class="flex-shrink-0 w-64 rounded-2xl p-6 text-center" style="background: rgba(99, 179, 237, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.3); scroll-snap-align: center;">
                                     <img src="team/bulat.png" alt="Булат - Стратегия и инвестиции" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-[#63B3ED] mb-4">
-                                    <h3 class="text-xl font-bold text-white">Булат</h3>
+                                    <h3 class="text-xl font-bold text-white" data-translate="team-bulat-name">Булат</h3>
                                     <p class="text-gray-400 mt-1" data-translate="team-bulat">Стратегия и инвестиции</p>
                                 </div>
                                 <!-- Настя -->
@@ -1178,7 +1189,7 @@
                                 <div class="team-member" style="--angle: 0deg;">
                                     <div class="team-member-inner">
                                         <img src="team/azat.png" alt="Азат - CEO" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]" onerror="this.src='https://ui-avatars.com/api/?name=Azat&background=63B3ED&color=fff&size=128'">
-                                        <span class="block text-center text-xs text-white mt-2 font-semibold">Азат</span>
+                                        <span class="block text-center text-xs text-white mt-2 font-semibold" data-translate="team-azat-name">Азат</span>
                                         <span class="block text-center text-xs text-gray-400">CEO</span>
                                     </div>
                                 </div>
@@ -1186,7 +1197,7 @@
                                 <div class="team-member" style="--angle: 51.43deg;">
                                     <div class="team-member-inner">
                                         <img src="team/max.png" alt="Макс - Управление и масштаб" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]" onerror="this.src='https://ui-avatars.com/api/?name=Maks&background=63B3ED&color=fff&size=128'">
-                                        <span class="block text-center text-xs text-white mt-2 font-semibold">Макс</span>
+                                        <span class="block text-center text-xs text-white mt-2 font-semibold" data-translate="team-maks-name">Макс</span>
                                         <span class="block text-center text-xs text-gray-400" data-translate="team-maks">Управление и масштаб</span>
                                     </div>
                                 </div>
@@ -1194,7 +1205,7 @@
                                 <div class="team-member" style="--angle: 102.86deg;">
                                     <div class="team-member-inner">
                                         <img src="team/bulat.png" alt="Булат - Стратегия и инвестиции" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]" onerror="this.src='https://ui-avatars.com/api/?name=Bulat&background=63B3ED&color=fff&size=128'">
-                                        <span class="block text-center text-xs text-white mt-2 font-semibold">Булат</span>
+                                        <span class="block text-center text-xs text-white mt-2 font-semibold" data-translate="team-bulat-name">Булат</span>
                                         <span class="block text-center text-xs text-gray-400" data-translate="team-bulat">Стратегия и инвестиции</span>
                                     </div>
                                 </div>
@@ -1202,7 +1213,7 @@
                                 <div class="team-member" style="--angle: 154.29deg;">
                                     <div class="team-member-inner">
                                         <img src="team/ivan.jpg" alt="Иван - Project Manager" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]">
-                                        <span class="block text-center text-xs text-white mt-2 font-semibold">Иван</span>
+                                        <span class="block text-center text-xs text-white mt-2 font-semibold" data-translate="team-ivan-name">Иван</span>
                                         <span class="block text-center text-xs text-gray-400">Project Manager</span>
                                     </div>
                                 </div>
@@ -1210,7 +1221,7 @@
                                 <div class="team-member" style="--angle: 205.71deg;">
                                     <div class="team-member-inner">
                                         <img src="team/evhenii.jpg" alt="Евгений - Shopify Tech Lead" class="w-20 h-20 rounded-full object-cover border-2 border-[#63B3ED]">
-                                        <span class="block text-center text-xs text-white mt-2 font-semibold">Евгений</span>
+                                        <span class="block text-center text-xs text-white mt-2 font-semibold" data-translate="team-evgeniy-name">Евгений</span>
                                         <span class="block text-center text-xs text-gray-400">Shopify Tech Lead</span>
                                     </div>
                                 </div>
@@ -1431,9 +1442,13 @@
                     'team-stat-years': 'years in e-commerce',
                     'team-stat-sellers': 'sellers helped',
                     'team-client': 'Partner',
+                    'team-azat-name': 'Azat',
                     'team-maks-name': 'Max',
                     'team-maks': 'Management & Scale',
+                    'team-bulat-name': 'Bulat',
                     'team-bulat': 'Strategy & Investment',
+                    'team-ivan-name': 'Ivan',
+                    'team-evgeniy-name': 'Evgeniy',
                     'team-content-name': 'Nastya',
                     'team-content-role': 'SMM & Content',
                     'team-video-name': 'Aida',
@@ -2167,6 +2182,87 @@
                             <li>Organic growth and stable orders from the USA</li>
                             <li>Average product rating — 4.6 stars</li>
                             <li>Brand achieved viral reach and steady sales flow through TikTok</li>
+                        </ul>
+                    `
+                },
+                beauty: {
+                    title: 'Beauty Brand',
+                    content: `
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Challenge</h4>
+                        <p class="mb-4">Launch a new organic beauty product line through TikTok Shop from scratch</p>
+
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">What Was Done</h4>
+                        <ul class="list-disc list-inside mb-4 space-y-1">
+                            <li>Created viral content with before/after demonstrations</li>
+                            <li>Collaborations with beauty influencers (100k+ followers)</li>
+                            <li>TikTok Live sales with product demonstrations</li>
+                            <li>Flash sales strategy with limited stock</li>
+                            <li>User-generated content campaign (#BeautyChallenge)</li>
+                            <li>Integration with TikTok Ads for scaling</li>
+                        </ul>
+
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Results</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Viral video reached 5M views in 48 hours</li>
+                            <li>Sold out entire batch (5,000 units) in 2 days</li>
+                            <li>Sales of $100,000+ in first 48 hours</li>
+                            <li>CTR (Click-Through Rate): 8.5%</li>
+                            <li>Conversion Rate: 12% (3x above average)</li>
+                            <li>3,000+ new TikTok followers</li>
+                        </ul>
+                    `
+                },
+                diy: {
+                    title: 'DIY Craft Kits',
+                    content: `
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Challenge</h4>
+                        <p class="mb-4">Scale sales of DIY kits (epoxy resin, embroidery, decor) through TikTok Shop</p>
+
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">What Was Done</h4>
+                        <ul class="list-disc list-inside mb-4 space-y-1">
+                            <li>Series of viral videos with creation process (ASMR content)</li>
+                            <li>Collaborations with DIY influencers and craft bloggers</li>
+                            <li>Created step-by-step tutorials in TikTok format</li>
+                            <li>Launched TikTok Spark Ads with best organic videos</li>
+                            <li>Cross-promotion through Pinterest and Instagram Reels</li>
+                            <li>Bundle offers (starter kits for beginners)</li>
+                        </ul>
+
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Results</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>25,000 kits sold per month through TikTok Shop</li>
+                            <li>Average order value: $35 per kit</li>
+                            <li>Monthly revenue: $875,000</li>
+                            <li>15 videos reached 1M+ views each</li>
+                            <li>ROAS (Return on Ad Spend): 6.8x</li>
+                            <li>Repeat purchase rate: 23%</li>
+                        </ul>
+                    `
+                },
+                fashion: {
+                    title: 'Fashion Apparel',
+                    content: `
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Challenge</h4>
+                        <p class="mb-4">Promote youth fashion brand through TikTok Shop using UGC content</p>
+
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">What Was Done</h4>
+                        <ul class="list-disc list-inside mb-4 space-y-1">
+                            <li>Ambassador program with micro-influencers (10k-50k followers)</li>
+                            <li>UGC content from real customers (#OutfitOfTheDay)</li>
+                            <li>TikTok Live Shopping with fashion shows</li>
+                            <li>Trend-jacking: adapting viral trends to the brand</li>
+                            <li>Integration with TikTok Creator Marketplace</li>
+                            <li>Seasonal campaigns and collaborations</li>
+                        </ul>
+
+                        <h4 class="text-xl font-bold text-[#63B3ED] mb-3">Results</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>ROAS: 5.2x on paid traffic</li>
+                            <li>70% of sales from organic content</li>
+                            <li>200+ UGC videos from customers</li>
+                            <li>Average engagement rate: 9.5%</li>
+                            <li>340% sales growth per quarter</li>
+                            <li>50,000+ TikTok followers in 3 months</li>
                         </ul>
                     `
                 }

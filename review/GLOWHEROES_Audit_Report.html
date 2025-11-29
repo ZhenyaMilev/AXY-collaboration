@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Heroes - Comprehensive Audit Report 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .section {
+            padding: 50px 40px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #667eea;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .subsection {
+            margin-bottom: 35px;
+        }
+
+        .subsection h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #34495e;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.1);
+        }
+
+        .card h4 {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+
+        .card p, .card ul {
+            color: #546e7a;
+            font-size: 0.95em;
+        }
+
+        .card ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .card ul li {
+            margin-bottom: 8px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .competitor-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        .competitor-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+        }
+
+        .competitor-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .badge.warning {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .badge.success {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .badge.info {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .recommendation {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+            border-left: 4px solid #f5576c;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .recommendation h5 {
+            color: #c0392b;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .strength {
+            background: linear-gradient(135deg, #f0fff4 0%, #e5ffe5 100%);
+            border-left: 4px solid #43e97b;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .strength h5 {
+            color: #27ae60;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .sources {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        .sources h4 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .sources a {
+            color: #667eea;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.2s;
+        }
+
+        .sources a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .section {
+                padding: 30px 20px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Glow Heroes</h1>
+            <p>Comprehensive Audit Report • SEO • CRO • Competitor Analysis • 2025</p>
+        </header>
+
+        <!-- CURRENT SITE ANALYSIS -->
+        <div class="section">
+            <h2 class="section-title">Current Site Analysis</h2>
+
+            <div class="subsection">
+                <h3>Platform & Technology</h3>
+                <div class="card">
+                    <h4>Shopify Horizon Theme</h4>
+                    <div class="tech-stack">
+                        <span class="badge success">Shopify</span>
+                        <span class="badge success">Horizon Theme</span>
+                        <span class="badge info">Judge.me Reviews</span>
+                        <span class="badge info">Klaviyo Email</span>
+                        <span class="badge info">Shop Pay</span>
+                    </div>
+                    <p style="margin-top: 15px;">Modern e-commerce platform with optimized performance and mobile-first design.</p>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Key Features</h3>
+                <div class="grid">
+                    <div class="card">
+                        <h4>Product Management</h4>
+                        <ul>
+                            <li>Variant picker with swatches</li>
+                            <li>Quick-add functionality</li>
+                            <li>Recently viewed tracking</li>
+                            <li>Predictive search</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Conversion Tools</h4>
+                        <ul>
+                            <li>Multiple payment options</li>
+                            <li>Subscription support</li>
+                            <li>Customer reviews system</li>
+                            <li>Secure checkout (hCaptcha)</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Design Elements</h4>
+                        <ul>
+                            <li>Primary purple (#592898)</li>
+                            <li>Vibrant green (#00C05A)</li>
+                            <li>Cream background (#F0FCCC)</li>
+                            <li>Responsive layouts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="strength">
+                <h5>✓ Current Strengths</h5>
+                <ul>
+                    <li><strong>Modern Platform:</strong> Shopify Horizon theme with excellent Core Web Vitals optimization</li>
+                    <li><strong>Mobile-First:</strong> Responsive design optimized for mobile commerce (60%+ of purchases)</li>
+                    <li><strong>Payment Flexibility:</strong> Multiple payment options including Shop Pay and PayPal</li>
+                    <li><strong>Review Integration:</strong> Judge.me system builds social proof</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SEO AUDIT -->
+        <div class="section">
+            <h2 class="section-title">SEO Audit</h2>
+
+            <div class="subsection">
+                <h3>Technical SEO Analysis</h3>
+
+                <div class="card">
+                    <h4>Performance Metrics</h4>
+                    <div class="grid" style="margin-top: 20px;">
+                        <div class="metric">
+                            <span class="metric-value">90+</span>
+                            <span class="metric-label">Core Web Vitals Score</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">15-20%</span>
+                            <span class="metric-label">Faster Load vs Old Themes</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px;">Horizon theme provides excellent performance with optimized LCP, FID, and CLS metrics.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Built-in SEO Features</h4>
+                    <ul>
+                        <li><strong>Structured Data:</strong> Product markup, breadcrumbs, reviews, blog articles</li>
+                        <li><strong>Schema Markup:</strong> Native integration without plugins</li>
+                        <li><strong>Image Optimization:</strong> Auto-generated responsive images with lazy loading</li>
+                        <li><strong>Clean Code:</strong> Minimal scripts, loads only when needed</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="recommendation">
+                <h5>⚠ SEO Recommendations</h5>
+                <ul>
+                    <li><strong>Meta Descriptions:</strong> Ensure all product pages have unique, compelling meta descriptions (150-160 characters)</li>
+                    <li><strong>Alt Tags:</strong> Add descriptive alt text to all product images for accessibility and SEO</li>
+                    <li><strong>Internal Linking:</strong> Create multiple entry points to collections and products from homepage and content</li>
+                    <li><strong>Content Strategy:</strong> Add blog/educational content (tutorials, skincare tips) to drive organic traffic</li>
+                    <li><strong>URL Structure:</strong> Use clean, descriptive URLs with target keywords</li>
+                    <li><strong>Sitemap:</strong> Verify XML sitemap is submitted to Google Search Console</li>
+                    <li><strong>Mobile Optimization:</strong> Test all pages on mobile devices (60%+ of traffic)</li>
+                    <li><strong>Page Speed:</strong> Aim for <100ms improvement = +1.11% conversion rate</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>Content & Keywords</h3>
+                <div class="card">
+                    <h4>Target Keywords Strategy</h4>
+                    <p>Focus on long-tail keywords and specific product benefits:</p>
+                    <ul>
+                        <li>Primary: "[Brand] + product type" (e.g., "Korean skincare serum")</li>
+                        <li>Secondary: "Clean beauty products", "K-beauty skincare"</li>
+                        <li>Long-tail: "Best vitamin C serum for sensitive skin"</li>
+                        <li>Local: "Korean beauty products [city]" if applicable</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- CRO AUDIT -->
+        <div class="section">
+            <h2 class="section-title">CRO Audit (Conversion Rate Optimization)</h2>
+
+            <div class="subsection">
+                <h3>Industry Benchmarks</h3>
+                <table>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Industry Average</th>
+                        <th>Target Goal</th>
+                    </tr>
+                    <tr>
+                        <td>Beauty & Personal Care CR</td>
+                        <td>4.86%</td>
+                        <td>6%+</td>
+                    </tr>
+                    <tr>
+                        <td>Personal Care Products CR</td>
+                        <td>6.8%</td>
+                        <td>8%+</td>
+                    </tr>
+                    <tr>
+                        <td>Average E-commerce CR</td>
+                        <td>2-4%</td>
+                        <td>5%+</td>
+                    </tr>
+                    <tr>
+                        <td>Mobile Conversion Boost</td>
+                        <td>-</td>
+                        <td>+1.11% per 100ms improvement</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="subsection">
+                <h3>CRO Best Practices for Beauty E-commerce 2025</h3>
+
+                <div class="card">
+                    <h4>1. Visual & Interactive Content</h4>
+                    <ul>
+                        <li><strong>Video Content:</strong> TikTok-style shoppable videos drive 22% more mobile conversions</li>
+                        <li><strong>Before/After Photos:</strong> 56% of shoppers judge quality by visuals alone</li>
+                        <li><strong>360° Product Views:</strong> Reduce uncertainty and returns</li>
+                        <li><strong>User-Generated Content:</strong> Customer photos build authenticity</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>2. Social Proof & Trust Signals</h4>
+                    <ul>
+                        <li><strong>Customer Reviews:</strong> Trust jumps 68% when users see peer opinions first</li>
+                        <li><strong>Influencer Testimonials:</strong> Partner with beauty influencers</li>
+                        <li><strong>Review Integration:</strong> Display ratings on product cards and listings</li>
+                        <li><strong>Q&A Section:</strong> Answer common product questions</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>3. Personalization & Loyalty</h4>
+                    <ul>
+                        <li><strong>Subscription Options:</strong> 10% discount on subscriptions boosts LTV by 40%</li>
+                        <li><strong>Rewards Program:</strong> Points-based loyalty drives repeat purchases</li>
+                        <li><strong>Personalized Recommendations:</strong> "Recommended for you" based on browsing</li>
+                        <li><strong>Email Flows:</strong> Abandoned cart, post-purchase, replenishment reminders</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>4. Cart & Checkout Optimization</h4>
+                    <ul>
+                        <li><strong>Free Shipping Threshold:</strong> "$50+ free shipping" increases AOV</li>
+                        <li><strong>Progress Indicators:</strong> Show checkout steps clearly</li>
+                        <li><strong>Guest Checkout:</strong> Don't force account creation</li>
+                        <li><strong>Multiple Payment Options:</strong> PayPal, Apple Pay, Google Pay</li>
+                        <li><strong>Exit-Intent Popups:</strong> Capture emails before abandonment</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>5. Mobile Optimization</h4>
+                    <ul>
+                        <li><strong>Thumb-Friendly Design:</strong> Large tap targets, easy navigation</li>
+                        <li><strong>Fast Loading:</strong> 100ms improvement = +1.11% conversion</li>
+                        <li><strong>Simplified Forms:</strong> Minimize input fields on mobile</li>
+                        <li><strong>One-Click Checkout:</strong> Shop Pay integration</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>6. Urgency & Scarcity Tactics</h4>
+                    <ul>
+                        <li><strong>Limited-Time Offers:</strong> "30% off ends tonight"</li>
+                        <li><strong>Low Stock Warnings:</strong> "Only 3 left in stock"</li>
+                        <li><strong>Flash Sales:</strong> Time-limited promotions</li>
+                        <li><strong>Gift with Purchase:</strong> Tiered spending rewards ($50+, $100+)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="recommendation">
+                <h5>⚠ Priority CRO Improvements</h5>
+                <ul>
+                    <li><strong>Add Video Content:</strong> Implement shoppable video features (22% conversion boost)</li>
+                    <li><strong>Enhance Reviews:</strong> Display reviews prominently on all product pages and listings</li>
+                    <li><strong>Implement Subscription:</strong> Offer 10-15% discount for recurring orders</li>
+                    <li><strong>Create Loyalty Program:</strong> Points-based rewards for repeat customers</li>
+                    <li><strong>Free Shipping Bar:</strong> Dynamic progress bar showing "$X to free shipping"</li>
+                    <li><strong>Gift with Purchase:</strong> Tiered rewards at $50, $100, $150 spend levels</li>
+                    <li><strong>Skincare Quiz:</strong> Personalized product recommendations based on skin type/concerns</li>
+                    <li><strong>A/B Testing:</strong> Continuously test headlines, CTAs, product images</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- COMPETITOR ANALYSIS -->
+        <div class="section">
+            <h2 class="section-title">Competitor Analysis</h2>
+
+            <div class="subsection">
+                <h3>Top Korean Beauty E-commerce Sites</h3>
+
+                <div class="competitor-card">
+                    <h4>Soko Glam</h4>
+                    <div class="tech-stack">
+                        <span class="badge">Mega-Menu</span>
+                        <span class="badge">Quick View</span>
+                        <span class="badge">Yotpo Reviews</span>
+                        <span class="badge">Gift-with-Purchase</span>
+                    </div>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li>Mega-menu with 7+ categories, 10-20 subcategories each</li>
+                        <li>Tiered spending rewards ($50+, $100+, $150+)</li>
+                        <li>"Watch & Shop" video education + commerce</li>
+                        <li>Influencer curation ("The List by Ashley Mixon")</li>
+                        <li>Soko Rewards loyalty program</li>
+                        <li>Quick View modals reduce friction</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>What They Do Well:</strong> Urgency-driven purchasing, multiple discount layers, collections by relevance ("Viral K-Beauty", "Under $20")</p>
+                </div>
+
+                <div class="competitor-card">
+                    <h4>Peach & Lily</h4>
+                    <div class="tech-stack">
+                        <span class="badge">Skincare Quiz</span>
+                        <span class="badge">Esthetician Chat</span>
+                        <span class="badge">Multi-Brand</span>
+                        <span class="badge">Subscription</span>
+                    </div>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li>Personalized skincare quiz for product matching</li>
+                        <li>"Ask an Esthetician" expert positioning</li>
+                        <li>10% discount on subscription orders</li>
+                        <li>Peach Perks referral program</li>
+                        <li>Multi-brand + house brand curation</li>
+                        <li>200+ locale support for global commerce</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>What They Do Well:</strong> Expert authority, personalization through quiz, subscription focus, multi-path navigation</p>
+                </div>
+
+                <div class="competitor-card">
+                    <h4>OLIVE YOUNG Global</h4>
+                    <div class="tech-stack">
+                        <span class="badge">Korea's #1</span>
+                        <span class="badge">Free Shipping $60+</span>
+                        <span class="badge">Wide Catalog</span>
+                    </div>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li>Korea's largest H&B retailer</li>
+                        <li>Massive product catalog</li>
+                        <li>Free shipping over $60 USD</li>
+                        <li>Authentic K-beauty source</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>What They Do Well:</strong> Brand authority, competitive pricing, wide selection</p>
+                </div>
+
+                <div class="competitor-card">
+                    <h4>YesStyle</h4>
+                    <div class="tech-stack">
+                        <span class="badge">Worldwide Shipping</span>
+                        <span class="badge">Multi-Category</span>
+                        <span class="badge">Large Inventory</span>
+                    </div>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li>Comprehensive K-beauty + fashion platform</li>
+                        <li>Worldwide shipping coverage</li>
+                        <li>Popular brands aggregation</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>What They Do Well:</strong> One-stop-shop convenience, international reach</p>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Clean Beauty Competitors</h3>
+
+                <div class="competitor-card">
+                    <h4>Credo Beauty</h4>
+                    <div class="tech-stack">
+                        <span class="badge">Shopify Dawn</span>
+                        <span class="badge">Yotpo Loyalty</span>
+                        <span class="badge">Dynamic Discounting</span>
+                        <span class="badge">EasyGift</span>
+                    </div>
+                    <p><strong>Technology Stack:</strong></p>
+                    <ul>
+                        <li><strong>Platform:</strong> Shopify (Dawn theme v1.5.0)</li>
+                        <li><strong>Loyalty:</strong> Swell/Yotpo rewards API</li>
+                        <li><strong>Gifting:</strong> EasyGift app (5 active rules)</li>
+                        <li><strong>Analytics:</strong> GTM, GA4, LogRocket, Nosto personalization</li>
+                        <li><strong>Payments:</strong> Shopify Payments, Apple/Google Pay, PayPal</li>
+                        <li><strong>Subscriptions:</strong> Skio engine</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>What They Do Well:</strong> Sophisticated vendor filtering for "clean" standards, spend-triggered gifts, real-time price adjustments, strict curation</p>
+                </div>
+
+                <div class="competitor-card">
+                    <h4>The Detox Market</h4>
+                    <div class="tech-stack">
+                        <span class="badge">Shopify</span>
+                        <span class="badge">Sample Program</span>
+                        <span class="badge">Wishlist</span>
+                        <span class="badge">Gorgias Chat</span>
+                    </div>
+                    <p><strong>Technology Stack:</strong></p>
+                    <ul>
+                        <li><strong>Platform:</strong> Shopify</li>
+                        <li><strong>Chat:</strong> Gorgias live support</li>
+                        <li><strong>Reviews:</strong> Yotpo integration</li>
+                        <li><strong>Wishlist:</strong> Swym platform</li>
+                        <li><strong>Consent:</strong> Google Consent Mode V2 (GDPR)</li>
+                        <li><strong>Global:</strong> Global-E cross-border</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>What They Do Well:</strong> Sample program for trial, quick-buy from collections, sustainability messaging, clean beauty positioning</p>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Common Technologies Used by Leaders</h3>
+                <table>
+                    <tr>
+                        <th>Category</th>
+                        <th>Popular Tools</th>
+                        <th>Purpose</th>
+                    </tr>
+                    <tr>
+                        <td>Platform</td>
+                        <td>Shopify (Horizon, Dawn themes)</td>
+                        <td>E-commerce foundation with optimized performance</td>
+                    </tr>
+                    <tr>
+                        <td>Reviews</td>
+                        <td>Yotpo, Judge.me</td>
+                        <td>Social proof and UGC collection</td>
+                    </tr>
+                    <tr>
+                        <td>Loyalty</td>
+                        <td>Yotpo Loyalty, Swell</td>
+                        <td>Points-based rewards programs</td>
+                    </tr>
+                    <tr>
+                        <td>Email/SMS</td>
+                        <td>Klaviyo</td>
+                        <td>Automated flows, segmentation, personalization</td>
+                    </tr>
+                    <tr>
+                        <td>Live Chat</td>
+                        <td>Gorgias, Kustomer</td>
+                        <td>Customer support and engagement</td>
+                    </tr>
+                    <tr>
+                        <td>Subscriptions</td>
+                        <td>Skio, ReCharge</td>
+                        <td>Recurring revenue optimization</td>
+                    </tr>
+                    <tr>
+                        <td>Personalization</td>
+                        <td>Nosto, Elevar</td>
+                        <td>Product recommendations and analytics</td>
+                    </tr>
+                    <tr>
+                        <td>Analytics</td>
+                        <td>Google Analytics 4, LogRocket</td>
+                        <td>Behavior tracking and session replay</td>
+                    </tr>
+                    <tr>
+                        <td>Payments</td>
+                        <td>Shopify Payments, Shop Pay, PayPal</td>
+                        <td>Multiple payment options for convenience</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- KEY RECOMMENDATIONS -->
+        <div class="section">
+            <h2 class="section-title">Strategic Recommendations</h2>
+
+            <div class="subsection">
+                <h3>High-Impact Quick Wins</h3>
+
+                <div class="card">
+                    <h4>1. Implement Loyalty Program (Week 1-2)</h4>
+                    <p><strong>Tool:</strong> Yotpo Loyalty or Smile.io</p>
+                    <ul>
+                        <li>Points for purchases, reviews, social shares</li>
+                        <li>Tiered VIP levels for top customers</li>
+                        <li>Expected ROI: 20-30% increase in repeat purchases</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>2. Add Gift-with-Purchase (Week 1)</h4>
+                    <p><strong>Tool:</strong> EasyGift or native Shopify</p>
+                    <ul>
+                        <li>$50+ = Free sample product</li>
+                        <li>$100+ = Free full-size product</li>
+                        <li>Expected AOV increase: 15-25%</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>3. Optimize Product Pages (Week 2-3)</h4>
+                    <ul>
+                        <li>Add video demonstrations</li>
+                        <li>Include before/after photos</li>
+                        <li>Expand review display (photos + text)</li>
+                        <li>Add Q&A section</li>
+                        <li>Expected conversion lift: 10-15%</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>4. Free Shipping Progress Bar (Week 1)</h4>
+                    <p><strong>Tool:</strong> Free Shipping Bar apps</p>
+                    <ul>
+                        <li>"Add $X more for free shipping!"</li>
+                        <li>Set threshold at $50-75 USD</li>
+                        <li>Expected AOV increase: 10-20%</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Medium-Term Priorities (Month 1-3)</h3>
+
+                <div class="card">
+                    <h4>5. Launch Subscription Program</h4>
+                    <p><strong>Tool:</strong> Skio or ReCharge</p>
+                    <ul>
+                        <li>10-15% discount on subscriptions</li>
+                        <li>Flexible frequency options</li>
+                        <li>Easy skip/cancel controls</li>
+                        <li>Expected LTV increase: 40%+</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>6. Create Skincare Quiz</h4>
+                    <p><strong>Tool:</strong> Octane AI or Typeform</p>
+                    <ul>
+                        <li>Personalized product recommendations</li>
+                        <li>Email capture mechanism</li>
+                        <li>Builds engagement and trust</li>
+                        <li>Expected conversion boost: 20-30%</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>7. Content Marketing Strategy</h4>
+                    <ul>
+                        <li>Blog with skincare education</li>
+                        <li>SEO-optimized how-to guides</li>
+                        <li>"Watch & Shop" video content</li>
+                        <li>Instagram/TikTok shoppable content</li>
+                        <li>Expected organic traffic increase: 50-100%</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>8. Email Marketing Automation</h4>
+                    <p><strong>Tool:</strong> Klaviyo (already integrated)</p>
+                    <ul>
+                        <li>Welcome series (3-5 emails)</li>
+                        <li>Abandoned cart (3 emails)</li>
+                        <li>Post-purchase flow</li>
+                        <li>Replenishment reminders</li>
+                        <li>VIP/loyalty communications</li>
+                        <li>Expected revenue from email: 25-30% of total</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Long-Term Strategic Initiatives (Month 3-12)</h3>
+
+                <div class="card">
+                    <h4>9. Influencer & Affiliate Program</h4>
+                    <ul>
+                        <li>Partner with beauty influencers</li>
+                        <li>Create curated collections</li>
+                        <li>ShareASale or Impact affiliate platform</li>
+                        <li>UGC campaigns for social proof</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>10. Advanced Personalization</h4>
+                    <p><strong>Tool:</strong> Nosto or Rebuy</p>
+                    <ul>
+                        <li>AI-powered product recommendations</li>
+                        <li>Dynamic homepage based on behavior</li>
+                        <li>Personalized email content</li>
+                        <li>Cross-sell and upsell optimization</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>11. International Expansion</h4>
+                    <p><strong>Tool:</strong> Global-E or Shopify Markets</p>
+                    <ul>
+                        <li>Multi-currency support</li>
+                        <li>Localized pricing</li>
+                        <li>International shipping optimization</li>
+                        <li>200+ locale support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="recommendation">
+                <h5>⚠ Critical Action Items (Start Immediately)</h5>
+                <ol>
+                    <li><strong>Enhance Product Reviews:</strong> Make reviews more prominent on all pages</li>
+                    <li><strong>Add Video Content:</strong> Product demos and tutorials (22% conversion boost)</li>
+                    <li><strong>Implement Free Shipping Bar:</strong> Dynamic progress indicator</li>
+                    <li><strong>Launch Gift-with-Purchase:</strong> Tiered rewards at $50/$100</li>
+                    <li><strong>Optimize Meta Descriptions:</strong> All pages need unique, compelling descriptions</li>
+                    <li><strong>Start A/B Testing:</strong> Headlines, CTAs, product images</li>
+                    <li><strong>Create Email Flows:</strong> Welcome, abandoned cart, post-purchase</li>
+                    <li><strong>Mobile Speed Check:</strong> Every 100ms improvement = +1.11% conversion</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- SOURCES -->
+        <div class="section">
+            <div class="sources">
+                <h4>Sources & References</h4>
+
+                <p style="margin-bottom: 15px;"><strong>Korean Beauty E-commerce:</strong></p>
+                <a href="https://www.stylekorean.com/" target="_blank">• STYLEKOREAN.COM - Korea's Best Skincare & Beauty</a>
+                <a href="https://sokoglam.com/" target="_blank">• Soko Glam - Korean Skin Care & Beauty Products</a>
+                <a href="https://beautynetkorea.com/" target="_blank">• Beautynetkorea - K-Beauty No.1 Website</a>
+                <a href="https://www.yesstyle.com/en/korean-skin-care" target="_blank">• YesStyle - Korean Skin Care Online</a>
+                <a href="https://global.oliveyoung.com/" target="_blank">• OLIVE YOUNG Global - Korea's No. 1 H&B Store</a>
+                <a href="https://jolse.com/" target="_blank">• Jolse - Korean Cosmetics Online Beauty Shop</a>
+                <a href="https://www.peachandlily.com/" target="_blank">• Peach & Lily - Korean Skin Care and K-Beauty</a>
+                <a href="https://ohlolly.com/" target="_blank">• OHLOLLY - Korean Beauty Skin Care</a>
+
+                <p style="margin: 20px 0 15px 0;"><strong>Clean Beauty & Sustainable Skincare:</strong></p>
+                <a href="https://www.thegoodtrade.com/features/natural-and-organic-skincare-brands/" target="_blank">• The Good Trade - Best Organic Skincare Brands 2025</a>
+                <a href="https://consciousfashion.co/guides/best-eco-skincare-beauty-online-stores" target="_blank">• Conscious Fashion - 18 Online Clean Beauty Stores</a>
+                <a href="https://www.100percentpure.com/" target="_blank">• 100% PURE - Organic & Natural Beauty</a>
+                <a href="https://zanniee.com/best-clean-beauty-websites/" target="_blank">• Zanniee - 11 Best Clean Beauty Websites</a>
+
+                <p style="margin: 20px 0 15px 0;"><strong>SEO & Technical Optimization:</strong></p>
+                <a href="https://searchengineland.com/guide/meta-tags" target="_blank">• Search Engine Land - Meta Tags in SEO Guide</a>
+                <a href="https://searchengineland.com/seo-meta-descriptions-everything-to-know-447910" target="_blank">• Search Engine Land - SEO Meta Descriptions 2025</a>
+                <a href="https://ecomm.design/best-shopify-horizon-themes/" target="_blank">• eComm Design - Top Horizon Themes 2025</a>
+                <a href="https://bsscommerce.com/shopify/shopify-horizon-theme-review/" target="_blank">• BSS Commerce - Shopify Horizon Theme Guide</a>
+                <a href="https://codefreex.com/shopify-horizons-2025-guide/" target="_blank">• CodeFreeX - Shopify Horizons 2025 Guide</a>
+                <a href="https://tiny-img.com/best-shopify-themes/for-seo/" target="_blank">• Tiny IMG - 10 Best SEO-Friendly Shopify Themes</a>
+
+                <p style="margin: 20px 0 15px 0;"><strong>CRO & Conversion Optimization:</strong></p>
+                <a href="https://firework.com/blog/increase-conversion-rates-beauty-ecommerce" target="_blank">• Firework - How To Increase Conversion Rates Beauty eCommerce</a>
+                <a href="https://www.convertcart.com/blog/ecommerce-conversion-rate-by-industry" target="_blank">• ConvertCart - eCommerce Conversion Rate by Industry 2025</a>
+                <a href="https://freeyourself.com/blogs/news/beauty-bundle-sales-conversion-rates" target="_blank">• FreeYourself - Beauty Bundle Sales Conversion Rates 2025</a>
+                <a href="https://splitbase.com/blog/beauty-ecommerce-optimization" target="_blank">• Splitbase - 5 Ways to Optimize Beauty Ecommerce</a>
+                <a href="https://empathyfirstmedia.com/e-commerce-cro-best-practices-2025/" target="_blank">• Empathy First Media - CRO Best Practices 2025</a>
+                <a href="https://www.smartinsights.com/ecommerce/ecommerce-analytics/ecommerce-conversion-rates/" target="_blank">• Smart Insights - E-commerce Conversion Benchmarks 2025</a>
+                <a href="https://geotargetly.com/blog/ecommerce-cro-optimization" target="_blank">• GeoTargetly - Full E-commerce CRO Guide 2025</a>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div style="background: #2c3e50; color: white; padding: 30px; text-align: center;">
+            <p style="font-size: 0.9em; opacity: 0.9;">Comprehensive Audit Report Generated: November 2025</p>
+            <p style="font-size: 0.85em; opacity: 0.7; margin-top: 10px;">For: Glow Heroes (glowheroes.com)</p>
+        </div>
+    </div>
+</body>
+</html>

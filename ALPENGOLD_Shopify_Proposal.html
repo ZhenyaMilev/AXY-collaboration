@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPENGOLD - Коммерческое предложение Shopify</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #2d2d2d;
+            background: #fff;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 50px;
+        }
+
+        /* Cover Page */
+        .cover {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+            padding: 60px;
+            page-break-after: always;
+        }
+
+        .cover h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+        }
+
+        .cover .subtitle {
+            font-size: 16px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #2c5f8d;
+            margin-bottom: 60px;
+        }
+
+        .cover .divider {
+            width: 80px;
+            height: 2px;
+            background: #4a90d9;
+            margin: 40px auto;
+        }
+
+        .cover .date {
+            font-size: 13px;
+            color: #666;
+            margin-top: 40px;
+        }
+
+        .cover .tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 18px;
+            color: #555;
+            max-width: 500px;
+            margin-top: 30px;
+        }
+
+        /* Section styling */
+        .section {
+            padding: 50px 0;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #4a90d9;
+        }
+
+        .subsection-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin: 35px 0 20px;
+        }
+
+        .subsection-title-small {
+            font-size: 16px;
+            font-weight: 600;
+            color: #444;
+            margin: 25px 0 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 25px;
+            color: #444;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #2d2d2d;
+            font-weight: 600;
+        }
+
+        em {
+            font-style: italic;
+            color: #666;
+        }
+
+        /* Highlight boxes */
+        .highlight-box {
+            background: #f0f8ff;
+            border-left: 4px solid #4a90d9;
+            padding: 20px 25px;
+            margin: 25px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        .recommendation-box {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e1f0ff 100%);
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 25px 30px;
+            margin: 30px 0;
+        }
+
+        .recommendation-box h4 {
+            font-family: 'Playfair Display', serif;
+            color: #2c5f8d;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .warning-box {
+            background: #fff4e6;
+            border-left: 4px solid #ff9800;
+            padding: 20px 25px;
+            margin: 25px 0;
+        }
+
+        .success-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 20px 25px;
+            margin: 25px 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 13px;
+        }
+
+        th {
+            background: #f5f5f5;
+            color: #333;
+            font-weight: 600;
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 2px solid #4a90d9;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #444;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Pricing section */
+        .pricing-option {
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 35px;
+            margin: 25px 0;
+        }
+
+        .pricing-option.recommended {
+            border-color: #4a90d9;
+            box-shadow: 0 5px 20px rgba(74, 144, 217, 0.15);
+        }
+
+        .pricing-option h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 32px;
+            font-weight: 700;
+            color: #4a90d9;
+            margin-bottom: 20px;
+        }
+
+        .price span {
+            font-size: 14px;
+            font-weight: 400;
+            color: #666;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #4a90d9;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 30px 0;
+        }
+
+        .timeline-item {
+            padding: 20px 25px;
+            border-left: 3px solid #e0e0e0;
+            margin-left: 10px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: #4a90d9;
+            border-radius: 50%;
+        }
+
+        .timeline-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Next steps */
+        .next-steps {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .next-steps h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #4a90d9;
+            margin-bottom: 25px;
+        }
+
+        .next-steps ol {
+            color: #ccc;
+        }
+
+        .next-steps strong {
+            color: #fff;
+        }
+
+        /* Page break utility */
+        .page-break {
+            page-break-before: always;
+            padding-top: 20px;
+        }
+
+        @media print {
+            body {
+                font-size: 12px;
+            }
+
+            .container {
+                padding: 40px;
+            }
+
+            .cover {
+                min-height: auto;
+                padding: 100px 40px;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .pricing-option {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Page -->
+    <div class="cover">
+        <h1>ALPENGOLD</h1>
+        <p class="subtitle">Коммерческое предложение • Shopify</p>
+        <div class="divider"></div>
+        <p class="tagline">Премиальные коллагеновые добавки европейского производства для здоровья и красоты</p>
+        <p class="date">Ноябрь 2025</p>
+    </div>
+
+    <div class="container">
+        <!-- Executive Summary -->
+        <div class="section">
+            <h2 class="section-title">Краткое резюме</h2>
+
+            <div class="highlight-box">
+                <p><strong>Задача клиента:</strong> Запустить профессиональный Shopify интернет-магазин для европейского и американского рынков с фокусом на долгосрочное развитие бренда премиальных коллагеновых добавок.</p>
+            </div>
+
+            <h3 class="subsection-title">Текущая ситуация</h3>
+            <ul>
+                <li><strong>Продукт:</strong> Collagen Peptides + Vitamin C (454g) - £29.99</li>
+                <li><strong>Производство:</strong> Европейские фабрики (GMP, HACCP, ISO сертификация)</li>
+                <li><strong>Текущий сайт:</strong> Базовая платформа, требует оптимизации</li>
+                <li><strong>Цель:</strong> Профессиональный Shopify магазин для масштабирования бизнеса</li>
+            </ul>
+
+            <h3 class="subsection-title">Что предлагаем</h3>
+            <p>Разработка полноценного Shopify интернет-магазина с современным дизайном, оптимизированным UX и всеми необходимыми функциями для успешных продаж в ЕС и США.</p>
+        </div>
+
+        <!-- Product Audit -->
+        <div class="section page-break">
+            <h2 class="section-title">Аудит продукта</h2>
+
+            <h3 class="subsection-title">Анализ товара: Collagen Peptides + Vitamin C</h3>
+
+            <table>
+                <tr>
+                    <th>Параметр</th>
+                    <th>Данные</th>
+                </tr>
+                <tr>
+                    <td><strong>Название</strong></td>
+                    <td>Collagen Peptides + Vitamin C</td>
+                </tr>
+                <tr>
+                    <td><strong>Вес</strong></td>
+                    <td>454 грамма (30 порций по 15г)</td>
+                </tr>
+                <tr>
+                    <td><strong>Цена UK</strong></td>
+                    <td>£29.99 (~€36 / ~$38)</td>
+                </tr>
+                <tr>
+                    <td><strong>Состав</strong></td>
+                    <td>Гидролизованные пептиды коллагена (бычий/свиной), Витамин C, натуральный вкус цитрусов</td>
+                </tr>
+                <tr>
+                    <td><strong>Дозировка</strong></td>
+                    <td>14,505 мг коллагена + 120 мг Витамина C (150% NRV)</td>
+                </tr>
+                <tr>
+                    <td><strong>Сертификация</strong></td>
+                    <td>GMP, HACCP, ISO</td>
+                </tr>
+            </table>
+
+            <h3 class="subsection-title">Ключевые преимущества продукта</h3>
+            <ul>
+                <li><strong>Европейское производство</strong> — высокие стандарты качества (GMP/ISO)</li>
+                <li><strong>Биодоступность</strong> — гидролизованные пептиды легко усваиваются</li>
+                <li><strong>Усиленная формула</strong> — коллаген + Витамин C для синергического эффекта</li>
+                <li><strong>Чистый состав</strong> — без сахара, жира, холестерина, углеводов</li>
+                <li><strong>Универсальность</strong> — кожа, суставы, волосы, ногти, восстановление мышц</li>
+                <li><strong>Большая упаковка</strong> — 30 порций (месячный запас)</li>
+            </ul>
+
+            <h3 class="subsection-title">Целевая аудитория</h3>
+            <div class="recommendation-box">
+                <h4>Основные сегменты</h4>
+                <ol>
+                    <li><strong>Beauty-conscious consumers (25-45 лет)</strong>
+                        <ul>
+                            <li>Женщины, заботящиеся о коже, волосах и ногтях</li>
+                            <li>Активны в социальных сетях (Instagram, TikTok)</li>
+                            <li>Доход средний+</li>
+                        </ul>
+                    </li>
+                    <li><strong>Спортсмены и активные люди (25-50 лет)</strong>
+                        <ul>
+                            <li>Восстановление после тренировок</li>
+                            <li>Защита суставов и связок</li>
+                            <li>Оба пола</li>
+                        </ul>
+                    </li>
+                    <li><strong>Люди 40+</strong>
+                        <ul>
+                            <li>Профилактика возрастных изменений</li>
+                            <li>Здоровье суставов</li>
+                            <li>Оба пола</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h3 class="subsection-title">SWOT-анализ</h3>
+
+            <h4 class="subsection-title-small">Сильные стороны (Strengths)</h4>
+            <ul>
+                <li>Европейское производство и сертификация</li>
+                <li>Конкурентная цена (~€36 за месячный запас)</li>
+                <li>Доказанные преимущества коллагена + витамин C</li>
+                <li>Чистый состав без лишних добавок</li>
+                <li>Уже есть сайт и первые продажи в UK</li>
+            </ul>
+
+            <h4 class="subsection-title-small">Слабые стороны (Weaknesses)</h4>
+            <ul>
+                <li>Срок годности товара ограничен — требует быстрых продаж</li>
+                <li>Ограниченный бюджет на маркетинг</li>
+                <li>Молодой бренд — низкая узнаваемость</li>
+                <li>Текущий сайт на базовой платформе — не оптимизирован</li>
+            </ul>
+
+            <h4 class="subsection-title-small">Возможности (Opportunities)</h4>
+            <ul>
+                <li><strong>TikTok Shop</strong> — взрывной рост в beauty и wellness нише</li>
+                <li>Выход на рынок США (огромный спрос на коллаген)</li>
+                <li>Подписная модель — регулярные доставки коллагена</li>
+                <li>Расширение линейки (морской коллаген, коллаген для суставов)</li>
+                <li>B2B продажи (спортзалы, салоны красоты)</li>
+            </ul>
+
+            <h4 class="subsection-title-small">Угрозы (Threats)</h4>
+            <ul>
+                <li>Высокая конкуренция на рынке коллагена</li>
+                <li>Крупные бренды с большими бюджетами (Vital Proteins, Sports Research)</li>
+                <li>Необходимость быстро окупить вложения</li>
+            </ul>
+        </div>
+
+        <!-- Competitor Analysis -->
+        <div class="section page-break">
+            <h2 class="section-title">Анализ конкурентов (Shopify)</h2>
+
+            <div class="competitor-card">
+                <h3>Vital Proteins</h3>
+                <p class="website">vitalproteins.com | США</p>
+
+                <h4 class="subsection-title-small">Ценовой сегмент (USD)</h4>
+                <table>
+                    <tr><td>Collagen Peptides (567g)</td><td>$47</td></tr>
+                    <tr><td>Marine Collagen</td><td>$50</td></tr>
+                    <tr><td>Подписка со скидкой</td><td>-15%</td></tr>
+                </table>
+
+                <h4 class="subsection-title-small">УТП</h4>
+                <ul>
+                    <li>Лидер рынка в США</li>
+                    <li>Grass-fed, pasture-raised коллаген</li>
+                    <li>Широкая линейка вкусов</li>
+                    <li>Модель подписок</li>
+                    <li>Сильный брендинг (Дженнифер Энистон — амбассадор)</li>
+                </ul>
+
+                <div class="takeaway">
+                    <h5>Что взять на заметку</h5>
+                    <p>Модель подписок генерирует стабильный доход. Важность celebrity endorsements. Широкий выбор вкусов.</p>
+                </div>
+            </div>
+
+            <div class="competitor-card">
+                <h3>Sports Research</h3>
+                <p class="website">sportsresearch.com | США</p>
+
+                <h4 class="subsection-title-small">Ценовой сегмент</h4>
+                <table>
+                    <tr><td>Collagen Peptides (454g)</td><td>$28-32</td></tr>
+                    <tr><td>Marine Collagen</td><td>$35</td></tr>
+                </table>
+
+                <h4 class="subsection-title-small">УТП</h4>
+                <ul>
+                    <li>Certified Paleo, Keto-friendly</li>
+                    <li>Non-GMO, Gluten-Free</li>
+                    <li>Ориентация на спортсменов</li>
+                    <li>Сильные позиции на Amazon</li>
+                </ul>
+
+                <div class="takeaway">
+                    <h5>Что взять на заметку</h5>
+                    <p>Сертификация и лейблы (Keto, Paleo) важны для целевой аудитории. Фокус на качество и чистоту.</p>
+                </div>
+            </div>
+
+            <div class="competitor-card">
+                <h3>Ancient Nutrition</h3>
+                <p class="website">ancientnutrition.com | США</p>
+
+                <h4 class="subsection-title-small">Ценовой сегмент</h4>
+                <table>
+                    <tr><td>Multi Collagen Protein</td><td>$45-50</td></tr>
+                    <tr><td>Bone Broth Collagen</td><td>$50</td></tr>
+                </table>
+
+                <h4 class="subsection-title-small">УТП</h4>
+                <ul>
+                    <li>5 типов коллагена в одном продукте</li>
+                    <li>"Древние суперфуды"</li>
+                    <li>Grass-fed & cage-free источники</li>
+                    <li>Сильная образовательная составляющая</li>
+                </ul>
+
+                <div class="takeaway">
+                    <h5>Что взять на заметку</h5>
+                    <p>Premium позиционирование через "ancient wisdom". Образовательный контент увеличивает доверие.</p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Сравнительная таблица</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Бренд</th>
+                        <th>Цена (454g)</th>
+                        <th>Ключевое УТП</th>
+                        <th>Платформа</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Vital Proteins</td>
+                        <td>$47</td>
+                        <td>Лидер рынка, celebrity</td>
+                        <td>Shopify + Amazon</td>
+                    </tr>
+                    <tr>
+                        <td>Sports Research</td>
+                        <td>$28-32</td>
+                        <td>Сертификации, спорт</td>
+                        <td>Shopify + Amazon</td>
+                    </tr>
+                    <tr>
+                        <td>Ancient Nutrition</td>
+                        <td>$45-50</td>
+                        <td>5 типов коллагена</td>
+                        <td>Shopify</td>
+                    </tr>
+                    <tr style="background: #f0f8ff;">
+                        <td><strong>ALPENGOLD</strong></td>
+                        <td><strong>$38</strong></td>
+                        <td><strong>Европейское качество</strong></td>
+                        <td><strong>Shopify</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="recommendation-box">
+                <h4>Рекомендации по позиционированию</h4>
+                <p><strong>"Европейское качество по доступной цене"</strong></p>
+                <p style="margin-top: 15px;">ALPENGOLD занимает среднюю ценовую нишу между Sports Research и Vital Proteins, но выигрывает за счет европейских стандартов производства (GMP/ISO/HACCP), которых нет у большинства американских конкурентов.</p>
+            </div>
+
+            <h3 class="subsection-title">Дифференциаторы ALPENGOLD</h3>
+            <ul>
+                <li><strong>Made in Europe</strong> — европейские стандарты качества GMP/ISO</li>
+                <li><strong>Конкурентная цена</strong> — $38 vs $47 (Vital Proteins)</li>
+                <li><strong>Чистая формула</strong> — только коллаген + витамин C, без лишнего</li>
+                <li><strong>Премиум позиционирование</strong> — европейский продукт на международном рынке</li>
+                <li><strong>Масштабируемость</strong> — потенциал расширения в ЕС и США</li>
+            </ul>
+        </div>
+
+        <!-- Shopify Strategy -->
+        <div class="section page-break">
+            <h2 class="section-title">Стратегия Shopify магазина</h2>
+
+            <h3 class="subsection-title">Структура сайта</h3>
+
+            <div class="structure-item">
+                <h4>1. Главная страница (Home)</h4>
+                <ul>
+                    <li>Hero-секция: "European Quality Collagen" с видео/фото продукта</li>
+                    <li>Основные преимущества (European Made, GMP/ISO, Pure Formula)</li>
+                    <li>Секция "Why Collagen?" — образовательный блок</li>
+                    <li>Отзывы и социальные доказательства</li>
+                    <li>CTA: "Shop Now" + скидка на первый заказ</li>
+                    <li>Trust badges: сертификации, доставка, гарантия</li>
+                </ul>
+            </div>
+
+            <div class="structure-item">
+                <h4>2. Страница продукта (Product Page)</h4>
+                <ul>
+                    <li>Галерея изображений высокого качества</li>
+                    <li>Подробное описание продукта и преимуществ</li>
+                    <li>Таблица пищевой ценности</li>
+                    <li>Секция "How to Use" (инструкция по применению)</li>
+                    <li>Блок "Benefits": кожа, суставы, волосы, ногти</li>
+                    <li>Customer Reviews (отзывы клиентов)</li>
+                    <li>FAQ (частые вопросы)</li>
+                    <li>Bundle options: купить 2/3 банки со скидкой</li>
+                    <li><strong>Subscription option</strong>: подписка со скидкой 15%</li>
+                </ul>
+            </div>
+
+            <div class="structure-item">
+                <h4>3. About Us</h4>
+                <ul>
+                    <li>История бренда ALPENGOLD</li>
+                    <li>Европейское производство и сертификации</li>
+                    <li>Философия качества и чистоты</li>
+                    <li>Фото фабрики (если доступно)</li>
+                </ul>
+            </div>
+
+            <div class="structure-item">
+                <h4>4. Science & Benefits</h4>
+                <ul>
+                    <li>Что такое коллаген и зачем он нужен</li>
+                    <li>Преимущества гидролизованных пептидов</li>
+                    <li>Роль Витамина C в синтезе коллагена</li>
+                    <li>Инфографика: как работает коллаген в организме</li>
+                    <li>Клинические исследования (если есть)</li>
+                </ul>
+            </div>
+
+            <div class="structure-item">
+                <h4>5. Blog</h4>
+                <ul>
+                    <li>Образовательные статьи о коллагене</li>
+                    <li>Рецепты с коллагеном</li>
+                    <li>Tips для здоровья кожи и суставов</li>
+                    <li>SEO-оптимизация для органического трафика</li>
+                </ul>
+            </div>
+
+            <div class="structure-item">
+                <h4>6. Дополнительные страницы</h4>
+                <ul>
+                    <li>Shipping & Returns</li>
+                    <li>Contact Us</li>
+                    <li>FAQ</li>
+                    <li>Privacy Policy / Terms of Service</li>
+                </ul>
+            </div>
+
+            <h3 class="subsection-title">Ключевые функции Shopify</h3>
+
+            <h4 class="subsection-title-small">1. Subscription (Подписка)</h4>
+            <div class="success-box">
+                <p><strong>Критически важно для бизнес-модели!</strong></p>
+                <p>Коллаген — продукт регулярного потребления (30 дней = 1 банка). Подписная модель обеспечивает стабильный recurring revenue.</p>
+            </div>
+            <ul>
+                <li>Плагин: Recharge / Appstle / Seal Subscriptions</li>
+                <li>Скидка 15% на подписку</li>
+                <li>Гибкость: доставка каждые 30/60/90 дней</li>
+                <li>Легкая отмена или пауза подписки</li>
+            </ul>
+
+            <h4 class="subsection-title-small">2. Bundles & Upsells</h4>
+            <ul>
+                <li>Bundle: 2 банки = -10%, 3 банки = -15%</li>
+                <li>Upsells: "Customers also bought..." (будущие продукты)</li>
+                <li>Плагины: Bold Upsell / Zipify OneClickUpsell</li>
+            </ul>
+
+            <h4 class="subsection-title-small">3. Email Marketing</h4>
+            <ul>
+                <li>Klaviyo интеграция для email-автоматизации</li>
+                <li>Welcome series (3-5 писем для новых подписчиков)</li>
+                <li>Abandoned cart recovery (возврат брошенных корзин)</li>
+                <li>Post-purchase flow (отзывы, рекомендации)</li>
+                <li>Re-order reminders (напоминание заказать снова через 25 дней)</li>
+            </ul>
+
+            <h4 class="subsection-title-small">4. Reviews & Social Proof</h4>
+            <ul>
+                <li>Плагин: Loox / Judge.me / Yotpo</li>
+                <li>Photo reviews — клиенты загружают фото результатов</li>
+                <li>Автоматические email для запроса отзывов</li>
+                <li>Интеграция с Instagram (UGC content)</li>
+            </ul>
+
+            <h4 class="subsection-title-small">5. Shipping & Fulfillment</h4>
+            <ul>
+                <li>UK: Royal Mail, DPD</li>
+                <li>EU: DHL, UPS</li>
+                <li>USA: USPS, FedEx</li>
+                <li>Free shipping при заказе от £40/€50/$50</li>
+            </ul>
+
+            <h4 class="subsection-title-small">6. Payment Processing</h4>
+            <ul>
+                <li>Shopify Payments (встроенный)</li>
+                <li>PayPal</li>
+                <li>Stripe (для США)</li>
+                <li>Klarna / Afterpay (оплата частями)</li>
+            </ul>
+
+            <h3 class="subsection-title">Дизайн и брендинг</h3>
+
+            <h4 class="subsection-title-small">Стиль сайта</h4>
+            <ul>
+                <li><strong>Чистый и современный</strong> — минимализм с акцентом на продукт</li>
+                <li><strong>Health & Wellness эстетика</strong> — светлые тона, натуральные цвета</li>
+                <li><strong>Trust-building элементы</strong> — сертификаты, отзывы, гарантии</li>
+                <li><strong>Mobile-first</strong> — 70%+ трафика с мобильных</li>
+            </ul>
+
+            <h4 class="subsection-title-small">Цветовая палитра</h4>
+            <ul>
+                <li>Основной: Голубой/синий (доверие, здоровье)</li>
+                <li>Акцент: Золотой (премиум)</li>
+                <li>Дополнительный: Белый, серый, бежевый</li>
+            </ul>
+        </div>
+
+
+        <!-- Pricing Section -->
+        <div class="section page-break">
+            <h2 class="section-title">Стоимость разработки Shopify</h2>
+
+            <div class="pricing-option">
+                <h3>Вариант 1: Быстрый запуск на готовой теме</h3>
+                <p class="price">$3,000 <span>+ $400 (премиум-тема)</span></p>
+
+                <h4 class="subsection-title-small">Что включено</h4>
+                <ul>
+                    <li>Установка и настройка премиум-темы (Dawn, Prestige, Impulse)</li>
+                    <li>Брендинг: лого, цвета, шрифты</li>
+                    <li>Структура сайта: Home, Product, About, Science, Blog</li>
+                    <li>Настройка продуктов (до 3 SKU)</li>
+                    <li>Интеграция оплаты (Shopify Payments, PayPal, Stripe)</li>
+                    <li>Настройка доставки (UK, EU, USA)</li>
+                    <li>Базовая SEO оптимизация</li>
+                    <li>Mobile responsive дизайн</li>
+                    <li>Интеграция Google Analytics / Meta Pixel</li>
+                </ul>
+
+                <h4 class="subsection-title-small">Плагины (необходимые)</h4>
+                <ul>
+                    <li>Subscription app (Recharge / Seal) - от $10/мес</li>
+                    <li>Email marketing (Klaviyo) - free до 250 контактов</li>
+                    <li>Reviews app (Judge.me / Loox) - от $15/мес</li>
+                </ul>
+
+                <h4 class="subsection-title-small">Преимущества</h4>
+                <ul>
+                    <li><strong>Быстрый запуск</strong> — 2-3 недели</li>
+                    <li>Проверенный UX и функционал</li>
+                    <li>Регулярные обновления от разработчика</li>
+                    <li>Низкий риск технических проблем</li>
+                </ul>
+
+                <h4 class="subsection-title-small">Недостатки</h4>
+                <ul>
+                    <li>Дизайн не уникальный</li>
+                    <li>Ограниченные возможности кастомизации</li>
+                </ul>
+
+                <h4 class="subsection-title-small">Рекомендация</h4>
+                <div class="success-box">
+                    <p><strong>Оптимальный вариант для быстрого старта!</strong> Этот подход позволяет запустить профессиональный магазин за 3 недели с проверенным UX и всем необходимым функционалом для успешных продаж.</p>
+                </div>
+            </div>
+
+            <div class="pricing-option">
+                <h3>Вариант 2: Индивидуальный дизайн (custom)</h3>
+                <p class="price">$5,000</p>
+
+                <h4 class="subsection-title-small">Что включено</h4>
+                <ul>
+                    <li>Прототипирование в Figma (все страницы)</li>
+                    <li>Уникальный дизайн с нуля</li>
+                    <li>Разработка кастомной темы Shopify</li>
+                    <li>Все функции из Варианта 1</li>
+                    <li>Кастомные анимации и переходы</li>
+                    <li>Интерактивные элементы</li>
+                    <li>Уникальная страница продукта</li>
+                    <li>Brand storytelling через дизайн</li>
+                </ul>
+
+                <h4 class="subsection-title-small">Преимущества</h4>
+                <ul>
+                    <li>100% уникальный дизайн</li>
+                    <li>Полный контроль над UX/UI</li>
+                    <li>Премиальное восприятие бренда</li>
+                    <li>Дифференциация от конкурентов</li>
+                </ul>
+
+                <h4 class="subsection-title-small">Недостатки</h4>
+                <ul>
+                    <li>Дольше в разработке (4-6 недель)</li>
+                    <li>Выше стоимость</li>
+                </ul>
+
+                <h4 class="subsection-title-small">Рекомендация</h4>
+                <div class="recommendation-box">
+                    <h4>Когда выбирать этот вариант</h4>
+                    <p>Подходит для долгосрочного развития премиум-бренда и максимальной дифференциации от конкурентов. Рекомендуется, если у вас уже есть четкая визуальная концепция бренда или после получения обратной связи от первых клиентов.</p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Дополнительные услуги (опционально)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Услуга</th>
+                        <th>Стоимость</th>
+                        <th>Описание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Email marketing setup</td>
+                        <td>$500</td>
+                        <td>Klaviyo настройка + 5 автоматизированных flows (welcome, abandoned cart, post-purchase)</td>
+                    </tr>
+                    <tr>
+                        <td>Product photography</td>
+                        <td>$800-1500</td>
+                        <td>Профессиональная фотосъемка продукта (10-20 фото)</td>
+                    </tr>
+                    <tr>
+                        <td>Content writing</td>
+                        <td>$300-500</td>
+                        <td>Профессиональный копирайтинг для всех страниц сайта</td>
+                    </tr>
+                    <tr>
+                        <td>Video production</td>
+                        <td>$1,000-2,000</td>
+                        <td>Product video для главной страницы (30-60 сек)</td>
+                    </tr>
+                    <tr>
+                        <td>SEO оптимизация</td>
+                        <td>$400</td>
+                        <td>Расширенная SEO настройка + meta tags + schema markup</td>
+                    </tr>
+                    <tr>
+                        <td>Multilingual setup</td>
+                        <td>$600</td>
+                        <td>Настройка мультиязычности (EN/DE/FR/ES)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="subsection-title">Ежемесячные расходы</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Статья расходов</th>
+                        <th>Стоимость/мес</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Shopify тариф (Basic)</td>
+                        <td>$39</td>
+                    </tr>
+                    <tr>
+                        <td>Subscription app (Recharge/Seal)</td>
+                        <td>$10-50</td>
+                    </tr>
+                    <tr>
+                        <td>Email marketing (Klaviyo)</td>
+                        <td>$0-50 (зависит от базы)</td>
+                    </tr>
+                    <tr>
+                        <td>Reviews app (Judge.me/Loox)</td>
+                        <td>$15-30</td>
+                    </tr>
+                    <tr>
+                        <td>Hosting/домен</td>
+                        <td>Включено в Shopify</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Итого (минимум)</strong></td>
+                        <td><strong>~$64-120</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Timeline -->
+        <div class="section page-break">
+            <h2 class="section-title">Этапы реализации</h2>
+
+            <h3 class="subsection-title">Вариант 1: Быстрый запуск (готовая тема)</h3>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Неделя 1: Подготовка и настройка</h4>
+                    <ul>
+                        <li>Регистрация Shopify аккаунта</li>
+                        <li>Выбор и установка премиум-темы</li>
+                        <li>Брендинг: лого, цвета, шрифты</li>
+                        <li>Сбор контента (фото, описания)</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Неделя 2: Разработка структуры</h4>
+                    <ul>
+                        <li>Создание всех страниц (Home, Product, About, Science)</li>
+                        <li>Настройка навигации и меню</li>
+                        <li>Добавление продуктов и описаний</li>
+                        <li>Интеграция плагинов (Subscription, Reviews)</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Неделя 3: Финализация и тестирование</h4>
+                    <ul>
+                        <li>Настройка оплаты и доставки</li>
+                        <li>Mobile optimization</li>
+                        <li>SEO базовая настройка</li>
+                        <li>Google Analytics / Meta Pixel</li>
+                        <li>Тестирование checkout процесса</li>
+                        <li>Запуск!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>Итого: 3 недели до запуска</strong></p>
+            </div>
+
+            <h3 class="subsection-title">Вариант 2: Индивидуальный дизайн</h3>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Неделя 1-2: Discovery & Design</h4>
+                    <ul>
+                        <li>Брифинг и сбор требований</li>
+                        <li>Анализ конкурентов</li>
+                        <li>Moodboard и концепция дизайна</li>
+                        <li>Прототипирование в Figma</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Неделя 3-4: Development</h4>
+                    <ul>
+                        <li>Разработка кастомной темы</li>
+                        <li>Интеграция всех функций</li>
+                        <li>Адаптив под все устройства</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Неделя 5-6: Testing & Launch</h4>
+                    <ul>
+                        <li>Тестирование на всех устройствах</li>
+                        <li>Багфиксинг</li>
+                        <li>Финальная оптимизация</li>
+                        <li>Запуск!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>Итого: 4-6 недель до запуска</strong></p>
+            </div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="section">
+            <h2 class="section-title">Наши рекомендации</h2>
+
+            <div class="recommendation-box">
+                <h4>Рекомендуемая стратегия для ALPENGOLD</h4>
+                <p><strong>Вариант 1: Быстрый запуск</strong> ($3,400)</p>
+                <ul>
+                    <li>Запуск за 3 недели на готовой премиум-теме</li>
+                    <li>Полный функционал: подписки, email-автоматизация, reviews</li>
+                    <li>Профессиональный внешний вид с брендингом</li>
+                    <li>Оптимизация под мобильные устройства</li>
+                    <li>Готовность к масштабированию</li>
+                </ul>
+
+                <p style="margin-top: 20px;"><strong>Вариант 2: Премиум-решение</strong> ($5,000)</p>
+                <ul>
+                    <li>Уникальный дизайн с нуля</li>
+                    <li>Максимальная дифференциация от конкурентов</li>
+                    <li>Кастомные анимации и интерактивные элементы</li>
+                    <li>Полный контроль над UX/UI</li>
+                    <li>Премиальное восприятие бренда</li>
+                </ul>
+            </div>
+
+            <h3 class="subsection-title">Преимущества Shopify для вашего бизнеса</h3>
+            <ul>
+                <li><strong>Быстрый запуск</strong> — магазин готов за 3-6 недель</li>
+                <li><strong>Масштабируемость</strong> — легко добавлять новые продукты и функции</li>
+                <li><strong>Международные продажи</strong> — мультивалютность, доставка по всему миру</li>
+                <li><strong>Subscription модель</strong> — recurring revenue для стабильного дохода</li>
+                <li><strong>Интеграции</strong> — легко подключаются платежи, доставка, аналитика</li>
+                <li><strong>Mobile-friendly</strong> — 70%+ покупателей используют мобильные устройства</li>
+            </ul>
+
+            <div class="success-box">
+                <p><strong>Наша рекомендация:</strong> Начните с Варианта 1 для быстрого выхода на рынок. После получения первых продаж и обратной связи от клиентов, можно перейти на индивидуальный дизайн (Вариант 2) для усиления премиального позиционирования.</p>
+            </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="next-steps">
+            <h3>Следующие шаги</h3>
+            <ol>
+                <li><strong>Выбор варианта разработки</strong> — Вариант 1 (быстрый запуск) или Вариант 2 (индивидуальный дизайн)</li>
+                <li><strong>Контент и материалы</strong> — подготовить фото продукта, описания, сертификаты GMP/ISO/HACCP</li>
+                <li><strong>Брендинг</strong> — лого, фирменные цвета, шрифты (если есть брендбук)</li>
+                <li><strong>Дополнительные услуги</strong> — выбрать опциональные сервисы (фотосъемка, копирайтинг, email setup)</li>
+                <li><strong>Timeline</strong> — согласовать даты старта и запуска</li>
+                <li><strong>Договор</strong> — подписание и начало работы</li>
+            </ol>
+
+            <div style="margin-top: 30px; padding-top: 30px; border-top: 1px solid #444;">
+                <p style="margin-bottom: 10px;"><strong>Готовы начать?</strong></p>
+                <p style="margin-bottom: 0;">Свяжитесь с нами для обсуждения деталей и уточнения сроков. Мы готовы запустить ваш профессиональный Shopify магазин и помочь масштабировать продажи на европейском и американском рынках!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

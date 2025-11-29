@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BELLEVIE COSMETIC - Коммерческое предложение Shopify</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #2d2d2d;
+            background: #fff;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 50px;
+        }
+
+        /* Cover Page */
+        .cover {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #f9f5f0 0%, #f0e8dc 100%);
+            padding: 60px;
+            page-break-after: always;
+        }
+
+        .cover h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+        }
+
+        .cover .subtitle {
+            font-size: 16px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #8b6f47;
+            margin-bottom: 60px;
+        }
+
+        .cover .divider {
+            width: 80px;
+            height: 2px;
+            background: #c9a87c;
+            margin: 40px auto;
+        }
+
+        .cover .date {
+            font-size: 13px;
+            color: #666;
+            margin-top: 40px;
+        }
+
+        .cover .tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 18px;
+            color: #555;
+            max-width: 500px;
+            margin-top: 30px;
+        }
+
+        /* Section styling */
+        .section {
+            padding: 50px 0;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #c9a87c;
+        }
+
+        .subsection-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin: 35px 0 20px;
+        }
+
+        .subsection-title-small {
+            font-size: 16px;
+            font-weight: 600;
+            color: #444;
+            margin: 25px 0 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 25px;
+            color: #444;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #2d2d2d;
+            font-weight: 600;
+        }
+
+        em {
+            font-style: italic;
+            color: #666;
+        }
+
+        /* Highlight boxes */
+        .highlight-box {
+            background: #f9f5f0;
+            border-left: 4px solid #c9a87c;
+            padding: 20px 25px;
+            margin: 25px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        .recommendation-box {
+            background: linear-gradient(135deg, #f9f5f0 0%, #f0e8dc 100%);
+            border: 1px solid #d4c4a8;
+            border-radius: 8px;
+            padding: 25px 30px;
+            margin: 30px 0;
+        }
+
+        .recommendation-box h4 {
+            font-family: 'Playfair Display', serif;
+            color: #8b6f47;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .warning-box {
+            background: #fff9e6;
+            border-left: 4px solid #ff9800;
+            padding: 20px 25px;
+            margin: 25px 0;
+        }
+
+        .success-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 20px 25px;
+            margin: 25px 0;
+        }
+
+        .issue-box {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 20px 25px;
+            margin: 25px 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 13px;
+        }
+
+        th {
+            background: #f5f3f0;
+            color: #333;
+            font-weight: 600;
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 2px solid #c9a87c;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e8e5e0;
+            color: #444;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Competitor cards */
+        .competitor-card {
+            background: #fff;
+            border: 1px solid #e8e5e0;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 25px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .competitor-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+
+        .competitor-card .website {
+            font-size: 12px;
+            color: #8b6f47;
+            margin-bottom: 20px;
+        }
+
+        .competitor-card .slogan {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 3px solid #c9a87c;
+        }
+
+        .takeaway {
+            background: #f9f5f0;
+            padding: 15px 20px;
+            margin-top: 20px;
+            border-radius: 6px;
+        }
+
+        .takeaway h5 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8b6f47;
+            margin-bottom: 8px;
+        }
+
+        /* Pricing section */
+        .pricing-option {
+            background: #fff;
+            border: 2px solid #e8e5e0;
+            border-radius: 10px;
+            padding: 35px;
+            margin: 25px 0;
+        }
+
+        .pricing-option.recommended {
+            border-color: #c9a87c;
+            box-shadow: 0 5px 20px rgba(201, 168, 124, 0.15);
+        }
+
+        .pricing-option h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 32px;
+            font-weight: 700;
+            color: #c9a87c;
+            margin-bottom: 20px;
+        }
+
+        .price span {
+            font-size: 14px;
+            font-weight: 400;
+            color: #666;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #c9a87c;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        /* Page structure list */
+        .structure-item {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f9f5f0;
+            border-radius: 6px;
+        }
+
+        .structure-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .structure-item ul {
+            margin: 10px 0 0 20px;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 30px 0;
+        }
+
+        .timeline-item {
+            padding: 20px 25px;
+            border-left: 3px solid #e8e5e0;
+            margin-left: 10px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: #c9a87c;
+            border-radius: 50%;
+        }
+
+        .timeline-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Next steps */
+        .next-steps {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .next-steps h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #c9a87c;
+            margin-bottom: 25px;
+        }
+
+        .next-steps ol {
+            color: #ccc;
+        }
+
+        .next-steps strong {
+            color: #fff;
+        }
+
+        /* Page break utility */
+        .page-break {
+            page-break-before: always;
+            padding-top: 20px;
+        }
+
+        @media print {
+            body {
+                font-size: 12px;
+            }
+
+            .container {
+                padding: 40px;
+            }
+
+            .cover {
+                min-height: auto;
+                padding: 100px 40px;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .competitor-card,
+            .pricing-option {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Page -->
+    <div class="cover">
+        <h1>BELLEVIE</h1>
+        <p class="subtitle">Коммерческое предложение • Shopify</p>
+        <div class="divider"></div>
+        <p class="tagline">Премиальная органическая косметика латвийского производства для международного рынка</p>
+        <p class="date">Ноябрь 2025</p>
+    </div>
+
+    <div class="container">
+        <!-- Executive Summary -->
+        <div class="section">
+            <h2 class="section-title">Краткое резюме</h2>
+
+            <div class="highlight-box">
+                <p><strong>Задача клиента:</strong> Оптимизация и масштабирование существующего Shopify магазина (100+ SKU) для увеличения продаж в ЕС и США, с последующей возможностью интеграции Amazon.</p>
+            </div>
+
+            <h3 class="subsection-title">Текущая ситуация</h3>
+            <ul>
+                <li><strong>Продуктовая линейка:</strong> 100+ SKU органической косметики anti-age</li>
+                <li><strong>Производство:</strong> Латвия (европейские стандарты, Ecocert сертификация)</li>
+                <li><strong>Текущая платформа:</strong> Shopify (базовая настройка на теме ROA v2.0)</li>
+                <li><strong>Логистика:</strong> Уже настроена для ЕС и США</li>
+                <li><strong>Сертификации:</strong> Ecocert, Vegan, Cruelty-free</li>
+                <li><strong>TikTok Shop:</strong> Аккаунт открыт в UK, планируется расширение на USA</li>
+            </ul>
+
+            <h3 class="subsection-title">Что предлагаем</h3>
+            <p>Комплексный редизайн и оптимизация Shopify магазина с фокусом на конверсию, премиальное позиционирование и масштабирование продаж на международных рынках (ЕС и США).</p>
+        </div>
+
+        <!-- Current Site Audit -->
+        <div class="section page-break">
+            <h2 class="section-title">Аудит текущего сайта</h2>
+
+            <h3 class="subsection-title">Что работает хорошо ✅</h3>
+            <div class="success-box">
+                <ul style="margin: 0;">
+                    <li><strong>Техническая база:</strong> Shopify правильно настроен (SEO-структура, canonical URLs, мобильная адаптация)</li>
+                    <li><strong>Платежи:</strong> Множественные опции (Visa, Mastercard, Apple Pay, Google Pay)</li>
+                    <li><strong>Отзывы:</strong> Интеграция Judge.me для социального доказательства</li>
+                    <li><strong>Мультиязычность:</strong> Поддержка переводов</li>
+                    <li><strong>Логистика:</strong> Быстрая доставка (24-48 часов) с трекингом</li>
+                    <li><strong>Сертификации:</strong> Сильное позиционирование через Ecocert/Vegan/Cruelty-free</li>
+                </ul>
+            </div>
+
+            <h3 class="subsection-title">Критические проблемы 🔴</h3>
+
+            <div class="issue-box">
+                <h4 class="subsection-title-small">1. Слабая презентация бренда</h4>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Отсутствует яркая brand story на главной странице</li>
+                    <li>Не подчеркивается латвийское производство как преимущество</li>
+                    <li>Недостаточно эмоционального вовлечения</li>
+                    <li>Generic дизайн не отражает премиальность бренда</li>
+                </ul>
+            </div>
+
+            <div class="issue-box">
+                <h4 class="subsection-title-small">2. Проблемы с контентом продуктов</h4>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>100+ SKU - высокий риск "тонкого" контента (thin content)</li>
+                    <li>Вероятно недостаточно детальные описания продуктов</li>
+                    <li>Отсутствие образовательного контента о ингредиентах</li>
+                    <li>Слабая визуализация результатов (before/after)</li>
+                </ul>
+            </div>
+
+            <div class="issue-box">
+                <h4 class="subsection-title-small">3. Конверсионные элементы</h4>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Неясно, насколько оптимизированы страницы продуктов для продаж</li>
+                    <li>Скорее всего отсутствуют cross-sells и upsells</li>
+                    <li>Нет видимых bundle предложений</li>
+                    <li>Отсутствие персонализации (quiz для подбора продуктов)</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h4 class="subsection-title-small">4. Дизайн и UX</h4>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Стандартная тема ROA - недостаточно уникальна для премиум-сегмента</li>
+                    <li>Конкуренты с индивидуальным дизайном выглядят дороже</li>
+                    <li>Отсутствие wow-эффекта при заходе на сайт</li>
+                    <li>Недостаточная визуализация премиальности (фото, видео)</li>
+                </ul>
+            </div>
+
+            <h3 class="subsection-title">Общая оценка текущего состояния</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Критерий</th>
+                        <th>Оценка (1-10)</th>
+                        <th>Комментарий</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Техническая настройка</td>
+                        <td><strong style="color: #4caf50;">8/10</strong></td>
+                        <td>Хорошая база, но есть куда расти</td>
+                    </tr>
+                    <tr>
+                        <td>Дизайн и визуал</td>
+                        <td><strong style="color: #ff9800;">5/10</strong></td>
+                        <td>Стандартная тема, не отражает премиум</td>
+                    </tr>
+                    <tr>
+                        <td>Контент продуктов</td>
+                        <td><strong style="color: #ff9800;">4/10</strong></td>
+                        <td>100+ SKU требуют глубокой проработки</td>
+                    </tr>
+                    <tr>
+                        <td>Конверсионная оптимизация</td>
+                        <td><strong style="color: #f44336;">3/10</strong></td>
+                        <td>Критически не хватает upsells, bundles</td>
+                    </tr>
+                    <tr>
+                        <td>Brand storytelling</td>
+                        <td><strong style="color: #f44336;">4/10</strong></td>
+                        <td>Слабая эмоциональная связь с клиентом</td>
+                    </tr>
+                    <tr>
+                        <td>Интернационализация</td>
+                        <td><strong style="color: #4caf50;">7/10</strong></td>
+                        <td>Есть мультиязычность, но нужна оптимизация</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="recommendation-box">
+                <h4>Ключевой вывод</h4>
+                <p>У BelleVie отличная база (продукты, логистика, сертификации), но сайт не раскрывает потенциал бренда. Нужна глубокая оптимизация для премиум-позиционирования и увеличения конверсии.</p>
+            </div>
+        </div>
+
+        <!-- Competitor Analysis -->
+        <div class="section page-break">
+            <h2 class="section-title">Анализ конкурентов (Organic Anti-Age Skincare)</h2>
+
+            <div class="competitor-card">
+                <h3>Pai Skincare</h3>
+                <p class="website">paiskincare.com | Великобритания</p>
+                <p class="slogan">"Award-winning organic skincare for sensitive skin"</p>
+
+                <h4 class="subsection-title-small">Ценовой сегмент (GBP)</h4>
+                <table>
+                    <tr><td>Сыворотки</td><td>£38-44</td></tr>
+                    <tr><td>Кремы</td><td>£36-42</td></tr>
+                    <tr><td>Масла</td><td>£28-38</td></tr>
+                    <tr><td>Наборы</td><td>£45-65</td></tr>
+                </table>
+
+                <h4 class="subsection-title-small">УТП</h4>
+                <ul>
+                    <li>Специализация на чувствительной коже</li>
+                    <li>Сертифицированная органика (Soil Association)</li>
+                    <li>Минималистичные формулы</li>
+                    <li>Прозрачность ингредиентов</li>
+                    <li>Множественные награды индустрии</li>
+                </ul>
+
+                <div class="takeaway">
+                    <h5>Что взять на заметку</h5>
+                    <p>Четкая ниша (sensitive skin) + награды как социальное доказательство. Минималистичный дизайн подчеркивает чистоту продуктов.</p>
+                </div>
+            </div>
+
+            <div class="competitor-card">
+                <h3>Dr. Hauschka</h3>
+                <p class="website">drhauschka.com | Германия</p>
+                <p class="slogan">"Natural. Effective. Since 1967"</p>
+
+                <h4 class="subsection-title-small">Ценовой сегмент (EUR)</h4>
+                <table>
+                    <tr><td>Сыворотки</td><td>€42-58</td></tr>
+                    <tr><td>Кремы для лица</td><td>€38-48</td></tr>
+                    <tr><td>Масла</td><td>€28-42</td></tr>
+                </table>
+
+                <h4 class="subsection-title-small">УТП</h4>
+                <ul>
+                    <li><strong>Heritage brand</strong> - 50+ лет на рынке</li>
+                    <li>Биодинамические ингредиенты</li>
+                    <li>Холистический подход к красоте</li>
+                    <li>Немецкое качество и точность</li>
+                    <li>Сильная научная база (Dr. Rudolf Hauschka)</li>
+                </ul>
+
+                <div class="takeaway">
+                    <h5>Что взять на заметку</h5>
+                    <p>История бренда как конкурентное преимущество. Научный подход + натуральность = доверие. Премиальное позиционирование через heritage.</p>
+                </div>
+            </div>
+
+            <div class="competitor-card">
+                <h3>Weleda</h3>
+                <p class="website">weleda.com | Швейцария</p>
+                <p class="slogan">"In harmony with nature and the human being"</p>
+
+                <h4 class="subsection-title-small">Ценовой сегмент (EUR)</h4>
+                <table>
+                    <tr><td>Сыворотки</td><td>€25-35</td></tr>
+                    <tr><td>Кремы</td><td>€22-32</td></tr>
+                    <tr><td>Масла</td><td>€18-28</td></tr>
+                </table>
+
+                <h4 class="subsection-title-small">УТП</h4>
+                <ul>
+                    <li>100+ лет истории</li>
+                    <li>Собственные биодинамические сады</li>
+                    <li>Антропософский подход</li>
+                    <li>Широкая дистрибуция (аптеки, ритейл)</li>
+                    <li>Доступная премиальность</li>
+                </ul>
+
+                <div class="takeaway">
+                    <h5>Что взять на заметку</h5>
+                    <p>Массовый премиум - баланс между доступностью и качеством. Собственное производство сырья = уникальность и контроль качества.</p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Сравнительная таблица</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Бренд</th>
+                        <th>Ценовой сегмент</th>
+                        <th>Ключевое УТП</th>
+                        <th>Страна</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pai Skincare</td>
+                        <td>£36-44 (средний)</td>
+                        <td>Sensitive skin specialist</td>
+                        <td>UK</td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Hauschka</td>
+                        <td>€38-58 (high)</td>
+                        <td>50+ лет, биодинамика</td>
+                        <td>Германия</td>
+                    </tr>
+                    <tr>
+                        <td>Weleda</td>
+                        <td>€22-35 (доступный)</td>
+                        <td>100+ лет, массовый премиум</td>
+                        <td>Швейцария</td>
+                    </tr>
+                    <tr style="background: #f9f5f0;">
+                        <td><strong>BELLEVIE</strong></td>
+                        <td><strong>Требует анализа</strong></td>
+                        <td><strong>Ecocert, латвийское производство</strong></td>
+                        <td><strong>Латвия</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="recommendation-box">
+                <h4>Рекомендации по позиционированию</h4>
+                <p><strong>"Европейская органическая косметика нового поколения из Латвии"</strong></p>
+                <p style="margin-top: 15px;">BelleVie может занять нишу между Weleda (массовый премиум) и Pai/Dr. Hauschka (high-end). Латвийское производство + Ecocert + 100+ SKU = возможность создать "one-stop shop" для органической anti-age косметики.</p>
+            </div>
+
+            <h3 class="subsection-title">Дифференциаторы BelleVie</h3>
+            <ul>
+                <li><strong>Латвийское производство</strong> - европейские стандарты + уникальная история</li>
+                <li><strong>Широкий ассортимент</strong> - 100+ SKU против 20-50 у конкурентов</li>
+                <li><strong>Ecocert сертификация</strong> - высшие стандарты органики</li>
+                <li><strong>Vegan + Cruelty-free</strong> - соответствие современным ценностям</li>
+                <li><strong>Anti-age фокус</strong> - четкая специализация</li>
+                <li><strong>Готовая логистика ЕС/США</strong> - конкурентное преимущество</li>
+            </ul>
+        </div>
+
+        <!-- Shopify Optimization Strategy -->
+        <div class="section page-break">
+            <h2 class="section-title">Стратегия оптимизации Shopify</h2>
+
+            <h3 class="subsection-title">Вариант 1: Эволюционный редизайн (рекомендуется)</h3>
+
+            <div class="recommendation-box">
+                <h4>Суть подхода</h4>
+                <p>Сохраняем текущую Shopify базу, но делаем глубокий редизайн с новой премиум-темой и полной оптимизацией контента всех 100+ продуктов. Это минимизирует риски и сохраняет текущие SEO-позиции.</p>
+            </div>
+
+            <div class="structure-item">
+                <h4>1. Главная страница - полный редизайн</h4>
+                <ul>
+                    <li><strong>Hero-секция:</strong> Видео производства в Латвии + эмоциональный заголовок</li>
+                    <li><strong>Brand story:</strong> История создания, латвийские традиции + современная наука</li>
+                    <li><strong>Сертификации:</strong> Визуально подчеркнуть Ecocert/Vegan/Cruelty-free</li>
+                    <li><strong>Bestsellers:</strong> ТОП-10 продуктов с отзывами</li>
+                    <li><strong>Before/After галерея:</strong> Реальные результаты клиентов</li>
+                    <li><strong>Skin quiz CTA:</strong> Персонализированный подбор из 100+ SKU</li>
+                    <li><strong>Press & Awards:</strong> Упоминания в медиа и награды</li>
+                    <li><strong>Instagram feed:</strong> UGC контент от клиентов</li>
+                </ul>
+            </div>
+
+            <div class="structure-item">
+                <h4>2. Страницы продуктов - глубокая оптимизация (100+ SKU)</h4>
+                <ul>
+                    <li><strong>Профессиональные фото:</strong> Минимум 5-7 фото на продукт</li>
+                    <li><strong>Детальные описания:</strong> 300-500 слов на каждый SKU (benefits, ingredients, usage)</li>
+                    <li><strong>Ингредиенты:</strong> Каждый ингредиент с объяснением пользы</li>
+                    <li><strong>Skin type recommendations:</strong> Для какого типа кожи подходит</li>
+                    <li><strong>How to use:</strong> Пошаговые инструкции</li>
+                    <li><strong>Reviews & ratings:</strong> Интеграция Judge.me с фото-отзывами</li>
+                    <li><strong>FAQ per product:</strong> 3-5 частых вопросов</li>
+                    <li><strong>Related products:</strong> Умные рекомендации (routine building)</li>
+                    <li><strong>Bundle options:</strong> "Complete your routine" блоки</li>
+                </ul>
+            </div>
+
+            <div class="structure-item">
+                <h4>3. Collections - умная навигация</h4>
+                <ul>
+                    <li><strong>По типу кожи:</strong> Dry, Oily, Combination, Sensitive, Mature</li>
+                    <li><strong>По проблеме:</strong> Anti-aging, Hydration, Brightening, Acne, Rosacea</li>
+                    <li><strong>По категории:</strong> Cleansers, Serums, Moisturizers, Masks, Eye Care</li>
+                    <li><strong>По ценовому сегменту:</strong> Under €20, €20-40, €40+</li>
+                    <li><strong>Bestsellers, New arrivals, Sale</strong></li>
+                    <li><strong>Skincare Routines:</strong> Готовые наборы (Morning, Evening, Weekly)</li>
+                </ul>
+            </div>
+
+            <div class="structure-item">
+                <h4>4. Skin Quiz (персонализация)</h4>
+                <p><strong>Критически важно для 100+ SKU!</strong></p>
+                <ul>
+                    <li>Интерактивный quiz: тип кожи, возраст, основные проблемы</li>
+                    <li>Персональные рекомендации из каталога</li>
+                    <li>Email-сохранение результатов</li>
+                    <li>Ретаргетинг на основе результатов quiz</li>
+                </ul>
+            </div>
+
+            <div class="structure-item">
+                <h4>5. О бренде - эмоциональная история</h4>
+                <ul>
+                    <li><strong>Our Story:</strong> Как родился бренд в Латвии</li>
+                    <li><strong>Latvia Heritage:</strong> Латвийские натуральные ингредиенты и традиции</li>
+                    <li><strong>Production:</strong> Фото/видео производства, контроль качества</li>
+                    <li><strong>Certifications:</strong> Подробно о Ecocert, почему это важно</li>
+                    <li><strong>Team:</strong> Лица бренда (создатели, косметологи)</li>
+                    <li><strong>Sustainability:</strong> Экологичная упаковка, carbon footprint</li>
+                </ul>
+            </div>
+
+            <div class="structure-item">
+                <h4>6. Education Hub (Блог + Ресурсы)</h4>
+                <ul>
+                    <li><strong>Ingredient Library:</strong> База знаний о всех ингредиентах</li>
+                    <li><strong>Skin Guides:</strong> Как ухаживать за разными типами кожи</li>
+                    <li><strong>Anti-aging Science:</strong> Образовательный контент</li>
+                    <li><strong>Video tutorials:</strong> Как правильно наносить продукты</li>
+                    <li><strong>Expert advice:</strong> Советы косметологов</li>
+                </ul>
+            </div>
+
+            <h3 class="subsection-title">Ключевые функции Shopify</h3>
+
+            <h4 class="subsection-title-small">1. Персонализация и Quiz</h4>
+            <div class="success-box">
+                <p><strong>Критически важно для 100+ SKU!</strong></p>
+                <p>Клиенты теряются в большом выборе. Quiz поможет персонализировать опыт и увеличить конверсию.</p>
+            </div>
+            <ul>
+                <li>Плагин: Octane AI / Jebbit / Typeform</li>
+                <li>Интеграция с Klaviyo для email follow-ups</li>
+                <li>Персональные лендинги на основе результатов</li>
+            </ul>
+
+            <h4 class="subsection-title-small">2. Bundles & Kits (критично!)</h4>
+            <ul>
+                <li>Готовые skincare routines (Morning/Evening/Weekly)</li>
+                <li>Bundle Builder - клиент собирает свой набор</li>
+                <li>Скидки на наборы: 2 продукта -10%, 3+ продуктов -15%</li>
+                <li>Плагины: Bold Bundles / Bundler / PickyStory</li>
+            </ul>
+
+            <h4 class="subsection-title-small">3. Subscription (повторяющиеся заказы)</h4>
+            <ul>
+                <li>Косметика = recurring product (заканчивается каждые 2-3 месяца)</li>
+                <li>Подписка со скидкой 15-20%</li>
+                <li>Гибкость: изменение частоты, пауза, отмена</li>
+                <li>Плагин: Recharge / Seal Subscriptions / Appstle</li>
+            </ul>
+
+            <h4 class="subsection-title-small">4. Reviews & UGC</h4>
+            <ul>
+                <li>Judge.me уже установлен - оптимизировать</li>
+                <li>Photo reviews - клиенты загружают фото результатов</li>
+                <li>Before/After галерея на главной</li>
+                <li>Автоматические запросы отзывов после покупки</li>
+            </ul>
+
+            <h4 class="subsection-title-small">5. Email Marketing (Klaviyo)</h4>
+            <ul>
+                <li><strong>Welcome series:</strong> Знакомство с брендом (5 писем)</li>
+                <li><strong>Abandoned cart:</strong> Восстановление брошенных корзин</li>
+                <li><strong>Post-purchase:</strong> Инструкции по использованию + cross-sell</li>
+                <li><strong>Re-order reminders:</strong> Напоминание заказать снова через 60 дней</li>
+                <li><strong>Education emails:</strong> Советы по уходу за кожей</li>
+                <li><strong>Quiz results:</strong> Персонализированные рекомендации</li>
+            </ul>
+
+            <h4 class="subsection-title-small">6. Multi-language & Multi-currency</h4>
+            <ul>
+                <li><strong>Языки:</strong> EN (основной), DE, FR, LV, RU (для диаспоры)</li>
+                <li><strong>Валюты:</strong> EUR (основная), USD, GBP</li>
+                <li><strong>Локализация:</strong> Адаптация контента под рынки</li>
+                <li>Плагин: Weglot / Langify / Shopify Markets</li>
+            </ul>
+
+            <h4 class="subsection-title-small">7. Loyalty Program</h4>
+            <ul>
+                <li>Баллы за покупки, отзывы, referrals</li>
+                <li>Уровни (Bronze/Silver/Gold) с привилегиями</li>
+                <li>Early access к новым продуктам</li>
+                <li>Плагин: Smile.io / Yotpo Loyalty / LoyaltyLion</li>
+            </ul>
+
+            <h3 class="subsection-title">Дизайн и визуальная концепция</h3>
+
+            <h4 class="subsection-title-small">Стиль для BelleVie</h4>
+            <ul>
+                <li><strong>Clean & Elegant</strong> - минимализм с премиальными акцентами</li>
+                <li><strong>Natural colors</strong> - бежевый, зеленый, белый (органика)</li>
+                <li><strong>High-quality imagery</strong> - профессиональная фотосъемка продуктов</li>
+                <li><strong>Storytelling через визуал</strong> - Латвия, природа, производство</li>
+                <li><strong>Trust elements</strong> - сертификаты, отзывы, awards</li>
+                <li><strong>Mobile-first</strong> - 70-80% трафика с мобильных</li>
+            </ul>
+
+            <h4 class="subsection-title-small">Референсы премиальных тем</h4>
+            <ul>
+                <li><strong>Prestige</strong> - для luxury брендов с большими каталогами</li>
+                <li><strong>Impulse</strong> - фокус на визуале и storytelling</li>
+                <li><strong>Broadcast</strong> - editorial стиль, отлично для контента</li>
+                <li><strong>Cascade</strong> - визуальный акцент, отлично для фото</li>
+            </ul>
+
+            <div class="warning-box">
+                <p><strong>Важно:</strong> Для 100+ SKU критична правильная навигация и фильтры. Клиенты должны легко находить нужный продукт через тип кожи, проблему или категорию.</p>
+            </div>
+        </div>
+
+        <!-- Pricing Section -->
+        <div class="section page-break">
+            <h2 class="section-title">Стоимость оптимизации Shopify</h2>
+
+            <div class="pricing-option recommended">
+                <span class="badge">Рекомендуется</span>
+                <h3>Вариант 1: Комплексная оптимизация (100+ SKU)</h3>
+                <p class="price">$8,500</p>
+
+                <h4 class="subsection-title-small">Что включено</h4>
+                <ul>
+                    <li><strong>Премиум тема + кастомизация:</strong> Установка и настройка премиум-темы (Prestige/Impulse/Broadcast) под бренд</li>
+                    <li><strong>Редизайн главной страницы:</strong> Hero, brand story, bestsellers, before/after, trust elements</li>
+                    <li><strong>Оптимизация 100+ продуктов:</strong> Улучшение описаний, структурирование по категориям (базовый уровень)</li>
+                    <li><strong>Collections структура:</strong> Навигация по типу кожи, проблемам, категориям</li>
+                    <li><strong>Quiz integration:</strong> Персонализированный подбор продуктов</li>
+                    <li><strong>Bundles & Kits:</strong> Настройка готовых наборов + bundle builder</li>
+                    <li><strong>Subscription setup:</strong> Интеграция подписной модели</li>
+                    <li><strong>Email marketing (Klaviyo):</strong> 6 базовых flows (welcome, cart, post-purchase, etc.)</li>
+                    <li><strong>Reviews optimization:</strong> Настройка Judge.me с photo reviews</li>
+                    <li><strong>Multi-language:</strong> Настройка 3 языков (EN/DE/FR)</li>
+                    <li><strong>Multi-currency:</strong> EUR/USD/GBP</li>
+                    <li><strong>SEO оптимизация:</strong> Meta tags, schema markup для всех страниц</li>
+                    <li><strong>Mobile optimization:</strong> Адаптация под все устройства</li>
+                    <li><strong>Analytics setup:</strong> Google Analytics 4, Meta Pixel, TikTok Pixel</li>
+                </ul>
+
+                <h4 class="subsection-title-small">Не включено (требует допработы)</h4>
+                <ul>
+                    <li>Детальный копирайтинг всех 100+ продуктов (по запросу за доплату)</li>
+                    <li>Профессиональная фотосъемка продуктов</li>
+                    <li>Видео производство</li>
+                </ul>
+
+                <h4 class="subsection-title-small">Преимущества</h4>
+                <ul>
+                    <li><strong>Комплексное решение</strong> - все проблемы решаются сразу</li>
+                    <li><strong>Масштабируемость</strong> - готовность к росту каталога</li>
+                    <li><strong>Персонализация</strong> - quiz помогает конвертировать на 100+ SKU</li>
+                    <li><strong>Recurring revenue</strong> - подписки обеспечат стабильный доход</li>
+                    <li><strong>Международность</strong> - готовность к ЕС и США</li>
+                </ul>
+
+                <h4 class="subsection-title-small">Сроки реализации</h4>
+                <p><strong>6-8 недель</strong> (из-за объема работы с 100+ SKU)</p>
+            </div>
+
+            <div class="pricing-option">
+                <h3>Вариант 2: Индивидуальный дизайн с нуля</h3>
+                <p class="price">$12,000</p>
+
+                <h4 class="subsection-title-small">Что включено</h4>
+                <ul>
+                    <li>Все из Варианта 1 +</li>
+                    <li><strong>Уникальный дизайн:</strong> Прототипирование в Figma + разработка custom темы</li>
+                    <li><strong>Кастомные анимации:</strong> Интерактивные элементы, transitions</li>
+                    <li><strong>Advanced фичи:</strong> Кастомные фильтры, advanced product builder</li>
+                    <li><strong>Brand guidelines:</strong> Разработка визуального стиля сайта</li>
+                </ul>
+
+                <h4 class="subsection-title-small">Преимущества</h4>
+                <ul>
+                    <li><strong>100% уникальность</strong> - никто не будет иметь такой же дизайн</li>
+                    <li><strong>Максимальная премиальность</strong> - visual storytelling на высшем уровне</li>
+                    <li><strong>Полный контроль</strong> - любые кастомные функции</li>
+                    <li><strong>Конкурентное преимущество</strong> - визуальное превосходство</li>
+                </ul>
+
+                <h4 class="subsection-title-small">Сроки реализации</h4>
+                <p><strong>8-10 недель</strong></p>
+
+                <h4 class="subsection-title-small">Рекомендация</h4>
+                <div class="recommendation-box">
+                    <h4>Когда выбирать Вариант 2</h4>
+                    <p>Если бюджет позволяет и вы хотите максимально выделиться среди конкурентов. Уникальный дизайн окупится через более высокую конверсию и премиальное восприятие бренда.</p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Дополнительные услуги (опционально)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Услуга</th>
+                        <th>Стоимость</th>
+                        <th>Описание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Детальный копирайтинг продуктов</td>
+                        <td>$3,000-5,000</td>
+                        <td>Профессиональные описания для всех 100+ SKU (300-500 слов каждый)</td>
+                    </tr>
+                    <tr>
+                        <td>Product photography</td>
+                        <td>$2,500-4,000</td>
+                        <td>Фотосъемка 50-100 продуктов (5-7 фото на SKU)</td>
+                    </tr>
+                    <tr>
+                        <td>Brand video</td>
+                        <td>$2,000-3,500</td>
+                        <td>Hero video о производстве в Латвии (60-90 сек)</td>
+                    </tr>
+                    <tr>
+                        <td>Loyalty program setup</td>
+                        <td>$800</td>
+                        <td>Настройка программы лояльности (Smile.io/Yotpo)</td>
+                    </tr>
+                    <tr>
+                        <td>Advanced SEO optimization</td>
+                        <td>$1,200</td>
+                        <td>Глубокая SEO оптимизация всех 100+ продуктов + blog setup</td>
+                    </tr>
+                    <tr>
+                        <td>Ingredient library</td>
+                        <td>$1,500</td>
+                        <td>Создание базы знаний о всех ингредиентах с визуализацией</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="subsection-title">Ежемесячные расходы</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Статья расходов</th>
+                        <th>Стоимость/мес</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Shopify тариф (Shopify plan)</td>
+                        <td>$79</td>
+                    </tr>
+                    <tr>
+                        <td>Quiz app (Octane AI)</td>
+                        <td>$50-200</td>
+                    </tr>
+                    <tr>
+                        <td>Bundles app (Bold/PickyStory)</td>
+                        <td>$20-50</td>
+                    </tr>
+                    <tr>
+                        <td>Subscription app (Recharge)</td>
+                        <td>$60-300</td>
+                    </tr>
+                    <tr>
+                        <td>Email marketing (Klaviyo)</td>
+                        <td>$60-150</td>
+                    </tr>
+                    <tr>
+                        <td>Reviews app (Judge.me Pro)</td>
+                        <td>$15</td>
+                    </tr>
+                    <tr>
+                        <td>Multi-language (Weglot)</td>
+                        <td>$19-99</td>
+                    </tr>
+                    <tr>
+                        <td>Loyalty program (Smile.io)</td>
+                        <td>$49-199</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Итого (приблизительно)</strong></td>
+                        <td><strong>$350-1,100</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning-box">
+                <p><strong>Важно:</strong> Итоговая стоимость apps зависит от трафика и количества заказов. Указан диапазон для бизнеса на стадии роста.</p>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="section page-break">
+            <h2 class="section-title">Этапы реализации</h2>
+
+            <h3 class="subsection-title">Вариант 1: Комплексная оптимизация (6-8 недель)</h3>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Неделя 1-2: Discovery & Planning</h4>
+                    <ul>
+                        <li>Детальный аудит текущего сайта и всех 100+ SKU</li>
+                        <li>Анализ аналитики (какие продукты продаются лучше)</li>
+                        <li>Выбор премиум-темы</li>
+                        <li>Создание контент-плана для оптимизации</li>
+                        <li>Структура collections и навигации</li>
+                        <li>Разработка quiz логики</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Неделя 3-4: Design & Setup</h4>
+                    <ul>
+                        <li>Установка и кастомизация премиум-темы</li>
+                        <li>Редизайн главной страницы</li>
+                        <li>Настройка collections структуры</li>
+                        <li>Интеграция quiz app</li>
+                        <li>Настройка bundles и subscription</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Неделя 5-6: Content Optimization</h4>
+                    <ul>
+                        <li>Оптимизация страниц продуктов (100+ SKU)</li>
+                        <li>Улучшение описаний и категоризация</li>
+                        <li>Настройка cross-sells и related products</li>
+                        <li>Создание страниц About, Our Story, Latvia Heritage</li>
+                        <li>SEO оптимизация всех страниц</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Неделя 7: Integration & Automation</h4>
+                    <ul>
+                        <li>Настройка Klaviyo email flows</li>
+                        <li>Multi-language и multi-currency setup</li>
+                        <li>Reviews optimization</li>
+                        <li>Analytics и pixels (Google/Meta/TikTok)</li>
+                        <li>Mobile optimization</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Неделя 8: Testing & Launch</h4>
+                    <ul>
+                        <li>Тестирование на всех устройствах</li>
+                        <li>Проверка checkout процесса</li>
+                        <li>A/B тесты ключевых элементов</li>
+                        <li>Обучение клиента работе с новым сайтом</li>
+                        <li>Запуск!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>Итого: 6-8 недель до полного запуска</strong></p>
+            </div>
+
+            <h3 class="subsection-title">Вариант 2: Индивидуальный дизайн (8-10 недель)</h3>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Неделя 1-2: Discovery & Research</h4>
+                    <ul>
+                        <li>Детальный аудит и конкурентный анализ</li>
+                        <li>Brand workshops</li>
+                        <li>Moodboard и визуальная концепция</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Неделя 3-5: Design Phase</h4>
+                    <ul>
+                        <li>Прототипирование в Figma (все страницы)</li>
+                        <li>Дизайн главной страницы</li>
+                        <li>Дизайн страницы продукта</li>
+                        <li>Дизайн collections и других страниц</li>
+                        <li>Согласование и итерации</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Неделя 6-8: Development</h4>
+                    <ul>
+                        <li>Разработка кастомной темы</li>
+                        <li>Интеграция всех функций (quiz, bundles, subscription)</li>
+                        <li>Оптимизация 100+ продуктов</li>
+                        <li>Email automation setup</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Неделя 9-10: Testing & Launch</h4>
+                    <ul>
+                        <li>QA тестирование</li>
+                        <li>Багфиксинг и оптимизация</li>
+                        <li>Обучение клиента</li>
+                        <li>Запуск!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>Итого: 8-10 недель до запуска</strong></p>
+            </div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="section">
+            <h2 class="section-title">Наши рекомендации</h2>
+
+            <div class="recommendation-box">
+                <h4>Рекомендуемая стратегия для BelleVie</h4>
+
+                <p><strong>Вариант 1: Комплексная оптимизация</strong> ($8,500)</p>
+                <ul>
+                    <li>Оптимальное соотношение цена/качество</li>
+                    <li>Быстрый запуск за 6-8 недель</li>
+                    <li>Премиум-тема обеспечит профессиональный вид</li>
+                    <li>Quiz решит проблему навигации по 100+ SKU</li>
+                    <li>Bundles и subscriptions увеличат AOV и LTV</li>
+                    <li>Готовность к масштабированию на ЕС и США</li>
+                </ul>
+
+                <p style="margin-top: 20px;"><strong>Дополнительно рекомендуем:</strong></p>
+                <ul>
+                    <li><strong>Детальный копирайтинг (+$3,000-5,000)</strong> - критично для SEO и конверсии при 100+ SKU</li>
+                    <li><strong>Product photography (+$2,500-4,000)</strong> - профессиональные фото резко повысят доверие</li>
+                    <li><strong>Brand video (+$2,000-3,500)</strong> - история производства в Латвии - сильный USP</li>
+                </ul>
+
+                <p style="margin-top: 20px;"><strong>Общая инвестиция:</strong> $8,500 - $19,000 (в зависимости от доп. услуг)</p>
+            </div>
+
+            <h3 class="subsection-title">Почему это сработает для BelleVie</h3>
+            <ul>
+                <li><strong>Решение проблемы 100+ SKU</strong> - quiz и умная навигация помогут клиентам найти нужное</li>
+                <li><strong>Премиализация</strong> - новый дизайн подчеркнет европейское качество</li>
+                <li><strong>Увеличение AOV</strong> - bundles заставят покупать наборы вместо одного продукта</li>
+                <li><strong>Recurring revenue</strong> - подписки обеспечат стабильный cash flow</li>
+                <li><strong>Международность</strong> - мультиязычность откроет рынки ЕС и США</li>
+                <li><strong>Масштабируемость</strong> - готовность к интеграции Amazon позже</li>
+            </ul>
+
+            <h3 class="subsection-title">Ожидаемые результаты</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Метрика</th>
+                        <th>До оптимизации</th>
+                        <th>После оптимизации</th>
+                        <th>Рост</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Conversion rate</td>
+                        <td>1-1.5%</td>
+                        <td>2.5-3.5%</td>
+                        <td style="color: #4caf50;"><strong>+100-150%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Average Order Value</td>
+                        <td>€45-55</td>
+                        <td>€75-95</td>
+                        <td style="color: #4caf50;"><strong>+60-70%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Bounce rate</td>
+                        <td>60-70%</td>
+                        <td>40-50%</td>
+                        <td style="color: #4caf50;"><strong>-30%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Email capture rate</td>
+                        <td>5-8%</td>
+                        <td>15-20%</td>
+                        <td style="color: #4caf50;"><strong>+150%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Subscription adoption</td>
+                        <td>0%</td>
+                        <td>20-30%</td>
+                        <td style="color: #4caf50;"><strong>New revenue stream</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="success-box">
+                <p><strong>Прогноз ROI:</strong> При текущем трафике, ожидаемое увеличение выручки составит 150-200% в течение 6 месяцев после запуска. Инвестиция в $8,500-19,000 окупится за 2-4 месяца.</p>
+            </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="next-steps">
+            <h3>Следующие шаги</h3>
+            <ol>
+                <li><strong>Выбор варианта:</strong> Вариант 1 (Комплексная оптимизация) или Вариант 2 (Индивидуальный дизайн)</li>
+                <li><strong>Дополнительные услуги:</strong> Определить потребность в копирайтинге, фото, видео</li>
+                <li><strong>Доступ к данным:</strong> Предоставить доступ к Shopify admin и Google Analytics для детального аудита</li>
+                <li><strong>Контент-план:</strong> Совместная работа над категоризацией 100+ SKU</li>
+                <li><strong>Брендинг:</strong> Брендбук, фирменные материалы (если есть)</li>
+                <li><strong>Timeline:</strong> Согласовать старт работ и дедлайны</li>
+                <li><strong>Договор:</strong> Подписание и начало проекта</li>
+            </ol>
+
+            <div style="margin-top: 30px; padding-top: 30px; border-top: 1px solid #444;">
+                <p style="margin-bottom: 10px;"><strong>Готовы к трансформации?</strong></p>
+                <p style="margin-bottom: 0;">Свяжитесь с нами для обсуждения деталей. Мы поможем превратить BelleVie в лидирующий органический бренд на европейском и американском рынках через профессиональный Shopify магазин!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
