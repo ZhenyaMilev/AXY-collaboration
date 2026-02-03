@@ -692,6 +692,110 @@
             box-shadow: 0 8px 24px rgba(99, 179, 237, 0.4);
         }
     </style>
+
+    <!-- IP Geolocation & Auto Language Switch -->
+    <script>
+        // Создаем Promise для определения геолокации
+        window.geolocationPromise = new Promise((resolve) => {
+            // Проверяем, не был ли язык уже установлен вручную пользователем
+            const manualLangChoice = sessionStorage.getItem('manualLangChoice');
+
+            // Если пользователь уже выбрал язык вручную, не переопределяем его выбор
+            if (manualLangChoice) {
+                console.log('🌍 User manually selected language:', manualLangChoice);
+                resolve({ language: manualLangChoice, source: 'manual' });
+                return;
+            }
+
+            // Функция логирования информации о пользователе
+            function logUserInfo(data) {
+                const logData = {
+                    timestamp: new Date().toISOString(),
+                    ip: data.ip || 'unknown',
+                    country: data.country_name || 'unknown',
+                    countryCode: data.country || 'unknown',
+                    city: data.city || 'unknown',
+                    region: data.region || 'unknown',
+                    timezone: data.timezone || 'unknown',
+                    userAgent: navigator.userAgent,
+                    language: navigator.language || navigator.userLanguage,
+                    screenResolution: `${window.screen.width}x${window.screen.height}`,
+                    viewport: `${window.innerWidth}x${window.innerHeight}`
+                };
+
+                // Логируем в консоль с красивым форматированием
+                console.group('🌐 Visitor Geolocation Info');
+                console.log('📍 IP Address:', logData.ip);
+                console.log('🌎 Country:', logData.country, `(${logData.countryCode})`);
+                console.log('🏙️  City:', logData.city);
+                console.log('📍 Region:', logData.region);
+                console.log('🕐 Timezone:', logData.timezone);
+                console.log('🌐 Browser Language:', logData.language);
+                console.log('💻 User Agent:', logData.userAgent);
+                console.log('🖥️  Screen:', logData.screenResolution);
+                console.log('📱 Viewport:', logData.viewport);
+                console.log('⏰ Timestamp:', logData.timestamp);
+                console.groupEnd();
+
+                // Сохраняем в localStorage для аналитики
+                try {
+                    const visitHistory = JSON.parse(localStorage.getItem('visitHistory') || '[]');
+                    visitHistory.push(logData);
+                    // Храним только последние 10 посещений
+                    if (visitHistory.length > 10) {
+                        visitHistory.shift();
+                    }
+                    localStorage.setItem('visitHistory', JSON.stringify(visitHistory));
+                } catch (e) {
+                    console.error('Failed to save visit history:', e);
+                }
+
+                return logData;
+            }
+
+            // Определяем геолокацию по IP с таймаутом
+            const timeoutPromise = new Promise((resolveTimeout) => {
+                setTimeout(() => {
+                    console.log('⏱️ Geolocation timeout, using default language');
+                    resolveTimeout({ language: 'ru', source: 'timeout' });
+                }, 3000); // 3 секунды таймаут
+            });
+
+            const fetchPromise = fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    logUserInfo(data);
+
+                    // Если пользователь из США (US), автоматически переключаем на английский
+                    if (data.country === 'US' || data.country_code === 'US') {
+                        console.log('🇺🇸 US visitor detected! Switching to English...');
+
+                        // Устанавливаем язык в localStorage
+                        localStorage.setItem('preferredLanguage', 'en');
+
+                        // Отправляем событие для аналитики (если используется)
+                        if (typeof fbq !== 'undefined') {
+                            fbq('trackCustom', 'AutoLanguageSwitch', {
+                                country: data.country,
+                                language: 'en'
+                            });
+                        }
+
+                        return { language: 'en', source: 'geolocation', country: data.country };
+                    } else {
+                        console.log('🌍 Non-US visitor, keeping default language (Russian)');
+                        return { language: 'ru', source: 'geolocation', country: data.country };
+                    }
+                })
+                .catch(error => {
+                    console.error('❌ Failed to detect geolocation:', error);
+                    return { language: 'ru', source: 'error' };
+                });
+
+            // Используем первый ответивший Promise (fetch или таймаут)
+            Promise.race([fetchPromise, timeoutPromise]).then(resolve);
+        });
+    </script>
 </head>
 <body class="text-gray-300">
 
@@ -1557,10 +1661,49 @@
 
             // --- Language Switcher ---
             const langButtons = document.querySelectorAll('.lang-switch');
+            let currentLang = 'ru'; // Временное значение по умолчанию
 
-            // Определяем язык по URL (например, /en)
-            const pathLang = window.location.pathname.includes('/en') ? 'en' : 'ru';
-            let currentLang = pathLang; // По умолчанию определяем по URL
+            // Асинхронно определяем язык с учетом геолокации
+            async function initLanguage() {
+                const pathLang = window.location.pathname.includes('/en') ? 'en' : 'ru';
+                const savedLang = localStorage.getItem('preferredLanguage');
+
+                // Ждем результат геолокации
+                const geoResult = await window.geolocationPromise;
+                const autoLang = geoResult ? geoResult.language : 'ru';
+
+                // Приоритет: сохраненный язык > автоопределенный язык > язык из URL
+                currentLang = savedLang || autoLang || pathLang;
+
+                console.log('🌐 Final language selected:', currentLang);
+                console.log('💾 Language source:', {
+                    saved: savedLang ? `localStorage (${savedLang})` : 'none',
+                    auto: autoLang ? `IP geolocation (${autoLang})` : 'none',
+                    path: pathLang ? `URL path (${pathLang})` : 'none',
+                    geoDetails: geoResult
+                });
+
+                // Если язык английский, применяем перевод
+                if (currentLang === 'en') {
+                    translatePage('en');
+                    // Обновляем активный стиль кнопки языка
+                    langButtons.forEach(btn => {
+                        if (btn.dataset.lang === 'en') {
+                            btn.classList.add('active');
+                            btn.style.background = 'rgba(99, 179, 237, 0.15)';
+                            btn.style.color = '#63B3ED';
+                        } else {
+                            btn.classList.remove('active');
+                            btn.style.background = '';
+                            btn.style.color = '';
+                            btn.classList.add('text-gray-400');
+                        }
+                    });
+                }
+            }
+
+            // Запускаем инициализацию языка
+            initLanguage();
 
             function translatePage(lang) {
                 // Переводим все элементы с data-translate
@@ -1629,6 +1772,20 @@
                     const selectedLang = button.dataset.lang;
 
                     if (selectedLang === currentLang) return;
+
+                    // Сохраняем выбор пользователя
+                    localStorage.setItem('preferredLanguage', selectedLang);
+                    sessionStorage.setItem('manualLangChoice', selectedLang);
+
+                    console.log('🔄 User manually switched language to:', selectedLang);
+
+                    // Логируем событие в Facebook Pixel
+                    if (typeof fbq !== 'undefined') {
+                        fbq('trackCustom', 'LanguageSwitch', {
+                            language: selectedLang,
+                            manual: true
+                        });
+                    }
 
                     // Обновляем активный стиль
                     langButtons.forEach(btn => {
@@ -2797,24 +2954,6 @@
                 });
             }
 
-            // --- Автоматическое переключение языка при загрузке ---
-            // Выполняем после загрузки всех данных (servicesDataEN, casesDataEN и т.д.)
-            if (currentLang === 'en') {
-                translatePage('en');
-                // Обновляем активный стиль кнопки языка
-                langButtons.forEach(btn => {
-                    if (btn.dataset.lang === 'en') {
-                        btn.classList.add('active');
-                        btn.style.background = 'rgba(99, 179, 237, 0.15)';
-                        btn.style.color = '#63B3ED';
-                    } else {
-                        btn.classList.remove('active');
-                        btn.style.background = '';
-                        btn.style.color = '';
-                        btn.classList.add('text-gray-400');
-                    }
-                });
-            }
 
         });
     </script>
