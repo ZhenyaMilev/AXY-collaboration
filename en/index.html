@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>AXY Marketing — Продвижение брендов на Amazon, TikTok Shop, Shopify</title>
-    
+    <title>AXY Marketing — Brand Promotion on Amazon, TikTok Shop, Shopify</title>
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="AXY Marketing Agency. Продвигаем e-commerce бизнесы на Amazon, TikTok Shop и Shopify. Получите бесплатный аудит вашего магазина и увеличьте свою прибыль.">
-    <meta name="keywords" content="e-commerce, продвижение на Amazon, маркетинг на TikTok Shop, магазин на Shopify, AXY Marketing, аудит магазина, PPC, SEO">
+    <meta name="description" content="AXY Marketing Agency. We promote e-commerce businesses on Amazon, TikTok Shop, and Shopify. Get a free store audit and increase your profits.">
+    <meta name="keywords" content="e-commerce, Amazon promotion, TikTok Shop marketing, Shopify store, AXY Marketing, store audit, PPC, SEO">
 
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://axyglobal.com/">
-    <meta property="og:title" content="AXY Marketing — Продвижение брендов на Amazon, TikTok Shop, Shopify">
-    <meta property="og:description" content="Продвигаем e-commerce бизнесы на Amazon, TikTok Shop и Shopify. Получите бесплатный аудит вашего магазина и увеличьте свою прибыль.">
-    <meta property="og:image" content="https://axyglobal.com/og-image.jpg">
-    <meta property="og:locale" content="ru_RU">
-    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:url" content="https://axyglobal.com/en/">
+    <meta property="og:title" content="AXY Marketing — Brand Promotion on Amazon, TikTok Shop, Shopify">
+    <meta property="og:description" content="We promote e-commerce businesses on Amazon, TikTok Shop, and Shopify. Get a free store audit and increase your profits.">
+    <meta property="og:image" content="https://axyglobal.com/og-image-en.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ru_RU">
     <meta property="og:site_name" content="AXY Marketing">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://axyglobal.com/">
-    <meta name="twitter:title" content="AXY Marketing — Продвижение брендов на Amazon, TikTok Shop, Shopify">
-    <meta name="twitter:description" content="Продвигаем e-commerce бизнесы на Amazon, TikTok Shop и Shopify.">
-    <meta name="twitter:image" content="https://axyglobal.com/og-image.jpg">
+    <meta name="twitter:url" content="https://axyglobal.com/en/">
+    <meta name="twitter:title" content="AXY Marketing — Brand Promotion on Amazon, TikTok Shop, Shopify">
+    <meta name="twitter:description" content="We promote e-commerce businesses on Amazon, TikTok Shop, and Shopify.">
+    <meta name="twitter:image" content="https://axyglobal.com/og-image-en.jpg">
 
     <!-- Alternate Language Versions (hreflang for SEO) -->
     <link rel="alternate" hreflang="ru" href="https://axyglobal.com/">
@@ -32,15 +32,15 @@
     <link rel="alternate" hreflang="x-default" href="https://axyglobal.com/">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://axyglobal.com/">
+    <link rel="canonical" href="https://axyglobal.com/en/">
 
     <!-- Facebook Domain Verification -->
     <meta name="facebook-domain-verification" content="q87kla9bkhc19w5c7fvrdu1z30br5u" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
-    <link rel="apple-touch-icon" sizes="512x512" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../favicon.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="../favicon.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -1690,35 +1690,6 @@
         </div>
     </div>
 
-    <!-- Попап предложения английской версии -->
-    <div id="geo-language-popup" class="fixed inset-0 z-[60] hidden opacity-0 transition-opacity duration-300 ease-in-out" style="background: rgba(10, 22, 40, 0.9); backdrop-filter: blur(10px);">
-        <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md mx-4 shadow-2xl rounded-2xl p-8 transform scale-95 transition-all duration-300 ease-in-out" style="background: rgba(26, 41, 66, 0.98); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1);">
-            <button id="geo-popup-close" class="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:bg-white/10" style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.2);">
-                <i data-lucide="x" class="w-6 h-6 text-white"></i>
-            </button>
-
-            <div class="text-center">
-                <div class="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full" style="background: rgba(99, 179, 237, 0.15);">
-                    <i data-lucide="globe" class="w-8 h-8" style="color: #63B3ED;"></i>
-                </div>
-
-                <h3 class="text-2xl font-bold mb-3 text-white">We Detected Your Location</h3>
-                <p class="text-gray-300 mb-8" id="geo-popup-message">
-                    It looks like you're visiting from <span id="geo-country" class="font-semibold text-[#63B3ED]"></span>. Would you like to switch to the English version of our website?
-                </p>
-
-                <div class="flex flex-col gap-3">
-                    <a href="/en/" class="cta-primary font-bold px-8 py-4 rounded-xl text-lg transition-all hover:scale-105 block text-center">
-                        Switch to English
-                    </a>
-                    <button id="geo-popup-stay" class="font-bold px-8 py-4 rounded-xl text-lg transition-all hover:bg-white/10" style="background: rgba(255, 255, 255, 0.05); color: #9CA3AF; border: 1px solid rgba(255, 255, 255, 0.1);">
-                        Stay on Russian
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- Иконки Lucide ---
@@ -1903,7 +1874,7 @@
 
             // --- Language Switcher ---
             const langButtons = document.querySelectorAll('.lang-switch');
-            let currentLang = 'ru'; // Временное значение по умолчанию
+            let currentLang = 'en'; // Default language for English version
 
             // Асинхронно определяем язык с учетом геолокации
             async function initLanguage() {
@@ -1934,69 +1905,6 @@
 
             // Запускаем инициализацию языка
             initLanguage();
-
-            // Логика показа попапа предложения английской версии
-            async function showGeoLanguagePopup() {
-                // Проверяем, не показывали ли уже попап в этой сессии
-                if (sessionStorage.getItem('geoPopupShown')) {
-                    return;
-                }
-
-                // Ждем результат геолокации
-                const geoResult = await window.geolocationPromise;
-
-                // Показываем попап только для англоязычных стран
-                if (geoResult && geoResult.showPopup) {
-                    const popup = document.getElementById('geo-language-popup');
-                    const countrySpan = document.getElementById('geo-country');
-
-                    if (popup && countrySpan) {
-                        // Устанавливаем название страны
-                        countrySpan.textContent = geoResult.country || 'your location';
-
-                        // Показываем попап с анимацией
-                        popup.classList.remove('hidden');
-                        setTimeout(() => {
-                            popup.classList.remove('opacity-0');
-                            const content = popup.querySelector('div > div');
-                            if (content) {
-                                content.classList.remove('scale-95');
-                                content.classList.add('scale-100');
-                            }
-                        }, 10);
-
-                        // Инициализируем иконки Lucide
-                        if (typeof lucide !== 'undefined') {
-                            lucide.createIcons();
-                        }
-
-                        // Помечаем что показали попап
-                        sessionStorage.setItem('geoPopupShown', 'true');
-
-                        // Обработчики закрытия
-                        const closeBtn = document.getElementById('geo-popup-close');
-                        const stayBtn = document.getElementById('geo-popup-stay');
-
-                        const closePopup = () => {
-                            popup.classList.add('opacity-0');
-                            const content = popup.querySelector('div > div');
-                            if (content) {
-                                content.classList.remove('scale-100');
-                                content.classList.add('scale-95');
-                            }
-                            setTimeout(() => {
-                                popup.classList.add('hidden');
-                            }, 300);
-                        };
-
-                        if (closeBtn) closeBtn.addEventListener('click', closePopup);
-                        if (stayBtn) stayBtn.addEventListener('click', closePopup);
-                    }
-                }
-            }
-
-            // Показываем попап после инициализации
-            showGeoLanguagePopup();
 
             function translatePage(lang) {
                 // Переводим все элементы с data-translate
@@ -3061,7 +2969,7 @@
                 submitButton.style.opacity = '0.7';
 
                 // Добавляем метку языка
-                data.language = 'RU';
+                data.language = 'EN';
 
                 try {
                     // Формируем URL с параметрами
