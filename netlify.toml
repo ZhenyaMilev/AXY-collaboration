@@ -1,11 +1,11 @@
 [[redirects]]
-  from = "/en"
-  to = "/index.html"
-  status = 200
+  from = "/en/"
+  to = "/en"
+  status = 301
   force = true
 
 [[redirects]]
-  from = "/en/*"
-  to = "/index.html"
+  from = "/en"
+  to = "/en/index.html"
   status = 200
-  force = false
+  force = true
