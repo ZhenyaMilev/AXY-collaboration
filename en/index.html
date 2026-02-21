@@ -1904,8 +1904,6 @@
                 }
             }
 
-            // Запускаем инициализацию языка
-            initLanguage();
 
             function translatePage(lang) {
                 // Переводим все элементы с data-translate
@@ -3262,6 +3260,9 @@
                     }
                 });
             }
+
+            // Initialize language after all data is defined
+            initLanguage();
 
 
         });
