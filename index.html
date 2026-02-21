@@ -3064,24 +3064,19 @@
                 data.language = 'RU';
 
                 try {
-                    // Формируем URL с параметрами
-                    const params = new URLSearchParams(data);
-                    const url = `https://script.google.com/macros/s/AKfycbytW-9unbPCOckgAdFJe-dcg9MeK_f4EUnEF969VYRL-XCpY6yTauc6_xt0fp323dp-aw/exec?${params}`;
+                    // Отправляем данные через Netlify Function
+                    const response = await fetch('/.netlify/functions/send-to-sheets', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
 
-                    // Отправка через скрытый iframe (обходит CORS)
-                    const iframe = document.createElement('iframe');
-                    iframe.style.display = 'none';
-                    iframe.src = url;
-                    document.body.appendChild(iframe);
+                    const result = await response.json();
+                    console.log('📨 Заявка отправлена в Google Sheets:', data, result);
 
-                    // Удаляем iframe через 2 секунды
-                    setTimeout(() => {
-                        document.body.removeChild(iframe);
-                    }, 2000);
-
-                    console.log('📨 Заявка отправлена в Google Sheets:', data);
-
-                    if (true) {
+                    if (result.success) {
                         // Успех!
                         submitButton.textContent = '✓ Отправлено!';
                         submitButton.style.backgroundColor = '#22c55e';
