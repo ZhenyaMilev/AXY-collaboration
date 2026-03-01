@@ -1,7 +1,7 @@
 const https = require('https');
 
 exports.handler = async (event, context) => {
-  // Разрешаем только POST запросы
+  // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -10,14 +10,14 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    // Парсим данные формы
+    // Parse form data
     const data = JSON.parse(event.body);
     const { name, phone, telegram, product, budget, timeline, source, country, language } = data;
 
-    // URL вашего Google Apps Script
+    // Google Apps Script URL
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyakqVEnddvJFiu_hH4QCIRw5C6ElPjVbB1Qb8zAaz_9-jEzx5rxfv76rzsWi0FuF4CeA/exec';
 
-    // Формируем данные для отправки
+    // Prepare data
     const sheetData = JSON.stringify({
       name: name || '',
       phone: phone || '',
@@ -25,14 +25,14 @@ exports.handler = async (event, context) => {
       product: product || '',
       budget: budget || '',
       timeline: timeline || '',
-      source: source || 'Неизвестно',
+      source: source || 'Unknown',
       country: country || 'Unknown',
-      language: language || 'RU'
+      language: language || 'EN'
     });
 
     console.log('Sending to Google Sheets:', sheetData);
 
-    // Отправляем POST запрос в Google Sheets
+    // Send POST to Google Sheets
     const result = await new Promise((resolve, reject) => {
       const url = new URL(GOOGLE_SCRIPT_URL);
 
@@ -58,7 +58,7 @@ exports.handler = async (event, context) => {
             const parsed = JSON.parse(responseBody);
             resolve(parsed);
           } catch (e) {
-            // Если ответ не JSON, считаем что успешно
+            // Non-JSON response, assume success
             console.log('Response:', responseBody);
             resolve({ success: true });
           }
@@ -79,7 +79,7 @@ exports.handler = async (event, context) => {
     if (result.success !== false) {
       return {
         statusCode: 200,
-        body: JSON.stringify({ success: true, message: 'Заявка успешно отправлена!' })
+        body: JSON.stringify({ success: true, message: 'Form submitted successfully!' })
       };
     } else {
       throw new Error('Google Sheets API error: ' + (result.error || 'Unknown error'));
@@ -91,7 +91,7 @@ exports.handler = async (event, context) => {
       statusCode: 500,
       body: JSON.stringify({
         success: false,
-        error: 'Ошибка отправки заявки: ' + error.message
+        error: 'Submission error: ' + error.message
       })
     };
   }
