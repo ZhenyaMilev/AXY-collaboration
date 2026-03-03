@@ -2239,7 +2239,7 @@
                     timeline: formData.get('timeline'),
                     // Step 2: Contacts
                     name: formData.get('name'),
-                    phone: formData.get('phone'),
+                    phone: (formData.get('phone') || '').replace(/^\+/, ''),
                     telegram: formData.get('telegram'),
                     source: formData.get('source') || 'Unknown',
                     country: userCountryCode
