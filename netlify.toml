@@ -1,14 +1,24 @@
 [[redirects]]
+  from = "/"
+  to = "/en/"
+  status = 302
+
+[[redirects]]
   from = "/en"
-  to = "/"
+  to = "/en/"
+  status = 301
+
+[[redirects]]
+  from = "/ru"
+  to = "/ru/"
   status = 301
 
 [[redirects]]
   from = "/en/"
-  to = "/"
-  status = 301
+  to = "/en/index.html"
+  status = 200
 
 [[redirects]]
-  from = "/en/*"
-  to = "/"
-  status = 301
+  from = "/ru/"
+  to = "/ru/index.html"
+  status = 200
