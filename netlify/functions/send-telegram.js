@@ -28,6 +28,7 @@ exports.handler = async (event, context) => {
     message += `📍 Источник: ${source || 'Неизвестно'}\n`;
     message += `🌍 Страна: ${country || 'Unknown'}`;
     if (page) message += `\n🔗 Страница: ${page}`;
+    message += `\n\n📋 <a href="https://docs.google.com/spreadsheets/d/14yqrzYHgNRBbkWFaihKAuhaE3AiFlwP5h_6UmYuLUkE/edit#gid=0">Все лиды</a>`;
 
     const telegramData = JSON.stringify({
       chat_id: chatId,
