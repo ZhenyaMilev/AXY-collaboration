@@ -4,9 +4,9 @@ function doPost(e) {
     const data = JSON.parse(e.postData.contents);
     const timestamp = new Date();
 
-    // Strip leading + so Sheets doesn't interpret as formula
-    const phone = data.phone ? data.phone.replace(/^\+/, '') : '';
-    const telegram = data.telegram ? data.telegram.replace(/^\+/, '') : '';
+    // Prefix phone/telegram with apostrophe so Sheets treats them as text
+    const phone = data.phone ? "'" + data.phone : '';
+    const telegram = data.telegram ? "'" + data.telegram : '';
 
     sheet.appendRow([
       timestamp,
@@ -15,10 +15,12 @@ function doPost(e) {
       telegram,
       data.product || '',
       data.budget || '',
+      data.revenue || '',
       data.timeline || '',
       data.source || '',
       data.country || '',
-      data.language || ''
+      data.language || '',
+      data.page || ''
     ]);
 
     return ContentService

@@ -12,7 +12,7 @@ exports.handler = async (event, context) => {
   try {
     // Parse form data
     const data = JSON.parse(event.body);
-    const { name, phone, telegram, product, budget, timeline, source, country, language } = data;
+    const { name, phone, telegram, product, budget, revenue, timeline, source, country, language, page } = data;
 
     // Google Apps Script URL
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyakqVEnddvJFiu_hH4QCIRw5C6ElPjVbB1Qb8zAaz_9-jEzx5rxfv76rzsWi0FuF4CeA/exec';
@@ -24,10 +24,12 @@ exports.handler = async (event, context) => {
       telegram: telegram || '',
       product: product || '',
       budget: budget || '',
+      revenue: revenue || '',
       timeline: timeline || '',
       source: source || 'Unknown',
       country: country || 'Unknown',
-      language: language || 'EN'
+      language: language || 'EN',
+      page: page || ''
     });
 
     console.log('Sending to Google Sheets:', sheetData);

@@ -1522,94 +1522,39 @@
             <div class="text-center">
                 <h2 class="section-title text-3xl md:text-4xl">Contact Us</h2>
                 <p class="section-subtitle">Fill out the form and we will contact you shortly</p>
-                <!-- Progress indicator -->
-                <div class="flex items-center justify-center gap-3 mb-8 mt-6">
-                    <div class="flex items-center gap-2">
-                        <div class="step-indicator active flex items-center justify-center w-10 h-10 rounded-full font-bold transition-all" style="background: rgba(99, 179, 237, 0.2); color: #63B3ED; border: 2px solid #63B3ED;">
-                            1
-                        </div>
-                        <span class="text-sm text-gray-400 hidden md:inline">About Project</span>
-                    </div>
-                    <div class="h-px w-12 bg-gray-700"></div>
-                    <div class="flex items-center gap-2">
-                        <div class="step-indicator flex items-center justify-center w-10 h-10 rounded-full font-bold transition-all" style="background: rgba(255, 255, 255, 0.05); color: #6B7280; border: 2px solid #374151;">
-                            2
-                        </div>
-                        <span class="text-sm text-gray-400 hidden md:inline">Contacts</span>
-                    </div>
-                </div>
 
                 <form id="multi-step-form" action="#" method="POST" class="mt-8 space-y-6 text-left">
-                    <!-- Step 1: About Project -->
-                    <div id="step-1" class="form-step active">
-                        <div class="space-y-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-300 mb-2">
-                                    What is your product and where is it sold?
-                                </label>
-                                <textarea name="product" placeholder="Describe your product and platform (Amazon, TikTok Shop, Shopify, etc.)" required rows="3" class="form-input block w-full rounded-md p-4 resize-none"></textarea>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-300 mb-2">
-                                    How much are you ready to invest in business development right now?
-                                </label>
-                                <select name="budget" required class="form-input block w-full rounded-md p-4 cursor-pointer">
-                                    <option value="" disabled selected>Select budget</option>
-                                    <option value="<5000">Up to $5,000</option>
-                                    <option value="5000-10000">$5,000 - $10,000</option>
-                                    <option value="10000-25000">$10,000 - $25,000</option>
-                                    <option value="25000-50000">$25,000 - $50,000</option>
-                                    <option value=">50000">More than $50,000</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-300 mb-2">
-                                    When are you ready to start working if terms match?
-                                </label>
-                                <select name="timeline" required class="form-input block w-full rounded-md p-4 cursor-pointer">
-                                    <option value="" disabled selected>Select timeline</option>
-                                    <option value="immediately">Immediately</option>
-                                    <option value="1-2weeks">Within 1-2 weeks</option>
-                                    <option value="1month">Within a month</option>
-                                    <option value="1-3months">1-3 months</option>
-                                    <option value="planning">Still in planning stage</option>
-                                </select>
-                            </div>
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">
+                                How much are you ready to invest in business development right now?
+                            </label>
+                            <select name="budget" required class="form-input block w-full rounded-md p-4 cursor-pointer">
+                                <option value="" disabled selected>Select budget</option>
+                                <option value="<5000">Up to $5,000</option>
+                                <option value="5000-10000">$5,000 - $10,000</option>
+                                <option value="10000-25000">$10,000 - $25,000</option>
+                                <option value="25000-50000">$25,000 - $50,000</option>
+                                <option value=">50000">More than $50,000</option>
+                            </select>
                         </div>
-                        <button type="button" id="next-step-btn" class="w-full cta-primary font-bold px-8 py-4 rounded-xl text-lg mt-6">
-                            Next
-                        </button>
-                    </div>
-
-                    <!-- Step 2: Contact Info -->
-                    <div id="step-2" class="form-step hidden">
-                        <div class="space-y-6">
-                            <div>
-                                <input type="text" name="name" placeholder="Your Name" required class="form-input block w-full rounded-md p-4">
-                            </div>
-                            <div>
-                                <input type="tel" name="phone" placeholder="Your Phone Number" required class="form-input block w-full rounded-md p-4">
-                            </div>
-                            <div>
-                                <input type="text" name="telegram" placeholder="Your Telegram or WhatsApp" required class="form-input block w-full rounded-md p-4">
-                            </div>
-                            <input type="hidden" name="source" id="form-source" value="">
-                            <div class="flex items-start gap-3">
-                                <input type="checkbox" id="privacy-checkbox" name="privacy" required checked class="mt-1 w-5 h-5 min-w-[20px] min-h-[20px] flex-shrink-0 rounded border border-[#63B3ED] bg-transparent checked:bg-[#63B3ED] checked:border-[#63B3ED] focus:ring-2 focus:ring-[#63B3ED] focus:ring-offset-0 cursor-pointer appearance-none relative checked:after:content-['✓'] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 checked:after:text-white checked:after:font-semibold checked:after:text-xs">
-                                <label for="privacy-checkbox" class="text-sm text-gray-400 cursor-pointer">
-                                    I confirm that I have read the <a href="privacy-policy-en.html" target="_blank" class="text-[#63B3ED] hover:underline">privacy policy</a>
-                                </label>
-                            </div>
+                        <div>
+                            <input type="text" name="name" placeholder="Your Name" required class="form-input block w-full rounded-md p-4">
                         </div>
-                        <div class="flex gap-4 mt-6">
-                            <button type="button" id="prev-step-btn" class="flex-1 font-bold px-8 py-4 rounded-xl text-lg transition-all" style="background: rgba(255, 255, 255, 0.05); color: #9CA3AF; border: 1px solid rgba(255, 255, 255, 0.1);">
-                                Back
-                            </button>
-                            <button type="submit" class="flex-1 cta-primary font-bold px-8 py-4 rounded-xl text-lg">
-                                Submit Request
-                            </button>
+                        <div>
+                            <input type="text" name="telegram" placeholder="Your Telegram or WhatsApp" required class="form-input block w-full rounded-md p-4">
+                        </div>
+                        <input type="hidden" name="source" id="form-source" value="">
+                        <div class="flex items-start gap-3">
+                            <input type="checkbox" id="privacy-checkbox" name="privacy" required checked class="mt-1 w-5 h-5 min-w-[20px] min-h-[20px] flex-shrink-0 rounded border border-[#63B3ED] bg-transparent checked:bg-[#63B3ED] checked:border-[#63B3ED] focus:ring-2 focus:ring-[#63B3ED] focus:ring-offset-0 cursor-pointer appearance-none relative checked:after:content-['✓'] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 checked:after:text-white checked:after:font-semibold checked:after:text-xs">
+                            <label for="privacy-checkbox" class="text-sm text-gray-400 cursor-pointer">
+                                I confirm that I have read the <a href="privacy-policy-en.html" target="_blank" class="text-[#63B3ED] hover:underline">privacy policy</a>
+                            </label>
                         </div>
                     </div>
+                    <button type="submit" class="w-full cta-primary font-bold px-8 py-4 rounded-xl text-lg">
+                        Submit Request
+                    </button>
                 </form>
             </div>
         </div>
@@ -2156,95 +2101,7 @@
             getUserCountry();
 
             // --- Multi-step form ---
-            let currentStep = 1;
-            const totalSteps = 2;
             const form = document.getElementById('multi-step-form');
-            const nextBtn = document.getElementById('next-step-btn');
-            const prevBtn = document.getElementById('prev-step-btn');
-            const stepIndicators = document.querySelectorAll('.step-indicator');
-
-            function showStep(step) {
-                // Hide all steps
-                document.querySelectorAll('.form-step').forEach(stepEl => {
-                    stepEl.classList.add('hidden');
-                    stepEl.classList.remove('active');
-                });
-
-                // Show current step
-                const currentStepEl = document.getElementById(`step-${step}`);
-                if (currentStepEl) {
-                    currentStepEl.classList.remove('hidden');
-                    currentStepEl.classList.add('active');
-                }
-
-                // Update indicators
-                stepIndicators.forEach((indicator, index) => {
-                    const stepNum = index + 1;
-                    if (stepNum === step) {
-                        indicator.classList.add('active');
-                        indicator.style.background = 'rgba(99, 179, 237, 0.2)';
-                        indicator.style.color = '#63B3ED';
-                        indicator.style.borderColor = '#63B3ED';
-                    } else if (stepNum < step) {
-                        // Completed step
-                        indicator.classList.remove('active');
-                        indicator.style.background = 'rgba(99, 179, 237, 0.5)';
-                        indicator.style.color = '#fff';
-                        indicator.style.borderColor = '#63B3ED';
-                    } else {
-                        // Future step
-                        indicator.classList.remove('active');
-                        indicator.style.background = 'rgba(255, 255, 255, 0.05)';
-                        indicator.style.color = '#6B7280';
-                        indicator.style.borderColor = '#374151';
-                    }
-                });
-
-                currentStep = step;
-            }
-
-            function validateStep(step) {
-                const stepEl = document.getElementById(`step-${step}`);
-                const inputs = stepEl.querySelectorAll('input[required], select[required], textarea[required]');
-
-                for (let input of inputs) {
-                    if (!input.value || (input.type === 'checkbox' && !input.checked)) {
-                        input.focus();
-                        input.classList.add('shake');
-                        setTimeout(() => input.classList.remove('shake'), 500);
-                        return false;
-                    }
-                }
-                return true;
-            }
-
-            if (nextBtn) {
-                nextBtn.addEventListener('click', () => {
-                    if (validateStep(currentStep)) {
-                        showStep(currentStep + 1);
-                        // Scroll to form top
-                        document.querySelector('#form-modal-content').scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                });
-            }
-
-            if (prevBtn) {
-                prevBtn.addEventListener('click', () => {
-                    showStep(currentStep - 1);
-                    // Scroll to form top
-                    document.querySelector('#form-modal-content').scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            }
-
-            // Initialize first step when form opens
-            document.addEventListener('click', (e) => {
-                const button = e.target.closest('.js-open-form');
-                if (button) {
-                    setTimeout(() => {
-                        showStep(1);
-                    }, 100);
-                }
-            });
 
             // --- Form submit handler ---
             const submitButton = form.querySelector('button[type="submit"]');
@@ -2255,17 +2112,15 @@
 
                 // Get form data
                 const formData = new FormData(form);
+                const budgetSelect = form.querySelector('select[name="budget"]');
+                const budgetText = budgetSelect.options[budgetSelect.selectedIndex].text;
                 const data = {
-                    // Step 1: About project
-                    product: formData.get('product'),
-                    budget: formData.get('budget'),
-                    timeline: formData.get('timeline'),
-                    // Step 2: Contacts
+                    budget: budgetText,
                     name: formData.get('name'),
-                    phone: (formData.get('phone') || '').replace(/^\+/, ''),
                     telegram: formData.get('telegram'),
                     source: formData.get('source') || 'Unknown',
-                    country: userCountryCode
+                    country: userCountryCode,
+                    page: 'Общий сайт'
                 };
 
                 // Checkbox validation
