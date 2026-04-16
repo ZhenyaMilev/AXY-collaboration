@@ -2067,8 +2067,10 @@
 
                 // Get form data
                 const formData = new FormData(form);
+                const revenueSelect = form.querySelector('select[name="revenue"]');
+                const revenueText = revenueSelect.options[revenueSelect.selectedIndex].text;
                 const data = {
-                    revenue: formData.get('revenue'),
+                    revenue: revenueText,
                     name: formData.get('name'),
                     telegram: formData.get('telegram'),
                     source: formData.get('source') || 'Unknown',
