@@ -22,3 +22,13 @@
   from = "/ru/"
   to = "/ru/index.html"
   status = 200
+
+[[redirects]]
+  from = "/amazon"
+  to = "/amazon/"
+  status = 301
+
+[[redirects]]
+  from = "/amazon/"
+  to = "/amazon/index.html"
+  status = 200
