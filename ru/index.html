@@ -2370,7 +2370,7 @@
                 data.language = 'RU';
 
                 try {
-                    const telegramData = { ...data, page: 'https://axyglobal.com/ru/' };
+                    const telegramData = { ...data, page: 'Общий сайт' };
 
                     const [response] = await Promise.all([
                         fetch('/.netlify/functions/send-to-sheets', {
