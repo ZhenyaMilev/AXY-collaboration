@@ -15,7 +15,7 @@ exports.handler = async (event, context) => {
     const { name, phone, telegram, product, budget, revenue, timeline, source, country, language, page } = data;
 
     // Google Apps Script URL
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyakqVEnddvJFiu_hH4QCIRw5C6ElPjVbB1Qb8zAaz_9-jEzx5rxfv76rzsWi0FuF4CeA/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbynWLpvlTsH5tY8HIgFm2rFH5ntDd7-Ne7mGeasqSk78jaPcFiiTjvK-nSBXH4Y7AXQ8A/exec';
 
     // Prepare data
     const sheetData = JSON.stringify({
