@@ -1542,6 +1542,9 @@
                             <input type="text" name="name" placeholder="Ваше имя" required class="form-input block w-full rounded-md p-4">
                         </div>
                         <div>
+                            <input type="tel" name="phone" placeholder="Ваш номер телефона" required class="form-input block w-full rounded-md p-4">
+                        </div>
+                        <div>
                             <input type="text" name="telegram" placeholder="Ваш Telegram или WhatsApp" required class="form-input block w-full rounded-md p-4">
                         </div>
                         <input type="hidden" name="source" id="form-source" value="">
@@ -2209,6 +2212,7 @@
                 const data = {
                     budget: budgetText,
                     name: formData.get('name'),
+                    phone: (formData.get('phone') || '').replace(/^\+/, ''),
                     telegram: formData.get('telegram'),
                     source: formData.get('source') || 'Unknown',
                     country: userCountryCode,
