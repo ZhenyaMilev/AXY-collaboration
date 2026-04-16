@@ -10,7 +10,7 @@ exports.handler = async (event, context) => {
 
   try {
     const data = JSON.parse(event.body);
-    const { name, phone, telegram, revenue, source, country, page } = data;
+    const { name, phone, telegram, revenue, budget, source, country, page } = data;
 
     const botToken = process.env.TELEGRAM_BOT_TOKEN;
     const chatId = process.env.TELEGRAM_CHAT_ID;
@@ -25,6 +25,7 @@ exports.handler = async (event, context) => {
     if (phone) message += `📞 Телефон: ${phone}\n`;
     if (telegram) message += `✈️ Telegram/WhatsApp: ${telegram}\n`;
     if (revenue) message += `💰 Revenue: ${revenue}\n`;
+    if (budget) message += `💰 Бюджет: ${budget}\n`;
     message += `📍 Источник: ${source || 'Неизвестно'}\n`;
     message += `🌍 Страна: ${country || 'Unknown'}`;
     if (page) message += `\n🔗 Страница: ${page}`;
