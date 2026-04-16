@@ -2090,17 +2090,24 @@
                 data.language = 'RU';
 
                 try {
-                    // Send data via Netlify Function
-                    const response = await fetch('/.netlify/functions/send-to-sheets', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(data)
-                    });
+                    // Send to Google Sheets and Telegram in parallel
+                    const telegramData = { ...data, page: 'https://axyglobal.com/amazon/' };
+
+                    const [response] = await Promise.all([
+                        fetch('/.netlify/functions/send-to-sheets', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(data)
+                        }),
+                        fetch('/.netlify/functions/send-telegram', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(telegramData)
+                        }).catch(err => console.error('Telegram error:', err))
+                    ]);
 
                     const result = await response.json();
-                    console.log('📨 Form submitted to Google Sheets:', data, result);
+                    console.log('📨 Form submitted:', data, result);
 
                     if (result.success) {
                         // Success!

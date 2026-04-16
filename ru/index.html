@@ -8,6 +8,15 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WR5634BL');</script>
     <!-- End Google Tag Manager -->
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "vtlc6avxzj");
+    </script>
+    <!-- End Microsoft Clarity -->
     <base href="/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -1586,7 +1595,7 @@
                             </div>
                             <input type="hidden" name="source" id="form-source" value="">
                             <div class="flex items-start gap-3">
-                                <input type="checkbox" id="privacy-checkbox" name="privacy" required class="mt-1 w-5 h-5 min-w-[20px] min-h-[20px] flex-shrink-0 rounded border border-[#63B3ED] bg-transparent checked:bg-[#63B3ED] checked:border-[#63B3ED] focus:ring-2 focus:ring-[#63B3ED] focus:ring-offset-0 cursor-pointer appearance-none relative checked:after:content-['✓'] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 checked:after:text-white checked:after:font-semibold checked:after:text-xs">
+                                <input type="checkbox" id="privacy-checkbox" name="privacy" required checked class="mt-1 w-5 h-5 min-w-[20px] min-h-[20px] flex-shrink-0 rounded border border-[#63B3ED] bg-transparent checked:bg-[#63B3ED] checked:border-[#63B3ED] focus:ring-2 focus:ring-[#63B3ED] focus:ring-offset-0 cursor-pointer appearance-none relative checked:after:content-['✓'] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 checked:after:text-white checked:after:font-semibold checked:after:text-xs">
                                 <label for="privacy-checkbox" class="text-sm text-gray-400 cursor-pointer">
                                     Я подтверждаю, что ознакомился с <a href="privacy-policy.html" target="_blank" class="text-[#63B3ED] hover:underline">политикой конфиденциальности</a>
                                 </label>
@@ -2361,17 +2370,23 @@
                 data.language = 'RU';
 
                 try {
-                    // Send data via Netlify Function
-                    const response = await fetch('/.netlify/functions/send-to-sheets', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(data)
-                    });
+                    const telegramData = { ...data, page: 'https://axyglobal.com/ru/' };
+
+                    const [response] = await Promise.all([
+                        fetch('/.netlify/functions/send-to-sheets', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(data)
+                        }),
+                        fetch('/.netlify/functions/send-telegram', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(telegramData)
+                        }).catch(err => console.error('Telegram error:', err))
+                    ]);
 
                     const result = await response.json();
-                    console.log('📨 Form submitted to Google Sheets:', data, result);
+                    console.log('📨 Form submitted:', data, result);
 
                     if (result.success) {
                         // Success!
