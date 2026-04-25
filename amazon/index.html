@@ -2138,6 +2138,10 @@
                     console.log('📨 Form submitted:', data, result);
 
                     if (result.success) {
+                        // Fire conversion events after confirmed server success
+                        if (typeof dataLayer !== 'undefined') dataLayer.push({ event: 'form_submit_success', form_type: 'amazon' });
+                        if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'Amazon Landing' });
+
                         // Success!
                         submitButton.textContent = '✓ Отправлено!';
                         submitButton.style.backgroundColor = '#22c55e';
