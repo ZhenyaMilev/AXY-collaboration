@@ -2139,7 +2139,7 @@
 
                     if (result.success) {
                         // Fire conversion events after confirmed server success
-                        if (typeof dataLayer !== 'undefined') dataLayer.push({ event: 'form_submit_success', form_type: 'amazon' });
+                        if (typeof dataLayer !== 'undefined') dataLayer.push({ event: 'form_submit', form_type: 'amazon' });
                         if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'Amazon Landing' });
 
                         // Success!
