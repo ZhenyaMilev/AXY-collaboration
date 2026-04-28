@@ -121,6 +121,24 @@
     /></noscript>
     <!-- End Meta Pixel Code -->
 
+    <!-- Meta Pixel Code (Amazon/Thanks dataset) -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1285343753046437');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1285343753046437&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code (Amazon/Thanks dataset) -->
+
     <style>
         html {
             scroll-behavior: smooth;
@@ -2140,27 +2158,15 @@
                     if (result.success) {
                         // Fire conversion events after confirmed server success
                         if (typeof dataLayer !== 'undefined') dataLayer.push({ event: 'form_submit', form_type: 'amazon' });
-                        if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'Amazon Landing' });
+                        if (typeof fbq !== 'undefined') fbq('trackSingle', '853877857061217', 'Lead', { content_name: 'Amazon Landing' });
 
-                        // Success!
+                        // Success — redirect to thanks page
                         submitButton.textContent = '✓ Отправлено!';
                         submitButton.style.backgroundColor = '#22c55e';
 
-                        // Reset form
-                        form.reset();
-
-                        // Close modal after 1.5s
                         setTimeout(() => {
-                            closeModal(formModalBackdrop);
-
-                            // Reset button state
-                            setTimeout(() => {
-                                submitButton.disabled = false;
-                                submitButton.textContent = originalButtonText;
-                                submitButton.style.backgroundColor = '';
-                                submitButton.style.opacity = '';
-                            }, 300);
-                        }, 1500);
+                            window.location.href = '/thanks/';
+                        }, 1000);
                     } else {
                         throw new Error(result.error || 'Submission error');
                     }
