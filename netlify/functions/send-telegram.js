@@ -10,7 +10,8 @@ exports.handler = async (event, context) => {
 
   try {
     const data = JSON.parse(event.body);
-    const { name, phone, telegram, revenue, budget, source, country, page } = data;
+    const { name, phone, telegram, revenue, budget, source, country, page,
+            utm_source, utm_medium, utm_campaign, utm_content, utm_term } = data;
 
     const botToken = process.env.TELEGRAM_BOT_TOKEN;
     const chatId = process.env.TELEGRAM_CHAT_ID;
@@ -29,6 +30,14 @@ exports.handler = async (event, context) => {
     message += `📍 Источник: ${source || 'Неизвестно'}\n`;
     message += `🌍 Страна: ${country || 'Unknown'}`;
     if (page) message += `\n🔗 Страница: ${page}`;
+    if (utm_source || utm_medium || utm_campaign || utm_content || utm_term) {
+      message += `\n\n📊 UTM:`;
+      if (utm_source) message += `\n• source: ${utm_source}`;
+      if (utm_medium) message += `\n• medium: ${utm_medium}`;
+      if (utm_campaign) message += `\n• campaign: ${utm_campaign}`;
+      if (utm_content) message += `\n• adset: ${utm_content}`;
+      if (utm_term) message += `\n• ad: ${utm_term}`;
+    }
     message += `\n\n📋 <a href="https://docs.google.com/spreadsheets/d/14yqrzYHgNRBbkWFaihKAuhaE3AiFlwP5h_6UmYuLUkE/edit#gid=0">Все лиды</a>`;
 
     const telegramData = JSON.stringify({

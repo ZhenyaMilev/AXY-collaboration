@@ -22,7 +22,12 @@ function doPost(e) {
       data.source || '', // H: Источник
       data.country || '',// I: Страна
       data.language || '',// J: Язык
-      data.page || ''    // K: Страница
+      data.page || '',   // K: Страница
+      data.utm_source || '',   // L: utm_source
+      data.utm_medium || '',   // M: utm_medium
+      data.utm_campaign || '', // N: utm_campaign
+      data.utm_content || '',  // O: utm_content
+      data.utm_term || ''      // P: utm_term
     ]);
 
     return ContentService

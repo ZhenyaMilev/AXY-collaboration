@@ -12,10 +12,11 @@ exports.handler = async (event, context) => {
   try {
     // Parse form data
     const data = JSON.parse(event.body);
-    const { name, phone, telegram, product, budget, revenue, timeline, source, country, language, page } = data;
+    const { name, phone, telegram, product, budget, revenue, timeline, source, country, language, page,
+            utm_source, utm_medium, utm_campaign, utm_content, utm_term } = data;
 
     // Google Apps Script URL
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbynWLpvlTsH5tY8HIgFm2rFH5ntDd7-Ne7mGeasqSk78jaPcFiiTjvK-nSBXH4Y7AXQ8A/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyCBZHDK21nkWEc4PF2BC9Fh2pHapKISp9zFdoUuvFGFYUAhrs6BPHmpgRBCdIlXJh-CA/exec';
 
     // Prepare data
     const sheetData = JSON.stringify({
@@ -29,7 +30,12 @@ exports.handler = async (event, context) => {
       source: source || 'Unknown',
       country: country || 'Unknown',
       language: language || 'EN',
-      page: page || ''
+      page: page || '',
+      utm_source: utm_source || '',
+      utm_medium: utm_medium || '',
+      utm_campaign: utm_campaign || '',
+      utm_content: utm_content || '',
+      utm_term: utm_term || ''
     });
 
     console.log('Sending to Google Sheets:', sheetData);

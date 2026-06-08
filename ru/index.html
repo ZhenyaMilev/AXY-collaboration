@@ -2204,6 +2204,20 @@
             // Detect country on page load
             getUserCountry();
 
+            // --- UTM capture (read 5 params on arrival, persist across in-session navigation) ---
+            function getUTMParams() {
+                const KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+                const params = new URLSearchParams(window.location.search);
+                let stored = {};
+                try { stored = JSON.parse(sessionStorage.getItem('axy_utm') || '{}'); } catch (e) {}
+                KEYS.forEach((key) => { const v = params.get(key); if (v) stored[key] = v; });
+                try { sessionStorage.setItem('axy_utm', JSON.stringify(stored)); } catch (e) {}
+                return KEYS.reduce((acc, key) => { acc[key] = stored[key] || ''; return acc; }, {});
+            }
+
+            // Capture UTMs as soon as the page loads
+            getUTMParams();
+
             const form = document.getElementById('multi-step-form');
 
             // --- Form submit handler ---
@@ -2224,7 +2238,8 @@
                     telegram: formData.get('telegram'),
                     source: formData.get('source') || 'Unknown',
                     country: userCountryCode,
-                    page: 'Общий сайт'
+                    page: 'Общий сайт',
+                    ...getUTMParams()
                 };
 
                 // Checkbox validation
