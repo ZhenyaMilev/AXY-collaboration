@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund and Cancellation Policy — AXY Marketing</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, #0A1628 0%, #1A2942 100%);
+            min-height: 100vh;
+            color: #E5E7EB;
+        }
+        h1, h2 {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+        .cta-primary {
+            background: linear-gradient(135deg, #F8F284 0%, #FFF9A8 100%);
+            color: #111;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(248, 242, 132, 0.3);
+        }
+        .cta-primary:hover {
+            background: linear-gradient(135deg, #FFF9A8 0%, #FFFBCC 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(248, 242, 132, 0.4);
+        }
+        /* Hamburger menu animation */
+        .hamburger {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            cursor: pointer;
+        }
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 2px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        .hamburger span:nth-child(1) {
+            top: 4px;
+        }
+        .hamburger span:nth-child(2), .hamburger span:nth-child(3) {
+            top: 11px;
+        }
+        .hamburger span:nth-child(4) {
+            top: 18px;
+        }
+        .hamburger.open span:nth-child(1) {
+            top: 11px;
+            width: 0%;
+            left: 50%;
+        }
+        .hamburger.open span:nth-child(2) {
+            transform: rotate(45deg);
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        .hamburger.open span:nth-child(4) {
+            top: 11px;
+            width: 0%;
+            left: 50%;
+        }
+        nav a {
+            text-decoration: none;
+        }
+        .prose a {
+            color: #F8F284;
+            text-decoration: underline;
+        }
+        .prose a:hover {
+            color: #FFF9A8;
+        }
+        .prose {
+            color: #E5E7EB;
+        }
+        .prose h1 {
+            color: #FFFFFF;
+        }
+        .prose h2 {
+            color: #FFFFFF;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            padding-bottom: 0.5em;
+            border-bottom: 1px solid #373737;
+        }
+        .prose p, .prose ul li {
+            color: #D1D5DB;
+            line-height: 1.7;
+        }
+        .prose ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- === Header === -->
+    <header class="sticky top-3 md:top-4 z-50">
+        <div class="mx-3 md:mx-6 rounded-2xl md:rounded-3xl" style="background: rgba(26, 41, 66, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.2); box-shadow: 0 8px 32px rgba(10, 22, 40, 0.3);">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="logo.png" alt="AXY" class="h-10">
+            </a>
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="index.html#cases" class="text-gray-300 hover:text-white transition">Amazon</a>
+                <a href="index.html#cases" class="text-gray-300 hover:text-white transition">TikTok Shop</a>
+                <a href="index.html#cases" class="text-gray-300 hover:text-white transition">Shopify</a>
+                <a href="index.html#cases" class="text-gray-300 hover:text-white transition">Cases</a>
+                <a href="index.html#team" class="text-gray-300 hover:text-white transition">Team</a>
+                <a href="index.html#contacts" class="text-gray-300 hover:text-white transition">Contacts</a>
+            </nav>
+            <button id="mobile-menu-button" class="lg:hidden text-white p-2">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden lg:hidden mx-3 md:mx-6 mt-2 rounded-2xl md:rounded-3xl overflow-hidden" style="background: rgba(26, 41, 66, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.2);">
+            <nav class="flex flex-col px-6 py-4">
+                 <a href="index.html#cases" class="text-gray-300 hover:text-white transition py-3 border-b border-gray-700/50">Amazon</a>
+                 <a href="index.html#cases" class="text-gray-300 hover:text-white transition py-3 border-b border-gray-700/50">TikTok Shop</a>
+                 <a href="index.html#cases" class="text-gray-300 hover:text-white transition py-3 border-b border-gray-700/50">Shopify</a>
+                 <a href="index.html#cases" class="text-gray-300 hover:text-white transition py-3 border-b border-gray-700/50">Cases</a>
+                 <a href="index.html#team" class="text-gray-300 hover:text-white transition py-3 border-b border-gray-700/50">Team</a>
+                 <a href="index.html#contacts" class="text-gray-300 hover:text-white transition py-3">Contacts</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mx-auto max-w-4xl px-6 py-12 md:py-20">
+        <article class="prose prose-invert lg:prose-xl">
+            <h1>AXY Refund and Cancellation Policy</h1>
+            <p><strong>Last Updated:</strong> January 15, 2026</p>
+
+            <p>This Refund and Cancellation Policy (the "Policy") describes the terms under which AXY Company LLC ("AXY", "we", "us", or "our") provides refunds and handles cancellations for the services offered through our website (the "Site") and under any related service agreement. By purchasing, authorizing, or using our services, you ("Client", "you", or "your") agree to this Policy.</p>
+
+            <h2>1. Overview</h2>
+            <p>AXY provides professional marketing, e-commerce, and consulting services, including but not limited to audits, consultations, store setup and optimization, advertising management, sourcing, content, and related digital services (collectively, the "Services"). Because our Services are professional and time-based in nature, this Policy explains when payments are refundable and how cancellations are handled.</p>
+
+            <h2>2. Acceptance of This Policy</h2>
+            <p>By submitting payment, signing a proposal or service agreement, or otherwise authorizing AXY to begin work, you confirm that you have read, understood, and agreed to this Policy. This Policy forms part of, and should be read together with, any applicable service agreement between you and AXY. If there is a conflict between this Policy and a signed service agreement, the signed service agreement controls.</p>
+
+            <h2>3. Nature of Our Services</h2>
+            <p>Our Services are professional services that require the allocation of time, labor, expertise, and third-party resources. Work may begin promptly after authorization and payment. Once work has begun, time and resources are committed to your project and generally cannot be recovered.</p>
+
+            <h2>4. Payment and Authorization</h2>
+            <p>Fees are due as stated in the applicable proposal, invoice, or service agreement. Payment may be required in full in advance, in installments, or on a recurring basis. By providing payment information and authorizing a charge, you authorize AXY and its payment processor to charge the agreed amounts for the Services.</p>
+
+            <h2>5. Cancellation</h2>
+            <p>You may request cancellation of Services at any time by contacting us in writing at <a href="mailto:account@axyglobal.com">account@axyglobal.com</a>.</p>
+            <ul>
+                <li><strong>Cancellation before work begins:</strong> if you cancel before any work has started, you may be eligible for a refund of amounts paid, less any non-refundable fees, third-party costs, or processing fees already incurred.</li>
+                <li><strong>Cancellation after work begins:</strong> if you cancel after work has started, fees for work already performed, time already spent, and resources already committed are non-refundable. Any remaining prepaid balance not yet applied to performed work may, at AXY's discretion, be refunded or credited toward future Services.</li>
+                <li><strong>Recurring services:</strong> for ongoing or subscription-based Services, you may cancel future billing cycles by notifying us before the next billing date. Amounts already charged for the current cycle are non-refundable once the cycle has begun.</li>
+            </ul>
+            <p>AXY may also cancel or suspend Services at its discretion, including for non-payment, breach of the service agreement, or unlawful or abusive conduct.</p>
+
+            <h2>6. Refund Eligibility</h2>
+            <p>Refunds are evaluated based on the amount of work performed and the resources committed at the time of the request. Where a refund is granted, it is limited to amounts paid for Services that have not yet been performed or made available. The following are generally non-refundable:</p>
+            <ul>
+                <li>Services that have been performed, delivered, or made available;</li>
+                <li>Time, labor, and resources already committed to your project;</li>
+                <li>Third-party costs, software, licenses, advertising spend, and payment processing fees;</li>
+                <li>Completed deliverables, audits, strategies, or consultations.</li>
+            </ul>
+
+            <h2>7. No Guarantee of Results</h2>
+            <p>AXY provides its Services with professional care but does not and cannot guarantee any specific outcome, ranking, revenue, traffic, sales, or other business result, as such results depend on many factors outside of our control. Lack of expected business results does not make services refundable if the services were performed.</p>
+
+            <h2>8. Service Issues</h2>
+            <p>If a client believes there is an issue with the services provided, the client must contact AXY in writing and describe the issue in reasonable detail.</p>
+            <p>AXY may, at its discretion, review the matter and offer a commercially reasonable remedy, such as additional service time, correction of specific work, clarification, or other support.</p>
+            <p>Any such remedy is provided at AXY's discretion and does not create a right to a cash refund unless required by law or agreed in writing by AXY.</p>
+
+            <h2>9. Chargebacks and Payment Disputes</h2>
+            <p>Clients agree to contact AXY first to resolve any billing or service issue before initiating a chargeback or payment dispute.</p>
+            <p>Initiating a chargeback for services that were authorized, started, performed, delivered, or made available may be treated as a breach of this Policy and the applicable service agreement.</p>
+            <p>AXY reserves the right to provide the payment processor, card network, bank, or other dispute reviewer with evidence of the client's authorization, payment, communications, service agreement, service delivery, and this Policy.</p>
+
+            <h2>10. Contact</h2>
+            <p>For questions about this Refund and Cancellation Policy, please contact:</p>
+            <ul>
+                <li>AXY Company LLC</li>
+                <li>3190 S State Road 7, Bay 8</li>
+                <li>Miramar, FL 33023</li>
+                <li>Email: <a href="mailto:account@axyglobal.com">account@axyglobal.com</a></li>
+            </ul>
+        </article>
+        <div class="mt-12 text-center">
+            <a href="index.html" class="text-lg font-semibold">&larr; Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+        const toggleMobileMenu = () => {
+            const isOpening = mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            hamburger.classList.toggle('open');
+
+            if (isOpening) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        };
+
+        mobileMenuButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // Close menu on outside click
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.classList.contains('hidden') &&
+                !mobileMenu.contains(e.target) &&
+                !mobileMenuButton.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>
