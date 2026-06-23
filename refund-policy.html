@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика возврата и отмены — AXY Marketing</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, #0A1628 0%, #1A2942 100%);
+            min-height: 100vh;
+            color: #E5E7EB;
+        }
+        h1, h2 {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+        .cta-primary {
+            background: linear-gradient(135deg, #F8F284 0%, #FFF9A8 100%);
+            color: #111;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(248, 242, 132, 0.3);
+        }
+        .cta-primary:hover {
+            background: linear-gradient(135deg, #FFF9A8 0%, #FFFBCC 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(248, 242, 132, 0.4);
+        }
+        /* Hamburger menu animation */
+        .hamburger {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            cursor: pointer;
+        }
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 2px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        .hamburger span:nth-child(1) {
+            top: 4px;
+        }
+        .hamburger span:nth-child(2), .hamburger span:nth-child(3) {
+            top: 11px;
+        }
+        .hamburger span:nth-child(4) {
+            top: 18px;
+        }
+        .hamburger.open span:nth-child(1) {
+            top: 11px;
+            width: 0%;
+            left: 50%;
+        }
+        .hamburger.open span:nth-child(2) {
+            transform: rotate(45deg);
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        .hamburger.open span:nth-child(4) {
+            top: 11px;
+            width: 0%;
+            left: 50%;
+        }
+        nav a {
+            text-decoration: none;
+        }
+        .prose a {
+            color: #F8F284;
+            text-decoration: underline;
+        }
+        .prose a:hover {
+            color: #FFF9A8;
+        }
+        .prose {
+            color: #E5E7EB;
+        }
+        .prose h1 {
+            color: #FFFFFF;
+        }
+        .prose h2 {
+            color: #FFFFFF;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            padding-bottom: 0.5em;
+            border-bottom: 1px solid #373737;
+        }
+        .prose p, .prose ul li {
+            color: #D1D5DB;
+            line-height: 1.7;
+        }
+        .prose ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- === Хедер === -->
+    <header class="sticky top-3 md:top-4 z-50">
+        <div class="mx-3 md:mx-6 rounded-2xl md:rounded-3xl" style="background: rgba(26, 41, 66, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.2); box-shadow: 0 8px 32px rgba(10, 22, 40, 0.3);">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="logo.png" alt="AXY" class="h-10">
+            </a>
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="index.html#cases" class="text-gray-300 hover:text-white transition">Amazon</a>
+                <a href="index.html#cases" class="text-gray-300 hover:text-white transition">TikTok Shop</a>
+                <a href="index.html#cases" class="text-gray-300 hover:text-white transition">Shopify</a>
+                <a href="index.html#cases" class="text-gray-300 hover:text-white transition">Кейсы</a>
+                <a href="index.html#team" class="text-gray-300 hover:text-white transition">Команда</a>
+                <a href="index.html#contacts" class="text-gray-300 hover:text-white transition">Контакты</a>
+            </nav>
+            <button id="mobile-menu-button" class="lg:hidden text-white p-2">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            </div>
+        </div>
+        <!-- Мобильное меню -->
+        <div id="mobile-menu" class="hidden lg:hidden mx-3 md:mx-6 mt-2 rounded-2xl md:rounded-3xl overflow-hidden" style="background: rgba(26, 41, 66, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(99, 179, 237, 0.2);">
+            <nav class="flex flex-col px-6 py-4">
+                 <a href="index.html#cases" class="text-gray-300 hover:text-white transition py-3 border-b border-gray-700/50">Amazon</a>
+                 <a href="index.html#cases" class="text-gray-300 hover:text-white transition py-3 border-b border-gray-700/50">TikTok Shop</a>
+                 <a href="index.html#cases" class="text-gray-300 hover:text-white transition py-3 border-b border-gray-700/50">Shopify</a>
+                 <a href="index.html#cases" class="text-gray-300 hover:text-white transition py-3 border-b border-gray-700/50">Кейсы</a>
+                 <a href="index.html#team" class="text-gray-300 hover:text-white transition py-3 border-b border-gray-700/50">Команда</a>
+                 <a href="index.html#contacts" class="text-gray-300 hover:text-white transition py-3">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mx-auto max-w-4xl px-6 py-12 md:py-20">
+        <article class="prose prose-invert lg:prose-xl">
+            <h1>Политика возврата и отмены AXY</h1>
+            <p><strong>Дата последнего обновления:</strong> 15 января 2026 г.</p>
+
+            <p>Настоящая Политика возврата и отмены (далее — «Политика») описывает условия, на которых AXY Company LLC («AXY», «мы», «нас» или «наш») предоставляет возвраты и обрабатывает отмены услуг, предлагаемых через наш веб-сайт (далее — «Сайт») и в рамках любого связанного с ними договора об оказании услуг. Приобретая, авторизуя или используя наши услуги, вы («Клиент», «вы» или «ваш») соглашаетесь с настоящей Политикой.</p>
+
+            <h2>1. Общие положения</h2>
+            <p>AXY предоставляет профессиональные услуги в области маркетинга, электронной коммерции и консалтинга, включая, помимо прочего, аудиты, консультации, создание и оптимизацию магазинов, управление рекламой, поиск поставщиков, контент и связанные с ними цифровые услуги (совместно — «Услуги»). Поскольку наши Услуги носят профессиональный характер и привязаны к затраченному времени, настоящая Политика разъясняет, когда платежи подлежат возврату и как обрабатываются отмены.</p>
+
+            <h2>2. Принятие настоящей Политики</h2>
+            <p>Осуществляя оплату, подписывая коммерческое предложение или договор об оказании услуг либо иным образом авторизуя AXY на начало работ, вы подтверждаете, что прочитали, поняли и согласились с настоящей Политикой. Настоящая Политика является частью любого применимого договора об оказании услуг между вами и AXY и должна рассматриваться совместно с ним. В случае противоречия между настоящей Политикой и подписанным договором об оказании услуг преимущественную силу имеет подписанный договор.</p>
+
+            <h2>3. Характер наших услуг</h2>
+            <p>Наши Услуги являются профессиональными услугами, требующими выделения времени, труда, экспертизы и сторонних ресурсов. Работа может начаться сразу после авторизации и оплаты. После начала работы время и ресурсы выделяются на ваш проект и, как правило, не могут быть возвращены.</p>
+
+            <h2>4. Оплата и авторизация</h2>
+            <p>Оплата производится в порядке, указанном в применимом коммерческом предложении, счёте или договоре об оказании услуг. Оплата может требоваться полностью авансом, частями или на регулярной основе. Предоставляя платёжные данные и авторизуя списание, вы уполномочиваете AXY и её платёжного провайдера списывать согласованные суммы за Услуги.</p>
+
+            <h2>5. Отмена</h2>
+            <p>Вы можете запросить отмену Услуг в любое время, связавшись с нами в письменной форме по адресу <a href="mailto:account@axyglobal.com">account@axyglobal.com</a>.</p>
+            <ul>
+                <li><strong>Отмена до начала работ:</strong> если вы отменяете Услуги до начала каких-либо работ, вы можете иметь право на возврат уплаченных сумм за вычетом любых невозвратных сборов, сторонних расходов или комиссий за обработку платежа, которые уже были понесены.</li>
+                <li><strong>Отмена после начала работ:</strong> если вы отменяете Услуги после начала работ, оплата за уже выполненную работу, уже затраченное время и уже выделенные ресурсы возврату не подлежит. Любой оставшийся предоплаченный баланс, ещё не использованный на выполненную работу, может по усмотрению AXY быть возвращён или зачтён в счёт будущих Услуг.</li>
+                <li><strong>Регулярные услуги:</strong> для постоянных Услуг или Услуг по подписке вы можете отменить будущие расчётные периоды, уведомив нас до даты следующего списания. Суммы, уже списанные за текущий период, возврату не подлежат после начала этого периода.</li>
+            </ul>
+            <p>AXY также может отменить или приостановить Услуги по своему усмотрению, в том числе в случае неоплаты, нарушения договора об оказании услуг либо противоправного или недобросовестного поведения.</p>
+
+            <h2>6. Право на возврат</h2>
+            <p>Возвраты оцениваются исходя из объёма выполненной работы и ресурсов, выделенных на момент запроса. Если возврат предоставляется, он ограничивается суммами, уплаченными за Услуги, которые ещё не были оказаны или предоставлены. Как правило, возврату не подлежат:</p>
+            <ul>
+                <li>Услуги, которые были оказаны, предоставлены или сделаны доступными;</li>
+                <li>время, труд и ресурсы, уже выделенные на ваш проект;</li>
+                <li>сторонние расходы, программное обеспечение, лицензии, рекламные расходы и комиссии за обработку платежей;</li>
+                <li>завершённые результаты работ, аудиты, стратегии или консультации.</li>
+            </ul>
+
+            <h2>7. Отсутствие гарантии результатов</h2>
+            <p>AXY оказывает свои Услуги с профессиональной добросовестностью, но не гарантирует и не может гарантировать какой-либо конкретный результат, позиции в поисковой выдаче, выручку, трафик, продажи или иной бизнес-результат, поскольку такие результаты зависят от множества факторов, находящихся вне нашего контроля. Отсутствие ожидаемых бизнес-результатов не делает услуги подлежащими возврату, если услуги были оказаны.</p>
+
+            <h2>8. Проблемы с услугами</h2>
+            <p>Если клиент считает, что есть проблема с предоставленными услугами, клиент должен связаться с AXY в письменной форме и описать проблему с разумной детализацией.</p>
+            <p>AXY может по своему усмотрению рассмотреть вопрос и предложить коммерчески разумное решение, такое как дополнительное время оказания услуг, исправление конкретной работы, разъяснение или иную поддержку.</p>
+            <p>Любое такое решение предоставляется по усмотрению AXY и не создаёт права на денежный возврат, если иное не требуется по закону или не согласовано в письменной форме со стороны AXY.</p>
+
+            <h2>9. Возвратные платежи и платёжные споры</h2>
+            <p>Клиенты соглашаются сначала связаться с AXY для разрешения любого вопроса по оплате или услугам, прежде чем инициировать возвратный платёж (chargeback) или платёжный спор.</p>
+            <p>Инициирование возвратного платежа за услуги, которые были авторизованы, начаты, оказаны, предоставлены или сделаны доступными, может рассматриваться как нарушение настоящей Политики и применимого договора об оказании услуг.</p>
+            <p>AXY оставляет за собой право предоставить платёжному провайдеру, платёжной системе, банку или иному органу, рассматривающему спор, доказательства авторизации клиента, оплаты, переписки, договора об оказании услуг, факта оказания услуг и настоящей Политики.</p>
+
+            <h2>10. Контакты</h2>
+            <p>По вопросам, связанным с настоящей Политикой возврата и отмены, пожалуйста, обращайтесь:</p>
+            <ul>
+                <li>AXY Company LLC</li>
+                <li>3190 S State Road 7, Bay 8</li>
+                <li>Miramar, FL 33023</li>
+                <li>Эл. почта: <a href="mailto:account@axyglobal.com">account@axyglobal.com</a></li>
+            </ul>
+        </article>
+        <div class="mt-12 text-center">
+            <a href="index.html" class="text-lg font-semibold">&larr; Вернуться на главную</a>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+        const toggleMobileMenu = () => {
+            const isOpening = mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            hamburger.classList.toggle('open');
+
+            if (isOpening) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        };
+
+        mobileMenuButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // Close menu on outside click
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.classList.contains('hidden') &&
+                !mobileMenu.contains(e.target) &&
+                !mobileMenuButton.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>
